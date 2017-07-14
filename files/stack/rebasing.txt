@@ -1,0 +1,1852 @@
+
+ (function () { var old = $.fn.contents; $.fn.contents = function () { try { return old.apply(this, arguments); } catch (e) { return $([]); } } })() 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ Stack Overflow 
+ 
+ 
+ 
+ 
+ Questions 
+ 
+ 
+ Developer Jobs 
+ 
+ 
+ Documentation  beta 
+ 
+ 
+ Tags 
+ 
+ 
+ Users 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ current community 
+ 
+ 
+ 
+ 
+ 
+ 
+ help 
+ chat 
+ 
+ 
+ 
+        Stack Overflow
+     
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+        Meta Stack Overflow
+     
+ 
+ 
+ 
+ 
+ 
+your communities             
+ 
+ 
+ 
+ Sign up  or  log in  to customize your list.
+                 
+ 
+ 
+ more stack exchange communities 
+ 
+ company blog 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+                            Tour
+                             
+                                Start here for a quick overview of the site
+                             
+ 
+ 
+ 
+ 
+                        Help Center
+                         
+                            Detailed answers to any questions you might have
+                         
+ 
+ 
+ 
+ 
+                                Meta
+                                 
+                                    Discuss the workings and policies of this site
+                                 
+ 
+ 
+ 
+ 
+                                About Us
+                                 
+                                    Learn more about Stack Overflow the company
+                                 
+ 
+ 
+ 
+ 
+                                Business
+                                 
+                                    Learn more about hiring developers or posting ads with us
+                                 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ Log In 
+ Sign Up 
+ 
+ 
+ 
+ 
+ 
+        StackExchange.ready(function () { StackExchange.topbar.init(); });
+            StackExchange.scrollPadding.setPaddingTop(60, 10);      
+ 
+ 
+ 
+ 
+ Git 
+ 
+ 
+ 
+ 
+   
+ 
+ 
+ 
+ 
+ dashboard 
+ all topics 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ Popular 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+        StackExchange.ready(function () {
+            StackExchange.docs.search.init({
+                popularTopicsJson: [{"Id":245,"DocTag":"git","Title":"Ignoring Files and Folders","Url":"/documentation/git/245/ignoring-files-and-folders"},{"Id":218,"DocTag":"git","Title":"Getting started with Git","Url":"/documentation/git/218/getting-started-with-git"},{"Id":415,"DocTag":"git","Title":"Branching","Url":"/documentation/git/415/branching"},{"Id":355,"DocTag":"git","Title":"Rebasing","Url":"/documentation/git/355/rebasing"},{"Id":323,"DocTag":"git","Title":"Committing","Url":"/documentation/git/323/committing"}]
+            });
+        });
+     
+   
+ 
+ 
+ 
+ Topic 
+ 
+ 
+ 
+ 
+ 
+ 
+ You must  sign up  or  log in  to make a topic request. 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+    StackExchange.ready(function () {
+        StackExchange.docs.requestTopic.init('git');
+    });
+   
+ 
+ 
+ 
+ 
+ 
+ 
+ Rebasing   
+            All Versions
+         
+ 
+ 
+ 
+ topic 
+ discuss (2) 
+ 
+ 
+ 
+ 
+ Title 
+ 
+ 
+ 
+ Versions 
+ 
+ 
+                        0.99
+                     
+ 
+                        1.0
+                     
+ 
+                        1.1
+                     
+ 
+                        1.2
+                     
+ 
+                        1.3
+                     
+ 
+                        1.4
+                     
+ 
+                        1.5
+                     
+ 
+                        1.5.3
+                     
+ 
+                        1.6
+                     
+ 
+                        1.6.3
+                     
+ 
+                        1.6.5
+                     
+ 
+                        1.7
+                     
+ 
+                        1.7.10
+                     
+ 
+                        1.8
+                     
+ 
+                        1.8.3
+                     
+ 
+                        1.9
+                     
+ 
+                        2.0
+                     
+ 
+                        2.1
+                     
+ 
+                        2.2
+                     
+ 
+                        2.3
+                     
+ 
+                        2.4
+                     
+ 
+                        2.5
+                     
+ 
+                        2.6
+                     
+ 
+                        2.7
+                     
+ 
+                        2.8
+                     
+ 
+                        2.9
+                     
+ 
+                        2.10
+                     
+ 
+                        2.10.2
+                     
+ 
+                        2.11
+                     
+ 
+                        2.11.1
+                     
+ 
+                        2.12
+                     
+ 
+                        2.13
+                     
+ 
+ 
+ 
+ Introduction 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+   add introduction 
+ edit 
+ share 
+ request improvement 
+   edit 
+ move 
+ delete topic 
+ share 
+ 
+ 
+ 
+ 
+ 
+                var ados = ados || {}; ados.run = ados.run || [];
+                ados.run.push(function () { ados_add_placement(22,499571,"adzerk1584308146",4).setZone(29); });
+             
+ 
+ 
+ 
+ 
+ This draft deletes the entire topic. 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+                    Examples
+                     
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 63 
+ 
+ Local Branch Rebasing 
+ 
+ 
+ 
+ 
+ 
+ 63 
+ 
+ 
+ 
+ 
+ 
+   
+ Rebasing  reapplies a series of commits on top of another commit. 
+ To  rebase  a branch, checkout the branch and then  rebase  it on top of another branch. 
+ git checkout topic
+git rebase master  # rebase current branch onto master branch
+ 
+ This would cause: 
+       A---B---C topic
+     /
+D---E---F---G master
+ 
+ To turn into: 
+               A'--B'--C' topic
+             /
+D---E---F---G master
+ 
+ These operations can be combined into a single command that checks out the branch and immediately rebases it: 
+ git rebase master topic   # rebase topic branch onto master branch
+ 
+ Important:  After the rebase, the applied commits will have a different hash. You should not rebase commits you have already pushed to a remote host.  A consequence may be an inability to  git push  your local rebased branch to a remote host, leaving your only option to  git push --force . 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ edited  Sep 13 '16 at 15:31 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+                    +8
+                     
+ 
+ 
+   
+ 
+ 
+   edit 
+ share 
+ discuss 
+ request improvement 
+   edit 
+ move example 
+ delete example 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 25 
+ 
+ Rebase: ours and theirs, local and remote 
+ 
+ 
+ 
+ 
+ 
+ 25 
+ 
+ 
+ A rebase switches the meaning of "ours" and "theirs": 
+ git checkout topic
+git rebase   master    # rebase topic branch on top of master branch
+ 
+ Whatever HEAD's pointing to is "ours" 
+ The first thing a rebase does is resetting the  HEAD  to  master ; before cherry-picking commits from the old branch  topic  to a new one (every commit in the former  topic  branch will be rewritten and will be identified by a different hash). 
+ With respect to terminologies used by merge tools (not to be confused with  local ref or remote ref ) 
+ => local is master ("ours"),
+=> remote is topic ("theirs")
+ 
+ That means a merge/diff tool will present the upstream branch as  local  ( master : the branch on top of which you are rebasing), and the working branch as  remote  ( topic : the branch being rebased) 
+ +-----------------------------------------+
+| LOCAL:master |    BASE   | REMOTE:topic |
++-----------------------------------------+
+|             MERGED                      |
++-----------------------------------------+
+ 
+ 
+ Inversion illustrated 
+ On a merge: 
+ c--c--x--x--x(*) <- current branch topic ('*'=HEAD)
+    \
+     \
+      \--y--y--y <- other branch to merge
+ 
+ We don't change the current branch  topic , so what we have is still what we were working on (and we merge from another branch) 
+ c--c--x--x--x---------o(*)  MERGE, still on branch topic
+    \       ^        /
+     \     ours     /
+      \            /
+       --y--y--y--/  
+               ^
+              theirs
+ 
+ 
+ On a rebase: 
+ But  on a rebase  we switch sides because the first thing a rebase does is to checkout the upstream branch to replay the current commits on top of it! 
+ c--c--x--x--x(*) <- current branch topic ('*'=HEAD)
+    \
+     \
+      \--y--y--y <- upstream branch
+ 
+ A  git rebase upstream  will first set  HEAD  to the upstream branch, hence the switch of 'ours' and 'theirs' compared to the previous "current" working branch. 
+ c--c--x--x--x <- former "current" branch, new "theirs"
+    \
+     \
+      \--y--y--y(*) <- set HEAD to this commit, to replay x's on it
+               ^       this will be the new "ours"
+               |
+            upstream      
+ 
+ The rebase will then replay 'their' commits on the new 'our'  topic  branch: 
+ c--c..x..x..x <- old "theirs" commits, now "ghosts", available through "reflogs"
+    \
+     \
+      \--y--y--y--x'--x'--x'(*) <- topic  once all x's are replayed,
+               ^                      point branch topic to this commit
+               |
+        upstream branch
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ edited  Mar 6 at 8:33 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+                    +3
+                     
+ 
+ 
+   
+ 
+ 
+   edit 
+ share 
+ discuss 
+ request improvement 
+   edit 
+ move example 
+ delete example 
+ 
+ 
+ 
+   
+ 
+                var ados = ados || {}; ados.run = ados.run || [];
+                ados.run.push(function () { ados_add_placement(22,499571,"adzerk1693125981",4).setZone(30); });
+             
+ 
+ 
+   
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 16 
+ 
+ Interactive Rebase 
+ 
+ 
+ 
+ 
+ 
+ 16 
+ 
+ 
+ This example aims to describe how one can utilize  git rebase  in interactive mode. It is expected that one has a basic understanding of what  git rebase  is and what it does. 
+ Interactive rebase is initiated using following command: 
+ git rebase -i
+ 
+ The  -i  option refers to  interactive mode . Using interactive rebase, the user can change commit messages, as well as reorder, split, and/or squash (combine to one) commits. 
+ Say you want to rearrange your last three commits. To do this you can run: 
+ git rebase -i HEAD~3
+ 
+ After executing the above instruction, a file will be opened in your text editor where you will be able to select how your commits will be rebased. For the purpose of this example, just change the order of your commits, save the file, and close the editor. This will initiate a rebase with the order you've applied. If you check  git log  you will see your commits in the new order you specified. 
+ Rewording commit messages 
+ Now, you've decided that one of the commit messages is vague and you want it to be more descriptive. Let's examine the last three commits using the same command. 
+ git rebase -i HEAD~3
+ 
+ Instead of rearranging the order the commits will be rebased, this time we will change  pick , the default, to  reword  on a commit where you would like to change the message. 
+ When you close the editor, the rebase will initiate and it will stop at the specific commit message that you wanted to reword. This will let you change the commit message to whichever you desire. After you've changed the message, simply close the editor to proceed. 
+ Changing the content of a commit 
+ Besides changing the commit message you can also adapt the changes done by the commit. To do so just change  pick  to  edit  for one commit. Git will stop when it arrives at that commit and provide the original changes of the commit in the staging area. You can now adapt those changes by unstaging them or adding new changes. 
+ As soon as the staging area contains all changes you want in that commit, commit the changes. The old commit message will be shown and can be adapted to reflect the new commit. 
+ Splitting a single commit into multiple 
+ Say you've made a commit but decided at a later point this commit could be split into two or more commits instead. Using the same command as before, replace  pick  with  edit  instead and hit enter. 
+ Now, git will stop at the commit you have marked for editing and place all of its content into the staging area. From that point you can run  git reset HEAD^  to place the commit into your working directory. Then, you can add and commit your files in a different sequence - ultimately splitting a single commit into  n  commits instead. 
+ Squashing multiple commits into one 
+ Say you have done some work and have multiple commits which you think could be a single commit instead. For that you can carry out  git rebase -i HEAD~3 , replacing  3  with an appropriate amount of commits. 
+ This time replace  pick  with  squash  instead. During the rebase, the commit which you've instructed to be squashed will be squashed on top of the previous commit; turning them into a single commit instead. 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ edited  Aug 17 '16 at 12:47 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+                    +2
+                     
+ 
+ 
+   
+ 
+ 
+   edit 
+ share 
+ discuss 
+ request improvement 
+   edit 
+ move example 
+ delete example 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 4 
+ 
+ Rebase down to the initial commit 
+ 
+ 
+ 
+ 
+ 
+ 4 
+ 
+ 
+ Since Git  1.7.12  it is possible to rebase down to the root commit. The root commit is the first commit ever made in a repository, and normally cannot be edited. Use the following command: 
+ git rebase -i --root
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ edited  Dec 27 '16 at 13:47 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+   
+ 
+ 
+   edit 
+ share 
+ discuss 
+ request improvement 
+   edit 
+ move example 
+ delete example 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 3 
+ 
+ Configuring autostash 
+ 
+ 
+ 
+ 
+ 
+ 3 
+ 
+ 
+ Autostash is a very useful configuration option when using rebase for local changes. Oftentimes, you may need to bring in commits from the upstream branch, but are not ready to commit just yet. 
+ However, Git does not allow a rebase to start if the working directory is not clean. Autostash to the rescue: 
+ git config --global rebase.autostash    # one time configuration
+git rebase @{u}                         # example rebase on upstream branch
+ 
+ The autostash will be applied whenever the rebase is finished. It does not matter whether the rebase finishes successfully, or if it is aborted. Either way, the autostash will be applied. If the rebase was successful, and the base commit therefore changed, then there may be a conflict between the autostash and the new commits. In this case, you will have to resolve the conflicts before committing. This is no different than if you would have manually stashed, and then applied, so there is no downside to doing it automatically. 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ created  Aug 11 '16 at 7:14 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+   
+ 
+ 
+   edit 
+ share 
+ discuss 
+ request improvement 
+   edit 
+ move example 
+ delete example 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Improvements requested:                     
+ 
+ 
+ 
+ 
+ 
+ 
+            This example does not sufficiently illustrate the point and needs to be edited to provide more details. –      john16384 
+ Feb 28 at 20:49 
+ Although the example applies the commits in the correct order so they will result in fully working code each time, I think it is important to make clear that each individual commit (when applied in order) results in working fully compilable error-free code.  Arbitrary squashing of commits could result in the 3 commits only working together as a group because the last commit for example contained some mis-grouped changes for another layer. 
+ 
+ 
+ 
+ 
+ 
+ 
+ This goal is to help code review -- not make things work per se. These are incompatible goals sometimes. If all DB logic is inside one commit, then business layer logic might not compile or work. And even if it compiles, it certainly won't work. So we can't guarantee each final commit is "workable". 
+ 
+                –      Alexander Bird 
+ Mar 2 at 19:20 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ I think the example is extremely clear and I don't quite follow the point of this improvement request. The failure scenario is as arbitrary as any other working state. I believe the author of this example went even further and explained a whole workflow. I highlight that it states, right in the beginning:  "This also pedagogically demonstrates the power of rebase in general. This example assumes you know about interactive rebasing"  . Nothing to improve here at the moment, imho. 
+ 
+                –      Victor Schröder 
+ Mar 2 at 23:20 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ Code review is also helped by making sure everything related to a change (even if it is a layer at a time) is part of the commit or an observant reviewer may point out you missed something (which may just be in the next commit).   It  also means you can't cherry-pick between branches if you donot make working commits.  Git even has a special option to test all commits during rebase to make sure they all compile and pass tests for example. 
+ 
+                –      john16384 
+ Mar 3 at 15:20 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ I'm fully aware of mechanisms like bisect and exec during rebase, but those are totally out of the scope here. Accepting this improvement request would totally transform the example as originally proposed and introduce complexity, with no gain in terms of usability. I suggest you write you own example showing your point of view. 
+ 
+                –      Victor Schröder 
+ Mar 3 at 16:28 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ Edit Example 
+ Delete Example 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 3 
+ 
+ Rebasing before a code review 
+ 
+ 
+ 
+ 
+ 
+ 3 
+ 
+ 
+ Summary 
+ This goal is to reorganize all of your scattered commits into more meaningful commits for easier code reviews. If there are too many layers of changes across too many files at once, it is harder to do a code review. If you can reorganize your chronologically created commits into topical commits, then the code review process is easier (and possibly less bugs slip through the code review process). 
+ This overly-simplified example is not the only strategy for using git to do better code reviews. It is the way I do it, and it's something to inspire others to consider how to make code reviews and git history easier/better. 
+ This also pedagogically demonstrates the power of rebase in general. 
+ This example assumes you know about interactive rebasing. 
+ 
+ Assuming: 
+ 
+ you're working on a feature branch off of master 
+ your feature has three main layers: front-end, back-end, DB 
+ you have made a lot of commits while working on a feature branch. Each commit touches multiple layers at once 
+ you want (in the end) only three commits in your branch
+ 
+ one containing all front end changes 
+ one containing all back end changes 
+ one containing all DB changes 
+ 
+ 
+ 
+ Strategy: 
+ 
+ we are going to change our chronological commits into "topical" commits. 
+ first, split all commits into multiple, smaller commits -- each containing only one topic at a time (in our example, the topics are front end, back end, DB changes) 
+ Then reorder our topical commits together and 'squash' them into single topical commits 
+ 
+ Example: 
+ $ git log --oneline master..
+975430b db adding works: db.sql logic.rb
+3702650 trying to allow adding todo items: page.html logic.rb
+43b075a first draft: page.html and db.sql
+$ git rebase -i master
+ 
+ This will be shown in text editor: 
+ pick 43b075a first draft: page.html and db.sql
+pick 3702650 trying to allow adding todo items: page.html logic.rb
+pick 975430b db adding works: db.sql logic.rb
+ 
+ Change it to this: 
+ e 43b075a first draft: page.html and db.sql
+e 3702650 trying to allow adding todo items: page.html logic.rb
+e 975430b db adding works: db.sql logic.rb
+ 
+ Then git will apply one commit at a time. After each commit, it will show a prompt, and then you can do the following: 
+ Stopped at 43b075a92a952faf999e76c4e4d7fa0f44576579... first draft: page.html and db.sql
+You can amend the commit now, with
+
+        git commit --amend
+
+Once you are satisfied with your changes, run
+
+        git rebase --continue
+
+$ git status
+rebase in progress; onto 4975ae9
+You are currently editing a commit while rebasing branch 'feature' on '4975ae9'.
+  (use "git commit --amend" to amend the current commit)
+  (use "git rebase --continue" once you are satisfied with your changes)
+
+nothing to commit, working directory clean
+$ git reset HEAD^ #This 'uncommits' all the changes in this commit.
+$ git status -s
+ M db.sql
+ M page.html
+$ git add db.sql  #now we will create the smaller topical commits
+$ git commit -m "first draft: db.sql"
+$ git add page.html
+$ git commit -m "first draft: page.html"
+$ git rebase --continue
+ 
+ Then you will repeat those steps for every commit. In the end, you have this: 
+ $ git log --oneline
+0309336 db adding works: logic.rb
+06f81c9 db adding works: db.sql
+3264de2 adding todo items: page.html
+675a02b adding todo items: logic.rb
+272c674 first draft: page.html
+08c275d first draft: db.sql
+ 
+ Now we run rebase one more time to reorder and squash: 
+ $ git rebase -i master
+ 
+ This will be shown in text editor: 
+ pick 08c275d first draft: db.sql
+pick 272c674 first draft: page.html
+pick 675a02b adding todo items: logic.rb
+pick 3264de2 adding todo items: page.html
+pick 06f81c9 db adding works: db.sql
+pick 0309336 db adding works: logic.rb
+ 
+ Change it to this: 
+ pick 08c275d first draft: db.sql
+s 06f81c9 db adding works: db.sql
+pick 675a02b adding todo items: logic.rb
+s 0309336 db adding works: logic.rb
+pick 272c674 first draft: page.html
+s  3264de2 adding todo items: page.html
+ 
+ NOTICE: make sure that you tell git rebase to apply/squash the smaller topical commits  in the order they were chronologically commited . Otherwise you might have false, needless merge conflicts to deal with. 
+ When that interactive rebase is all said and done, you get this: 
+ $ git log --oneline master..
+74bdd5f adding todos: GUI layer
+e8d8f7e adding todos: business logic layer
+121c578 adding todos: DB layer
+ 
+ Recap 
+ You have now rebased your chronological commits into topical commits. In real life, you may not need to do this every single time, but when you do want or need to do this, now you can. Plus, hopefully you learned more about git rebase. 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ edited  Aug 1 '16 at 16:58 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+   
+ 
+ 
+   edit 
+ share 
+ discuss 
+ request improvement (1) 
+   edit 
+ move example 
+ delete example 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 3 
+ 
+ Testing all commits during rebase 
+ 
+ 
+ 
+ 
+ 
+ 3 
+ 
+ 
+ Before making a pull request, it is useful to make sure that compile is successful and tests are passing for each commit in the branch. We can do that automatically using  -x  parameter. 
+ For example: 
+ git rebase -i -x make 
+ will perform the interactive rebase and stop after each commit to execute  make . In case  make  fails, git will stop to give you an opportunity to fix the issues and amend the commit before proceeding with picking the next one. 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ created  Aug 1 '16 at 2:52 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+   
+ 
+ 
+   edit 
+ share 
+ discuss 
+ request improvement 
+   edit 
+ move example 
+ delete example 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 2 
+ 
+ Aborting an Interactive Rebase 
+ 
+ 
+ 
+ 
+ 
+ 2 
+ 
+ 
+ You have started an interactive rebase. In the editor where you pick your commits, you decide that something is going wrong (for example a commit is missing, or you chose the wrong rebase destination), and you want to abort the rebase. 
+ To do this, simply delete all commits and actions (i.e. all lines not starting with the  #  sign) and the rebase will be aborted! 
+ The help text in the editor actually provides this hint: 
+ # Rebase 36d15de..612f2f7 onto 36d15de (3 command(s))
+#
+# Commands:
+# p, pick = use commit
+# r, reword = use commit, but edit the commit message
+# e, edit = use commit, but stop for amending
+# s, squash = use commit, but meld into previous commit
+# f, fixup = like "squash", but discard this commit's log message
+# x, exec = run command (the rest of the line) using shell
+#
+# These lines can be re-ordered; they are executed from top to bottom.
+#
+# If you remove a line here THAT COMMIT WILL BE LOST.
+#
+# However, if you remove everything, the rebase will be aborted.
+#          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+# Note that empty commits are commented out
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ created  Jul 21 '16 at 14:35 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+   
+ 
+ 
+   edit 
+ share 
+ discuss (1) 
+ request improvement 
+   edit 
+ move example 
+ delete example 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 2 
+ 
+ Setup git-pull for automatically perform a rebase instead of a merge 
+ 
+ 
+ 
+ 
+ 
+ 2 
+ 
+ 
+ If your team is following a rebase-based workflow, it may be a advantageous to setup git so that each newly created branch will perform a rebase operation, instead of a merge operation, during a  git pull . 
+ To setup every  new  branch to automatically rebase, add the following to your  .gitconfig  or  .git/config : 
+ [branch]
+autosetuprebase = always
+ 
+ Command line:  git config [--global] branch.autosetuprebase always 
+ Alternatively, you can setup the  git pull  command to always behave as if the option  --rebase  was passed: 
+ [pull]
+rebase = true
+ 
+ Command line:  git config [--global] pull.rebase true 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ edited  Aug 19 '16 at 4:40 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+   
+ 
+ 
+   edit 
+ share 
+ discuss 
+ request improvement 
+   edit 
+ move example 
+ delete example 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 1 
+ 
+ Pushing after a rebase 
+ 
+ 
+ 
+ 
+ 
+ 1 
+ 
+ 
+ Sometimes you need rewrite history with a rebase, but  git push  complains about doing so because you rewrote history. 
+ This can be solved with a  git push --force , but consider  git push --force-with-lease , indicating that you want the push to fail if the local remote-tracking branch differs from the branch on the remote, e.g.,  someone else pushed to the remote after the last fetch. This avoids inadvertently overwriting someone else's recent push. 
+ Note :  git push --force  - and even  --force-with-lease  for that matter - can be a dangerous command because it rewrites the history of the branch. If another person had pulled the branch before the forced push, his/her  git pull  or  git fetch  will have errors because the local history and the remote history are diverged. This may cause the person to have unexpected errors. With enough looking at the reflogs the other user's work can be recovered, but it can lead to a lot of wasted time. If you must do a forced push to a branch with other contributors, try to coordinate with them so that they do not have to deal with errors. 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ edited  Aug 2 '16 at 9:19 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+   
+ 
+ 
+   edit 
+ share 
+ discuss 
+ request improvement 
+   edit 
+ move example 
+ delete example 
+ 
+ 
+ 
+ 
+ 
+ 
+ + 
+            Add Example
+         
+ 
+ 
+ 
+        Please consider making a request to improve this example.
+         Request Improvement 
+ 
+ 
+ 
+ 
+ 
+ Syntax 
+ 
+ git rebase [-i | --interactive] [options] [--exec <cmd>] [--onto <newbase>] [<upstream>] [<branch>] 
+ git rebase [-i | --interactive] [options] [--exec <cmd>] [--onto <newbase>] --root [<branch>] 
+ git rebase --continue | --skip | --abort | --edit-todo 
+ 
+ 
+ 
+ 
+   edit 
+ share 
+ 
+   edit 
+ 
+ 
+ 
+ 
+ 
+ 
+ Parameters 
+ Parameter Details --continue Restart the rebasing process after having resolved a merge conflict. --abort Abort the rebase operation and reset HEAD to the original branch. If branch was provided when the rebase operation was started, then HEAD will be reset to branch. Otherwise HEAD will be reset to where it was when the rebase operation was started. --keep-empty Keep the commits that do not change anything from its parents in the result. --skip Restart the rebasing process by skipping the current patch. -m, --merge Use merging strategies to rebase. When the recursive (default) merge strategy is used, this allows rebase to be aware of renames on the upstream side. Note that a rebase merge works by replaying each commit from the working branch on top of the upstream branch. Because of this, when a merge conflict happens, the side reported as ours is the so-far rebased series, starting with upstream, and theirs is the working branch. In other words, the sides are swapped. --stat Show a diffstat of what changed upstream since the last rebase. The diffstat is also controlled by the configuration option rebase.stat. -x, --exec  command Perform interactive rebase, stopping between each commit and executing  command 
+ 
+ 
+ 
+   edit 
+ share 
+ 
+   edit 
+ 
+ 
+ 
+ 
+ 
+ 
+ Remarks 
+ Please keep in mind that rebase effectively rewrites the repository history. 
+ Rebasing commits that exists in the remote repository could rewrite repository nodes used by other developers as base node for their developments. Unless you really know what you are doing, it is a best practice to rebase before pushing your changes. 
+ 
+ 
+ 
+   edit 
+ share 
+ 
+   edit 
+ 
+ 
+ 
+ 
+ 
+ 
+ edited  Mar 6 at 8:33 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+                    +32
+                     
+ 
+ 
+   
+ 
+ Still have a question about Rebasing? 
+ Ask Question 
+ 
+ 
+ 
+ 
+ Topic Outline 
+ 
+ 10 Examples 
+ 
+ 
+ 
+ 
+ Local Branch Rebasing 
+ 
+ 
+ Rebase: ours and theirs, local and remote 
+ 
+ 
+ Interactive Rebase 
+ 
+ 
+ Rebase down to the initial commit 
+ 
+ 
+ Configuring autostash 
+ 
+ 
+ Rebasing before a code review 
+ 
+ 
+ Testing all commits during rebase 
+ 
+ 
+ Aborting an Interactive Rebase 
+ 
+ 
+ Setup git-pull for automatically perform a rebase instead of a merge 
+ 
+ 
+ Pushing after a rebase 
+ 
+ Show more 
+ 
+ Syntax 
+ Parameters 
+ 
+ Remarks 
+ 
+ 
+ 
+ 
+                    Blog
+                 
+ 
+ 
+ 
+ 
+   
+ 
+ 
+ Trends in Government Software Developers 
+ 
+ 
+ 
+ 
+ 
+ 
+   
+ 
+ 
+ Introducing Channels: Private Q&A for Your Team 
+ 
+ 
+ 
+ 
+   
+ 
+                var ados = ados || {}; ados.run = ados.run || [];
+                ados.run.push(function () { ados_add_placement(22,499571,"adzerk899740704",5).setZone(56016); });
+             
+ 
+ 
+ 
+ 
+        StackExchange.ready(function () { $.get('/documentation/git/ivc/355-636356032212220316:hi6v9oi3s9z6o7rhdydew0ijzvo.gif?topicId=355'); });
+     
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+                    Topic Outline
+                         
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ Save Draft 
+ Discard 
+ 
+ 
+ 
+ 
+ Sign up or log in 
+ Save edit as a guest 
+ Join Stack Overflow 
+ 
+ 
+ 
+ Using Google 
+ 
+ 
+ Using Facebook 
+ 
+ 
+ Using Email and Password 
+ 
+ 
+ 
+ 
+ Name 
+ 
+ 
+ 
+ Email 
+ 
+ Save Draft 
+ 
+ 
+ 
+ 
+ We recognize you from another Stack Exchange Network site! 
+ Join and Save Draft 
+ 
+ Discard Draft 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ Stack Overflow 
+ 
+ Questions 
+ Jobs 
+ Developer Jobs Directory 
+ Documentation 
+ Help 
+ Mobile 
+ 
+ 
+ 
+ Stack Overflow  Business 
+ 
+ Talent 
+ Ads 
+ Enterprise 
+ Insights 
+ 
+ 
+ 
+ Company 
+ 
+ About 
+ Press 
+ Work Here 
+ Legal 
+ Privacy Policy 
+ Contact Us 
+ 
+ 
+ 
+ 
+ 
+ Stack Exchange  Network 
+ 
+ Technology 
+ Life / Arts 
+ Culture / Recreation 
+ Science 
+ Other 
+ 
+ 
+ 
+ 
+ 
+ Stack Overflow 
+ Server Fault 
+ Super User 
+ Web Applications 
+ Ask Ubuntu 
+ Webmasters 
+ Game Development 
+ 
+ TeX - LaTeX 
+ Software Engineering 
+ Unix & Linux 
+ Ask Different (Apple) 
+ WordPress Development 
+ Geographic Information Systems 
+ Electrical Engineering 
+ 
+ Android Enthusiasts 
+ Information Security 
+ Database Administrators 
+ Drupal Answers 
+ SharePoint 
+ User Experience 
+ Data Science 
+ 
+ Mathematica 
+ Salesforce 
+ ExpressionEngine® Answers 
+ Blender 
+ Network Engineering 
+ Cryptography 
+ Code Review 
+ 
+ Magento 
+ Software Recommendations 
+ Signal Processing 
+ Emacs 
+ Raspberry Pi 
+ Programming Puzzles & Code Golf 
+ Ethereum 
+ 
+ 
+ 
+                            more (27)
+                         
+ 
+ 
+ 
+ 
+ 
+ 
+ Photography 
+ Science Fiction & Fantasy 
+ Graphic Design 
+ Movies & TV 
+ Music: Practice & Theory 
+ Worldbuilding 
+ Seasoned Advice (cooking) 
+ 
+ Home Improvement 
+ Personal Finance & Money 
+ Academia 
+ Law 
+ 
+ 
+ 
+                            more (16)
+                         
+ 
+ 
+ 
+ 
+ 
+ 
+ English Language & Usage 
+ Skeptics 
+ Mi Yodeya (Judaism) 
+ Travel 
+ Christianity 
+ English Language Learners 
+ Japanese Language 
+ 
+ Arqade (gaming) 
+ Bicycles 
+ Role-playing Games 
+ Anime & Manga 
+ Puzzling 
+ Motor Vehicle Maintenance & Repair 
+ 
+ 
+ 
+                            more (32)
+                         
+ 
+ 
+ 
+ 
+ 
+ 
+ MathOverflow 
+ Mathematics 
+ Cross Validated (stats) 
+ Theoretical Computer Science 
+ Physics 
+ Chemistry 
+ Biology 
+ 
+ Computer Science 
+ Philosophy 
+ 
+ 
+ 
+                            more (10)
+                         
+ 
+ 
+ 
+ 
+ 
+ 
+ Meta Stack Exchange 
+ Stack Apps 
+ API 
+ Data 
+ Area 51 
+ 
+ 
+ 
+ 
+ 
+ Blog 
+ Facebook 
+ Twitter 
+ LinkedIn 
+ 
+ 
+ 
+                                    site design / logo © 2017 Stack Exchange Inc; user contributions licensed under  cc by-sa 3.0 
+                                    with  attribution required .
+                                     rev 2017.7.13.1278 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ Stack Overflow works best with JavaScript enabled
+             
+ 
+ 
+ var z=document.createElement("script");z.type="text/javascript",z.async=!0,z.src="https://static.adzerk.net/ados.js";var s=document.getElementsByTagName("script")[0];s.parentNode.insertBefore(z,s); 
+ 
+var ados = ados || {};
+ados.run = ados.run || [];
+
+ 
+ 
+            (function(i, s, o, g, r, a, m) {
+                i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function() { (i[r].q = i[r].q || []).push(arguments) }, i[r].l = 1 * new Date(); a = s.createElement(o),
+                m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m);
+            })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+                ga('create', 'UA-5620270-1');
+                ga('create', 'UA-5620270-60', {name: 'pageData', sampleRate: 100 });
+                ga('send', 'pageview');
+                ga('pageData.send', 'pageview');
+        var _qevents = _qevents || [],
+            _comscore = _comscore || [];
+        (function () {
+            var ssl='https:'==document.location.protocol,
+                s=document.getElementsByTagName('script')[0],
+                qc=document.createElement('script');
+                qc.async = true;
+                qc.src = (ssl ? 'https://secure' : 'http://edge') + '.quantserve.com/quant.js';
+                s.parentNode.insertBefore(qc, s);
+                _qevents.push({ qacct: "p-c1rF4kxgLUzNc" });
+                            var sc=document.createElement('script');
+                sc.async=true;
+                sc.src=(ssl?'https://sb':'http://b') + '.scorecardresearch.com/beacon.js';
+                s.parentNode.insertBefore(sc, s);
+                _comscore.push({ c1: "2", c2: "17440561" });
+        })();
+
+     
+ 
+                
+                (function(appendChild) {
+                    Node.prototype.appendChild = function() {
+                        var parent = this;
+                        var newNode = arguments[0];
+                        if (parent.nodeName === 'HEAD'
+                            && newNode
+                            && newNode.nodeName === 'SCRIPT'
+                            && newNode.src) {
+                            
+                            window.setTimeout(function() {
+                                var result = newNode.src.match(/^https:\/\/maps\.googleapis\.com\/maps\/api\/place\/js\/(\w+)Service\./i) || [];
+                                var service = result[1];
+                                if (service) {
+                                    if (service === 'Autocompletion') service =  2;
+                                    else if (service === 'Place') service = 1;
+                                    else service = 0;
+                                    StackExchange.using('gps', function() {
+                                        StackExchange.gps.track('google_maps_places_api.call', { service: service });
+                                    });
+                                }
+                            }, 0);
+                        }
+                        return appendChild.apply(this, arguments);
+                    };
+                })(Node.prototype.appendChild);
+             

@@ -11,7 +11,9 @@ import re
 # 引入排除词汇
 from settings import exclude_list, NUMBERS
 # 数据库操作
-from models import Word, Book
+# from models import Word, Book
+from models_exp import NewBook, NewWord
+
 
 class AnlysisBook():
 
@@ -29,17 +31,16 @@ class AnlysisBook():
     def new_book(self, path, words):
 
         bookname = path.split('/')[-1]
-        query_book = Book.select().where((Book.name == bookname) & (Book.is_analyzed == True))
+        query_book = NewBook.select().where((NewBook.name == bookname) & (NewBook.is_analyzed == True))
         if query_book:
             return
 
-        newbook = Book.create(
+        newbook = NewBook.create(
             name=bookname,
             total=len(words)
 
         )
         return newbook
-
 
     # filter valid words
     # select the 500(default, you can change it in settings.py) frequency words
@@ -54,6 +55,7 @@ class AnlysisBook():
         ct = 10
         for i, j in NUMBERS:
             if len(new_words) < i:
+
                 ct = j
                 break
 
@@ -75,23 +77,20 @@ class AnlysisBook():
 
         # 向数据库内插入数据
         for word, fre in words:
-            query = Word.select().where(Word.name == word)
+            query = NewWord.select().where(NewWord.name == word)
             if query:
                 word_ins = query[0]
                 word_ins.frequency += fre
                 word_ins.save()
             else:
-                word_ins = Word.create(
+                word_ins = NewWord.create(
                             name=word,
                             frequency=fre,
                         )
-
-
+        print('处理了 {} 个单词'.format(len(words)))
         # 标记该书已经被处理
         book.is_analyzed = True
         book.save()
-
-
 
     def analysis(self, lst_files):
 
@@ -101,4 +100,3 @@ class AnlysisBook():
             bookins = self.new_book(i, raw_words)
             filter_words = self._filter_words(raw_words)
             self._insert_book(bookins, filter_words)
-

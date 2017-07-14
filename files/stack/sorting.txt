@@ -1,0 +1,883 @@
+
+ (function () { var old = $.fn.contents; $.fn.contents = function () { try { return old.apply(this, arguments); } catch (e) { return $([]); } } })() 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ Stack Overflow 
+ 
+ 
+ 
+ 
+ Questions 
+ 
+ 
+ Developer Jobs 
+ 
+ 
+ Documentation  beta 
+ 
+ 
+ Tags 
+ 
+ 
+ Users 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ current community 
+ 
+ 
+ 
+ 
+ 
+ 
+ help 
+ chat 
+ 
+ 
+ 
+        Stack Overflow
+     
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+        Meta Stack Overflow
+     
+ 
+ 
+ 
+ 
+ 
+your communities             
+ 
+ 
+ 
+ Sign up  or  log in  to customize your list.
+                 
+ 
+ 
+ more stack exchange communities 
+ 
+ company blog 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+                            Tour
+                             
+                                Start here for a quick overview of the site
+                             
+ 
+ 
+ 
+ 
+                        Help Center
+                         
+                            Detailed answers to any questions you might have
+                         
+ 
+ 
+ 
+ 
+                                Meta
+                                 
+                                    Discuss the workings and policies of this site
+                                 
+ 
+ 
+ 
+ 
+                                About Us
+                                 
+                                    Learn more about Stack Overflow the company
+                                 
+ 
+ 
+ 
+ 
+                                Business
+                                 
+                                    Learn more about hiring developers or posting ads with us
+                                 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ Log In 
+ Sign Up 
+ 
+ 
+ 
+ 
+ 
+        StackExchange.ready(function () { StackExchange.topbar.init(); });
+            StackExchange.scrollPadding.setPaddingTop(60, 10);      
+ 
+ 
+ 
+ 
+ algorithm 
+ 
+ 
+ 
+ 
+   
+ 
+ 
+ 
+ 
+ dashboard 
+ all topics 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ Popular 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+        StackExchange.ready(function () {
+            StackExchange.docs.search.init({
+                popularTopicsJson: [{"Id":1529,"DocTag":"algorithm","Title":"Algorithm Complexity","Url":"/documentation/algorithm/1529/algorithm-complexity"},{"Id":757,"DocTag":"algorithm","Title":"Getting started with algorithm","Url":"/documentation/algorithm/757/getting-started-with-algorithm"},{"Id":4770,"DocTag":"algorithm","Title":"Big-O Notation","Url":"/documentation/algorithm/4770/big-o-notation"},{"Id":5735,"DocTag":"algorithm","Title":"Binary Search Trees","Url":"/documentation/algorithm/5735/binary-search-trees"},{"Id":2299,"DocTag":"algorithm","Title":"Graph","Url":"/documentation/algorithm/2299/graph"}]
+            });
+        });
+     
+   
+ 
+ 
+ 
+ Topic 
+ 
+ 
+ 
+ 
+ 
+ 
+ You must  sign up  or  log in  to make a topic request. 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+    StackExchange.ready(function () {
+        StackExchange.docs.requestTopic.init('algorithm');
+    });
+   
+ 
+ 
+ 
+ 
+ 
+ 
+ Sorting 
+ 
+ 
+ 
+ topic 
+ discuss 
+ 
+ 
+ 
+ 
+ Title 
+ 
+ 
+ 
+ Versions 
+ 
+ 
+ Introduction 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+   add introduction 
+ edit 
+ share 
+ request improvement 
+   edit 
+ move 
+ delete topic 
+ share 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ This draft deletes the entire topic. 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+                    Examples
+                     
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 1 
+ 
+ Stability in Sorting 
+ 
+ 
+ 
+ 
+ 
+ 1 
+ 
+ 
+ 
+ 
+ 
+   
+ Stability in sorting means whether a sort algorithm maintains the relative order of the equals keys of the original input in the result output. 
+ So a sorting algorithm is said to be stable if two objects with equal keys appear in the same order in sorted output as they appear in the input unsorted array. 
+ Consider a list of pairs: 
+ (1, 2) (9, 7) (3, 4) (8, 6) (9, 3)
+ 
+ Now we will sort the list using the first element of each pair. 
+ A  stable sorting  of this list will output the below list: 
+ (1, 2) (3, 4) (8, 6) (9, 7) (9, 3)
+ 
+ Because  (9, 3)  appears after  (9, 7)  in the original list as well. 
+ An  unstable sorting  will output the below list: 
+ (1, 2) (3, 4) (8, 6) (9, 3) (9, 7)
+ 
+ Unstable sort may generate the same output as the stable sort but not always. 
+ Well-known stable sorts: 
+ 
+ Merge sort 
+ Insertion sort 
+ Radix sort 
+ Tim sort 
+ Bubble Sort 
+ 
+ Well-known unstable sorts: 
+ 
+ Heap sort 
+ Quick sort 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ edited  Jan 11 at 13:22 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+                    +2
+                     
+ 
+ 
+   
+ 
+ 
+   edit 
+ share 
+ discuss 
+ request improvement 
+   edit 
+ move example 
+ delete example 
+ 
+ 
+ 
+ 
+ 
+ 
+ + 
+            Add Example
+         
+ 
+ 
+ 
+        Please consider making a request to improve this example.
+         Request Improvement 
+ 
+ 
+ 
+ 
+ 
+ Syntax 
+ 
+ 
+ Syntax 
+ 
+ 
+ 
+   add syntax 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ Parameters 
+ Parameter Description Stability A sorting algorithm is  stable  if it preserves the relative order of equal elements after sorting. In place A sorting algorithm is  in-place  if it sorts using only  O(1)  auxiliary memory (not counting the array that needs to be sorted). Best case complexity A sorting algorithm has a best case time complexity of  O(T(n))  if its running time is  at least   T(n)  for all possible inputs. Average case complexity A sorting algorithm has an average case time complexity of  O(T(n))  if its running time,  averaged over all possible inputs , is  T(n) . Worst case complexity A sorting algorithm has a worst case time complexity of  O(T(n))  if its running time is  at most   T(n) . 
+ 
+ 
+ 
+   edit 
+ share 
+ 
+   edit 
+ 
+ 
+ 
+ 
+ 
+ 
+ Remarks 
+ 
+ 
+ Remarks 
+ 
+ 
+ 
+   add remarks 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ edited  Oct 13 '16 at 20:47 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+   
+ 
+ Still have a question about Sorting? 
+ Ask Question 
+ 
+ 
+ 
+ 
+ Topic Outline 
+ 
+ 1 Examples 
+ 
+ 
+ 
+ 
+ Stability in Sorting 
+ 
+ Show more 
+ 
+ Parameters 
+ 
+ 
+ 
+                    Blog
+                 
+ 
+ 
+ 
+ 
+   
+ 
+ 
+ Trends in Government Software Developers 
+ 
+ 
+ 
+ 
+ 
+ 
+   
+ 
+ 
+ Introducing Channels: Private Q&A for Your Team 
+ 
+ 
+ 
+ 
+   
+ 
+ 
+ 
+ 
+        StackExchange.ready(function () { $.get('/documentation/algorithm/ivc/821-636356029471305419:56hel2078uvyeemwndrzb8s8jy4.gif?topicId=821'); });
+     
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+                    Topic Outline
+                         
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ Save Draft 
+ Discard 
+ 
+ 
+ 
+ 
+ Sign up or log in 
+ Save edit as a guest 
+ Join Stack Overflow 
+ 
+ 
+ 
+ Using Google 
+ 
+ 
+ Using Facebook 
+ 
+ 
+ Using Email and Password 
+ 
+ 
+ 
+ 
+ Name 
+ 
+ 
+ 
+ Email 
+ 
+ Save Draft 
+ 
+ 
+ 
+ 
+ We recognize you from another Stack Exchange Network site! 
+ Join and Save Draft 
+ 
+ Discard Draft 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ Stack Overflow 
+ 
+ Questions 
+ Jobs 
+ Developer Jobs Directory 
+ Documentation 
+ Help 
+ Mobile 
+ 
+ 
+ 
+ Stack Overflow  Business 
+ 
+ Talent 
+ Ads 
+ Enterprise 
+ Insights 
+ 
+ 
+ 
+ Company 
+ 
+ About 
+ Press 
+ Work Here 
+ Legal 
+ Privacy Policy 
+ Contact Us 
+ 
+ 
+ 
+ 
+ 
+ Stack Exchange  Network 
+ 
+ Technology 
+ Life / Arts 
+ Culture / Recreation 
+ Science 
+ Other 
+ 
+ 
+ 
+ 
+ 
+ Stack Overflow 
+ Server Fault 
+ Super User 
+ Web Applications 
+ Ask Ubuntu 
+ Webmasters 
+ Game Development 
+ 
+ TeX - LaTeX 
+ Software Engineering 
+ Unix & Linux 
+ Ask Different (Apple) 
+ WordPress Development 
+ Geographic Information Systems 
+ Electrical Engineering 
+ 
+ Android Enthusiasts 
+ Information Security 
+ Database Administrators 
+ Drupal Answers 
+ SharePoint 
+ User Experience 
+ Data Science 
+ 
+ Mathematica 
+ Salesforce 
+ ExpressionEngine® Answers 
+ Blender 
+ Network Engineering 
+ Cryptography 
+ Code Review 
+ 
+ Magento 
+ Software Recommendations 
+ Signal Processing 
+ Emacs 
+ Raspberry Pi 
+ Programming Puzzles & Code Golf 
+ Ethereum 
+ 
+ 
+ 
+                            more (27)
+                         
+ 
+ 
+ 
+ 
+ 
+ 
+ Photography 
+ Science Fiction & Fantasy 
+ Graphic Design 
+ Movies & TV 
+ Music: Practice & Theory 
+ Worldbuilding 
+ Seasoned Advice (cooking) 
+ 
+ Home Improvement 
+ Personal Finance & Money 
+ Academia 
+ Law 
+ 
+ 
+ 
+                            more (16)
+                         
+ 
+ 
+ 
+ 
+ 
+ 
+ English Language & Usage 
+ Skeptics 
+ Mi Yodeya (Judaism) 
+ Travel 
+ Christianity 
+ English Language Learners 
+ Japanese Language 
+ 
+ Arqade (gaming) 
+ Bicycles 
+ Role-playing Games 
+ Anime & Manga 
+ Puzzling 
+ Motor Vehicle Maintenance & Repair 
+ 
+ 
+ 
+                            more (32)
+                         
+ 
+ 
+ 
+ 
+ 
+ 
+ MathOverflow 
+ Mathematics 
+ Cross Validated (stats) 
+ Theoretical Computer Science 
+ Physics 
+ Chemistry 
+ Biology 
+ 
+ Computer Science 
+ Philosophy 
+ 
+ 
+ 
+                            more (10)
+                         
+ 
+ 
+ 
+ 
+ 
+ 
+ Meta Stack Exchange 
+ Stack Apps 
+ API 
+ Data 
+ Area 51 
+ 
+ 
+ 
+ 
+ 
+ Blog 
+ Facebook 
+ Twitter 
+ LinkedIn 
+ 
+ 
+ 
+                                    site design / logo © 2017 Stack Exchange Inc; user contributions licensed under  cc by-sa 3.0 
+                                    with  attribution required .
+                                     rev 2017.7.13.1278 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ Stack Overflow works best with JavaScript enabled
+             
+ 
+ 
+ var z=document.createElement("script");z.type="text/javascript",z.async=!0,z.src="https://static.adzerk.net/ados.js";var s=document.getElementsByTagName("script")[0];s.parentNode.insertBefore(z,s); 
+ 
+var ados = ados || {};
+ados.run = ados.run || [];
+
+ 
+ 
+            (function(i, s, o, g, r, a, m) {
+                i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function() { (i[r].q = i[r].q || []).push(arguments) }, i[r].l = 1 * new Date(); a = s.createElement(o),
+                m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m);
+            })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+                ga('create', 'UA-5620270-1');
+                ga('create', 'UA-5620270-60', {name: 'pageData', sampleRate: 100 });
+                ga('send', 'pageview');
+                ga('pageData.send', 'pageview');
+        var _qevents = _qevents || [],
+            _comscore = _comscore || [];
+        (function () {
+            var ssl='https:'==document.location.protocol,
+                s=document.getElementsByTagName('script')[0],
+                qc=document.createElement('script');
+                qc.async = true;
+                qc.src = (ssl ? 'https://secure' : 'http://edge') + '.quantserve.com/quant.js';
+                s.parentNode.insertBefore(qc, s);
+                _qevents.push({ qacct: "p-c1rF4kxgLUzNc" });
+                            var sc=document.createElement('script');
+                sc.async=true;
+                sc.src=(ssl?'https://sb':'http://b') + '.scorecardresearch.com/beacon.js';
+                s.parentNode.insertBefore(sc, s);
+                _comscore.push({ c1: "2", c2: "17440561" });
+        })();
+
+     
+ 
+                
+                (function(appendChild) {
+                    Node.prototype.appendChild = function() {
+                        var parent = this;
+                        var newNode = arguments[0];
+                        if (parent.nodeName === 'HEAD'
+                            && newNode
+                            && newNode.nodeName === 'SCRIPT'
+                            && newNode.src) {
+                            
+                            window.setTimeout(function() {
+                                var result = newNode.src.match(/^https:\/\/maps\.googleapis\.com\/maps\/api\/place\/js\/(\w+)Service\./i) || [];
+                                var service = result[1];
+                                if (service) {
+                                    if (service === 'Autocompletion') service =  2;
+                                    else if (service === 'Place') service = 1;
+                                    else service = 0;
+                                    StackExchange.using('gps', function() {
+                                        StackExchange.gps.track('google_maps_places_api.call', { service: service });
+                                    });
+                                }
+                            }, 0);
+                        }
+                        return appendChild.apply(this, arguments);
+                    };
+                })(Node.prototype.appendChild);
+             

@@ -1,0 +1,933 @@
+
+ (function () { var old = $.fn.contents; $.fn.contents = function () { try { return old.apply(this, arguments); } catch (e) { return $([]); } } })() 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ Stack Overflow 
+ 
+ 
+ 
+ 
+ Questions 
+ 
+ 
+ Developer Jobs 
+ 
+ 
+ Documentation  beta 
+ 
+ 
+ Tags 
+ 
+ 
+ Users 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ current community 
+ 
+ 
+ 
+ 
+ 
+ 
+ help 
+ chat 
+ 
+ 
+ 
+        Stack Overflow
+     
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+        Meta Stack Overflow
+     
+ 
+ 
+ 
+ 
+ 
+your communities             
+ 
+ 
+ 
+ Sign up  or  log in  to customize your list.
+                 
+ 
+ 
+ more stack exchange communities 
+ 
+ company blog 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+                            Tour
+                             
+                                Start here for a quick overview of the site
+                             
+ 
+ 
+ 
+ 
+                        Help Center
+                         
+                            Detailed answers to any questions you might have
+                         
+ 
+ 
+ 
+ 
+                                Meta
+                                 
+                                    Discuss the workings and policies of this site
+                                 
+ 
+ 
+ 
+ 
+                                About Us
+                                 
+                                    Learn more about Stack Overflow the company
+                                 
+ 
+ 
+ 
+ 
+                                Business
+                                 
+                                    Learn more about hiring developers or posting ads with us
+                                 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ Log In 
+ Sign Up 
+ 
+ 
+ 
+ 
+ 
+        StackExchange.ready(function () { StackExchange.topbar.init(); });
+            StackExchange.scrollPadding.setPaddingTop(60, 10);      
+ 
+ 
+ 
+ 
+ Flask 
+ 
+ 
+ 
+ 
+   
+ 
+ 
+ 
+ 
+ dashboard 
+ all topics 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ Popular 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+        StackExchange.ready(function () {
+            StackExchange.docs.search.init({
+                popularTopicsJson: [{"Id":790,"DocTag":"flask","Title":"Getting started with Flask","Url":"/documentation/flask/790/getting-started-with-flask"},{"Id":4637,"DocTag":"flask","Title":"Deploying Flask application using uWSGI web server with Nginx","Url":"/documentation/flask/4637/deploying-flask-application-using-uwsgi-web-server-with-nginx"},{"Id":2415,"DocTag":"flask","Title":"Routing","Url":"/documentation/flask/2415/routing"},{"Id":6427,"DocTag":"flask","Title":"Blueprints","Url":"/documentation/flask/6427/blueprints"},{"Id":1260,"DocTag":"flask","Title":"Testing","Url":"/documentation/flask/1260/testing"}]
+            });
+        });
+     
+   
+ 
+ 
+ 
+ Topic 
+ 
+ 
+ 
+ 
+ 
+ 
+ You must  sign up  or  log in  to make a topic request. 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+    StackExchange.ready(function () {
+        StackExchange.docs.requestTopic.init('flask');
+    });
+   
+ 
+ 
+ 
+ 
+ 
+ 
+ Signals   
+            All Versions
+         
+ 
+ 
+ 
+ topic 
+ discuss 
+ 
+ 
+ 
+ 
+ Title 
+ 
+ 
+ 
+ Versions 
+ 
+ 
+                        0.10
+                     
+ 
+                        0.11
+                     
+ 
+                        0.12
+                     
+ 
+ 
+ 
+ Introduction 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+   add introduction 
+ edit 
+ share 
+ request improvement 
+   edit 
+ move 
+ delete topic 
+ share 
+ 
+ 
+ 
+ 
+ 
+                var ados = ados || {}; ados.run = ados.run || [];
+                ados.run.push(function () { ados_add_placement(22,499571,"adzerk1555357785",4).setZone(29); });
+             
+ 
+ 
+ 
+ 
+ This draft deletes the entire topic. 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+                    Examples
+                     
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 2 
+ 
+ Connecting to signals 
+ 
+ 
+ 
+ 
+ 
+ 2 
+ 
+ 
+ 
+ 
+ 
+   
+ Use a signal's  connect  method to connect a function to a signal.  When a signal is sent, each connected function is called with the sender and any named arguments the signal provides. 
+ from flask import template_rendered
+
+def log_template(sender, template, context, **kwargs):
+    sender.logger.info(
+        'Rendered template %(template)r with context %(context)r.',
+        template=template, context=context
+    )
+
+template_rendered.connect(log_template)
+ 
+ See the documentation on  built-in signals  for information about what arguments they provides.  A useful pattern is adding a  **kwargs  argument to catch any unexpected arguments. 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ created  Jul 22 '16 at 12:25 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+   
+ 
+ 
+   edit 
+ share 
+ discuss 
+ request improvement 
+   edit 
+ move example 
+ delete example 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 1 
+ 
+ Custom signals 
+ 
+ 
+ 
+ 
+ 
+ 1 
+ 
+ 
+ If you want to  create and send signals  in your own code (for example, if you are writing an extension), create a new  Signal  instance and call  send  when the subscribers should be notified.  Signals are created using a  Namespace . 
+ from flask import current_app
+from flask.signals import Namespace
+
+namespace = Namespace()
+message_sent = namespace.signal('mail_sent')
+
+def message_response(recipient, body):
+    ...
+    message_sent.send(
+        current_app._get_current_object(),
+        recipient=recipient,
+        body=body
+    )
+
+@message_sent.connect
+def log_message(app, recipient, body):
+    ...
+ 
+ 
+ Prefer using Flask's signal support over using Blinker directly.  It wraps the library so that signals remain optional if developers using your extension have not opted to install Blinker. 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ created  Jul 22 '16 at 17:49 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+   
+ 
+ 
+   edit 
+ share 
+ discuss 
+ request improvement 
+   edit 
+ move example 
+ delete example 
+ 
+ 
+ 
+   
+ 
+                var ados = ados || {}; ados.run = ados.run || [];
+                ados.run.push(function () { ados_add_placement(22,499571,"adzerk839746226",4).setZone(30); });
+             
+ 
+ 
+ 
+ 
+ 
+ 
+ + 
+            Add Example
+         
+ 
+ 
+ 
+        Please consider making a request to improve this example.
+         Request Improvement 
+ 
+ 
+ 
+ 
+ 
+ Syntax 
+ 
+ 
+ Syntax 
+ 
+ 
+ 
+   add syntax 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ Parameters 
+ 
+ 
+ Parameters 
+ 
+ 
+ 
+   add parameters 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ Remarks 
+ Flask supports signals using  Blinker .  Signal support is optional; they will only be enabled if Blinker is installed. 
+ pip install blinker
+ 
+ http://flask.pocoo.org/docs/dev/signals/ 
+ 
+ Signals are not asynchronous.  When a signal is sent, it immediately executes each of the connected functions sequentially. 
+ 
+ 
+ 
+   edit 
+ share 
+ 
+   edit 
+ 
+ 
+ 
+ 
+ 
+ 
+ edited  Jul 22 '16 at 17:49 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+   
+ 
+ Still have a question about Signals? 
+ Ask Question 
+ 
+ 
+ 
+ 
+ Topic Outline 
+ 
+ 2 Examples 
+ 
+ 
+ 
+ 
+ Connecting to signals 
+ 
+ 
+ Custom signals 
+ 
+ Show more 
+ 
+ 
+ Remarks 
+ 
+ 
+ 
+ 
+                    Blog
+                 
+ 
+ 
+ 
+ 
+   
+ 
+ 
+ Trends in Government Software Developers 
+ 
+ 
+ 
+ 
+ 
+ 
+   
+ 
+ 
+ Introducing Channels: Private Q&A for Your Team 
+ 
+ 
+ 
+ 
+   
+ 
+                var ados = ados || {}; ados.run = ados.run || [];
+                ados.run.push(function () { ados_add_placement(22,499571,"adzerk487216327",5).setZone(56016); });
+             
+ 
+ 
+ 
+ 
+        StackExchange.ready(function () { $.get('/documentation/flask/ivc/2331-636356046620867461:b2hpdrcx9n7diqmk9isgxd5dpm.gif?topicId=2331'); });
+     
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+                    Topic Outline
+                         
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ Save Draft 
+ Discard 
+ 
+ 
+ 
+ 
+ Sign up or log in 
+ Save edit as a guest 
+ Join Stack Overflow 
+ 
+ 
+ 
+ Using Google 
+ 
+ 
+ Using Facebook 
+ 
+ 
+ Using Email and Password 
+ 
+ 
+ 
+ 
+ Name 
+ 
+ 
+ 
+ Email 
+ 
+ Save Draft 
+ 
+ 
+ 
+ 
+ We recognize you from another Stack Exchange Network site! 
+ Join and Save Draft 
+ 
+ Discard Draft 
+ 
+ 
+ 
+ lang-py 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ Stack Overflow 
+ 
+ Questions 
+ Jobs 
+ Developer Jobs Directory 
+ Documentation 
+ Help 
+ Mobile 
+ 
+ 
+ 
+ Stack Overflow  Business 
+ 
+ Talent 
+ Ads 
+ Enterprise 
+ Insights 
+ 
+ 
+ 
+ Company 
+ 
+ About 
+ Press 
+ Work Here 
+ Legal 
+ Privacy Policy 
+ Contact Us 
+ 
+ 
+ 
+ 
+ 
+ Stack Exchange  Network 
+ 
+ Technology 
+ Life / Arts 
+ Culture / Recreation 
+ Science 
+ Other 
+ 
+ 
+ 
+ 
+ 
+ Stack Overflow 
+ Server Fault 
+ Super User 
+ Web Applications 
+ Ask Ubuntu 
+ Webmasters 
+ Game Development 
+ 
+ TeX - LaTeX 
+ Software Engineering 
+ Unix & Linux 
+ Ask Different (Apple) 
+ WordPress Development 
+ Geographic Information Systems 
+ Electrical Engineering 
+ 
+ Android Enthusiasts 
+ Information Security 
+ Database Administrators 
+ Drupal Answers 
+ SharePoint 
+ User Experience 
+ Data Science 
+ 
+ Mathematica 
+ Salesforce 
+ ExpressionEngine® Answers 
+ Blender 
+ Network Engineering 
+ Cryptography 
+ Code Review 
+ 
+ Magento 
+ Software Recommendations 
+ Signal Processing 
+ Emacs 
+ Raspberry Pi 
+ Programming Puzzles & Code Golf 
+ Ethereum 
+ 
+ 
+ 
+                            more (27)
+                         
+ 
+ 
+ 
+ 
+ 
+ 
+ Photography 
+ Science Fiction & Fantasy 
+ Graphic Design 
+ Movies & TV 
+ Music: Practice & Theory 
+ Worldbuilding 
+ Seasoned Advice (cooking) 
+ 
+ Home Improvement 
+ Personal Finance & Money 
+ Academia 
+ Law 
+ 
+ 
+ 
+                            more (16)
+                         
+ 
+ 
+ 
+ 
+ 
+ 
+ English Language & Usage 
+ Skeptics 
+ Mi Yodeya (Judaism) 
+ Travel 
+ Christianity 
+ English Language Learners 
+ Japanese Language 
+ 
+ Arqade (gaming) 
+ Bicycles 
+ Role-playing Games 
+ Anime & Manga 
+ Puzzling 
+ Motor Vehicle Maintenance & Repair 
+ 
+ 
+ 
+                            more (32)
+                         
+ 
+ 
+ 
+ 
+ 
+ 
+ MathOverflow 
+ Mathematics 
+ Cross Validated (stats) 
+ Theoretical Computer Science 
+ Physics 
+ Chemistry 
+ Biology 
+ 
+ Computer Science 
+ Philosophy 
+ 
+ 
+ 
+                            more (10)
+                         
+ 
+ 
+ 
+ 
+ 
+ 
+ Meta Stack Exchange 
+ Stack Apps 
+ API 
+ Data 
+ Area 51 
+ 
+ 
+ 
+ 
+ 
+ Blog 
+ Facebook 
+ Twitter 
+ LinkedIn 
+ 
+ 
+ 
+                                    site design / logo © 2017 Stack Exchange Inc; user contributions licensed under  cc by-sa 3.0 
+                                    with  attribution required .
+                                     rev 2017.7.13.1278 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ Stack Overflow works best with JavaScript enabled
+             
+ 
+ 
+ var z=document.createElement("script");z.type="text/javascript",z.async=!0,z.src="https://static.adzerk.net/ados.js";var s=document.getElementsByTagName("script")[0];s.parentNode.insertBefore(z,s); 
+ 
+var ados = ados || {};
+ados.run = ados.run || [];
+
+ 
+ 
+            (function(i, s, o, g, r, a, m) {
+                i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function() { (i[r].q = i[r].q || []).push(arguments) }, i[r].l = 1 * new Date(); a = s.createElement(o),
+                m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m);
+            })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+                ga('create', 'UA-5620270-1');
+                ga('create', 'UA-5620270-60', {name: 'pageData', sampleRate: 100 });
+                ga('send', 'pageview');
+                ga('pageData.send', 'pageview');
+        var _qevents = _qevents || [],
+            _comscore = _comscore || [];
+        (function () {
+            var ssl='https:'==document.location.protocol,
+                s=document.getElementsByTagName('script')[0],
+                qc=document.createElement('script');
+                qc.async = true;
+                qc.src = (ssl ? 'https://secure' : 'http://edge') + '.quantserve.com/quant.js';
+                s.parentNode.insertBefore(qc, s);
+                _qevents.push({ qacct: "p-c1rF4kxgLUzNc" });
+                            var sc=document.createElement('script');
+                sc.async=true;
+                sc.src=(ssl?'https://sb':'http://b') + '.scorecardresearch.com/beacon.js';
+                s.parentNode.insertBefore(sc, s);
+                _comscore.push({ c1: "2", c2: "17440561" });
+        })();
+
+     
+ 
+                
+                (function(appendChild) {
+                    Node.prototype.appendChild = function() {
+                        var parent = this;
+                        var newNode = arguments[0];
+                        if (parent.nodeName === 'HEAD'
+                            && newNode
+                            && newNode.nodeName === 'SCRIPT'
+                            && newNode.src) {
+                            
+                            window.setTimeout(function() {
+                                var result = newNode.src.match(/^https:\/\/maps\.googleapis\.com\/maps\/api\/place\/js\/(\w+)Service\./i) || [];
+                                var service = result[1];
+                                if (service) {
+                                    if (service === 'Autocompletion') service =  2;
+                                    else if (service === 'Place') service = 1;
+                                    else service = 0;
+                                    StackExchange.using('gps', function() {
+                                        StackExchange.gps.track('google_maps_places_api.call', { service: service });
+                                    });
+                                }
+                            }, 0);
+                        }
+                        return appendChild.apply(this, arguments);
+                    };
+                })(Node.prototype.appendChild);
+             

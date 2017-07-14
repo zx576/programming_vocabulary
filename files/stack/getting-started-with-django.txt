@@ -1,0 +1,1531 @@
+
+ (function () { var old = $.fn.contents; $.fn.contents = function () { try { return old.apply(this, arguments); } catch (e) { return $([]); } } })() 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ Stack Overflow 
+ 
+ 
+ 
+ 
+ Questions 
+ 
+ 
+ Developer Jobs 
+ 
+ 
+ Documentation  beta 
+ 
+ 
+ Tags 
+ 
+ 
+ Users 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ current community 
+ 
+ 
+ 
+ 
+ 
+ 
+ help 
+ chat 
+ 
+ 
+ 
+        Stack Overflow
+     
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+        Meta Stack Overflow
+     
+ 
+ 
+ 
+ 
+ 
+your communities             
+ 
+ 
+ 
+ Sign up  or  log in  to customize your list.
+                 
+ 
+ 
+ more stack exchange communities 
+ 
+ company blog 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+                            Tour
+                             
+                                Start here for a quick overview of the site
+                             
+ 
+ 
+ 
+ 
+                        Help Center
+                         
+                            Detailed answers to any questions you might have
+                         
+ 
+ 
+ 
+ 
+                                Meta
+                                 
+                                    Discuss the workings and policies of this site
+                                 
+ 
+ 
+ 
+ 
+                                About Us
+                                 
+                                    Learn more about Stack Overflow the company
+                                 
+ 
+ 
+ 
+ 
+                                Business
+                                 
+                                    Learn more about hiring developers or posting ads with us
+                                 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ Log In 
+ Sign Up 
+ 
+ 
+ 
+ 
+ 
+        StackExchange.ready(function () { StackExchange.topbar.init(); });
+            StackExchange.scrollPadding.setPaddingTop(60, 10);      
+ 
+ 
+ 
+ 
+ Django 
+ 
+ 
+ 
+ 
+   
+ 
+ 
+ 
+ 
+ dashboard 
+ all topics 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ Popular 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+        StackExchange.ready(function () {
+            StackExchange.docs.search.init({
+                popularTopicsJson: [{"Id":200,"DocTag":"django","Title":"Getting started with Django","Url":"/documentation/django/200/getting-started-with-django"},{"Id":942,"DocTag":"django","Title":"Settings","Url":"/documentation/django/942/settings"},{"Id":888,"DocTag":"django","Title":"Models","Url":"/documentation/django/888/models"},{"Id":1235,"DocTag":"django","Title":"Querysets","Url":"/documentation/django/1235/querysets"},{"Id":1721,"DocTag":"django","Title":"Middleware","Url":"/documentation/django/1721/middleware"}]
+            });
+        });
+     
+   
+ 
+ 
+ 
+ Topic 
+ 
+ 
+ 
+ 
+ 
+ 
+ You must  sign up  or  log in  to make a topic request. 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+    StackExchange.ready(function () {
+        StackExchange.docs.requestTopic.init('django');
+    });
+   
+ 
+ 
+ 
+ 
+ 
+ 
+ Getting started with Django   
+                Introduction Topic
+             
+ 
+ 
+ 
+ topic 
+ discuss (2) 
+ 
+ 
+ 
+ 
+ Title 
+ 
+ 
+ 
+ 
+ 
+ 
+   edit 
+ share 
+ request improvement 
+   edit 
+ move 
+ delete topic 
+ share 
+ 
+ 
+ 
+ 
+ 
+                var ados = ados || {}; ados.run = ados.run || [];
+                ados.run.push(function () { ados_add_placement(22,499571,"adzerk795811154",4).setZone(29); });
+             
+ 
+ 
+ 
+ 
+ This draft deletes the entire topic. 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+                    Examples
+                     
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 82 
+ 
+ Starting a Project 
+ 
+ 
+ 
+ 
+ 
+ 82 
+ 
+ 
+ 
+ 
+ 
+   
+ Django is a web development framework based on Python. Django  1.11  (the latest stable release) requires Python  2.7 ,  3.4 ,  3.5  or  3.6  to be installed. Assuming  pip  is available, installation is as simple as running the following command. Keep in mind, omitting the version as shown below will install the latest version of django: 
+ $ pip install django
+ 
+ For installing specific version of django, let's suppose the version is django  1.10.5  , run the following command: 
+ $ pip install django==1.10.5
+ 
+ Web applications built using Django must reside within a Django project. You can use the  django-admin  command to start a new project in the current directory: 
+ $ django-admin startproject myproject
+ 
+ where  myproject  is a name that uniquely identifies the project and can consist of  numbers ,  letters , and  underscores . 
+ This will create the following project structure: 
+ myproject/
+    manage.py
+    myproject/
+        __init__.py
+        settings.py
+        urls.py
+        wsgi.py
+ 
+ To run the application, start the development server 
+ $ cd myproject
+$ python manage.py runserver
+ 
+ Now that the server’s running, visit  http://127.0.0.1:8000/  with your web browser. You’ll see the following page: 
+ 
+ By default, the  runserver  command starts the development server on the internal IP at port  8000 . This server will automatically restart as you make changes to your code. But in case you add new files, you’ll have to manually restart the server. 
+ If you want to change the server’s port, pass it as a command-line argument. 
+ $ python manage.py runserver 8080
+ 
+ If you want to change the server’s IP, pass it along with the port. 
+ $ python manage.py runserver 0.0.0.0:8000
+ 
+ Note that  runserver  is only for debug builds and local testing. Specialised server programs (such as Apache) should always be used in production. 
+ Adding a Django App 
+ A Django project usually contains multiple  apps . This is simply a way to structure your project in smaller, maintainable modules. To create an app, go to your projectfolder (where  manage.py  is), and run the  startapp  command (change  myapp  to whatever you want): 
+ python manage.py startapp myapp
+ 
+ This will generate the  myapp  folder and some necessary files for you, like  models.py  and  views.py . 
+ In order to make Django aware of  myapp , add it to your  settings.py : 
+ # myproject/settings.py
+
+# Application definition
+INSTALLED_APPS = [
+    ...
+    'myapp',
+]
+ 
+ The folder-structure of a Django project can be changed to fit your preference. Sometimes the project folder is renamed to  /src  to avoid repeating folder names. A typical folder structure looks like this: 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ edited  May 7 at 8:45 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+                    +18
+                     
+ 
+ 
+   
+ 
+ 
+   edit 
+ share 
+ discuss 
+ request improvement 
+   edit 
+ move example 
+ delete example 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 52 
+ 
+ Virtual Environment 
+ 
+ 
+ 
+ 
+ 
+ 52 
+ 
+ 
+ Although not strictly required, it is highly recommended to start your project in a "virtual environment." A virtual environment is a  container  (a directory) that holds a specific version of Python and a set of modules (dependencies), and which does not interfere with the operating system's native Python or other projects on the same computer. 
+ By setting up a different virtual environment for each project you work on, various Django projects can run on different versions of Python, and can maintain their own sets of dependencies, without risk of conflict. 
+ Python 3.3+ 
+ Python 3.3+ already includes a standard  venv  module, which you can usually call as  pyvenv . In environments where the  pyvenv  command is not available, you can access the same functionality by directly invoking the module as  python3 -m venv . 
+ To create the Virtual environment: 
+ $ pyvenv <env-folder>
+# Or, if pyvenv is not available
+$ python3 -m venv <env-folder>
+ 
+ Python 2 
+ If using Python 2, you can first install it as a separate module from pip: 
+ $ pip install virtualenv
+ 
+ And then create the environment using the  virtualenv  command instead: 
+ $ virtualenv <env-folder>
+ 
+ Activate (any version) 
+ The virtual environment is now set up. In order to use it, it must be  activated  in the terminal you want to use it. 
+ To 'activate' the virtual environment (any Python version) 
+ Linux like: 
+ $ source <env-folder>/bin/activate
+ 
+ Windows like: 
+ <env-folder>\Scripts\activate.bat
+ 
+ This changes your prompt to indicate the virtual environment is active.
+ (<env-folder>) $ 
+ From now on, everything installed using  pip  will be installed to your virtual env folder, not system-wide. 
+ To leave the virtual environment use  deactivate  : 
+ (<env-folder>) $ deactivate
+ 
+ Alternatively: use virtualenvwrapper 
+ You may also consider using  virtualenvwrapper  which makes virtualenv creation and activation very handy as well as separating it from your code: 
+ # Create a virtualenv
+mkvirtualenv my_virtualenv
+
+# Activate a virtualenv
+workon my_virtualenv
+
+# Deactivate the current virtualenv
+deactivate
+ 
+ Alternatively: use pyenv + pyenv-viritualenv 
+ In environments where you need to handle multiple Python versions you can benefit from virtualenv together with pyenv-virtualenv: 
+ # Create a virtualenv for specific Python version
+pyenv virtualenv 2.7.10 my-virtual-env-2.7.10
+
+# Create a vritualenv for active python verion
+pyenv virtualenv venv34
+
+# Activate, deactivate virtualenv
+pyenv activate <name>
+pyenv deactivate
+ 
+ When using virtualenvs, it is often useful to set your  PYTHONPATH  and  DJANGO_SETTINGS_MODULE  in the  postactivate  script . 
+ #!/bin/sh
+# This hook is sourced after this virtualenv is activated
+
+# Set PYTHONPATH to isolate the virtualenv so that only modules installed
+# in the virtualenv are available
+export PYTHONPATH="/home/me/path/to/your/project_root:$VIRTUAL_ENV/lib/python3.4"
+
+# Set DJANGO_SETTINGS_MODULE if you don't use the default `myproject.settings`
+# or if you use `django-admin` rather than `manage.py`
+export DJANGO_SETTINGS_MODULE="myproject.settings.dev"
+ 
+ Set your Project Path 
+ It is often also helpful to set your project path inside a special  .project  file located in your base  <env-folder> . When doing this, everytime you activate your virtual environment, it will change the active directory to the specified path. 
+ Create a new file called  <env-folder>/.project . The contents of the file should ONLY be the path of the project directory. 
+ /path/to/project/directory
+ 
+ Now, initiate your virtual environment (either using  source <env-folder>/bin/activate  or  workon my_virtualenv ) and your terminal will change directories to  /path/to/project/directory . 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ edited  May 4 at 9:11 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+                    +4
+                     
+ 
+ 
+   
+ 
+ 
+   edit 
+ share 
+ discuss 
+ request improvement 
+   edit 
+ move example 
+ delete example 
+ 
+ 
+ 
+   
+ 
+                var ados = ados || {}; ados.run = ados.run || [];
+                ados.run.push(function () { ados_add_placement(22,499571,"adzerk1402238672",4).setZone(30); });
+             
+ 
+ 
+   
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 20 
+ 
+ Django Concepts 
+ 
+ 
+ 
+ 
+ 
+ 20 
+ 
+ 
+ django-admin  is a command line tool that ships with Django. It comes with  several useful commands  for getting started with and managing a Django project.
+The command is the same as  ./manage.py  , with the difference that you don't need to be in the project directory. The  DJANGO_SETTINGS_MODULE  environment variable needs to be set. 
+ A  Django project  is a Python codebase that contains a Django settings file.  A project can be created by the Django admin through the command  django-admin startproject NAME .  The project typically has a file called  manage.py  at the top level and a root URL file called  urls.py .   manage.py  is a project specific version of  django-admin , and lets you run management commands on that project.  For example, to run your project locally, use  python manage.py runserver . A project is made up of Django apps. 
+ A  Django app  is a Python package that contains a models file ( models.py  by default) and other files such as app-specific urls and views.  An app can be created through the command  django-admin startapp NAME  (this command should be run from inside your project directory).  For an app to be part of a project, it must be included in the  INSTALLED_APPS  list in  settings.py .  If you used the standard configuration, Django comes with several apps of it's own apps preinstalled which will handle things like  authentication  for you. Apps can be used in multiple Django projects. 
+ The  Django ORM  collects all of the database models defined in  models.py  and creates database tables based on those model classes.  To do this, first, setup your database by modifying the  DATABASES  setting in  settings.py .  Then, once you have defined your  database models , run  python manage.py makemigrations  followed by  python manage.py migrate  to create or update your database's schema based on your models. 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ edited  Apr 6 at 3:16 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+                    +3
+                     
+ 
+ 
+   
+ 
+ 
+   edit 
+ share 
+ discuss 
+ request improvement 
+   edit 
+ move example 
+ delete example 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 19 
+ 
+ Single File Hello World Example 
+ 
+ 
+ 
+ 
+ 
+ 19 
+ 
+ 
+ This example shows you a minimal way to create a Hello World page in Django. This will help you realize that the  django-admin startproject example  command basically creates a bunch of folders and files and that you don't necessarily need that structure to run your project. 
+ 
+ 
+ Create a file called  file.py . 
+ 
+ 
+ Copy and paste the following code in that file. 
+  import sys
+ 
+ from django.conf import settings
+ 
+ settings.configure(
+     DEBUG=True,
+     SECRET_KEY='thisisthesecretkey',
+     ROOT_URLCONF=__name__,
+     MIDDLEWARE_CLASSES=(
+         'django.middleware.common.CommonMiddleware',
+         'django.middleware.csrf.CsrfViewMiddleware',
+         'django.middleware.clickjacking.XFrameOptionsMiddleware',
+     ),
+ )
+ 
+ from django.conf.urls import url
+ from django.http import HttpResponse
+ 
+ # Your code goes below this line.
+
+ def index(request):
+     return HttpResponse('Hello, World!')
+
+ urlpatterns = [
+     url(r'^$', index),
+ ]
+
+ # Your code goes above this line
+ 
+ if __name__ == "__main__":
+     from django.core.management import execute_from_command_line
+ 
+     execute_from_command_line(sys.argv)
+ 
+ 
+ 
+ Go to the terminal and run the file with this command  python file.py runserver . 
+ 
+ 
+ Open your browser and go to  127.0.0.1:8000 . 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ edited  Sep 14 '16 at 2:25 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+   
+ 
+ 
+   edit 
+ share 
+ discuss 
+ request improvement 
+   edit 
+ move example 
+ delete example 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 9 
+ 
+ A complete hello world example. 
+ 
+ 
+ 
+ 
+ 
+ 9 
+ 
+ 
+ Step 1 
+If you already have Django installed, you can skip this step. 
+ pip install Django
+ 
+ Step 2 
+Create a new project 
+ django-admin startproject hello
+ 
+ Step 3 
+Create a file called hello/views.py and put in the following content: 
+ from django.http import HttpResponse
+
+def hello(request):
+    return HttpResponse('Hello, World')
+ 
+ Step 4 
+Edit hello/urls.py as follows: 
+ from django.conf.urls import url
+from django.contrib import admin
+from hello import views
+
+urlpatterns = [
+    url(r'^admin/', admin.site.urls),
+    url(r'^$', views.hello)
+]
+ 
+ Step 5 
+Start the server. 
+ python manage.py runserver
+ 
+ Step 6 
+ Browse to  http://localhost:8000/  and you will see: 
+ 
+ Hello, World 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ edited  Jul 25 '16 at 10:39 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+   
+ 
+ 
+   edit 
+ share 
+ discuss (1) 
+ request improvement 
+   edit 
+ move example 
+ delete example 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 6 
+ 
+ Deployment friendly Project with Docker support. 
+ 
+ 
+ 
+ 
+ 
+ 6 
+ 
+ 
+ The default Django project template is fine but once you get to deploy your code and for example devops put their hands on the project things get messy. What you can do is separate your source code from the rest that is required to be in your repository. 
+ 
+ You can find a usable Django project template on  GitHub . 
+ 
+ Project Structure 
+ PROJECT_ROOT
+├── devel.dockerfile
+├── docker-compose.yml
+├── nginx
+│   └── project_name.conf
+├── README.md
+├── setup.py
+└── src
+    ├── manage.py
+    └── project_name
+        ├── __init__.py
+        └── service
+            ├── __init__.py
+            ├── settings
+            │   ├── common.py
+            │   ├── development.py
+            │   ├── __init__.py
+            │   └── staging.py
+            ├── urls.py
+            └── wsgi.py
+ 
+ I like to keep the  service  directory named  service  for every project thanks to that I can use the same  Dockerfile  across all my projects.
+The split of requirements and settings are already well documented here: 
+ Using multiple requirements files 
+ Using multiple settings 
+ Dockerfile 
+ With the assumption that only developers make use of Docker (not every dev ops trust it these days). This could be a dev environment  devel.dockerfile : 
+ FROM python:2.7
+ENV PYTHONUNBUFFERED 1
+
+RUN mkdir /run/service
+ADD . /run/service
+WORKDIR /run/service
+
+RUN pip install -U pip
+RUN pip install -I -e .[develop] --process-dependency-links
+
+WORKDIR /run/service/src
+ENTRYPOINT ["python", "manage.py"]
+CMD ["runserver", "0.0.0.0:8000"]
+ 
+ Adding only requirements will leverage Docker cache while building - you only need to rebuild on requirements change. 
+ Compose 
+ Docker compose comes in handy - especially when you have multiple services to run locally.  docker-compose.yml : 
+ version: '2'
+services:
+  web:
+    build:
+      context: .
+      dockerfile: devel.dockerfile
+    volumes:
+      - "./src/{{ project_name }}:/run/service/src/{{ project_name }}"
+      - "./media:/run/service/media"
+    ports:
+      - "8000:8000"
+    depends_on:
+      - db
+  db:
+    image: mysql:5.6
+    environment:
+      - MYSQL_ROOT_PASSWORD=root
+      - MYSQL_DATABASE={{ project_name }}
+  nginx:
+    image: nginx
+    ports:
+      - "80:80"
+    volumes:
+      - "./nginx:/etc/nginx/conf.d"
+      - "./media:/var/media"
+    depends_on:
+      - web
+ 
+ Nginx 
+ Your development environment should be as close to the prod environment as possible so I like using Nginx from the start. Here is an example nginx configuration file: 
+ server {
+    listen   80;
+    client_max_body_size 4G;
+    keepalive_timeout 5;
+
+    location /media/ {
+        autoindex on;
+        alias /var/media/;
+    }
+
+    location / {
+        proxy_pass_header Server;
+        proxy_set_header Host $http_host;
+        proxy_redirect off;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Scheme $scheme;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-Ssl on;
+        proxy_connect_timeout 600;
+        proxy_read_timeout 600;
+        proxy_pass http://web:8000/;
+    }
+}
+ 
+ Usage 
+ $ cd PROJECT_ROOT
+$ docker-compose build web  # build the image - first-time and after requirements change
+$ docker-compose up  # to run the project
+$ docker-compose run --rm --service-ports --no-deps  # to run the project - and be able to use PDB
+$ docker-compose run --rm --no-deps <management_command>  # to use other than runserver commands, like makemigrations
+$ docker exec -ti web bash  # For accessing django container shell, using it you will be inside /run/service directory, where you can run ./manage shell, or other stuff
+$ docker-compose start  # Starting docker containers
+$ docker-compose stop  # Stopping docker containers
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ edited  Jan 12 at 11:38 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+   
+ 
+ 
+   edit 
+ share 
+ discuss 
+ request improvement 
+   edit 
+ move example 
+ delete example 
+ 
+ 
+ 
+ 
+ 
+ 
+ + 
+            Add Example
+         
+ 
+ 
+ 
+        Please consider making a request to improve this example.
+         Request Improvement 
+ 
+ 
+ 
+ 
+ 
+ Remarks 
+ Django advertises itself as "the web framework for perfectionists with deadlines" and "Django makes it easier to build better Web apps more quickly and with less code". It can be seen as an MVC architecture. At it's core it has: 
+ 
+ a lightweight and standalone web server for development and testing 
+ a form serialization and validation system that can translate between HTML forms and values suitable for storage in the database 
+ a template system that utilizes the concept of inheritance borrowed from object-oriented programming 
+ a caching framework that can use any of several cache methods
+support for middleware classes that can intervene at various stages of request processing and carry out custom functions 
+ an internal dispatcher system that allows components of an application to communicate events to each other via pre-defined signals 
+ an internationalization system, including translations of Django's own components into a variety of languages 
+ a serialization system that can produce and read XML and/or JSON representations of Django model instances 
+ a system for extending the capabilities of the template engine 
+ an interface to Python's built in unit test framework 
+ 
+ 
+ 
+ 
+   edit 
+ share 
+ 
+   edit 
+ 
+ 
+ 
+ 
+ 
+ 
+ Versions 
+ Version Release Date 1.11 2017-04-04 1.10 2016-08-01 1.9 2015-12-01 1.8 2015-04-01 1.7 2014-09-02 1.6 2013-11-06 1.5 2013-02-26 1.4 2012-03-23 1.3 2011-03-23 1.2 2010-05-17 1.1 2009-07-29 1.0 2008-09-03 
+ 
+ 
+ 
+   edit 
+ share 
+ 
+   edit 
+ 
+ 
+ 
+ 
+ 
+ 
+ edited  Apr 13 at 10:59 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+                    +6
+                     
+ 
+ 
+   
+ 
+ Still have a question about Getting started with Django? 
+ Ask Question 
+ 
+ 
+ 
+ 
+ Topic Outline 
+ 
+ 6 Examples 
+ 
+ 
+ 
+ 
+ Starting a Project 
+ 
+ 
+ Virtual Environment 
+ 
+ 
+ Django Concepts 
+ 
+ 
+ Single File Hello World Example 
+ 
+ 
+ A complete hello world example. 
+ 
+ 
+ Deployment friendly Project with Docker support. 
+ 
+ Show more 
+ 
+ 
+ Remarks 
+ 
+ Versions 
+ 
+ 
+ 
+                    Blog
+                 
+ 
+ 
+ 
+ 
+   
+ 
+ 
+ Trends in Government Software Developers 
+ 
+ 
+ 
+ 
+ 
+ 
+   
+ 
+ 
+ Introducing Channels: Private Q&A for Your Team 
+ 
+ 
+ 
+ 
+   
+ 
+                var ados = ados || {}; ados.run = ados.run || [];
+                ados.run.push(function () { ados_add_placement(22,499571,"adzerk2120122359",5).setZone(56016); });
+             
+ 
+ 
+ 
+ 
+        StackExchange.ready(function () { $.get('/documentation/django/ivc/200-636356027657195823:duajgstcktsjosnuapjptmcna8.gif?topicId=200'); });
+     
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+                    Topic Outline
+                         
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ Save Draft 
+ Discard 
+ 
+ 
+ 
+ 
+ Sign up or log in 
+ Save edit as a guest 
+ Join Stack Overflow 
+ 
+ 
+ 
+ Using Google 
+ 
+ 
+ Using Facebook 
+ 
+ 
+ Using Email and Password 
+ 
+ 
+ 
+ 
+ Name 
+ 
+ 
+ 
+ Email 
+ 
+ Save Draft 
+ 
+ 
+ 
+ 
+ We recognize you from another Stack Exchange Network site! 
+ Join and Save Draft 
+ 
+ Discard Draft 
+ 
+ 
+ 
+ default 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ Stack Overflow 
+ 
+ Questions 
+ Jobs 
+ Developer Jobs Directory 
+ Documentation 
+ Help 
+ Mobile 
+ 
+ 
+ 
+ Stack Overflow  Business 
+ 
+ Talent 
+ Ads 
+ Enterprise 
+ Insights 
+ 
+ 
+ 
+ Company 
+ 
+ About 
+ Press 
+ Work Here 
+ Legal 
+ Privacy Policy 
+ Contact Us 
+ 
+ 
+ 
+ 
+ 
+ Stack Exchange  Network 
+ 
+ Technology 
+ Life / Arts 
+ Culture / Recreation 
+ Science 
+ Other 
+ 
+ 
+ 
+ 
+ 
+ Stack Overflow 
+ Server Fault 
+ Super User 
+ Web Applications 
+ Ask Ubuntu 
+ Webmasters 
+ Game Development 
+ 
+ TeX - LaTeX 
+ Software Engineering 
+ Unix & Linux 
+ Ask Different (Apple) 
+ WordPress Development 
+ Geographic Information Systems 
+ Electrical Engineering 
+ 
+ Android Enthusiasts 
+ Information Security 
+ Database Administrators 
+ Drupal Answers 
+ SharePoint 
+ User Experience 
+ Data Science 
+ 
+ Mathematica 
+ Salesforce 
+ ExpressionEngine® Answers 
+ Blender 
+ Network Engineering 
+ Cryptography 
+ Code Review 
+ 
+ Magento 
+ Software Recommendations 
+ Signal Processing 
+ Emacs 
+ Raspberry Pi 
+ Programming Puzzles & Code Golf 
+ Ethereum 
+ 
+ 
+ 
+                            more (27)
+                         
+ 
+ 
+ 
+ 
+ 
+ 
+ Photography 
+ Science Fiction & Fantasy 
+ Graphic Design 
+ Movies & TV 
+ Music: Practice & Theory 
+ Worldbuilding 
+ Seasoned Advice (cooking) 
+ 
+ Home Improvement 
+ Personal Finance & Money 
+ Academia 
+ Law 
+ 
+ 
+ 
+                            more (16)
+                         
+ 
+ 
+ 
+ 
+ 
+ 
+ English Language & Usage 
+ Skeptics 
+ Mi Yodeya (Judaism) 
+ Travel 
+ Christianity 
+ English Language Learners 
+ Japanese Language 
+ 
+ Arqade (gaming) 
+ Bicycles 
+ Role-playing Games 
+ Anime & Manga 
+ Puzzling 
+ Motor Vehicle Maintenance & Repair 
+ 
+ 
+ 
+                            more (32)
+                         
+ 
+ 
+ 
+ 
+ 
+ 
+ MathOverflow 
+ Mathematics 
+ Cross Validated (stats) 
+ Theoretical Computer Science 
+ Physics 
+ Chemistry 
+ Biology 
+ 
+ Computer Science 
+ Philosophy 
+ 
+ 
+ 
+                            more (10)
+                         
+ 
+ 
+ 
+ 
+ 
+ 
+ Meta Stack Exchange 
+ Stack Apps 
+ API 
+ Data 
+ Area 51 
+ 
+ 
+ 
+ 
+ 
+ Blog 
+ Facebook 
+ Twitter 
+ LinkedIn 
+ 
+ 
+ 
+                                    site design / logo © 2017 Stack Exchange Inc; user contributions licensed under  cc by-sa 3.0 
+                                    with  attribution required .
+                                     rev 2017.7.13.1278 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ Stack Overflow works best with JavaScript enabled
+             
+ 
+ 
+ var z=document.createElement("script");z.type="text/javascript",z.async=!0,z.src="https://static.adzerk.net/ados.js";var s=document.getElementsByTagName("script")[0];s.parentNode.insertBefore(z,s); 
+ 
+var ados = ados || {};
+ados.run = ados.run || [];
+
+ 
+ 
+            (function(i, s, o, g, r, a, m) {
+                i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function() { (i[r].q = i[r].q || []).push(arguments) }, i[r].l = 1 * new Date(); a = s.createElement(o),
+                m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m);
+            })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+                ga('create', 'UA-5620270-1');
+                ga('create', 'UA-5620270-60', {name: 'pageData', sampleRate: 100 });
+                ga('send', 'pageview');
+                ga('pageData.send', 'pageview');
+        var _qevents = _qevents || [],
+            _comscore = _comscore || [];
+        (function () {
+            var ssl='https:'==document.location.protocol,
+                s=document.getElementsByTagName('script')[0],
+                qc=document.createElement('script');
+                qc.async = true;
+                qc.src = (ssl ? 'https://secure' : 'http://edge') + '.quantserve.com/quant.js';
+                s.parentNode.insertBefore(qc, s);
+                _qevents.push({ qacct: "p-c1rF4kxgLUzNc" });
+                            var sc=document.createElement('script');
+                sc.async=true;
+                sc.src=(ssl?'https://sb':'http://b') + '.scorecardresearch.com/beacon.js';
+                s.parentNode.insertBefore(sc, s);
+                _comscore.push({ c1: "2", c2: "17440561" });
+        })();
+
+     
+ 
+                
+                (function(appendChild) {
+                    Node.prototype.appendChild = function() {
+                        var parent = this;
+                        var newNode = arguments[0];
+                        if (parent.nodeName === 'HEAD'
+                            && newNode
+                            && newNode.nodeName === 'SCRIPT'
+                            && newNode.src) {
+                            
+                            window.setTimeout(function() {
+                                var result = newNode.src.match(/^https:\/\/maps\.googleapis\.com\/maps\/api\/place\/js\/(\w+)Service\./i) || [];
+                                var service = result[1];
+                                if (service) {
+                                    if (service === 'Autocompletion') service =  2;
+                                    else if (service === 'Place') service = 1;
+                                    else service = 0;
+                                    StackExchange.using('gps', function() {
+                                        StackExchange.gps.track('google_maps_places_api.call', { service: service });
+                                    });
+                                }
+                            }, 0);
+                        }
+                        return appendChild.apply(this, arguments);
+                    };
+                })(Node.prototype.appendChild);
+             

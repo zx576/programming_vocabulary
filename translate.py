@@ -7,13 +7,14 @@
 import requests
 import time
 
-from models import Word
+from models_exp import NewWord
+from spiders.utils import Utils
 
 
 class Translate:
 
     def __init__(self):
-        # self.req = Rep()
+        # self.util = Utils()
         pass
 
     # translation api, tranlate a english word to chinese
@@ -29,17 +30,52 @@ class Translate:
             return None
         return res[0].get('v', None)
 
+    # iciba api / 金山词典 api
+    # baidu api dont contain Phonogram , so change an api
+    def _trans_ici(self, word):
+
+        url = 'http://www.iciba.com/index.php?a=getWordMean&c=search&word=' + word
+        try:
+            req = requests.get(url)
+            req.raise_for_status()
+            info = req.json()
+            data = info['baesInfo']['symbols'][0]
+            assert info['baesInfo']['symbols'][0]
+            # 去除没有音标的单词
+            assert data['ph_am'] and data['ph_en']
+            # 去除没有词性的单词
+            assert data['parts'][0]['part']
+
+        except:
+            return
+
+        ph_en = '英 [' + data['ph_en'] + ']'
+        ph_am = '美 [' + data['ph_am'] + ']'
+        ex = ''
+        for part in data['parts']:
+            ex += part['part'] + ';'.join(part['means']) + ';'
+
+        return ph_en+ph_am
+
+    # 扇贝单词 api
+    def _trans_shanbay(self, word):
+        url = 'https://api.shanbay.com/bdc/search/?word=' + word
+        req = requests.get(url)
+        print(req.json())
+
     def trans(self):
 
-        query = Word.select().where(Word.explanation == '')
+        query = NewWord.select().where(NewWord.explanation != '')
         if not query:
             return
         for word in query:
 
-            res = self._trans(word.name)
+            res = self._trans_ici(word.name)
             print(res)
             if res:
-                word.explanation = res
+                word.phonogram = res
+                # word.
+                # word.explanation = res
 
             else:
                 word.is_valid = False
@@ -47,7 +83,7 @@ class Translate:
             time.sleep(1)
 
     def _test(self):
-        query = Word.select()
+        query = NewWord.select()
 
         for word in query[:100]:
             print(word.name)
@@ -56,8 +92,7 @@ class Translate:
 
 
 t = Translate()
-# res = t._trans('student')
+# res = t._trans_shanbay('hello')
 # print(res)
 # t._test()
 t.trans()
-

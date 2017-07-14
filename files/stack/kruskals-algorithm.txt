@@ -1,0 +1,1091 @@
+
+ (function () { var old = $.fn.contents; $.fn.contents = function () { try { return old.apply(this, arguments); } catch (e) { return $([]); } } })() 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ Stack Overflow 
+ 
+ 
+ 
+ 
+ Questions 
+ 
+ 
+ Developer Jobs 
+ 
+ 
+ Documentation  beta 
+ 
+ 
+ Tags 
+ 
+ 
+ Users 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ current community 
+ 
+ 
+ 
+ 
+ 
+ 
+ help 
+ chat 
+ 
+ 
+ 
+        Stack Overflow
+     
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+        Meta Stack Overflow
+     
+ 
+ 
+ 
+ 
+ 
+your communities             
+ 
+ 
+ 
+ Sign up  or  log in  to customize your list.
+                 
+ 
+ 
+ more stack exchange communities 
+ 
+ company blog 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+                            Tour
+                             
+                                Start here for a quick overview of the site
+                             
+ 
+ 
+ 
+ 
+                        Help Center
+                         
+                            Detailed answers to any questions you might have
+                         
+ 
+ 
+ 
+ 
+                                Meta
+                                 
+                                    Discuss the workings and policies of this site
+                                 
+ 
+ 
+ 
+ 
+                                About Us
+                                 
+                                    Learn more about Stack Overflow the company
+                                 
+ 
+ 
+ 
+ 
+                                Business
+                                 
+                                    Learn more about hiring developers or posting ads with us
+                                 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ Log In 
+ Sign Up 
+ 
+ 
+ 
+ 
+ 
+        StackExchange.ready(function () { StackExchange.topbar.init(); });
+            StackExchange.scrollPadding.setPaddingTop(60, 10);      
+ 
+ 
+ 
+ 
+ algorithm 
+ 
+ 
+ 
+ 
+   
+ 
+ 
+ 
+ 
+ dashboard 
+ all topics 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ Popular 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+        StackExchange.ready(function () {
+            StackExchange.docs.search.init({
+                popularTopicsJson: [{"Id":1529,"DocTag":"algorithm","Title":"Algorithm Complexity","Url":"/documentation/algorithm/1529/algorithm-complexity"},{"Id":757,"DocTag":"algorithm","Title":"Getting started with algorithm","Url":"/documentation/algorithm/757/getting-started-with-algorithm"},{"Id":4770,"DocTag":"algorithm","Title":"Big-O Notation","Url":"/documentation/algorithm/4770/big-o-notation"},{"Id":5735,"DocTag":"algorithm","Title":"Binary Search Trees","Url":"/documentation/algorithm/5735/binary-search-trees"},{"Id":2299,"DocTag":"algorithm","Title":"Graph","Url":"/documentation/algorithm/2299/graph"}]
+            });
+        });
+     
+   
+ 
+ 
+ 
+ Topic 
+ 
+ 
+ 
+ 
+ 
+ 
+ You must  sign up  or  log in  to make a topic request. 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+    StackExchange.ready(function () {
+        StackExchange.docs.requestTopic.init('algorithm');
+    });
+   
+ 
+ 
+ 
+ 
+ 
+ 
+ Kruskal's Algorithm 
+ 
+ 
+ 
+ topic 
+ discuss 
+ 
+ 
+ 
+ 
+ Title 
+ 
+ 
+ 
+ Versions 
+ 
+ 
+ Introduction 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+   add introduction 
+ edit 
+ share 
+ request improvement 
+   edit 
+ move 
+ delete topic 
+ share 
+ 
+ 
+ 
+ 
+ 
+                var ados = ados || {}; ados.run = ados.run || [];
+                ados.run.push(function () { ados_add_placement(22,499571,"adzerk1391375035",4).setZone(29); });
+             
+ 
+ 
+ 
+ 
+ This draft deletes the entire topic. 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+                    Examples
+                     
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 1 
+ 
+ Optimal, disjoint-set based implementation 
+ 
+ 
+ 
+ 
+ 
+ 1 
+ 
+ 
+ 
+ 
+ 
+   
+ We can do two things to improve the simple and sub-optimal disjoint-set subalgorithms: 
+ 
+ 
+ Path compression heuristic :  findSet  does not need to ever handle a tree with height bigger than  2 . If it ends up iterating such a tree, it can link the lower nodes directly to the root, optimizing future traversals; 
+ subalgo findSet(v: a node):
+    if v.parent != v
+        v.parent = findSet(v.parent)
+    return v.parent
+ 
+ 
+ 
+ Height-based merging heuristic : for each node, store the height of its subtree. When merging, make the taller tree the parent of the smaller one, thus not increasing anyone's height. 
+ subalgo unionSet(u, v: nodes):
+    vRoot = findSet(v)
+    uRoot = findSet(u)
+
+    if vRoot == uRoot:
+        return
+
+    if vRoot.height < uRoot.height:
+        vRoot.parent = uRoot
+    else if vRoot.height > uRoot.height:
+        uRoot.parent = vRoot
+    else:
+        uRoot.parent = vRoot
+        uRoot.height =  uRoot.height + 1
+ 
+ 
+ 
+ This leads to  O(alpha(n))  time for each operation, where  alpha  is the inverse of the fast-growing Ackermann function, thus it is very slow growing, and can be considered  O(1)  for practical purposes. 
+ This makes the entire Kruskal's algorithm  O(m log m + m) = O(m log m) , because of the initial sorting. 
+ Note 
+ Path compression may reduce the height of the tree, hence comparing heights of the trees during union operation might not be a trivial task. Hence to avoid the complexity of storing and calculating the height of the trees the resulting parent can be picked randomly: 
+     subalgo unionSet(u, v: nodes):
+        vRoot = findSet(v)
+        uRoot = findSet(u)
+
+        if vRoot == uRoot:
+            return
+        if random() % 2 == 0:
+            vRoot.parent = uRoot
+        else:
+            uRoot.parent = vRoot
+ 
+ In practice this randomised algorithm together with path compression for  findSet  operation will result in comparable performance, yet much simpler to implement. 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ edited  Jul 31 '16 at 14:53 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+   
+ 
+ 
+   edit 
+ share 
+ discuss 
+ request improvement 
+   edit 
+ move example 
+ delete example 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 0 
+ 
+ Simple, disjoint-set based implementation 
+ 
+ 
+ 
+ 
+ 
+ 0 
+ 
+ 
+ The above forest methodology is actually a disjoint-set data structure, which involves three main operations: 
+ subalgo makeSet(v: a node):
+    v.parent = v    <- make a new tree rooted at v
+    
+
+subalgo findSet(v: a node):
+    if v.parent == v:
+        return v
+    return findSet(v.parent)
+
+subalgo unionSet(v, u: nodes):
+    vRoot = findSet(v)
+    uRoot = findSet(u)
+
+    uRoot.parent = vRoot
+
+algorithm kruskalMST''(G: a graph):
+    sort G's edges by their value
+    for each node n in G:
+        makeSet(n)
+    for each edge e in G:
+        if findSet(e.first) != findSet(e.second):
+            unionSet(e.first, e.second)
+ 
+ This naive implementation leads to  O(n log n)  time for managing the disjoint-set data structure, leading to  O(m*n log n)  time for the entire Kruskal's algorithm. 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ created  Jul 22 '16 at 16:45 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+   
+ 
+ 
+   edit 
+ share 
+ discuss 
+ request improvement 
+   edit 
+ move example 
+ delete example 
+ 
+ 
+ 
+   
+ 
+                var ados = ados || {}; ados.run = ados.run || [];
+                ados.run.push(function () { ados_add_placement(22,499571,"adzerk999073819",4).setZone(30); });
+             
+ 
+ 
+   
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 0 
+ 
+ Simple, high level implementation 
+ 
+ 
+ 
+ 
+ 
+ 0 
+ 
+ 
+ Sort the edges by value and add each one to the MST in sorted order, if it doesn't create a cycle. 
+ algorithm kruskalMST(G: a graph)
+    sort G's edges by their value
+    MST = an empty graph
+    for each edge e in G:
+        if adding e to MST does not create a cycle:
+            add e to MST
+
+    return MST
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ created  Jul 22 '16 at 16:45 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+   
+ 
+ 
+   edit 
+ share 
+ discuss 
+ request improvement 
+   edit 
+ move example 
+ delete example 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 0 
+ 
+ Simple, more detailed implementation 
+ 
+ 
+ 
+ 
+ 
+ 0 
+ 
+ 
+ In order to efficiently handle cycle detection, we consider each node as part of a tree. When adding an edge, we check if its two component nodes are part of distinct trees. Initially, each node makes up a one-node tree. 
+ algorithm kruskalMST'(G: a graph)
+    sort G's edges by their value
+    MST = a forest of trees, initially each tree is a node in the graph
+    for each edge e in G:
+        if the root of the tree that e.first belongs to is not the same 
+        as the root of the tree that e.second belongs to:
+            connect one of the roots to the other, thus merging two trees
+    
+    return MST, which now a single-tree forest
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ created  Jul 22 '16 at 16:45 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+   
+ 
+ 
+   edit 
+ share 
+ discuss 
+ request improvement 
+   edit 
+ move example 
+ delete example 
+ 
+ 
+ 
+ 
+ 
+ 
+ + 
+            Add Example
+         
+ 
+ 
+ 
+        Please consider making a request to improve this example.
+         Request Improvement 
+ 
+ 
+ 
+ 
+ 
+ Syntax 
+ 
+ 
+ Syntax 
+ 
+ 
+ 
+   add syntax 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ Parameters 
+ 
+ 
+ Parameters 
+ 
+ 
+ 
+   add parameters 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ Remarks 
+ Kruskal's Algorithm is a  greedy  algorithm used to find  Minimum Spanning Tree (MST)  of a graph. A minimum spanning tree is a tree which connects all the vertices of the graph and has the minimum total edge weight. 
+ Kruskal's algorithm does so by repeatedly picking out edges with  minimum weight  (which are not already in the MST) and add them to the final result if the two vertices connected by that edge are not yet connected in the MST, otherwise it skips that edge. Union - Find data structure can be used to check whether two vertices are already connected in the MST or not. A few properties of MST are as follows: 
+ 
+ A MST of a graph with  n  vertices will have exactly  n-1  edges. 
+ There exists a unique path from each vertex to every other vertex. 
+ 
+ 
+ 
+ 
+   edit 
+ share 
+ 
+   edit 
+ 
+ 
+ 
+ 
+ 
+ 
+ edited  Jul 25 '16 at 10:09 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+   
+ 
+ Still have a question about Kruskal's Algorithm? 
+ Ask Question 
+ 
+ 
+ 
+ 
+ Topic Outline 
+ 
+ 4 Examples 
+ 
+ 
+ 
+ 
+ Optimal, disjoint-set based implementation 
+ 
+ 
+ Simple, disjoint-set based implementation 
+ 
+ 
+ Simple, high level implementation 
+ 
+ 
+ Simple, more detailed implementation 
+ 
+ Show more 
+ 
+ 
+ Remarks 
+ 
+ 
+ 
+ 
+                    Blog
+                 
+ 
+ 
+ 
+ 
+   
+ 
+ 
+ Trends in Government Software Developers 
+ 
+ 
+ 
+ 
+ 
+ 
+   
+ 
+ 
+ Introducing Channels: Private Q&A for Your Team 
+ 
+ 
+ 
+ 
+   
+ 
+                var ados = ados || {}; ados.run = ados.run || [];
+                ados.run.push(function () { ados_add_placement(22,499571,"adzerk2021874060",5).setZone(56016); });
+             
+ 
+ 
+ 
+ 
+        StackExchange.ready(function () { $.get('/documentation/algorithm/ivc/2583-636356029615143497:jjt-umi0mkramovbz1tj0rquwkm.gif?topicId=2583'); });
+     
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+                    Topic Outline
+                         
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ Save Draft 
+ Discard 
+ 
+ 
+ 
+ 
+ Sign up or log in 
+ Save edit as a guest 
+ Join Stack Overflow 
+ 
+ 
+ 
+ Using Google 
+ 
+ 
+ Using Facebook 
+ 
+ 
+ Using Email and Password 
+ 
+ 
+ 
+ 
+ Name 
+ 
+ 
+ 
+ Email 
+ 
+ Save Draft 
+ 
+ 
+ 
+ 
+ We recognize you from another Stack Exchange Network site! 
+ Join and Save Draft 
+ 
+ Discard Draft 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ Stack Overflow 
+ 
+ Questions 
+ Jobs 
+ Developer Jobs Directory 
+ Documentation 
+ Help 
+ Mobile 
+ 
+ 
+ 
+ Stack Overflow  Business 
+ 
+ Talent 
+ Ads 
+ Enterprise 
+ Insights 
+ 
+ 
+ 
+ Company 
+ 
+ About 
+ Press 
+ Work Here 
+ Legal 
+ Privacy Policy 
+ Contact Us 
+ 
+ 
+ 
+ 
+ 
+ Stack Exchange  Network 
+ 
+ Technology 
+ Life / Arts 
+ Culture / Recreation 
+ Science 
+ Other 
+ 
+ 
+ 
+ 
+ 
+ Stack Overflow 
+ Server Fault 
+ Super User 
+ Web Applications 
+ Ask Ubuntu 
+ Webmasters 
+ Game Development 
+ 
+ TeX - LaTeX 
+ Software Engineering 
+ Unix & Linux 
+ Ask Different (Apple) 
+ WordPress Development 
+ Geographic Information Systems 
+ Electrical Engineering 
+ 
+ Android Enthusiasts 
+ Information Security 
+ Database Administrators 
+ Drupal Answers 
+ SharePoint 
+ User Experience 
+ Data Science 
+ 
+ Mathematica 
+ Salesforce 
+ ExpressionEngine® Answers 
+ Blender 
+ Network Engineering 
+ Cryptography 
+ Code Review 
+ 
+ Magento 
+ Software Recommendations 
+ Signal Processing 
+ Emacs 
+ Raspberry Pi 
+ Programming Puzzles & Code Golf 
+ Ethereum 
+ 
+ 
+ 
+                            more (27)
+                         
+ 
+ 
+ 
+ 
+ 
+ 
+ Photography 
+ Science Fiction & Fantasy 
+ Graphic Design 
+ Movies & TV 
+ Music: Practice & Theory 
+ Worldbuilding 
+ Seasoned Advice (cooking) 
+ 
+ Home Improvement 
+ Personal Finance & Money 
+ Academia 
+ Law 
+ 
+ 
+ 
+                            more (16)
+                         
+ 
+ 
+ 
+ 
+ 
+ 
+ English Language & Usage 
+ Skeptics 
+ Mi Yodeya (Judaism) 
+ Travel 
+ Christianity 
+ English Language Learners 
+ Japanese Language 
+ 
+ Arqade (gaming) 
+ Bicycles 
+ Role-playing Games 
+ Anime & Manga 
+ Puzzling 
+ Motor Vehicle Maintenance & Repair 
+ 
+ 
+ 
+                            more (32)
+                         
+ 
+ 
+ 
+ 
+ 
+ 
+ MathOverflow 
+ Mathematics 
+ Cross Validated (stats) 
+ Theoretical Computer Science 
+ Physics 
+ Chemistry 
+ Biology 
+ 
+ Computer Science 
+ Philosophy 
+ 
+ 
+ 
+                            more (10)
+                         
+ 
+ 
+ 
+ 
+ 
+ 
+ Meta Stack Exchange 
+ Stack Apps 
+ API 
+ Data 
+ Area 51 
+ 
+ 
+ 
+ 
+ 
+ Blog 
+ Facebook 
+ Twitter 
+ LinkedIn 
+ 
+ 
+ 
+                                    site design / logo © 2017 Stack Exchange Inc; user contributions licensed under  cc by-sa 3.0 
+                                    with  attribution required .
+                                     rev 2017.7.13.1278 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ Stack Overflow works best with JavaScript enabled
+             
+ 
+ 
+ var z=document.createElement("script");z.type="text/javascript",z.async=!0,z.src="https://static.adzerk.net/ados.js";var s=document.getElementsByTagName("script")[0];s.parentNode.insertBefore(z,s); 
+ 
+var ados = ados || {};
+ados.run = ados.run || [];
+
+ 
+ 
+            (function(i, s, o, g, r, a, m) {
+                i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function() { (i[r].q = i[r].q || []).push(arguments) }, i[r].l = 1 * new Date(); a = s.createElement(o),
+                m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m);
+            })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+                ga('create', 'UA-5620270-1');
+                ga('create', 'UA-5620270-60', {name: 'pageData', sampleRate: 100 });
+                ga('send', 'pageview');
+                ga('pageData.send', 'pageview');
+        var _qevents = _qevents || [],
+            _comscore = _comscore || [];
+        (function () {
+            var ssl='https:'==document.location.protocol,
+                s=document.getElementsByTagName('script')[0],
+                qc=document.createElement('script');
+                qc.async = true;
+                qc.src = (ssl ? 'https://secure' : 'http://edge') + '.quantserve.com/quant.js';
+                s.parentNode.insertBefore(qc, s);
+                _qevents.push({ qacct: "p-c1rF4kxgLUzNc" });
+                            var sc=document.createElement('script');
+                sc.async=true;
+                sc.src=(ssl?'https://sb':'http://b') + '.scorecardresearch.com/beacon.js';
+                s.parentNode.insertBefore(sc, s);
+                _comscore.push({ c1: "2", c2: "17440561" });
+        })();
+
+     
+ 
+                
+                (function(appendChild) {
+                    Node.prototype.appendChild = function() {
+                        var parent = this;
+                        var newNode = arguments[0];
+                        if (parent.nodeName === 'HEAD'
+                            && newNode
+                            && newNode.nodeName === 'SCRIPT'
+                            && newNode.src) {
+                            
+                            window.setTimeout(function() {
+                                var result = newNode.src.match(/^https:\/\/maps\.googleapis\.com\/maps\/api\/place\/js\/(\w+)Service\./i) || [];
+                                var service = result[1];
+                                if (service) {
+                                    if (service === 'Autocompletion') service =  2;
+                                    else if (service === 'Place') service = 1;
+                                    else service = 0;
+                                    StackExchange.using('gps', function() {
+                                        StackExchange.gps.track('google_maps_places_api.call', { service: service });
+                                    });
+                                }
+                            }, 0);
+                        }
+                        return appendChild.apply(this, arguments);
+                    };
+                })(Node.prototype.appendChild);
+             

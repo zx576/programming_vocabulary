@@ -1,0 +1,1208 @@
+
+ (function () { var old = $.fn.contents; $.fn.contents = function () { try { return old.apply(this, arguments); } catch (e) { return $([]); } } })() 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ Stack Overflow 
+ 
+ 
+ 
+ 
+ Questions 
+ 
+ 
+ Developer Jobs 
+ 
+ 
+ Documentation  beta 
+ 
+ 
+ Tags 
+ 
+ 
+ Users 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ current community 
+ 
+ 
+ 
+ 
+ 
+ 
+ help 
+ chat 
+ 
+ 
+ 
+        Stack Overflow
+     
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+        Meta Stack Overflow
+     
+ 
+ 
+ 
+ 
+ 
+your communities             
+ 
+ 
+ 
+ Sign up  or  log in  to customize your list.
+                 
+ 
+ 
+ more stack exchange communities 
+ 
+ company blog 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+                            Tour
+                             
+                                Start here for a quick overview of the site
+                             
+ 
+ 
+ 
+ 
+                        Help Center
+                         
+                            Detailed answers to any questions you might have
+                         
+ 
+ 
+ 
+ 
+                                Meta
+                                 
+                                    Discuss the workings and policies of this site
+                                 
+ 
+ 
+ 
+ 
+                                About Us
+                                 
+                                    Learn more about Stack Overflow the company
+                                 
+ 
+ 
+ 
+ 
+                                Business
+                                 
+                                    Learn more about hiring developers or posting ads with us
+                                 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ Log In 
+ Sign Up 
+ 
+ 
+ 
+ 
+ 
+        StackExchange.ready(function () { StackExchange.topbar.init(); });
+            StackExchange.scrollPadding.setPaddingTop(60, 10);      
+ 
+ 
+ 
+ 
+ algorithm 
+ 
+ 
+ 
+ 
+   
+ 
+ 
+ 
+ 
+ dashboard 
+ all topics 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ Popular 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+        StackExchange.ready(function () {
+            StackExchange.docs.search.init({
+                popularTopicsJson: [{"Id":1529,"DocTag":"algorithm","Title":"Algorithm Complexity","Url":"/documentation/algorithm/1529/algorithm-complexity"},{"Id":757,"DocTag":"algorithm","Title":"Getting started with algorithm","Url":"/documentation/algorithm/757/getting-started-with-algorithm"},{"Id":4770,"DocTag":"algorithm","Title":"Big-O Notation","Url":"/documentation/algorithm/4770/big-o-notation"},{"Id":5735,"DocTag":"algorithm","Title":"Binary Search Trees","Url":"/documentation/algorithm/5735/binary-search-trees"},{"Id":2299,"DocTag":"algorithm","Title":"Graph","Url":"/documentation/algorithm/2299/graph"}]
+            });
+        });
+     
+   
+ 
+ 
+ 
+ Topic 
+ 
+ 
+ 
+ 
+ 
+ 
+ You must  sign up  or  log in  to make a topic request. 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+    StackExchange.ready(function () {
+        StackExchange.docs.requestTopic.init('algorithm');
+    });
+   
+ 
+ 
+ 
+ 
+ 
+ 
+ Equation Solving 
+ 
+ 
+ 
+ topic 
+ discuss (1) 
+ 
+ 
+ 
+ 
+ Title 
+ 
+ 
+ 
+ Versions 
+ 
+ 
+ Introduction 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+   add introduction 
+ edit 
+ share 
+ request improvement (1) 
+   edit 
+ move 
+ delete topic 
+ share 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Improvements requested:                     
+ 
+ 
+ 
+ 
+ 
+ 
+            This topic would benefit from additional syntax notation, explanation of parameters, or remarks. –      theBeacon 
+ Mar 1 at 16:08 
+ It would be better if mathematical model/ approach is discussed first, then the program will be more meaningful. 
+ 
+ 
+ 
+ 
+ 
+ 
+ Edit Topic 
+ 
+ 
+ 
+ 
+ This draft deletes the entire topic. 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+                    Examples
+                     
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 3 
+ 
+ Linear Equation 
+ 
+ 
+ 
+ 
+ 
+ 3 
+ 
+ 
+ 
+ 
+ 
+   
+ There are two classes of methods for solving Linear Equations: 
+ 
+ 
+ Direct Methods : Common characteristics of direct methods are that they transform the original equation into equivalent equations that can be solved more easily, means we get solve directly from an equation. 
+ 
+ 
+ Iterative Method : Iterative or Indirect Methods, start with a guess of the solution and then repeatedly refine the solution until a certain convergence criterion is reached. Iterative methods are generally less efficient than direct methods because large number of operations required. Example- Jacobi's Iteration Method, Gauss-Seidal Iteration Method. 
+ 
+ 
+ Implementation in C- 
+ //Implementation of Jacobi's Method
+void JacobisMethod(int n, double x[n], double b[n], double a[n][n]){
+    double Nx[n]; //modified form of variables
+    int rootFound=0; //flag
+
+    int i, j;
+    while(!rootFound){
+        for(i=0; i<n; i++){              //calculation
+            Nx[i]=b[i];
+
+            for(j=0; j<n; j++){
+                if(i!=j) Nx[i] = Nx[i]-a[i][j]*x[j];
+            }
+            Nx[i] = Nx[i] / a[i][i];
+        }
+
+        rootFound=1;                    //verification
+        for(i=0; i<n; i++){
+            if(!( (Nx[i]-x[i])/x[i] > -0.000001 && (Nx[i]-x[i])/x[i] < 0.000001 )){
+                rootFound=0;
+                break;
+            }
+        }
+
+        for(i=0; i<n; i++){             //evaluation
+            x[i]=Nx[i];
+        }
+    }
+
+    return ;
+}
+
+//Implementation of Gauss-Seidal Method
+void GaussSeidalMethod(int n, double x[n], double b[n], double a[n][n]){
+    double Nx[n]; //modified form of variables
+    int rootFound=0; //flag
+
+    int i, j;
+    for(i=0; i<n; i++){                  //initialization
+        Nx[i]=x[i];
+    }
+
+    while(!rootFound){
+        for(i=0; i<n; i++){              //calculation
+            Nx[i]=b[i];
+
+            for(j=0; j<n; j++){
+                if(i!=j) Nx[i] = Nx[i]-a[i][j]*Nx[j];
+            }
+            Nx[i] = Nx[i] / a[i][i];
+        }
+
+        rootFound=1;                    //verification
+        for(i=0; i<n; i++){
+            if(!( (Nx[i]-x[i])/x[i] > -0.000001 && (Nx[i]-x[i])/x[i] < 0.000001 )){
+                rootFound=0;
+                break;
+            }
+        }
+
+        for(i=0; i<n; i++){             //evaluation
+            x[i]=Nx[i];
+        }
+    }
+
+    return ;
+}
+
+//Print array with comma separation
+void print(int n, double x[n]){
+    int i;
+    for(i=0; i<n; i++){
+        printf("%lf, ", x[i]);
+    }
+    printf("\n\n");
+
+    return ;
+}
+
+int main(){
+    //equation initialization
+    int n=3;    //number of variables
+
+    double x[n];    //variables
+
+    double b[n],    //constants
+        a[n][n];    //arguments
+
+    //assign values
+    a[0][0]=8; a[0][1]=2; a[0][2]=-2; b[0]=8;    //8x₁+2x₂-2x₃+8=0
+    a[1][0]=1; a[1][1]=-8; a[1][2]=3; b[1]=-4;   //x₁-8x₂+3x₃-4=0
+    a[2][0]=2; a[2][1]=1; a[2][2]=9; b[2]=12;    //2x₁+x₂+9x₃+12=0
+
+
+    int i;
+
+    for(i=0; i<n; i++){                         //initialization
+        x[i]=0;
+    }
+    JacobisMethod(n, x, b, a);
+    print(n, x);
+
+
+    for(i=0; i<n; i++){                         //initialization
+        x[i]=0;
+    }
+    GaussSeidalMethod(n, x, b, a);
+    print(n, x);
+
+    return 0;
+}
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ edited  Oct 11 '16 at 16:27 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+   
+ 
+ 
+   edit 
+ share 
+ discuss 
+ request improvement 
+   edit 
+ move example 
+ delete example 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 1 
+ 
+ Non-Linear Equation 
+ 
+ 
+ 
+ 
+ 
+ 1 
+ 
+ 
+ An equation of the type  f(x)=0  is either algebraic or transcendental. These types of equations can be solved by using two types of methods- 
+ 
+ 
+ Direct Method : This method gives the exact value of all the roots directly in a finite number of steps. 
+ 
+ 
+ Indirect or Iterative Method : Iterative methods are best suited for computer programs to solve an equation. It is based on the concept of successive approximation. In Iterative Method there are two ways to solve an equation- 
+ 
+ 
+ Bracketing Method : We take two initial points where the root lies in between them. Example- Bisection Method, False Position Method. 
+ 
+ 
+ Open End Method : We take one or two initial values where the root may be any-where. Example- Newton-Raphson Method, Successive Approximation Method, Secant Method. 
+ 
+ 
+ 
+ 
+ Implementation in C- 
+ /// Here define different functions to work with
+#define f(x) ( ((x)*(x)*(x)) - (x) - 2 )
+#define f2(x) ( (3*(x)*(x)) - 1 )
+#define g(x) ( cbrt( (x) + 2 ) )
+
+
+/**
+* Takes two initial values and shortens the distance by both side.
+**/
+double BisectionMethod(){
+    double root=0;
+
+    double a=1, b=2;
+    double c=0;
+
+    int loopCounter=0;
+    if(f(a)*f(b) < 0){
+        while(1){
+            loopCounter++;
+            c=(a+b)/2;
+
+            if(f(c)<0.00001 && f(c)>-0.00001){
+                root=c;
+                break;
+            }
+
+            if((f(a))*(f(c)) < 0){
+                b=c;
+            }else{
+                a=c;
+            }
+
+        }
+    }
+    printf("It took %d loops.\n", loopCounter);
+
+    return root;
+}
+
+/**
+* Takes two initial values and shortens the distance by single side.
+**/
+double FalsePosition(){
+    double root=0;
+
+    double a=1, b=2;
+    double c=0;
+
+    int loopCounter=0;
+    if(f(a)*f(b) < 0){
+        while(1){
+            loopCounter++;
+
+            c=(a*f(b) - b*f(a)) / (f(b) - f(a));
+
+            /*/printf("%lf\t %lf \n", c, f(c));/**////test
+            if(f(c)<0.00001 && f(c)>-0.00001){
+                root=c;
+                break;
+            }
+
+            if((f(a))*(f(c)) < 0){
+                b=c;
+            }else{
+                a=c;
+            }
+        }
+    }
+    printf("It took %d loops.\n", loopCounter);
+
+    return root;
+}
+
+/**
+* Uses one initial value and gradually takes that value near to the real one.
+**/
+double NewtonRaphson(){
+    double root=0;
+
+    double x1=1;
+    double x2=0;
+
+    int loopCounter=0;
+    while(1){
+        loopCounter++;
+
+        x2 = x1 - (f(x1)/f2(x1));
+        /*/printf("%lf \t %lf \n", x2, f(x2));/**////test
+
+        if(f(x2)<0.00001 && f(x2)>-0.00001){
+            root=x2;
+            break;
+        }
+
+        x1=x2;
+    }
+    printf("It took %d loops.\n", loopCounter);
+
+    return root;
+}
+
+/**
+* Uses one initial value and gradually takes that value near to the real one.
+**/
+double FixedPoint(){
+    double root=0;
+    double x=1;
+
+    int loopCounter=0;
+    while(1){
+        loopCounter++;
+
+        if( (x-g(x)) <0.00001 && (x-g(x)) >-0.00001){
+            root = x;
+            break;
+        }
+
+        /*/printf("%lf \t %lf \n", g(x), x-(g(x)));/**////test
+
+        x=g(x);
+    }
+    printf("It took %d loops.\n", loopCounter);
+
+    return root;
+}
+
+/**
+* uses two initial values & both value approaches to the root.
+**/
+double Secant(){
+    double root=0;
+
+    double x0=1;
+    double x1=2;
+    double x2=0;
+
+    int loopCounter=0;
+    while(1){
+        loopCounter++;
+
+        /*/printf("%lf \t %lf \t %lf \n", x0, x1, f(x1));/**////test
+
+        if(f(x1)<0.00001 && f(x1)>-0.00001){
+            root=x1;
+            break;
+        }
+
+        x2 = ((x0*f(x1))-(x1*f(x0))) / (f(x1)-f(x0));
+
+        x0=x1;
+        x1=x2;
+    }
+    printf("It took %d loops.\n", loopCounter);
+
+    return root;
+}
+
+
+int main(){
+    double root;
+
+    root = BisectionMethod();
+    printf("Using Bisection Method the root is: %lf \n\n", root);
+    
+    root = FalsePosition();
+    printf("Using False Position Method the root is: %lf \n\n", root);
+    
+    root = NewtonRaphson();
+    printf("Using Newton-Raphson Method the root is: %lf \n\n", root);
+    
+    root = FixedPoint();
+    printf("Using Fixed Point Method the root is: %lf \n\n", root);
+    
+    root = Secant();
+    printf("Using Secant Method the root is: %lf \n\n", root);
+
+    return 0;
+}
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ edited  Oct 12 '16 at 3:43 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+   
+ 
+ 
+   edit 
+ share 
+ discuss 
+ request improvement 
+   edit 
+ move example 
+ delete example 
+ 
+ 
+ 
+   
+ 
+ 
+ 
+ 
+ 
+ 
+ + 
+            Add Example
+         
+ 
+ 
+ 
+        Please consider making a request to improve this example.
+         Request Improvement 
+ 
+ 
+ 
+ 
+ 
+ Syntax 
+ 
+ 
+ Syntax 
+ 
+ 
+ 
+   add syntax 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ Parameters 
+ 
+ 
+ Parameters 
+ 
+ 
+ 
+   add parameters 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ Remarks 
+ 
+ 
+ Remarks 
+ 
+ 
+ 
+   add remarks 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ created  Oct 11 '16 at 9:16 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+   
+ 
+ Still have a question about Equation Solving? 
+ Ask Question 
+ 
+ 
+ 
+ 
+ Topic Outline 
+ 
+ 2 Examples 
+ 
+ 
+ 
+ 
+ Linear Equation 
+ 
+ 
+ Non-Linear Equation 
+ 
+ Show more 
+ 
+ 
+ 
+ 
+                    Blog
+                 
+ 
+ 
+ 
+ 
+   
+ 
+ 
+ Trends in Government Software Developers 
+ 
+ 
+ 
+ 
+ 
+ 
+   
+ 
+ 
+ Introducing Channels: Private Q&A for Your Team 
+ 
+ 
+ 
+ 
+   
+ 
+ 
+ 
+ 
+        StackExchange.ready(function () { $.get('/documentation/algorithm/ivc/7379-636356029121607720:yjbkakn3uorbfuiqaxvevduqeuq.gif?topicId=7379'); });
+     
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+                    Topic Outline
+                         
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ Save Draft 
+ Discard 
+ 
+ 
+ 
+ 
+ Sign up or log in 
+ Save edit as a guest 
+ Join Stack Overflow 
+ 
+ 
+ 
+ Using Google 
+ 
+ 
+ Using Facebook 
+ 
+ 
+ Using Email and Password 
+ 
+ 
+ 
+ 
+ Name 
+ 
+ 
+ 
+ Email 
+ 
+ Save Draft 
+ 
+ 
+ 
+ 
+ We recognize you from another Stack Exchange Network site! 
+ Join and Save Draft 
+ 
+ Discard Draft 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ Stack Overflow 
+ 
+ Questions 
+ Jobs 
+ Developer Jobs Directory 
+ Documentation 
+ Help 
+ Mobile 
+ 
+ 
+ 
+ Stack Overflow  Business 
+ 
+ Talent 
+ Ads 
+ Enterprise 
+ Insights 
+ 
+ 
+ 
+ Company 
+ 
+ About 
+ Press 
+ Work Here 
+ Legal 
+ Privacy Policy 
+ Contact Us 
+ 
+ 
+ 
+ 
+ 
+ Stack Exchange  Network 
+ 
+ Technology 
+ Life / Arts 
+ Culture / Recreation 
+ Science 
+ Other 
+ 
+ 
+ 
+ 
+ 
+ Stack Overflow 
+ Server Fault 
+ Super User 
+ Web Applications 
+ Ask Ubuntu 
+ Webmasters 
+ Game Development 
+ 
+ TeX - LaTeX 
+ Software Engineering 
+ Unix & Linux 
+ Ask Different (Apple) 
+ WordPress Development 
+ Geographic Information Systems 
+ Electrical Engineering 
+ 
+ Android Enthusiasts 
+ Information Security 
+ Database Administrators 
+ Drupal Answers 
+ SharePoint 
+ User Experience 
+ Data Science 
+ 
+ Mathematica 
+ Salesforce 
+ ExpressionEngine® Answers 
+ Blender 
+ Network Engineering 
+ Cryptography 
+ Code Review 
+ 
+ Magento 
+ Software Recommendations 
+ Signal Processing 
+ Emacs 
+ Raspberry Pi 
+ Programming Puzzles & Code Golf 
+ Ethereum 
+ 
+ 
+ 
+                            more (27)
+                         
+ 
+ 
+ 
+ 
+ 
+ 
+ Photography 
+ Science Fiction & Fantasy 
+ Graphic Design 
+ Movies & TV 
+ Music: Practice & Theory 
+ Worldbuilding 
+ Seasoned Advice (cooking) 
+ 
+ Home Improvement 
+ Personal Finance & Money 
+ Academia 
+ Law 
+ 
+ 
+ 
+                            more (16)
+                         
+ 
+ 
+ 
+ 
+ 
+ 
+ English Language & Usage 
+ Skeptics 
+ Mi Yodeya (Judaism) 
+ Travel 
+ Christianity 
+ English Language Learners 
+ Japanese Language 
+ 
+ Arqade (gaming) 
+ Bicycles 
+ Role-playing Games 
+ Anime & Manga 
+ Puzzling 
+ Motor Vehicle Maintenance & Repair 
+ 
+ 
+ 
+                            more (32)
+                         
+ 
+ 
+ 
+ 
+ 
+ 
+ MathOverflow 
+ Mathematics 
+ Cross Validated (stats) 
+ Theoretical Computer Science 
+ Physics 
+ Chemistry 
+ Biology 
+ 
+ Computer Science 
+ Philosophy 
+ 
+ 
+ 
+                            more (10)
+                         
+ 
+ 
+ 
+ 
+ 
+ 
+ Meta Stack Exchange 
+ Stack Apps 
+ API 
+ Data 
+ Area 51 
+ 
+ 
+ 
+ 
+ 
+ Blog 
+ Facebook 
+ Twitter 
+ LinkedIn 
+ 
+ 
+ 
+                                    site design / logo © 2017 Stack Exchange Inc; user contributions licensed under  cc by-sa 3.0 
+                                    with  attribution required .
+                                     rev 2017.7.13.1278 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ Stack Overflow works best with JavaScript enabled
+             
+ 
+ 
+ var z=document.createElement("script");z.type="text/javascript",z.async=!0,z.src="https://static.adzerk.net/ados.js";var s=document.getElementsByTagName("script")[0];s.parentNode.insertBefore(z,s); 
+ 
+var ados = ados || {};
+ados.run = ados.run || [];
+
+ 
+ 
+            (function(i, s, o, g, r, a, m) {
+                i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function() { (i[r].q = i[r].q || []).push(arguments) }, i[r].l = 1 * new Date(); a = s.createElement(o),
+                m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m);
+            })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+                ga('create', 'UA-5620270-1');
+                ga('create', 'UA-5620270-60', {name: 'pageData', sampleRate: 100 });
+                ga('send', 'pageview');
+                ga('pageData.send', 'pageview');
+        var _qevents = _qevents || [],
+            _comscore = _comscore || [];
+        (function () {
+            var ssl='https:'==document.location.protocol,
+                s=document.getElementsByTagName('script')[0],
+                qc=document.createElement('script');
+                qc.async = true;
+                qc.src = (ssl ? 'https://secure' : 'http://edge') + '.quantserve.com/quant.js';
+                s.parentNode.insertBefore(qc, s);
+                _qevents.push({ qacct: "p-c1rF4kxgLUzNc" });
+                            var sc=document.createElement('script');
+                sc.async=true;
+                sc.src=(ssl?'https://sb':'http://b') + '.scorecardresearch.com/beacon.js';
+                s.parentNode.insertBefore(sc, s);
+                _comscore.push({ c1: "2", c2: "17440561" });
+        })();
+
+     
+ 
+                
+                (function(appendChild) {
+                    Node.prototype.appendChild = function() {
+                        var parent = this;
+                        var newNode = arguments[0];
+                        if (parent.nodeName === 'HEAD'
+                            && newNode
+                            && newNode.nodeName === 'SCRIPT'
+                            && newNode.src) {
+                            
+                            window.setTimeout(function() {
+                                var result = newNode.src.match(/^https:\/\/maps\.googleapis\.com\/maps\/api\/place\/js\/(\w+)Service\./i) || [];
+                                var service = result[1];
+                                if (service) {
+                                    if (service === 'Autocompletion') service =  2;
+                                    else if (service === 'Place') service = 1;
+                                    else service = 0;
+                                    StackExchange.using('gps', function() {
+                                        StackExchange.gps.track('google_maps_places_api.call', { service: service });
+                                    });
+                                }
+                            }, 0);
+                        }
+                        return appendChild.apply(this, arguments);
+                    };
+                })(Node.prototype.appendChild);
+             

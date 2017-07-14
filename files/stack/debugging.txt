@@ -1,0 +1,1201 @@
+
+ (function () { var old = $.fn.contents; $.fn.contents = function () { try { return old.apply(this, arguments); } catch (e) { return $([]); } } })() 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ Stack Overflow 
+ 
+ 
+ 
+ 
+ Questions 
+ 
+ 
+ Developer Jobs 
+ 
+ 
+ Documentation  beta 
+ 
+ 
+ Tags 
+ 
+ 
+ Users 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ current community 
+ 
+ 
+ 
+ 
+ 
+ 
+ help 
+ chat 
+ 
+ 
+ 
+        Stack Overflow
+     
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+        Meta Stack Overflow
+     
+ 
+ 
+ 
+ 
+ 
+your communities             
+ 
+ 
+ 
+ Sign up  or  log in  to customize your list.
+                 
+ 
+ 
+ more stack exchange communities 
+ 
+ company blog 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+                            Tour
+                             
+                                Start here for a quick overview of the site
+                             
+ 
+ 
+ 
+ 
+                        Help Center
+                         
+                            Detailed answers to any questions you might have
+                         
+ 
+ 
+ 
+ 
+                                Meta
+                                 
+                                    Discuss the workings and policies of this site
+                                 
+ 
+ 
+ 
+ 
+                                About Us
+                                 
+                                    Learn more about Stack Overflow the company
+                                 
+ 
+ 
+ 
+ 
+                                Business
+                                 
+                                    Learn more about hiring developers or posting ads with us
+                                 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ Log In 
+ Sign Up 
+ 
+ 
+ 
+ 
+ 
+        StackExchange.ready(function () { StackExchange.topbar.init(); });
+            StackExchange.scrollPadding.setPaddingTop(60, 10);      
+ 
+ 
+ 
+ 
+ Django 
+ 
+ 
+ 
+ 
+   
+ 
+ 
+ 
+ 
+ dashboard 
+ all topics 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ Popular 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+        StackExchange.ready(function () {
+            StackExchange.docs.search.init({
+                popularTopicsJson: [{"Id":200,"DocTag":"django","Title":"Getting started with Django","Url":"/documentation/django/200/getting-started-with-django"},{"Id":942,"DocTag":"django","Title":"Settings","Url":"/documentation/django/942/settings"},{"Id":888,"DocTag":"django","Title":"Models","Url":"/documentation/django/888/models"},{"Id":1235,"DocTag":"django","Title":"Querysets","Url":"/documentation/django/1235/querysets"},{"Id":1721,"DocTag":"django","Title":"Middleware","Url":"/documentation/django/1721/middleware"}]
+            });
+        });
+     
+   
+ 
+ 
+ 
+ Topic 
+ 
+ 
+ 
+ 
+ 
+ 
+ You must  sign up  or  log in  to make a topic request. 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+    StackExchange.ready(function () {
+        StackExchange.docs.requestTopic.init('django');
+    });
+   
+ 
+ 
+ 
+ 
+ 
+ 
+ Debugging   
+            All Versions
+         
+ 
+ 
+ 
+ topic 
+ discuss (1) 
+ 
+ 
+ 
+ 
+ Title 
+ 
+ 
+ 
+ Versions 
+ 
+ 
+                        1.0
+                     
+ 
+                        1.1
+                     
+ 
+                        1.2
+                     
+ 
+                        1.3
+                     
+ 
+                        1.4
+                     
+ 
+                        1.5
+                     
+ 
+                        1.6
+                     
+ 
+                        1.7
+                     
+ 
+                        1.8
+                     
+ 
+                        1.9
+                     
+ 
+                        1.10
+                     
+ 
+                        1.11
+                     
+ 
+ 
+ 
+ Introduction 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+   add introduction 
+ edit 
+ share 
+ request improvement (1) 
+   edit 
+ move 
+ delete topic 
+ share 
+ 
+ 
+ 
+ 
+ 
+                var ados = ados || {}; ados.run = ados.run || [];
+                ados.run.push(function () { ados_add_placement(22,499571,"adzerk1919694737",4).setZone(29); });
+             
+ 
+ 
+ 
+ 
+ 
+Improvements requested:                     
+ 
+ 
+ 
+ 
+ 
+ 
+            This topic would benefit from examples that don't currently exist. –      Ashish Gupta 
+ Sep 21 at 9:18 
+ Adding django-extensions example will help. It makes debugging easier with commands like shell_plus, runserver_plus, etc. 
+ 
+ 
+ 
+ 
+ 
+ 
+ Edit Topic 
+ 
+ 
+ 
+ 
+ This draft deletes the entire topic. 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+                    Examples
+                     
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 4 
+ 
+ Using Django Debug Toolbar 
+ 
+ 
+ 
+ 
+ 
+ 4 
+ 
+ 
+ 
+ 
+ 
+   
+ First, you need to install  django-debug-toolbar : 
+ pip install django-debug-toolbar
+ 
+ settings.py : 
+ Next, include it to project's installed apps, but be careful - it's always a good practice to use a different  settings.py  file for such development-only apps and middlewares as debug toolbar: 
+ # If environment is dev...
+DEBUG = True
+
+INSTALLED_APPS += [
+    'debug_toolbar',
+]
+
+MIDDLEWARE += ['debug_toolbar.middleware.DebugToolbarMiddleware']
+ 
+ Debug toolbar also relies on static files, so appropriate app should be included as well: 
+ INSTALLED_APPS = [
+    # ...
+    'django.contrib.staticfiles',
+    # ...
+]
+
+STATIC_URL = '/static/'
+
+# If environment is dev...
+DEBUG = True
+
+INSTALLED_APPS += [
+    'debug_toolbar',
+]
+ 
+ In some cases, it's also required to set  INTERNAL_IPS  in  settings.py : 
+ INTERNAL_IPS = ('127.0.0.1', )
+ 
+ urls.py : 
+ In  urls.py , as official documentation suggests, the next snippet should enable debug toolbar routing: 
+ if settings.DEBUG and 'debug_toolbar' in settings.INSTALLED_APPS:
+    import debug_toolbar
+    urlpatterns += [
+        url(r'^__debug__/', include(debug_toolbar.urls)),
+    ]
+ 
+ Collect toolbar's static after installation: 
+ python manage.py collectstatic
+ 
+ That's it, debug toolbar will appear on you project's pages, providing various useful information about execution time, SQL, static files, signals, etc. 
+ HTML: 
+ Also,  django-debug-toolbar  requires a  Content-type  of  text/html ,  <html>  and  <body>  tags to render properly. 
+ 
+ In case if you sure you've configured everything right, but debug toolbar is still not rendered:  use  this "nuclear" solution  to try to figure it out. 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ edited  Jan 16 at 11:29 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+   
+ 
+ 
+   edit 
+ share 
+ discuss 
+ request improvement 
+   edit 
+ move example 
+ delete example 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 3 
+ 
+ Using Python Debugger (Pdb) 
+ 
+ 
+ 
+ 
+ 
+ 3 
+ 
+ 
+ Most basic Django debugging tool is  pdb , a part of Python standard library. 
+ Init view script 
+ Let's examine a simple  views.py  script: 
+ from django.http import HttpResponse
+
+
+def index(request):
+    foo = 1
+    bar = 0
+
+    bug = foo/bar
+
+    return HttpResponse("%d goes here." % bug)
+ 
+ Console command to run server: 
+ python manage.py runserver
+ 
+ It's obvious that Django would throw a  ZeroDivisionError  when you try to load index page, but if we'll pretend that the bug is very deep in the code, it could get really nasty. 
+ Setting a breakpoint 
+ Fortunately, we can set a  breakpoint  to trace down that bug: 
+ from django.http import HttpResponse
+
+# Pdb import
+import pdb
+
+
+def index(request):
+    foo = 1
+    bar = 0
+    
+    # This is our new breakpoint
+    pdb.set_trace()
+    
+    bug = foo/bar
+    
+    return HttpResponse("%d goes here." % bug)
+ 
+ Console command to run server with pdb: 
+ python -m pdb manage.py runserver
+ 
+ Now on page load breakpoint will trigger (Pdb) prompt in the shell, which will also hang your browser in pending state. 
+ Debugging with pdb shell 
+ It's time to debug that view by interacting with script via shell: 
+ > ../views.py(12)index()
+-> bug = foo/bar
+# input 'foo/bar' expression to see division results:
+(Pdb) foo/bar
+*** ZeroDivisionError: division by zero
+# input variables names to check their values:
+(Pdb) foo
+1
+(Pdb) bar
+0
+# 'bar' is a source of the problem, so if we set it's value > 0...
+(Pdb) bar = 1
+(Pdb) foo/bar
+1.0
+# exception gone, ask pdb to continue execution by typing 'c':
+(Pdb) c
+[03/Aug/2016 10:50:45] "GET / HTTP/1.1" 200 111
+ 
+ In the last line we see that our view returned an  OK  response and executing as it should. 
+ To stop pdb loop, just input  q  in a shell. 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ edited  Oct 11 '16 at 10:33 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+   
+ 
+ 
+   edit 
+ share 
+ discuss 
+ request improvement 
+   edit 
+ move example 
+ delete example 
+ 
+ 
+ 
+   
+ 
+                var ados = ados || {}; ados.run = ados.run || [];
+                ados.run.push(function () { ados_add_placement(22,499571,"adzerk422320790",4).setZone(30); });
+             
+ 
+ 
+   
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 1 
+ 
+ Consider Writing More Documentation, Tests, Logging and Assertions Instead of Using a Debugger 
+ 
+ 
+ 
+ 
+ 
+ 1 
+ 
+ 
+ Debugging takes time and effort. 
+ Instead of chasing bugs with a debugger, consider spending more time on making your code better by: 
+ 
+ Write and run  Tests .   Python and Django have great builtin testing frameworks - that can be used to test your code much faster than manually with a debugger. 
+ Writing proper documentation  for your functions, classes and modules.   PEP 257  and
+ Google's Python Style Guide  supplies good practices for writing good docstrings. 
+ Use Logging  to produce output from your program - during development and after deploying. 
+ Add  assert ions  to your code in important places: Reduce ambiguity, catch problems as they are created. 
+ 
+ Bonus: Write  doctests  for combining documentation and testing! 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ created  Dec 18 '16 at 10:18 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+   
+ 
+ 
+   edit 
+ share 
+ discuss 
+ request improvement 
+   edit 
+ move example 
+ delete example 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 1 
+ 
+ Using "assert False" 
+ 
+ 
+ 
+ 
+ 
+ 1 
+ 
+ 
+ While developing, inserting the following line to your code: 
+ assert False, value
+ 
+ will cause django to raise an  AssertionError  with the value supplied as an error message when this line is executed. 
+ If this occurs in a view, or in any code called from a view, and  DEBUG=True  is set, a full and detailed stacktrace with a lot of debugging information will be displayed in the browser. 
+ Don't forget to remove the line when you are done! 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ created  Dec 18 '16 at 10:18 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+   
+ 
+ 
+   edit 
+ share 
+ discuss 
+ request improvement 
+   edit 
+ move example 
+ delete example 
+ 
+ 
+ 
+ 
+ 
+ 
+ + 
+            Add Example
+         
+ 
+ 
+ 
+        Please consider making a request to improve this example.
+         Request Improvement 
+ 
+ 
+ 
+ 
+ 
+ Syntax 
+ 
+ 
+ Syntax 
+ 
+ 
+ 
+   add syntax 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ Parameters 
+ 
+ 
+ Parameters 
+ 
+ 
+ 
+   add parameters 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ Remarks 
+ Pdb 
+ Pdb can also print out all existing variables in global or local scope, by typing  globals()  or  locals()  in (Pdb) prompt respectively. 
+ 
+ 
+ 
+   edit 
+ share 
+ 
+   edit 
+ 
+ 
+ 
+ 
+ 
+ 
+ edited  Jan 16 at 11:29 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+   
+ 
+ Still have a question about Debugging? 
+ Ask Question 
+ 
+ 
+ 
+ 
+ Topic Outline 
+ 
+ 4 Examples 
+ 
+ 
+ 
+ 
+ Using Django Debug Toolbar 
+ 
+ 
+ Using Python Debugger (Pdb) 
+ 
+ 
+ Consider Writing More Documentation, Tests, Logging and Assertions Instead of Using a Debugger 
+ 
+ 
+ Using "assert False" 
+ 
+ Show more 
+ 
+ 
+ Remarks 
+ 
+ 
+ 
+ 
+                    Blog
+                 
+ 
+ 
+ 
+ 
+   
+ 
+ 
+ Trends in Government Software Developers 
+ 
+ 
+ 
+ 
+ 
+ 
+   
+ 
+ 
+ Introducing Channels: Private Q&A for Your Team 
+ 
+ 
+ 
+ 
+   
+ 
+                var ados = ados || {}; ados.run = ados.run || [];
+                ados.run.push(function () { ados_add_placement(22,499571,"adzerk576604395",5).setZone(56016); });
+             
+ 
+ 
+ 
+ 
+        StackExchange.ready(function () { $.get('/documentation/django/ivc/5072-636356027993088295:9wdu7yt3jjke8vsfnstumzedb8.gif?topicId=5072'); });
+     
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+                    Topic Outline
+                         
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ Save Draft 
+ Discard 
+ 
+ 
+ 
+ 
+ Sign up or log in 
+ Save edit as a guest 
+ Join Stack Overflow 
+ 
+ 
+ 
+ Using Google 
+ 
+ 
+ Using Facebook 
+ 
+ 
+ Using Email and Password 
+ 
+ 
+ 
+ 
+ Name 
+ 
+ 
+ 
+ Email 
+ 
+ Save Draft 
+ 
+ 
+ 
+ 
+ We recognize you from another Stack Exchange Network site! 
+ Join and Save Draft 
+ 
+ Discard Draft 
+ 
+ 
+ 
+ default 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ Stack Overflow 
+ 
+ Questions 
+ Jobs 
+ Developer Jobs Directory 
+ Documentation 
+ Help 
+ Mobile 
+ 
+ 
+ 
+ Stack Overflow  Business 
+ 
+ Talent 
+ Ads 
+ Enterprise 
+ Insights 
+ 
+ 
+ 
+ Company 
+ 
+ About 
+ Press 
+ Work Here 
+ Legal 
+ Privacy Policy 
+ Contact Us 
+ 
+ 
+ 
+ 
+ 
+ Stack Exchange  Network 
+ 
+ Technology 
+ Life / Arts 
+ Culture / Recreation 
+ Science 
+ Other 
+ 
+ 
+ 
+ 
+ 
+ Stack Overflow 
+ Server Fault 
+ Super User 
+ Web Applications 
+ Ask Ubuntu 
+ Webmasters 
+ Game Development 
+ 
+ TeX - LaTeX 
+ Software Engineering 
+ Unix & Linux 
+ Ask Different (Apple) 
+ WordPress Development 
+ Geographic Information Systems 
+ Electrical Engineering 
+ 
+ Android Enthusiasts 
+ Information Security 
+ Database Administrators 
+ Drupal Answers 
+ SharePoint 
+ User Experience 
+ Data Science 
+ 
+ Mathematica 
+ Salesforce 
+ ExpressionEngine® Answers 
+ Blender 
+ Network Engineering 
+ Cryptography 
+ Code Review 
+ 
+ Magento 
+ Software Recommendations 
+ Signal Processing 
+ Emacs 
+ Raspberry Pi 
+ Programming Puzzles & Code Golf 
+ Ethereum 
+ 
+ 
+ 
+                            more (27)
+                         
+ 
+ 
+ 
+ 
+ 
+ 
+ Photography 
+ Science Fiction & Fantasy 
+ Graphic Design 
+ Movies & TV 
+ Music: Practice & Theory 
+ Worldbuilding 
+ Seasoned Advice (cooking) 
+ 
+ Home Improvement 
+ Personal Finance & Money 
+ Academia 
+ Law 
+ 
+ 
+ 
+                            more (16)
+                         
+ 
+ 
+ 
+ 
+ 
+ 
+ English Language & Usage 
+ Skeptics 
+ Mi Yodeya (Judaism) 
+ Travel 
+ Christianity 
+ English Language Learners 
+ Japanese Language 
+ 
+ Arqade (gaming) 
+ Bicycles 
+ Role-playing Games 
+ Anime & Manga 
+ Puzzling 
+ Motor Vehicle Maintenance & Repair 
+ 
+ 
+ 
+                            more (32)
+                         
+ 
+ 
+ 
+ 
+ 
+ 
+ MathOverflow 
+ Mathematics 
+ Cross Validated (stats) 
+ Theoretical Computer Science 
+ Physics 
+ Chemistry 
+ Biology 
+ 
+ Computer Science 
+ Philosophy 
+ 
+ 
+ 
+                            more (10)
+                         
+ 
+ 
+ 
+ 
+ 
+ 
+ Meta Stack Exchange 
+ Stack Apps 
+ API 
+ Data 
+ Area 51 
+ 
+ 
+ 
+ 
+ 
+ Blog 
+ Facebook 
+ Twitter 
+ LinkedIn 
+ 
+ 
+ 
+                                    site design / logo © 2017 Stack Exchange Inc; user contributions licensed under  cc by-sa 3.0 
+                                    with  attribution required .
+                                     rev 2017.7.13.1278 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ Stack Overflow works best with JavaScript enabled
+             
+ 
+ 
+ var z=document.createElement("script");z.type="text/javascript",z.async=!0,z.src="https://static.adzerk.net/ados.js";var s=document.getElementsByTagName("script")[0];s.parentNode.insertBefore(z,s); 
+ 
+var ados = ados || {};
+ados.run = ados.run || [];
+
+ 
+ 
+            (function(i, s, o, g, r, a, m) {
+                i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function() { (i[r].q = i[r].q || []).push(arguments) }, i[r].l = 1 * new Date(); a = s.createElement(o),
+                m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m);
+            })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+                ga('create', 'UA-5620270-1');
+                ga('create', 'UA-5620270-60', {name: 'pageData', sampleRate: 100 });
+                ga('send', 'pageview');
+                ga('pageData.send', 'pageview');
+        var _qevents = _qevents || [],
+            _comscore = _comscore || [];
+        (function () {
+            var ssl='https:'==document.location.protocol,
+                s=document.getElementsByTagName('script')[0],
+                qc=document.createElement('script');
+                qc.async = true;
+                qc.src = (ssl ? 'https://secure' : 'http://edge') + '.quantserve.com/quant.js';
+                s.parentNode.insertBefore(qc, s);
+                _qevents.push({ qacct: "p-c1rF4kxgLUzNc" });
+                            var sc=document.createElement('script');
+                sc.async=true;
+                sc.src=(ssl?'https://sb':'http://b') + '.scorecardresearch.com/beacon.js';
+                s.parentNode.insertBefore(sc, s);
+                _comscore.push({ c1: "2", c2: "17440561" });
+        })();
+
+     
+ 
+                
+                (function(appendChild) {
+                    Node.prototype.appendChild = function() {
+                        var parent = this;
+                        var newNode = arguments[0];
+                        if (parent.nodeName === 'HEAD'
+                            && newNode
+                            && newNode.nodeName === 'SCRIPT'
+                            && newNode.src) {
+                            
+                            window.setTimeout(function() {
+                                var result = newNode.src.match(/^https:\/\/maps\.googleapis\.com\/maps\/api\/place\/js\/(\w+)Service\./i) || [];
+                                var service = result[1];
+                                if (service) {
+                                    if (service === 'Autocompletion') service =  2;
+                                    else if (service === 'Place') service = 1;
+                                    else service = 0;
+                                    StackExchange.using('gps', function() {
+                                        StackExchange.gps.track('google_maps_places_api.call', { service: service });
+                                    });
+                                }
+                            }, 0);
+                        }
+                        return appendChild.apply(this, arguments);
+                    };
+                })(Node.prototype.appendChild);
+             

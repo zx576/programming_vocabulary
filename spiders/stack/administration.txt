@@ -1,0 +1,1178 @@
+
+ (function () { var old = $.fn.contents; $.fn.contents = function () { try { return old.apply(this, arguments); } catch (e) { return $([]); } } })() 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ Stack Overflow 
+ 
+ 
+ 
+ 
+ Questions 
+ 
+ 
+ Developer Jobs 
+ 
+ 
+ Documentation  beta 
+ 
+ 
+ Tags 
+ 
+ 
+ Users 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ current community 
+ 
+ 
+ 
+ 
+ 
+ 
+ help 
+ chat 
+ 
+ 
+ 
+        Stack Overflow
+     
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+        Meta Stack Overflow
+     
+ 
+ 
+ 
+ 
+ 
+your communities             
+ 
+ 
+ 
+ Sign up  or  log in  to customize your list.
+                 
+ 
+ 
+ more stack exchange communities 
+ 
+ company blog 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+                            Tour
+                             
+                                Start here for a quick overview of the site
+                             
+ 
+ 
+ 
+ 
+                        Help Center
+                         
+                            Detailed answers to any questions you might have
+                         
+ 
+ 
+ 
+ 
+                                Meta
+                                 
+                                    Discuss the workings and policies of this site
+                                 
+ 
+ 
+ 
+ 
+                                About Us
+                                 
+                                    Learn more about Stack Overflow the company
+                                 
+ 
+ 
+ 
+ 
+                                Business
+                                 
+                                    Learn more about hiring developers or posting ads with us
+                                 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ Log In 
+ Sign Up 
+ 
+ 
+ 
+ 
+ 
+        StackExchange.ready(function () { StackExchange.topbar.init(); });
+            StackExchange.scrollPadding.setPaddingTop(60, 10);      
+ 
+ 
+ 
+ 
+ Django 
+ 
+ 
+ 
+ 
+   
+ 
+ 
+ 
+ 
+ dashboard 
+ all topics 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ Popular 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+        StackExchange.ready(function () {
+            StackExchange.docs.search.init({
+                popularTopicsJson: [{"Id":200,"DocTag":"django","Title":"Getting started with Django","Url":"/documentation/django/200/getting-started-with-django"},{"Id":942,"DocTag":"django","Title":"Settings","Url":"/documentation/django/942/settings"},{"Id":888,"DocTag":"django","Title":"Models","Url":"/documentation/django/888/models"},{"Id":1235,"DocTag":"django","Title":"Querysets","Url":"/documentation/django/1235/querysets"},{"Id":1721,"DocTag":"django","Title":"Middleware","Url":"/documentation/django/1721/middleware"}]
+            });
+        });
+     
+   
+ 
+ 
+ 
+ Topic 
+ 
+ 
+ 
+ 
+ 
+ 
+ You must  sign up  or  log in  to make a topic request. 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+    StackExchange.ready(function () {
+        StackExchange.docs.requestTopic.init('django');
+    });
+   
+ 
+ 
+ 
+ 
+ 
+ 
+ Administration   
+            All Versions
+         
+ 
+ 
+ 
+ topic 
+ discuss (1) 
+ 
+ 
+ 
+ 
+ Title 
+ 
+ 
+ 
+ Versions 
+ 
+ 
+                        1.0
+                     
+ 
+                        1.1
+                     
+ 
+                        1.2
+                     
+ 
+                        1.3
+                     
+ 
+                        1.4
+                     
+ 
+                        1.5
+                     
+ 
+                        1.6
+                     
+ 
+                        1.7
+                     
+ 
+                        1.8
+                     
+ 
+                        1.9
+                     
+ 
+                        1.10
+                     
+ 
+                        1.11
+                     
+ 
+ 
+ 
+ Introduction 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+   add introduction 
+ edit 
+ share 
+ request improvement (1) 
+   edit 
+ move 
+ delete topic 
+ share 
+ 
+ 
+ 
+ 
+ 
+                var ados = ados || {}; ados.run = ados.run || [];
+                ados.run.push(function () { ados_add_placement(22,499571,"adzerk382044500",4).setZone(29); });
+             
+ 
+ 
+ 
+ 
+ 
+Improvements requested:                     
+ 
+ 
+ 
+ 
+ 
+ 
+            Other: I think these examples should be moved to new topics within http://stackoverflow.com/documentation/django-admin but I don't know how to do this. –      Antoine Pinsard 
+ Jul 31 '16 at 11:36 
+ 
+ 
+ 
+ 
+ 
+ 
+ Edit Topic 
+ Delete Topic 
+ 
+ 
+ 
+ 
+ This draft deletes the entire topic. 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+                    Examples
+                     
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 5 
+ 
+ Change list 
+ 
+ 
+ 
+ 
+ 
+ 5 
+ 
+ 
+ 
+ 
+ 
+   
+ Let's say you have a simple  myblog  app with the following model: 
+ from django.conf import settings
+from django.utils import timezone
+
+class Article(models.Model):
+    title = models.CharField(max_length=70)
+    slug = models.SlugField(max_length=70, unique=True)
+    author = models.ForeignKey(settings.AUTH_USER_MODEL, models.PROTECT)
+    date_published = models.DateTimeField(default=timezone.now)
+    is_draft = models.BooleanField(default=True)
+    content = models.TextField()
+ 
+ Django Admin's "change list" is the page that lists all objects of a given model. 
+ from django.contrib import admin
+from myblog.models import Article
+
+@admin.register(Article)
+class ArticleAdmin(admin.ModelAdmin):
+    pass
+ 
+ By default, it will use the  __str__()  method (or  __unicode__()  if you on python2) of your model to display the object "name". This means that if you didn't override it, you will see a list of articles, all named "Article object". To change this behavior, you can set the  __str__()  method: 
+ class Article(models.Model):
+    def __str__(self):
+        return self.title
+ 
+ Now, all your articles should have a different name, and more explicit than "Article object". 
+ However you may want to display other data in this list. For this, use  list_display : 
+ @admin.register(Article)
+class ArticleAdmin(admin.ModelAdmin):
+    list_display = ['__str__', 'author', 'date_published', 'is_draft']
+ 
+ list_display  is not limited to the model fields and properties. it can also be a method of your  ModelAdmin : 
+ from django.forms.utils import flatatt
+from django.urls import reverse
+from django.utils.html import format_html
+
+@admin.register(Article)
+class ArticleAdmin(admin.ModelAdmin):
+    list_display = ['title', 'author_link', 'date_published', 'is_draft']
+    
+    def author_link(self, obj):
+        author = obj.author
+        opts = author._meta
+        route = '{}_{}_change'.format(opts.app_label, opts.model_name)
+        author_edit_url = reverse(route, args=[author.pk])
+        return format_html(
+            '<a{}>{}</a>', flatatt({'href': author_edit_url}), author.first_name)
+
+    # Set the column name in the change list
+    author_link.short_description = "Author"
+    # Set the field to use when ordering using this column
+    author_link.admin_order_field = 'author__firstname'
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ edited  Feb 22 at 20:42 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+   
+ 
+ 
+   edit 
+ share 
+ discuss 
+ request improvement 
+   edit 
+ move example 
+ delete example 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 8 
+ 
+ Dealing with foreign keys referencing large tables 
+ 
+ 
+ 
+ 
+ 
+ 8 
+ 
+ 
+ By default, Django renders  ForeignKey  fields as a  <select>  input. This can cause pages to be  load really slowly  if you have thousands or tens of thousand entries in the referenced table. And even if you have only hundreds of entries, it is quite uncomfortable to look for a particular entry among all. 
+ A very handy external module for this is  django-autocomplete-light  (DAL). This enables to use autocomplete fields instead of  <select>  fields. 
+ 
+ views.py 
+ from dal import autocomplete
+
+class CityAutocomp(autocomplete.Select2QuerySetView):
+    def get_queryset(self):
+        qs = City.objects.all()
+        if self.q:
+            qs = qs.filter(name__istartswith=self.q)
+        return qs
+ 
+ urls.py 
+ urlpatterns = [
+    url(r'^city-autocomp/$', CityAutocomp.as_view(), name='city-autocomp'),
+]
+ 
+ forms.py 
+ from dal import autocomplete
+
+class PlaceForm(forms.ModelForm):
+    city = forms.ModelChoiceField(
+        queryset=City.objects.all(),
+        widget=autocomplete.ModelSelect2(url='city-autocomp')
+    )
+
+    class Meta:
+        model = Place
+        fields = ['__all__']
+ 
+ admin.py 
+ @admin.register(Place)
+class PlaceAdmin(admin.ModelAdmin):
+    form = PlaceForm
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ edited  Jul 22 '16 at 14:31 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+   
+ 
+ 
+   edit 
+ share 
+ discuss 
+ request improvement 
+   edit 
+ move example 
+ delete example 
+ 
+ 
+ 
+   
+ 
+                var ados = ados || {}; ados.run = ados.run || [];
+                ados.run.push(function () { ados_add_placement(22,499571,"adzerk1974666319",4).setZone(30); });
+             
+ 
+ 
+   
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 6 
+ 
+ Additional CSS styles and JS scripts for admin page 
+ 
+ 
+ 
+ 
+ 
+ 6 
+ 
+ 
+ Suppose you have a simple  Customer  model: 
+ class Customer(models.Model):
+    first_name = models.CharField(max_length=255)
+    last_name = models.CharField(max_length=255)
+    is_premium = models.BooleanField(default=False)
+ 
+ You register it in the Django admin and add search field by  first_name  and  last_name : 
+ @admin.register(Customer)
+class CustomerAdmin(admin.ModelAdmin):
+    list_display = ['first_name', 'last_name', 'is_premium']
+    search_fields = ['first_name', 'last_name']
+ 
+ After you do this, the search fields appear in the admin list page with the default placeholder: " keyword ". But what if you want to change that placeholder to " Search by name "? 
+ You can do this by passing custom Javascript file into admin  Media : 
+ @admin.register(Customer)
+class CustomerAdmin(admin.ModelAdmin):
+    list_display = ['first_name', 'last_name', 'is_premium']
+    search_fields = ['first_name', 'last_name']
+    
+    class Media:
+        #this path may be any you want, 
+        #just put it in your static folder
+        js = ('js/admin/placeholder.js', )
+ 
+ You can use browser debug toolbar to find what id or class Django set to this searchbar and then write your js code: 
+ $(function () {
+   $('#searchbar').attr('placeholder', 'Search by name')
+})
+ 
+ Also  Media  class allows you to add css files with dictionary object: 
+ class Media:
+    css = {
+        'all': ('css/admin/styles.css',)
+         }
+ 
+ For example we need to display each element of  first_name  column in specific color. 
+By default Django create table column for every item in  list_display , all  <td>  tags will have css class like  field-'list_display_name' , in our case it will  field_first_name 
+ .field_first_name {
+     background-color: #e6f2ff;
+ }
+ 
+ If you want to customize other behavior by adding JS or some css styles, you can always check id`s and classes of elements in the browser debug tool. 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ edited  Jul 31 '16 at 11:30 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+   
+ 
+ 
+   edit 
+ share 
+ discuss 
+ request improvement 
+   edit 
+ move example 
+ delete example 
+ 
+ 
+ 
+ 
+ 
+ 
+ + 
+            Add Example
+         
+ 
+ 
+ 
+        Please consider making a request to improve this example.
+         Request Improvement 
+ 
+ 
+ 
+ 
+ 
+ Syntax 
+ 
+ 
+ Syntax 
+ 
+ 
+ 
+   add syntax 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ Parameters 
+ 
+ 
+ Parameters 
+ 
+ 
+ 
+   add parameters 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ Remarks 
+ 
+ 
+ Remarks 
+ 
+ 
+ 
+   add remarks 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ edited  Feb 22 at 20:42 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+                    +1
+                     
+ 
+ 
+   
+ 
+ Still have a question about Administration? 
+ Ask Question 
+ 
+ 
+ 
+ 
+ Topic Outline 
+ 
+ 3 Examples 
+ 
+ 
+ 
+ 
+ Dealing with foreign keys referencing large tables 
+ 
+ 
+ Additional CSS styles and JS scripts for admin page 
+ 
+ 
+ Change list 
+ 
+ Show more 
+ 
+ 
+ 
+ 
+                    Blog
+                 
+ 
+ 
+ 
+ 
+   
+ 
+ 
+ Trends in Government Software Developers 
+ 
+ 
+ 
+ 
+ 
+ 
+   
+ 
+ 
+ Introducing Channels: Private Q&A for Your Team 
+ 
+ 
+ 
+ 
+   
+ 
+                var ados = ados || {}; ados.run = ados.run || [];
+                ados.run.push(function () { ados_add_placement(22,499571,"adzerk523667216",5).setZone(56016); });
+             
+ 
+ 
+ 
+ 
+        StackExchange.ready(function () { $.get('/documentation/django/ivc/1219-636356027807259890:oa-r4opuhqhqg3orq8fpszwzflk.gif?topicId=1219'); });
+     
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+                    Topic Outline
+                         
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ Save Draft 
+ Discard 
+ 
+ 
+ 
+ 
+ Sign up or log in 
+ Save edit as a guest 
+ Join Stack Overflow 
+ 
+ 
+ 
+ Using Google 
+ 
+ 
+ Using Facebook 
+ 
+ 
+ Using Email and Password 
+ 
+ 
+ 
+ 
+ Name 
+ 
+ 
+ 
+ Email 
+ 
+ Save Draft 
+ 
+ 
+ 
+ 
+ We recognize you from another Stack Exchange Network site! 
+ Join and Save Draft 
+ 
+ Discard Draft 
+ 
+ 
+ 
+ default 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ Stack Overflow 
+ 
+ Questions 
+ Jobs 
+ Developer Jobs Directory 
+ Documentation 
+ Help 
+ Mobile 
+ 
+ 
+ 
+ Stack Overflow  Business 
+ 
+ Talent 
+ Ads 
+ Enterprise 
+ Insights 
+ 
+ 
+ 
+ Company 
+ 
+ About 
+ Press 
+ Work Here 
+ Legal 
+ Privacy Policy 
+ Contact Us 
+ 
+ 
+ 
+ 
+ 
+ Stack Exchange  Network 
+ 
+ Technology 
+ Life / Arts 
+ Culture / Recreation 
+ Science 
+ Other 
+ 
+ 
+ 
+ 
+ 
+ Stack Overflow 
+ Server Fault 
+ Super User 
+ Web Applications 
+ Ask Ubuntu 
+ Webmasters 
+ Game Development 
+ 
+ TeX - LaTeX 
+ Software Engineering 
+ Unix & Linux 
+ Ask Different (Apple) 
+ WordPress Development 
+ Geographic Information Systems 
+ Electrical Engineering 
+ 
+ Android Enthusiasts 
+ Information Security 
+ Database Administrators 
+ Drupal Answers 
+ SharePoint 
+ User Experience 
+ Data Science 
+ 
+ Mathematica 
+ Salesforce 
+ ExpressionEngine® Answers 
+ Blender 
+ Network Engineering 
+ Cryptography 
+ Code Review 
+ 
+ Magento 
+ Software Recommendations 
+ Signal Processing 
+ Emacs 
+ Raspberry Pi 
+ Programming Puzzles & Code Golf 
+ Ethereum 
+ 
+ 
+ 
+                            more (27)
+                         
+ 
+ 
+ 
+ 
+ 
+ 
+ Photography 
+ Science Fiction & Fantasy 
+ Graphic Design 
+ Movies & TV 
+ Music: Practice & Theory 
+ Worldbuilding 
+ Seasoned Advice (cooking) 
+ 
+ Home Improvement 
+ Personal Finance & Money 
+ Academia 
+ Law 
+ 
+ 
+ 
+                            more (16)
+                         
+ 
+ 
+ 
+ 
+ 
+ 
+ English Language & Usage 
+ Skeptics 
+ Mi Yodeya (Judaism) 
+ Travel 
+ Christianity 
+ English Language Learners 
+ Japanese Language 
+ 
+ Arqade (gaming) 
+ Bicycles 
+ Role-playing Games 
+ Anime & Manga 
+ Puzzling 
+ Motor Vehicle Maintenance & Repair 
+ 
+ 
+ 
+                            more (32)
+                         
+ 
+ 
+ 
+ 
+ 
+ 
+ MathOverflow 
+ Mathematics 
+ Cross Validated (stats) 
+ Theoretical Computer Science 
+ Physics 
+ Chemistry 
+ Biology 
+ 
+ Computer Science 
+ Philosophy 
+ 
+ 
+ 
+                            more (10)
+                         
+ 
+ 
+ 
+ 
+ 
+ 
+ Meta Stack Exchange 
+ Stack Apps 
+ API 
+ Data 
+ Area 51 
+ 
+ 
+ 
+ 
+ 
+ Blog 
+ Facebook 
+ Twitter 
+ LinkedIn 
+ 
+ 
+ 
+                                    site design / logo © 2017 Stack Exchange Inc; user contributions licensed under  cc by-sa 3.0 
+                                    with  attribution required .
+                                     rev 2017.7.13.1278 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ Stack Overflow works best with JavaScript enabled
+             
+ 
+ 
+ var z=document.createElement("script");z.type="text/javascript",z.async=!0,z.src="https://static.adzerk.net/ados.js";var s=document.getElementsByTagName("script")[0];s.parentNode.insertBefore(z,s); 
+ 
+var ados = ados || {};
+ados.run = ados.run || [];
+
+ 
+ 
+            (function(i, s, o, g, r, a, m) {
+                i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function() { (i[r].q = i[r].q || []).push(arguments) }, i[r].l = 1 * new Date(); a = s.createElement(o),
+                m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m);
+            })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+                ga('create', 'UA-5620270-1');
+                ga('create', 'UA-5620270-60', {name: 'pageData', sampleRate: 100 });
+                ga('send', 'pageview');
+                ga('pageData.send', 'pageview');
+        var _qevents = _qevents || [],
+            _comscore = _comscore || [];
+        (function () {
+            var ssl='https:'==document.location.protocol,
+                s=document.getElementsByTagName('script')[0],
+                qc=document.createElement('script');
+                qc.async = true;
+                qc.src = (ssl ? 'https://secure' : 'http://edge') + '.quantserve.com/quant.js';
+                s.parentNode.insertBefore(qc, s);
+                _qevents.push({ qacct: "p-c1rF4kxgLUzNc" });
+                            var sc=document.createElement('script');
+                sc.async=true;
+                sc.src=(ssl?'https://sb':'http://b') + '.scorecardresearch.com/beacon.js';
+                s.parentNode.insertBefore(sc, s);
+                _comscore.push({ c1: "2", c2: "17440561" });
+        })();
+
+     
+ 
+                
+                (function(appendChild) {
+                    Node.prototype.appendChild = function() {
+                        var parent = this;
+                        var newNode = arguments[0];
+                        if (parent.nodeName === 'HEAD'
+                            && newNode
+                            && newNode.nodeName === 'SCRIPT'
+                            && newNode.src) {
+                            
+                            window.setTimeout(function() {
+                                var result = newNode.src.match(/^https:\/\/maps\.googleapis\.com\/maps\/api\/place\/js\/(\w+)Service\./i) || [];
+                                var service = result[1];
+                                if (service) {
+                                    if (service === 'Autocompletion') service =  2;
+                                    else if (service === 'Place') service = 1;
+                                    else service = 0;
+                                    StackExchange.using('gps', function() {
+                                        StackExchange.gps.track('google_maps_places_api.call', { service: service });
+                                    });
+                                }
+                            }, 0);
+                        }
+                        return appendChild.apply(this, arguments);
+                    };
+                })(Node.prototype.appendChild);
+             

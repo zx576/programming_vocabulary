@@ -1,0 +1,1052 @@
+
+ (function () { var old = $.fn.contents; $.fn.contents = function () { try { return old.apply(this, arguments); } catch (e) { return $([]); } } })() 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ Stack Overflow 
+ 
+ 
+ 
+ 
+ Questions 
+ 
+ 
+ Developer Jobs 
+ 
+ 
+ Documentation  beta 
+ 
+ 
+ Tags 
+ 
+ 
+ Users 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ current community 
+ 
+ 
+ 
+ 
+ 
+ 
+ help 
+ chat 
+ 
+ 
+ 
+        Stack Overflow
+     
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+        Meta Stack Overflow
+     
+ 
+ 
+ 
+ 
+ 
+your communities             
+ 
+ 
+ 
+ Sign up  or  log in  to customize your list.
+                 
+ 
+ 
+ more stack exchange communities 
+ 
+ company blog 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+                            Tour
+                             
+                                Start here for a quick overview of the site
+                             
+ 
+ 
+ 
+ 
+                        Help Center
+                         
+                            Detailed answers to any questions you might have
+                         
+ 
+ 
+ 
+ 
+                                Meta
+                                 
+                                    Discuss the workings and policies of this site
+                                 
+ 
+ 
+ 
+ 
+                                About Us
+                                 
+                                    Learn more about Stack Overflow the company
+                                 
+ 
+ 
+ 
+ 
+                                Business
+                                 
+                                    Learn more about hiring developers or posting ads with us
+                                 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ Log In 
+ Sign Up 
+ 
+ 
+ 
+ 
+ 
+        StackExchange.ready(function () { StackExchange.topbar.init(); });
+            StackExchange.scrollPadding.setPaddingTop(60, 10);      
+ 
+ 
+ 
+ 
+ Django 
+ 
+ 
+ 
+ 
+   
+ 
+ 
+ 
+ 
+ dashboard 
+ all topics 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ Popular 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+        StackExchange.ready(function () {
+            StackExchange.docs.search.init({
+                popularTopicsJson: [{"Id":200,"DocTag":"django","Title":"Getting started with Django","Url":"/documentation/django/200/getting-started-with-django"},{"Id":942,"DocTag":"django","Title":"Settings","Url":"/documentation/django/942/settings"},{"Id":888,"DocTag":"django","Title":"Models","Url":"/documentation/django/888/models"},{"Id":1235,"DocTag":"django","Title":"Querysets","Url":"/documentation/django/1235/querysets"},{"Id":1721,"DocTag":"django","Title":"Middleware","Url":"/documentation/django/1721/middleware"}]
+            });
+        });
+     
+   
+ 
+ 
+ 
+ Topic 
+ 
+ 
+ 
+ 
+ 
+ 
+ You must  sign up  or  log in  to make a topic request. 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+    StackExchange.ready(function () {
+        StackExchange.docs.requestTopic.init('django');
+    });
+   
+ 
+ 
+ 
+ 
+ 
+ 
+ CRUD in Django   
+            All Versions
+         
+ 
+ 
+ 
+ topic 
+ discuss 
+ 
+ 
+ 
+ 
+ Title 
+ 
+ 
+ 
+ Versions 
+ 
+ 
+                        1.0
+                     
+ 
+                        1.1
+                     
+ 
+                        1.2
+                     
+ 
+                        1.3
+                     
+ 
+                        1.4
+                     
+ 
+                        1.5
+                     
+ 
+                        1.6
+                     
+ 
+                        1.7
+                     
+ 
+                        1.8
+                     
+ 
+                        1.9
+                     
+ 
+                        1.10
+                     
+ 
+                        1.11
+                     
+ 
+ 
+ 
+ Introduction 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+   add introduction 
+ edit 
+ share 
+ request improvement 
+   edit 
+ move 
+ delete topic 
+ share 
+ 
+ 
+ 
+ 
+ 
+                var ados = ados || {}; ados.run = ados.run || [];
+                ados.run.push(function () { ados_add_placement(22,499571,"adzerk1811571074",4).setZone(29); });
+             
+ 
+ 
+ 
+ 
+ This draft deletes the entire topic. 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+                    Examples
+                     
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 0 
+ 
+ **Simplest CRUD example** 
+ 
+ 
+ 
+ 
+ 
+ 0 
+ 
+ 
+ 
+ 
+ 
+   
+ If you find these steps unfamiliar, consider starting  here instead . Note these steps come from Stack Overflow Documentation. 
+ django-admin startproject myproject
+cd myproject
+python manage.py startapp myapp
+ 
+ myproject/settings.py  Install the app 
+ INSTALLED_APPS = [
+    'django.contrib.admin',
+    'django.contrib.auth',
+    'django.contrib.contenttypes',
+    'django.contrib.sessions',
+    'django.contrib.messages',
+    'django.contrib.staticfiles',
+    'myapp',
+]
+ 
+ Create a file called  urls.py  within the  myapp  directory and updated it with the following view. 
+ from django.conf.urls import url
+from myapp import views
+
+urlpatterns = [
+    url(r'^$', views.index, name='index'),
+    ]
+ 
+ Update the other  urls.py  file with the following content. 
+ from django.conf.urls import url
+from django.contrib import admin
+from django.conf.urls import include 
+from myapp import views
+
+urlpatterns = [
+    url(r'^$', views.index, name='index'),
+    url(r'^myapp/', include('myapp.urls')),
+    url(r'^admin/', admin.site.urls),
+]
+ 
+ Create a folder named  templates  within the  myapp  directory. Then create a file named  index.html  inside of the  templates  directory. Fill it with the following content. 
+ <!DOCTYPE html>
+<html>
+<head>
+    <title>myapp</title>
+</head>
+<body>
+    <h2>Simplest Crud Example</h2>
+    <p>This shows a list of names and lets you Create, Update and Delete them.</p>
+    <h3>Add a Name</h3>
+    <button>Create</button>
+</body>
+</html>
+ 
+ We also need a view to show  index.html  which we can create by editing the  views.py  file like so: 
+ from django.shortcuts import render, redirect
+
+# Create your views here.
+def index(request):
+    return render(request, 'index.html', {})
+ 
+ You now have the base that you're going to work off of. The next step is create a Model. This is the simplest example possible so in your  models.py  folder add the following code. 
+ from __future__ import unicode_literals
+
+from django.db import models
+
+# Create your models here.
+class Name(models.Model):
+    name_value = models.CharField(max_length=100)
+
+    def __str__(self): # if Python 2 use __unicode__
+        return self.name_value
+ 
+ This creates a model of a Name object which we'll add to the database with the following commands from the command line. 
+ python manage.py createsuperuser 
+python manage.py makemigrations
+python manage.py migrate
+ 
+ You should see some operations performed by Django. These setup up the tables and create a superuser that can access the admin database from a Django powered admin view. Speaking of which, lets register our new model with the admin view. Go to  admin.py  and add the following code. 
+ from django.contrib import admin
+from myapp.models import Name
+# Register your models here.
+
+admin.site.register(Name)
+ 
+ Back at the command line you can now spin up the server with the  python manage.py runserver  command. You should be able to visit  http://localhost:8000/  and see your app. Please then navigate to  http://localhost:8000/admin  so that you can add a name to your project. Log in and add a Name under the MYAPP table, we kept it simple for the example so ensure it's less than 100 characters. 
+ In order to access the name you need to display it somewhere. Edit the index function within  views.py  to get all of the Name objects out of the database. 
+ from django.shortcuts import render, redirect
+from myapp.models import Name
+
+# Create your views here.
+def index(request):
+    names_from_db = Name.objects.all()
+    context_dict = {'names_from_context': names_from_db}
+    return render(request, 'index.html', context_dict)
+ 
+ Now edit the  index.html  file to the following. 
+ <!DOCTYPE html>
+<html>
+<head>
+    <title>myapp</title>
+</head>
+<body>
+    <h2>Simplest Crud Example</h2>
+    <p>This shows a list of names and lets you Create, Update and Delete them.</p>
+    {% if names_from_context %}
+        <ul>
+            {% for name in names_from_context %}
+                <li>{{ name.name_value }}  <button>Delete</button> <button>Update</button></li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <h3>Please go to the admin and add a Name under 'MYAPP'</h3>
+    {% endif %}
+    <h3>Add a Name</h3>
+    <button>Create</button>
+</body>
+</html>
+ 
+ That demonstrates the Read in CRUD. Within the  myapp  directory create a forms.py file. Add the following code: 
+ from django import forms
+from myapp.models import Name
+
+class NameForm(forms.ModelForm):
+    name_value = forms.CharField(max_length=100, help_text = "Enter a name")
+
+    class Meta:
+        model = Name
+        fields = ('name_value',)
+ 
+ Update the  index.html  in the following manner: 
+ <!DOCTYPE html>
+<html>
+<head>
+    <title>myapp</title>
+</head>
+<body>
+    <h2>Simplest Crud Example</h2>
+    <p>This shows a list of names and lets you Create, Update and Delete them.</p>
+    {% if names_from_context %}
+        <ul>
+            {% for name in names_from_context %}
+                <li>{{ name.name_value }}  <button>Delete</button> <button>Update</button></li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <h3>Please go to the admin and add a Name under 'MYAPP'</h3>
+    {% endif %}
+    <h3>Add a Name</h3>
+    <form id="name_form" method="post" action="/">
+        {% csrf_token %}
+        {% for field in form.visible_fields %}
+            {{ field.errors }}
+            {{ field.help_text }}
+            {{ field }}
+        {% endfor %}
+        <input type="submit" name="submit" value="Create">
+    </form>
+</body>
+</html>
+ 
+ Next update the  views.py  in the following manner: 
+ from django.shortcuts import render, redirect
+from myapp.models import Name
+from myapp.forms import NameForm
+
+# Create your views here.
+def index(request):
+    names_from_db = Name.objects.all()
+
+    form = NameForm()
+
+    context_dict = {'names_from_context': names_from_db, 'form': form}
+
+    if request.method == 'POST':
+        form = NameForm(request.POST)
+
+        if form.is_valid():
+            form.save(commit=True)
+            return render(request, 'index.html', context_dict)
+        else:
+            print(form.errors)    
+
+    return render(request, 'index.html', context_dict)
+ 
+ Restart your server and you should now have a working version of the app with the C in create completed. 
+ TODO  add update and delete 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ edited  Feb 27 at 20:56 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+   
+ 
+ 
+   edit 
+ share 
+ discuss 
+ request improvement 
+   edit 
+ move example 
+ delete example 
+ 
+ 
+ 
+ 
+ 
+ 
+ + 
+            Add Example
+         
+ 
+ 
+ 
+        Please consider making a request to improve this example.
+         Request Improvement 
+ 
+ 
+ 
+ 
+ 
+ Syntax 
+ 
+ 
+ Syntax 
+ 
+ 
+ 
+   add syntax 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ Parameters 
+ 
+ 
+ Parameters 
+ 
+ 
+ 
+   add parameters 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ Remarks 
+ 
+ 
+ Remarks 
+ 
+ 
+ 
+   add remarks 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ edited  Feb 27 at 20:56 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+   
+ 
+ Still have a question about CRUD in Django? 
+ Ask Question 
+ 
+ 
+ 
+ 
+ Topic Outline 
+ 
+ 1 Examples 
+ 
+ 
+ 
+ 
+ **Simplest CRUD example** 
+ 
+ Show more 
+ 
+ 
+ 
+ 
+                    Blog
+                 
+ 
+ 
+ 
+ 
+   
+ 
+ 
+ Trends in Government Software Developers 
+ 
+ 
+ 
+ 
+ 
+ 
+   
+ 
+ 
+ Introducing Channels: Private Q&A for Your Team 
+ 
+ 
+ 
+ 
+   
+ 
+                var ados = ados || {}; ados.run = ados.run || [];
+                ados.run.push(function () { ados_add_placement(22,499571,"adzerk1926225996",5).setZone(56016); });
+             
+ 
+ 
+ 
+ 
+        StackExchange.ready(function () { $.get('/documentation/django/ivc/7317-636356028647480070:2f44w069bvhcggyj4o-r7mmjdxu.gif?topicId=7317'); });
+     
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+                    Topic Outline
+                         
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ Save Draft 
+ Discard 
+ 
+ 
+ 
+ 
+ Sign up or log in 
+ Save edit as a guest 
+ Join Stack Overflow 
+ 
+ 
+ 
+ Using Google 
+ 
+ 
+ Using Facebook 
+ 
+ 
+ Using Email and Password 
+ 
+ 
+ 
+ 
+ Name 
+ 
+ 
+ 
+ Email 
+ 
+ Save Draft 
+ 
+ 
+ 
+ 
+ We recognize you from another Stack Exchange Network site! 
+ Join and Save Draft 
+ 
+ Discard Draft 
+ 
+ 
+ 
+ default 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ Stack Overflow 
+ 
+ Questions 
+ Jobs 
+ Developer Jobs Directory 
+ Documentation 
+ Help 
+ Mobile 
+ 
+ 
+ 
+ Stack Overflow  Business 
+ 
+ Talent 
+ Ads 
+ Enterprise 
+ Insights 
+ 
+ 
+ 
+ Company 
+ 
+ About 
+ Press 
+ Work Here 
+ Legal 
+ Privacy Policy 
+ Contact Us 
+ 
+ 
+ 
+ 
+ 
+ Stack Exchange  Network 
+ 
+ Technology 
+ Life / Arts 
+ Culture / Recreation 
+ Science 
+ Other 
+ 
+ 
+ 
+ 
+ 
+ Stack Overflow 
+ Server Fault 
+ Super User 
+ Web Applications 
+ Ask Ubuntu 
+ Webmasters 
+ Game Development 
+ 
+ TeX - LaTeX 
+ Software Engineering 
+ Unix & Linux 
+ Ask Different (Apple) 
+ WordPress Development 
+ Geographic Information Systems 
+ Electrical Engineering 
+ 
+ Android Enthusiasts 
+ Information Security 
+ Database Administrators 
+ Drupal Answers 
+ SharePoint 
+ User Experience 
+ Data Science 
+ 
+ Mathematica 
+ Salesforce 
+ ExpressionEngine® Answers 
+ Blender 
+ Network Engineering 
+ Cryptography 
+ Code Review 
+ 
+ Magento 
+ Software Recommendations 
+ Signal Processing 
+ Emacs 
+ Raspberry Pi 
+ Programming Puzzles & Code Golf 
+ Ethereum 
+ 
+ 
+ 
+                            more (27)
+                         
+ 
+ 
+ 
+ 
+ 
+ 
+ Photography 
+ Science Fiction & Fantasy 
+ Graphic Design 
+ Movies & TV 
+ Music: Practice & Theory 
+ Worldbuilding 
+ Seasoned Advice (cooking) 
+ 
+ Home Improvement 
+ Personal Finance & Money 
+ Academia 
+ Law 
+ 
+ 
+ 
+                            more (16)
+                         
+ 
+ 
+ 
+ 
+ 
+ 
+ English Language & Usage 
+ Skeptics 
+ Mi Yodeya (Judaism) 
+ Travel 
+ Christianity 
+ English Language Learners 
+ Japanese Language 
+ 
+ Arqade (gaming) 
+ Bicycles 
+ Role-playing Games 
+ Anime & Manga 
+ Puzzling 
+ Motor Vehicle Maintenance & Repair 
+ 
+ 
+ 
+                            more (32)
+                         
+ 
+ 
+ 
+ 
+ 
+ 
+ MathOverflow 
+ Mathematics 
+ Cross Validated (stats) 
+ Theoretical Computer Science 
+ Physics 
+ Chemistry 
+ Biology 
+ 
+ Computer Science 
+ Philosophy 
+ 
+ 
+ 
+                            more (10)
+                         
+ 
+ 
+ 
+ 
+ 
+ 
+ Meta Stack Exchange 
+ Stack Apps 
+ API 
+ Data 
+ Area 51 
+ 
+ 
+ 
+ 
+ 
+ Blog 
+ Facebook 
+ Twitter 
+ LinkedIn 
+ 
+ 
+ 
+                                    site design / logo © 2017 Stack Exchange Inc; user contributions licensed under  cc by-sa 3.0 
+                                    with  attribution required .
+                                     rev 2017.7.13.1278 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ Stack Overflow works best with JavaScript enabled
+             
+ 
+ 
+ var z=document.createElement("script");z.type="text/javascript",z.async=!0,z.src="https://static.adzerk.net/ados.js";var s=document.getElementsByTagName("script")[0];s.parentNode.insertBefore(z,s); 
+ 
+var ados = ados || {};
+ados.run = ados.run || [];
+
+ 
+ 
+            (function(i, s, o, g, r, a, m) {
+                i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function() { (i[r].q = i[r].q || []).push(arguments) }, i[r].l = 1 * new Date(); a = s.createElement(o),
+                m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m);
+            })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+                ga('create', 'UA-5620270-1');
+                ga('create', 'UA-5620270-60', {name: 'pageData', sampleRate: 100 });
+                ga('send', 'pageview');
+                ga('pageData.send', 'pageview');
+        var _qevents = _qevents || [],
+            _comscore = _comscore || [];
+        (function () {
+            var ssl='https:'==document.location.protocol,
+                s=document.getElementsByTagName('script')[0],
+                qc=document.createElement('script');
+                qc.async = true;
+                qc.src = (ssl ? 'https://secure' : 'http://edge') + '.quantserve.com/quant.js';
+                s.parentNode.insertBefore(qc, s);
+                _qevents.push({ qacct: "p-c1rF4kxgLUzNc" });
+                            var sc=document.createElement('script');
+                sc.async=true;
+                sc.src=(ssl?'https://sb':'http://b') + '.scorecardresearch.com/beacon.js';
+                s.parentNode.insertBefore(sc, s);
+                _comscore.push({ c1: "2", c2: "17440561" });
+        })();
+
+     
+ 
+                
+                (function(appendChild) {
+                    Node.prototype.appendChild = function() {
+                        var parent = this;
+                        var newNode = arguments[0];
+                        if (parent.nodeName === 'HEAD'
+                            && newNode
+                            && newNode.nodeName === 'SCRIPT'
+                            && newNode.src) {
+                            
+                            window.setTimeout(function() {
+                                var result = newNode.src.match(/^https:\/\/maps\.googleapis\.com\/maps\/api\/place\/js\/(\w+)Service\./i) || [];
+                                var service = result[1];
+                                if (service) {
+                                    if (service === 'Autocompletion') service =  2;
+                                    else if (service === 'Place') service = 1;
+                                    else service = 0;
+                                    StackExchange.using('gps', function() {
+                                        StackExchange.gps.track('google_maps_places_api.call', { service: service });
+                                    });
+                                }
+                            }, 0);
+                        }
+                        return appendChild.apply(this, arguments);
+                    };
+                })(Node.prototype.appendChild);
+             

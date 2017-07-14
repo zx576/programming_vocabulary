@@ -1,0 +1,1464 @@
+
+ (function () { var old = $.fn.contents; $.fn.contents = function () { try { return old.apply(this, arguments); } catch (e) { return $([]); } } })() 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ Stack Overflow 
+ 
+ 
+ 
+ 
+ Questions 
+ 
+ 
+ Developer Jobs 
+ 
+ 
+ Documentation  beta 
+ 
+ 
+ Tags 
+ 
+ 
+ Users 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ current community 
+ 
+ 
+ 
+ 
+ 
+ 
+ help 
+ chat 
+ 
+ 
+ 
+        Stack Overflow
+     
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+        Meta Stack Overflow
+     
+ 
+ 
+ 
+ 
+ 
+your communities             
+ 
+ 
+ 
+ Sign up  or  log in  to customize your list.
+                 
+ 
+ 
+ more stack exchange communities 
+ 
+ company blog 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+                            Tour
+                             
+                                Start here for a quick overview of the site
+                             
+ 
+ 
+ 
+ 
+                        Help Center
+                         
+                            Detailed answers to any questions you might have
+                         
+ 
+ 
+ 
+ 
+                                Meta
+                                 
+                                    Discuss the workings and policies of this site
+                                 
+ 
+ 
+ 
+ 
+                                About Us
+                                 
+                                    Learn more about Stack Overflow the company
+                                 
+ 
+ 
+ 
+ 
+                                Business
+                                 
+                                    Learn more about hiring developers or posting ads with us
+                                 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ Log In 
+ Sign Up 
+ 
+ 
+ 
+ 
+ 
+        StackExchange.ready(function () { StackExchange.topbar.init(); });
+            StackExchange.scrollPadding.setPaddingTop(60, 10);      
+ 
+ 
+ 
+ 
+ Git 
+ 
+ 
+ 
+ 
+   
+ 
+ 
+ 
+ 
+ dashboard 
+ all topics 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ Popular 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+        StackExchange.ready(function () {
+            StackExchange.docs.search.init({
+                popularTopicsJson: [{"Id":245,"DocTag":"git","Title":"Ignoring Files and Folders","Url":"/documentation/git/245/ignoring-files-and-folders"},{"Id":218,"DocTag":"git","Title":"Getting started with Git","Url":"/documentation/git/218/getting-started-with-git"},{"Id":415,"DocTag":"git","Title":"Branching","Url":"/documentation/git/415/branching"},{"Id":355,"DocTag":"git","Title":"Rebasing","Url":"/documentation/git/355/rebasing"},{"Id":323,"DocTag":"git","Title":"Committing","Url":"/documentation/git/323/committing"}]
+            });
+        });
+     
+   
+ 
+ 
+ 
+ Topic 
+ 
+ 
+ 
+ 
+ 
+ 
+ You must  sign up  or  log in  to make a topic request. 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+    StackExchange.ready(function () {
+        StackExchange.docs.requestTopic.init('git');
+    });
+   
+ 
+ 
+ 
+ 
+ 
+ 
+ Git revisions syntax   
+            All Versions
+         
+ 
+ 
+ 
+ topic 
+ discuss 
+ 
+ 
+ 
+ 
+ Title 
+ 
+ 
+ 
+ Versions 
+ 
+ 
+                        0.99
+                     
+ 
+                        1.0
+                     
+ 
+                        1.1
+                     
+ 
+                        1.2
+                     
+ 
+                        1.3
+                     
+ 
+                        1.4
+                     
+ 
+                        1.5
+                     
+ 
+                        1.5.3
+                     
+ 
+                        1.6
+                     
+ 
+                        1.6.3
+                     
+ 
+                        1.6.5
+                     
+ 
+                        1.7
+                     
+ 
+                        1.7.10
+                     
+ 
+                        1.8
+                     
+ 
+                        1.8.3
+                     
+ 
+                        1.9
+                     
+ 
+                        2.0
+                     
+ 
+                        2.1
+                     
+ 
+                        2.2
+                     
+ 
+                        2.3
+                     
+ 
+                        2.4
+                     
+ 
+                        2.5
+                     
+ 
+                        2.6
+                     
+ 
+                        2.7
+                     
+ 
+                        2.8
+                     
+ 
+                        2.9
+                     
+ 
+                        2.10
+                     
+ 
+                        2.10.2
+                     
+ 
+                        2.11
+                     
+ 
+                        2.11.1
+                     
+ 
+                        2.12
+                     
+ 
+                        2.13
+                     
+ 
+ 
+ 
+ Introduction 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+   add introduction 
+ edit 
+ share 
+ request improvement 
+   edit 
+ move 
+ delete topic 
+ share 
+ 
+ 
+ 
+ 
+ 
+                var ados = ados || {}; ados.run = ados.run || [];
+                ados.run.push(function () { ados_add_placement(22,499571,"adzerk203220465",4).setZone(29); });
+             
+ 
+ 
+ 
+ 
+ This draft deletes the entire topic. 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+                    Examples
+                     
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 0 
+ 
+ Commit ancestry chain: <rev>^, <rev>~<n>, etc. 
+ 
+ 
+ 
+ 
+ 
+ 0 
+ 
+ 
+ 
+ 
+ 
+   
+ $ git reset --hard HEAD^             # discard last commit
+$ git rebase --interactive HEAD~5    # rebase last 4 commits
+ 
+ A suffix  ^  to a revision parameter means the first parent of that commit object.  ^<n>  means the <n>-th parent (i.e.  <rev>^  is equivalent to  <rev>^1 ). 
+ A suffix  ~<n>  to a revision parameter means the commit object that is the <n>-th generation ancestor of the named commit object, following only the first parents. This means that for example  <rev>~3  is equivalent to  <rev>^^^ .  As a shortcut,  <rev>~  means  <rev>~1 , and is equivalent to  <rev>^1 , or  <rev>^  in short. 
+ This syntax is composable. 
+ 
+ To find such symbolic names you can use the  git name-rev  command: 
+ $ git name-rev 33db5f4d9027a10e477ccf054b2c1ab94f74c85a
+33db5f4d9027a10e477ccf054b2c1ab94f74c85a tags/v0.99~940
+ 
+ Note that  --pretty=oneline  and not  --oneline  must be used in the following example 
+ $ git log --pretty=oneline | git name-rev --stdin --name-only
+master Sixth batch of topics for 2.10
+master~1 Merge branch 'ls/p4-tmp-refs'
+master~2 Merge branch 'js/am-call-theirs-theirs-in-fallback-3way'
+[...]
+master~14^2 sideband.c: small optimization of strbuf usage
+master~16^2 connect: read $GIT_SSH_COMMAND from config file
+[...]
+master~22^2~1 t7810-grep.sh: fix a whitespace inconsistency
+master~22^2~2 t7810-grep.sh: fix duplicated test name
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ edited  Sep 17 '16 at 15:30 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+   
+ 
+ 
+   edit 
+ share 
+ discuss 
+ request improvement 
+   edit 
+ move example 
+ delete example 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 0 
+ 
+ Dereferencing branches and tags: <rev>^0, <rev>^{<type>} 
+ 
+ 
+ 
+ 
+ 
+ 0 
+ 
+ 
+ In some cases the behavior of a command depends on whether it is given branch name, tag name, or an arbitrary revision. You can use "de-referencing" syntax if you need the latter. 
+ A suffix  ^  followed by an object type name ( tag ,  commit ,  tree ,  blob ) enclosed in brace pair (for example  v0.99.8^{commit} ) means dereference the object at  <rev>  recursively until an object of type  <type>  is found or the object cannot be dereferenced anymore.   <rev>^0  is a short-hand for  <rev>^{commit} . 
+ $ git checkout HEAD^0    # equivalent to 'git checkout --detach' in modern Git
+ 
+ A suffix  ^  followed by an empty brace pair (for example  v0.99.8^{} ) means to dereference the tag recursively until a non-tag object is found. 
+ Compare 
+ $ git show v1.0
+$ git cat-file -p v1.0
+$ git replace --edit v1.0
+ 
+ with 
+ $ git show v1.0^{}
+$ git cat-file -p v1.0^{}
+$ git replace --edit v1.0^{}
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ created  Jul 25 '16 at 17:03 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+   
+ 
+ 
+   edit 
+ share 
+ discuss 
+ request improvement 
+   edit 
+ move example 
+ delete example 
+ 
+ 
+ 
+   
+ 
+                var ados = ados || {}; ados.run = ados.run || [];
+                ados.run.push(function () { ados_add_placement(22,499571,"adzerk438528854",4).setZone(30); });
+             
+ 
+ 
+   
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 0 
+ 
+ Reflog references: <refname>@{<date>} 
+ 
+ 
+ 
+ 
+ 
+ 0 
+ 
+ 
+ $ git show master@{yesterday}
+$ git show HEAD@{5 minutes ago}   # or HEAD@{5.minutes.ago}
+ 
+ A ref followed by the suffix  @  with a date specification enclosed in a brace pair (e.g.  {yesterday} ,  {1 month 2 weeks 3 days 1 hour 1 second ago}  or  {1979-02-26 18:30:00} ) specifies the value of the ref at a prior point in time (or closest point to it). Note that this looks up the state of your  local  ref at a given time; e.g., what was in your local  'master'  branch last week. 
+ You can use  git reflog  with a date specifier to look up exact time where you did something to given ref in the local repository. 
+ $ git reflog HEAD@{now}
+08bb350 HEAD@{Sat Jul 23 19:48:13 2016 +0200}: reset: moving to HEAD^
+4ebf58d HEAD@{Sat Jul 23 19:39:20 2016 +0200}: commit: gitweb(1): Document query parameters
+08bb350 HEAD@{Sat Jul 23 19:26:43 2016 +0200}: pull: Fast-forward
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ created  Jul 25 '16 at 17:03 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+   
+ 
+ 
+   edit 
+ share 
+ discuss 
+ request improvement 
+   edit 
+ move example 
+ delete example 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 0 
+ 
+ Reflog references: <refname>@{<n>} 
+ 
+ 
+ 
+ 
+ 
+ 0 
+ 
+ 
+ $ git show @{1}            # uses reflog for current branch
+$ git show master@{1}      # uses reflog for branch 'master'
+$ git show HEAD@{1}        # uses 'HEAD' reflog
+ 
+ A ref, usually a branch or HEAD, followed by the suffix  @  with an ordinal specification enclosed in a brace pair (e.g.  {1} ,  {15} ) specifies the n-th prior value of that ref  in your  local  repository .  You can check recent reflog entries with  git reflog  command, or  --walk-reflogs  /  -g  option to  git log . 
+ $ git reflog
+08bb350 HEAD@{0}: reset: moving to HEAD^
+4ebf58d HEAD@{1}: commit: gitweb(1): Document query parameters
+08bb350 HEAD@{2}: pull: Fast-forward
+f34be46 HEAD@{3}: checkout: moving from af40944bda352190f05d22b7cb8fe88beb17f3a7 to master
+af40944 HEAD@{4}: checkout: moving from master to v2.6.3
+
+$ git reflog gitweb-docs
+4ebf58d gitweb-docs@{0}: branch: Created from master
+ 
+ Note : using reflogs practically replaced older mechanism of utilizing  ORIG_HEAD  ref (roughly equivalent to  HEAD@{1} ). 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ created  Jul 25 '16 at 17:03 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+   
+ 
+ 
+   edit 
+ share 
+ discuss 
+ request improvement 
+   edit 
+ move example 
+ delete example 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 0 
+ 
+ Specifying revision by object name 
+ 
+ 
+ 
+ 
+ 
+ 0 
+ 
+ 
+ $ git show dae86e1950b1277e545cee180551750029cfe735
+$ git show dae86e19
+ 
+ You can specify revision (or in truth any object: tag, tree i.e. directory contents, blob i.e. file contents) using SHA-1 object name, either full 40-byte hexadecimal string, or a substring that is unique to the repository. 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ created  Jul 25 '16 at 17:03 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+   
+ 
+ 
+   edit 
+ share 
+ discuss 
+ request improvement 
+   edit 
+ move example 
+ delete example 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 0 
+ 
+ Symbolic ref names: branches, tags, remote-tracking branches 
+ 
+ 
+ 
+ 
+ 
+ 0 
+ 
+ 
+ $ git log master    # specify branch
+$ git show v1.0     # specify tag
+$ git show HEAD     # specify current branch
+$ git show origin   # specify default remote-tracking branch for remote 'origin'
+ 
+ You can specify revision using a symbolic ref name, which includes branches (for example 'master', 'next', 'maint'), tags (for example 'v1.0', 'v0.6.3-rc2'), remote-tracking branches (for example 'origin', 'origin/master'), and special refs such as 'HEAD' for current branch. 
+ If the symbolic ref name is ambiguous, for example if you have both branch and tag named 'fix' (having branch and tag with the same name is not recommended), you need to specify the kind of ref you want to use: 
+ $ git show heads/fix      # or 'refs/heads/fix', to specify branch
+$ git show tags/fix       # or 'refs/tags/fix', to specify tag
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ created  Jul 25 '16 at 17:03 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+   
+ 
+ 
+   edit 
+ share 
+ discuss 
+ request improvement 
+   edit 
+ move example 
+ delete example 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 0 
+ 
+ The default revision: HEAD 
+ 
+ 
+ 
+ 
+ 
+ 0 
+ 
+ 
+ $ git show         # equivalent to 'git show HEAD'
+ 
+ 'HEAD' names the commit on which you based the changes in the working tree, and is usually the symbolic name for the current branch.  Many (but not all) commands that take revision parameter defaults to 'HEAD' if it is missing. 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ created  Jul 25 '16 at 17:03 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+   
+ 
+ 
+   edit 
+ share 
+ discuss 
+ request improvement 
+   edit 
+ move example 
+ delete example 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 0 
+ 
+ Tracked / upstream branch: <branchname>@{upstream} 
+ 
+ 
+ 
+ 
+ 
+ 0 
+ 
+ 
+ $ git log @{upstream}..       # what was done locally and not yet published, current branch
+$ git show master@{upstream}  # show upstream of branch 'master'
+ 
+ The suffix  @{upstream}  appended to a branchname (short form  <branchname>@{u} ) refers to the branch that the branch specified by branchname is set to build on top of (configured with  branch.<name>.remote  and  branch.<name>.merge , or with  git branch --set-upstream-to=<branch> ). A missing branchname defaults to the current one. 
+ Together with syntax for revision ranges it is very useful to see the commits your branch is ahead of upstream (commits in your local repository not yet present upstream), and what commits you are behind (commits in upstream not merged into local branch), or both: 
+ $ git log --oneline @{u}..
+$ git log --oneline ..@{u}
+$ git log --oneline --left-right @{u}...  # same as ...@{u}
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ created  Jul 25 '16 at 17:03 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+   
+ 
+ 
+   edit 
+ share 
+ discuss 
+ request improvement 
+   edit 
+ move example 
+ delete example 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 0 
+ 
+ Youngest matching commit: <rev>^{/<text>}, :/<text> 
+ 
+ 
+ 
+ 
+ 
+ 0 
+ 
+ 
+ $ git show HEAD^{/fix nasty bug}   # find starting from HEAD
+$ git show ':/fix nasty bug'       # find starting from any branch
+ 
+ A colon (' : '), followed by a slash (' / '), followed by a text, names a commit whose commit message matches the specified regular expression. This name returns the youngest matching commit which is reachable from  any  ref. The regular expression can match any part of the commit message. To match messages starting with a string, one can use e.g.  :/^foo . The special sequence  :/!  is reserved for modifiers to what is matched.  :/!-foo  performs a negative match, while  :/!!foo  matches a literal ! character, followed by  foo . 
+ A suffix  ^  to a revision parameter, followed by a brace pair that contains a text led by a slash, is the same as the  :/<text>  syntax below that it returns the youngest matching commit which is reachable from the  <rev>  before  ^ . 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ created  Jul 25 '16 at 17:03 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+   
+ 
+ 
+   edit 
+ share 
+ discuss 
+ request improvement 
+   edit 
+ move example 
+ delete example 
+ 
+ 
+ 
+ 
+ 
+ 
+ + 
+            Add Example
+         
+ 
+ 
+ 
+        Please consider making a request to improve this example.
+         Request Improvement 
+ 
+ 
+ 
+ 
+ 
+ Syntax 
+ 
+ 
+ Syntax 
+ 
+ 
+ 
+   add syntax 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ Parameters 
+ 
+ 
+ Parameters 
+ 
+ 
+ 
+   add parameters 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ Remarks 
+ Many Git commands take revision parameters as arguments. Depending on the command, they denote a specific commit or, for commands which walk the revision graph (such as  git-log(1) ), all commits which can be reached from that commit. They are usually denoted as  <commit> , or  <rev> , or  <revision>  in the syntax description. 
+ The reference documentation for Git revisions syntax is the  gitrevisions(7)  manpage. 
+ Still missing from this page: 
+ 
+ [_] Output from  git describe , e.g.  v1.7.4.2-679-g3bee7fb 
+ [_]  @  alone as a shortcut for  HEAD 
+ [_]  @{-<n>} , e.g.  @{-1} , and  -  meaning  @{-1} 
+ [_]  <branchname>@{push} 
+ [_]  <rev>^@ , for all parents of  <rev> 
+ 
+ Needs separate documentation: 
+ 
+ [_] Referring to blobs and trees in the repository and in the index:  <rev>:<path>  and  :<n>:<path>  syntax 
+ [_] Revision ranges like  A..B ,  A...B ,  B ^A ,  A^1 , and revision limiting like  -<n> ,  --since 
+ 
+ 
+ 
+ 
+   edit 
+ share 
+ 
+   edit 
+ 
+ 
+ 
+ 
+ 
+ 
+ edited  Sep 17 '16 at 15:30 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+   
+ 
+ Still have a question about Git revisions syntax? 
+ Ask Question 
+ 
+ 
+ 
+ 
+ Topic Outline 
+ 
+ 9 Examples 
+ 
+ 
+ 
+ 
+ Commit ancestry chain: <rev>^, <rev>~<n>, etc. 
+ 
+ 
+ Dereferencing branches and tags: <rev>^0, <rev>^{<type>} 
+ 
+ 
+ Reflog references: <refname>@{<date>} 
+ 
+ 
+ Reflog references: <refname>@{<n>} 
+ 
+ 
+ Specifying revision by object name 
+ 
+ 
+ Symbolic ref names: branches, tags, remote-tracking branches 
+ 
+ 
+ The default revision: HEAD 
+ 
+ 
+ Tracked / upstream branch: <branchname>@{upstream} 
+ 
+ 
+ Youngest matching commit: <rev>^{/<text>}, :/<text> 
+ 
+ Show more 
+ 
+ 
+ Remarks 
+ 
+ 
+ 
+ 
+                    Blog
+                 
+ 
+ 
+ 
+ 
+   
+ 
+ 
+ Trends in Government Software Developers 
+ 
+ 
+ 
+ 
+ 
+ 
+   
+ 
+ 
+ Introducing Channels: Private Q&A for Your Team 
+ 
+ 
+ 
+ 
+   
+ 
+                var ados = ados || {}; ados.run = ados.run || [];
+                ados.run.push(function () { ados_add_placement(22,499571,"adzerk1212326424",5).setZone(56016); });
+             
+ 
+ 
+ 
+ 
+        StackExchange.ready(function () { $.get('/documentation/git/ivc/3735-636356035833028454:s8-gfc-ptu1mjvouekt53ji5p6c.gif?topicId=3735'); });
+     
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+                    Topic Outline
+                         
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ Save Draft 
+ Discard 
+ 
+ 
+ 
+ 
+ Sign up or log in 
+ Save edit as a guest 
+ Join Stack Overflow 
+ 
+ 
+ 
+ Using Google 
+ 
+ 
+ Using Facebook 
+ 
+ 
+ Using Email and Password 
+ 
+ 
+ 
+ 
+ Name 
+ 
+ 
+ 
+ Email 
+ 
+ Save Draft 
+ 
+ 
+ 
+ 
+ We recognize you from another Stack Exchange Network site! 
+ Join and Save Draft 
+ 
+ Discard Draft 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ Stack Overflow 
+ 
+ Questions 
+ Jobs 
+ Developer Jobs Directory 
+ Documentation 
+ Help 
+ Mobile 
+ 
+ 
+ 
+ Stack Overflow  Business 
+ 
+ Talent 
+ Ads 
+ Enterprise 
+ Insights 
+ 
+ 
+ 
+ Company 
+ 
+ About 
+ Press 
+ Work Here 
+ Legal 
+ Privacy Policy 
+ Contact Us 
+ 
+ 
+ 
+ 
+ 
+ Stack Exchange  Network 
+ 
+ Technology 
+ Life / Arts 
+ Culture / Recreation 
+ Science 
+ Other 
+ 
+ 
+ 
+ 
+ 
+ Stack Overflow 
+ Server Fault 
+ Super User 
+ Web Applications 
+ Ask Ubuntu 
+ Webmasters 
+ Game Development 
+ 
+ TeX - LaTeX 
+ Software Engineering 
+ Unix & Linux 
+ Ask Different (Apple) 
+ WordPress Development 
+ Geographic Information Systems 
+ Electrical Engineering 
+ 
+ Android Enthusiasts 
+ Information Security 
+ Database Administrators 
+ Drupal Answers 
+ SharePoint 
+ User Experience 
+ Data Science 
+ 
+ Mathematica 
+ Salesforce 
+ ExpressionEngine® Answers 
+ Blender 
+ Network Engineering 
+ Cryptography 
+ Code Review 
+ 
+ Magento 
+ Software Recommendations 
+ Signal Processing 
+ Emacs 
+ Raspberry Pi 
+ Programming Puzzles & Code Golf 
+ Ethereum 
+ 
+ 
+ 
+                            more (27)
+                         
+ 
+ 
+ 
+ 
+ 
+ 
+ Photography 
+ Science Fiction & Fantasy 
+ Graphic Design 
+ Movies & TV 
+ Music: Practice & Theory 
+ Worldbuilding 
+ Seasoned Advice (cooking) 
+ 
+ Home Improvement 
+ Personal Finance & Money 
+ Academia 
+ Law 
+ 
+ 
+ 
+                            more (16)
+                         
+ 
+ 
+ 
+ 
+ 
+ 
+ English Language & Usage 
+ Skeptics 
+ Mi Yodeya (Judaism) 
+ Travel 
+ Christianity 
+ English Language Learners 
+ Japanese Language 
+ 
+ Arqade (gaming) 
+ Bicycles 
+ Role-playing Games 
+ Anime & Manga 
+ Puzzling 
+ Motor Vehicle Maintenance & Repair 
+ 
+ 
+ 
+                            more (32)
+                         
+ 
+ 
+ 
+ 
+ 
+ 
+ MathOverflow 
+ Mathematics 
+ Cross Validated (stats) 
+ Theoretical Computer Science 
+ Physics 
+ Chemistry 
+ Biology 
+ 
+ Computer Science 
+ Philosophy 
+ 
+ 
+ 
+                            more (10)
+                         
+ 
+ 
+ 
+ 
+ 
+ 
+ Meta Stack Exchange 
+ Stack Apps 
+ API 
+ Data 
+ Area 51 
+ 
+ 
+ 
+ 
+ 
+ Blog 
+ Facebook 
+ Twitter 
+ LinkedIn 
+ 
+ 
+ 
+                                    site design / logo © 2017 Stack Exchange Inc; user contributions licensed under  cc by-sa 3.0 
+                                    with  attribution required .
+                                     rev 2017.7.13.1278 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ Stack Overflow works best with JavaScript enabled
+             
+ 
+ 
+ var z=document.createElement("script");z.type="text/javascript",z.async=!0,z.src="https://static.adzerk.net/ados.js";var s=document.getElementsByTagName("script")[0];s.parentNode.insertBefore(z,s); 
+ 
+var ados = ados || {};
+ados.run = ados.run || [];
+
+ 
+ 
+            (function(i, s, o, g, r, a, m) {
+                i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function() { (i[r].q = i[r].q || []).push(arguments) }, i[r].l = 1 * new Date(); a = s.createElement(o),
+                m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m);
+            })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+                ga('create', 'UA-5620270-1');
+                ga('create', 'UA-5620270-60', {name: 'pageData', sampleRate: 100 });
+                ga('send', 'pageview');
+                ga('pageData.send', 'pageview');
+        var _qevents = _qevents || [],
+            _comscore = _comscore || [];
+        (function () {
+            var ssl='https:'==document.location.protocol,
+                s=document.getElementsByTagName('script')[0],
+                qc=document.createElement('script');
+                qc.async = true;
+                qc.src = (ssl ? 'https://secure' : 'http://edge') + '.quantserve.com/quant.js';
+                s.parentNode.insertBefore(qc, s);
+                _qevents.push({ qacct: "p-c1rF4kxgLUzNc" });
+                            var sc=document.createElement('script');
+                sc.async=true;
+                sc.src=(ssl?'https://sb':'http://b') + '.scorecardresearch.com/beacon.js';
+                s.parentNode.insertBefore(sc, s);
+                _comscore.push({ c1: "2", c2: "17440561" });
+        })();
+
+     
+ 
+                
+                (function(appendChild) {
+                    Node.prototype.appendChild = function() {
+                        var parent = this;
+                        var newNode = arguments[0];
+                        if (parent.nodeName === 'HEAD'
+                            && newNode
+                            && newNode.nodeName === 'SCRIPT'
+                            && newNode.src) {
+                            
+                            window.setTimeout(function() {
+                                var result = newNode.src.match(/^https:\/\/maps\.googleapis\.com\/maps\/api\/place\/js\/(\w+)Service\./i) || [];
+                                var service = result[1];
+                                if (service) {
+                                    if (service === 'Autocompletion') service =  2;
+                                    else if (service === 'Place') service = 1;
+                                    else service = 0;
+                                    StackExchange.using('gps', function() {
+                                        StackExchange.gps.track('google_maps_places_api.call', { service: service });
+                                    });
+                                }
+                            }, 0);
+                        }
+                        return appendChild.apply(this, arguments);
+                    };
+                })(Node.prototype.appendChild);
+             

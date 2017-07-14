@@ -1,0 +1,1132 @@
+
+ (function () { var old = $.fn.contents; $.fn.contents = function () { try { return old.apply(this, arguments); } catch (e) { return $([]); } } })() 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ Stack Overflow 
+ 
+ 
+ 
+ 
+ Questions 
+ 
+ 
+ Developer Jobs 
+ 
+ 
+ Documentation  beta 
+ 
+ 
+ Tags 
+ 
+ 
+ Users 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ current community 
+ 
+ 
+ 
+ 
+ 
+ 
+ help 
+ chat 
+ 
+ 
+ 
+        Stack Overflow
+     
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+        Meta Stack Overflow
+     
+ 
+ 
+ 
+ 
+ 
+your communities             
+ 
+ 
+ 
+ Sign up  or  log in  to customize your list.
+                 
+ 
+ 
+ more stack exchange communities 
+ 
+ company blog 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+                            Tour
+                             
+                                Start here for a quick overview of the site
+                             
+ 
+ 
+ 
+ 
+                        Help Center
+                         
+                            Detailed answers to any questions you might have
+                         
+ 
+ 
+ 
+ 
+                                Meta
+                                 
+                                    Discuss the workings and policies of this site
+                                 
+ 
+ 
+ 
+ 
+                                About Us
+                                 
+                                    Learn more about Stack Overflow the company
+                                 
+ 
+ 
+ 
+ 
+                                Business
+                                 
+                                    Learn more about hiring developers or posting ads with us
+                                 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ Log In 
+ Sign Up 
+ 
+ 
+ 
+ 
+ 
+        StackExchange.ready(function () { StackExchange.topbar.init(); });
+            StackExchange.scrollPadding.setPaddingTop(60, 10);      
+ 
+ 
+ 
+ 
+ Design patterns 
+ 
+ 
+ 
+ 
+   
+ 
+ 
+ 
+ 
+ dashboard 
+ all topics 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ Popular 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+        StackExchange.ready(function () {
+            StackExchange.docs.search.init({
+                popularTopicsJson: [{"Id":1375,"DocTag":"design-patterns","Title":"Factory","Url":"/documentation/design-patterns/1375/factory"},{"Id":2179,"DocTag":"design-patterns","Title":"Singleton","Url":"/documentation/design-patterns/2179/singleton"},{"Id":1811,"DocTag":"design-patterns","Title":"Builder Pattern","Url":"/documentation/design-patterns/1811/builder-pattern"},{"Id":1331,"DocTag":"design-patterns","Title":"Strategy Pattern","Url":"/documentation/design-patterns/1331/strategy-pattern"},{"Id":4011,"DocTag":"design-patterns","Title":"Bridge Pattern","Url":"/documentation/design-patterns/4011/bridge-pattern"}]
+            });
+        });
+     
+   
+ 
+ 
+ 
+ Topic 
+ 
+ 
+ 
+ 
+ 
+ 
+ You must  sign up  or  log in  to make a topic request. 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+    StackExchange.ready(function () {
+        StackExchange.docs.requestTopic.init('design-patterns');
+    });
+   
+ 
+ 
+ 
+ 
+ 
+ 
+ Decorator pattern 
+ 
+ 
+ 
+ topic 
+ discuss 
+ 
+ 
+ 
+ 
+ Title 
+ 
+ 
+ 
+ Versions 
+ 
+ 
+ Introduction 
+ 
+ Decorator pattern allows a user to add new functionality to an existing object without altering its structure. This type of design pattern comes under structural pattern as this pattern acts as a wrapper to existing class.
+
+This pattern creates a decorator class which wraps the original class and provides additional functionality keeping class methods signature intact. 
+ 
+ 
+ 
+ 
+ 
+ Decorator pattern allows a user to add new functionality to an existing object without altering its structure. This type of design pattern comes under structural pattern as this pattern acts as a wrapper to existing class. 
+ This pattern creates a decorator class which wraps the original class and provides additional functionality keeping class methods signature intact. 
+ 
+ 
+ 
+   edit 
+ share 
+ request improvement 
+   edit 
+ move 
+ delete topic 
+ share 
+ 
+ 
+ 
+ 
+ 
+                var ados = ados || {}; ados.run = ados.run || [];
+                ados.run.push(function () { ados_add_placement(22,499571,"adzerk1848503439",4).setZone(29); });
+             
+ 
+ 
+ 
+ 
+ This draft deletes the entire topic. 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+                    Examples
+                     
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 6 
+ 
+ VendingMachineDecorator 
+ 
+ 
+ 
+ 
+ 
+ 6 
+ 
+ 
+ 
+ 
+ 
+   
+ Definition of Decorator as per Wikiepdia: 
+ The Decorator pattern can be used to extend (decorate) the functionality of a certain object statically, or in some cases at run-time, independently of other instances of the same class, provided some groundwork is done at design time. 
+ Decorator attach additional responsibilities to an object dynamically. Decorators provide a flexible alternative to subclassing for extending functionality. 
+ Decorator pattern contains four components. 
+ 
+ 
+ Component Interface: It defines an interface to execute particular operations 
+ ConcreteComponent: It implements the operations defined in Component interface 
+ Decorator (Abstract) : it is an abstract class, which extends the component interface. It contains Component interface. In absence of this class, you need many sub-classes of ConcreteDecorators for different combinations. Composition of component reduces un-necessary sub-classes. 
+ ConcreteDecorator: It holds the implementation of Abstract Decorator. 
+ 
+ Coming back to example code, 
+ 
+ Beverage  is component. It defines an abstract method: decorateBeverage 
+ Tea  and  Coffee  are concrete implementations of  Beverage . 
+ BeverageDecorator  is an abstract class, which contains  Beverage 
+ SugarDecorator and LemonDecorator are concrete Decorators for BeverageDecorator. 
+ 
+ EDIT:  Changed the example to reflect real world scenario of computing the price of Beverage by adding one or more flavours like Sugar, Lemon etc( flavours are decorators) 
+ abstract class Beverage {
+    protected String name;
+    protected int price;
+    public Beverage(){
+        
+    }
+    public  Beverage(String name){
+        this.name = name;
+    }
+    public void setName(String name){
+        this.name = name;
+    }
+    public String getName(){
+        return name;
+    }
+    protected void setPrice(int price){
+        this.price = price;
+    }
+    protected int getPrice(){
+        return price;
+    }
+    protected abstract void decorateBeverage();
+    
+}
+class Tea extends Beverage{
+    public Tea(String name){
+        super(name);
+        setPrice(10);
+    }
+    public void decorateBeverage(){
+        System.out.println("Cost of:"+ name +":"+ price);
+        // You can add some more functionality
+    }
+}
+class Coffee extends Beverage{
+    public Coffee(String name){
+        super(name);
+        setPrice(15);
+    }
+    public void decorateBeverage(){
+        System.out.println("Cost of:"+ name +":"+ price);
+        // You can add some more functionality
+    }    
+}
+abstract class BeverageDecorator extends Beverage {
+    protected Beverage beverage;
+    public BeverageDecorator(Beverage beverage){    
+        this.beverage = beverage;    
+        setName(beverage.getName()+"+"+getDecoratedName());
+        setPrice(beverage.getPrice()+getIncrementPrice());
+    }
+    public void decorateBeverage(){
+        beverage.decorateBeverage();
+        System.out.println("Cost of:"+getName()+":"+getPrice());
+    }    
+    public abstract int getIncrementPrice();
+    public abstract String getDecoratedName();
+}
+class SugarDecorator extends BeverageDecorator{
+    public SugarDecorator(Beverage beverage){
+        super(beverage);
+    }
+    public void decorateBeverage(){
+        super.decorateBeverage();
+        decorateSugar();        
+    }
+    public void decorateSugar(){
+        System.out.println("Added Sugar to:"+beverage.getName());
+    }
+    public int getIncrementPrice(){
+        return 5;
+    }
+    public String getDecoratedName(){
+        return "Sugar";
+    }
+}
+class LemonDecorator extends BeverageDecorator{
+    public LemonDecorator(Beverage beverage){
+        super(beverage);
+    }
+    public void decorateBeverage(){
+        super.decorateBeverage();
+        decorateLemon();    
+    }
+    public void decorateLemon(){
+        System.out.println("Added Lemon to:"+beverage.getName());        
+    }
+    public int getIncrementPrice(){
+        return 3;
+    }
+    public String getDecoratedName(){
+        return "Lemon";
+    }
+}
+
+public class VendingMachineDecorator {    
+    public static void main(String args[]){
+        Beverage beverage = new SugarDecorator(new LemonDecorator(new Tea("Assam Tea")));
+        beverage.decorateBeverage();
+        beverage = new SugarDecorator(new LemonDecorator(new Coffee("Cappuccino")));
+        beverage.decorateBeverage();
+    }
+}
+ 
+ output: 
+ Cost of:Assam Tea:10
+Cost of:Assam Tea+Lemon:13
+Added Lemon to:Assam Tea
+Cost of:Assam Tea+Lemon+Sugar:18
+Added Sugar to:Assam Tea+Lemon
+Cost of:Cappuccino:15
+Cost of:Cappuccino+Lemon:18
+Added Lemon to:Cappuccino
+Cost of:Cappuccino+Lemon+Sugar:23
+Added Sugar to:Cappuccino+Lemon
+ 
+ This example computes cost of beverage in Vending Machine after adding many flavours to the beverage. 
+ In above example: 
+ Cost of Tea = 10, Lemon = 3 and Sugar = 5. If you make Sugar + Lemon + Tea, it costs 18. 
+ Cost of Coffee =15, Lemon = 3 and Sugar = 5. If you make Sugar + Lemon + Coffee, it costs 23 
+ By using same Decorator for both beverages ( Tea and Coffee ), the number of sub-classes have been reduced. In absence of  Decorator pattern, you should have different sub classes for different combinations. 
+ The combinations will be like this: 
+ SugarLemonTea
+SugarTea
+LemonTea
+
+SugarLemonCapaccuino
+SugarCapaccuino
+LemonCapaccuino
+ 
+ etc. 
+ By using same  Decorator  for both beverages, the number of sub-classes have been reduced. It's possible due to  composition  rather than  inheritance  concept used in this pattern. 
+ Comparison with other Design patterns ( From  sourcemaking  article) 
+ 
+ 
+ Adapter  provides a different interface to its subject.  Proxy  provides the same interface.  Decorator  provides an enhanced interface. 
+ 
+ 
+ Adapter  changes an object's interface,  Decorator  enhances an object's responsibilities. 
+ 
+ 
+ Composite  and  Decorator  have similar structure diagrams, reflecting the fact that both rely on recursive composition to organize an open-ended number of objects 
+ 
+ 
+ Decorator  is designed to let you add responsibilities to objects without subclassing.  Composite's  focus is not on embellishment but on representation 
+ 
+ 
+ Decorator  and  Proxy  have different purposes but similar structures 
+ 
+ 
+ Decorator  lets you change the skin of an object.  Strategy  lets you change the guts. 
+ 
+ 
+ Key use cases: 
+ 
+ Add additional functionalities/responsibilities dynamically 
+ Remove functionalities/responsibilities dynamically 
+ Avoid too much of sub-classing to add additional responsibilities. 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ edited  Jun 20 at 11:33 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+   
+ 
+ 
+   edit 
+ share 
+ discuss 
+ request improvement 
+   edit 
+ move example 
+ delete example 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 1 
+ 
+ Caching Decorator 
+ 
+ 
+ 
+ 
+ 
+ 1 
+ 
+ 
+ This example demonstrate how to add caching capabilities to  DbProductRepository  using Decorator pattern. This approach adheres to  SOLID principles  because it allows you to add caching without violating  Single responsibility principle  or  Open/closed principle . 
+ public interface IProductRepository
+{
+    Product GetProduct(int id);
+}
+
+public class DbProductRepository : IProductRepository
+{
+    public Product GetProduct(int id)
+    {
+        //return Product retrieved from DB
+    }
+}
+
+public class ProductRepositoryCachingDecorator : IProductRepository
+{
+    private readonly IProductRepository _decoratedRepository;
+    private readonly ICache _cache;
+    private const int ExpirationInHours = 1;
+
+    public ProductRepositoryCachingDecorator(IProductRepository decoratedRepository, ICache cache)
+    {
+        _decoratedRepository = decoratedRepository;
+        _cache = cache;
+    }
+
+    public Product GetProduct(int id)
+    {
+        var cacheKey = GetKey(id);
+        var product = _cache.Get<Product>(cacheKey);
+        if (product == null)
+        {
+            product = _decoratedRepository.GetProduct(id);
+            _cache.Set(cacheKey, product, DateTimeOffset.Now.AddHours(ExpirationInHours));
+        }
+        
+        return product;
+    }
+
+    private string GetKey(int id) => "Product:" + id.ToString();
+}
+
+public interface ICache
+{
+    T Get<T>(string key);
+    void Set(string key, object value, DateTimeOffset expirationTime)
+}
+ 
+ Usage: 
+ var productRepository = new ProductRepositoryCachingDecorator(new DbProductRepository(), new Cache());
+var product = productRepository.GetProduct(1);
+ 
+ Result of invoking  GetProduct  will be: retrieve product from cache (decorator responsibility), if product was not in the cache proceed with invocation to  DbProductRepository and retrieve product from DB. After this product can be added to the cache so subsequent calls won't hit DB. 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ edited  Jul 28 '16 at 13:36 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+   
+ 
+ 
+   edit 
+ share 
+ discuss 
+ request improvement 
+   edit 
+ move example 
+ delete example 
+ 
+ 
+ 
+   
+ 
+                var ados = ados || {}; ados.run = ados.run || [];
+                ados.run.push(function () { ados_add_placement(22,499571,"adzerk467822891",4).setZone(30); });
+             
+ 
+ 
+ 
+ 
+ 
+ 
+ + 
+            Add Example
+         
+ 
+ 
+ 
+        Please consider making a request to improve this example.
+         Request Improvement 
+ 
+ 
+ 
+ 
+ 
+ Syntax 
+ 
+ 
+ Syntax 
+ 
+ 
+ 
+   add syntax 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ Parameters 
+ Parameter Description Beverage it can be Tea or Coffee 
+ 
+ 
+ 
+   edit 
+ share 
+ 
+   edit 
+ 
+ 
+ 
+ 
+ 
+ 
+ Remarks 
+ 
+ 
+ Remarks 
+ 
+ 
+ 
+   add remarks 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ edited  Apr 11 at 3:07 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+   
+ 
+ Still have a question about Decorator pattern? 
+ Ask Question 
+ 
+ 
+ 
+ 
+ Topic Outline 
+ 
+ Introduction 
+ 
+ 
+ 2 Examples 
+ 
+ 
+ 
+ 
+ VendingMachineDecorator 
+ 
+ 
+ Caching Decorator 
+ 
+ Show more 
+ 
+ Parameters 
+ 
+ 
+ 
+                    Blog
+                 
+ 
+ 
+ 
+ 
+   
+ 
+ 
+ Trends in Government Software Developers 
+ 
+ 
+ 
+ 
+ 
+ 
+   
+ 
+ 
+ Introducing Channels: Private Q&A for Your Team 
+ 
+ 
+ 
+ 
+   
+ 
+                var ados = ados || {}; ados.run = ados.run || [];
+                ados.run.push(function () { ados_add_placement(22,499571,"adzerk909888780",5).setZone(56016); });
+             
+ 
+ 
+ 
+ 
+        StackExchange.ready(function () { $.get('/documentation/design-patterns/ivc/1720-636356035938495832:lnbs5zc3mv1y2uq70fzogz07uq.gif?topicId=1720'); });
+     
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+                    Topic Outline
+                         
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ Save Draft 
+ Discard 
+ 
+ 
+ 
+ 
+ Sign up or log in 
+ Save edit as a guest 
+ Join Stack Overflow 
+ 
+ 
+ 
+ Using Google 
+ 
+ 
+ Using Facebook 
+ 
+ 
+ Using Email and Password 
+ 
+ 
+ 
+ 
+ Name 
+ 
+ 
+ 
+ Email 
+ 
+ Save Draft 
+ 
+ 
+ 
+ 
+ We recognize you from another Stack Exchange Network site! 
+ Join and Save Draft 
+ 
+ Discard Draft 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ Stack Overflow 
+ 
+ Questions 
+ Jobs 
+ Developer Jobs Directory 
+ Documentation 
+ Help 
+ Mobile 
+ 
+ 
+ 
+ Stack Overflow  Business 
+ 
+ Talent 
+ Ads 
+ Enterprise 
+ Insights 
+ 
+ 
+ 
+ Company 
+ 
+ About 
+ Press 
+ Work Here 
+ Legal 
+ Privacy Policy 
+ Contact Us 
+ 
+ 
+ 
+ 
+ 
+ Stack Exchange  Network 
+ 
+ Technology 
+ Life / Arts 
+ Culture / Recreation 
+ Science 
+ Other 
+ 
+ 
+ 
+ 
+ 
+ Stack Overflow 
+ Server Fault 
+ Super User 
+ Web Applications 
+ Ask Ubuntu 
+ Webmasters 
+ Game Development 
+ 
+ TeX - LaTeX 
+ Software Engineering 
+ Unix & Linux 
+ Ask Different (Apple) 
+ WordPress Development 
+ Geographic Information Systems 
+ Electrical Engineering 
+ 
+ Android Enthusiasts 
+ Information Security 
+ Database Administrators 
+ Drupal Answers 
+ SharePoint 
+ User Experience 
+ Data Science 
+ 
+ Mathematica 
+ Salesforce 
+ ExpressionEngine® Answers 
+ Blender 
+ Network Engineering 
+ Cryptography 
+ Code Review 
+ 
+ Magento 
+ Software Recommendations 
+ Signal Processing 
+ Emacs 
+ Raspberry Pi 
+ Programming Puzzles & Code Golf 
+ Ethereum 
+ 
+ 
+ 
+                            more (27)
+                         
+ 
+ 
+ 
+ 
+ 
+ 
+ Photography 
+ Science Fiction & Fantasy 
+ Graphic Design 
+ Movies & TV 
+ Music: Practice & Theory 
+ Worldbuilding 
+ Seasoned Advice (cooking) 
+ 
+ Home Improvement 
+ Personal Finance & Money 
+ Academia 
+ Law 
+ 
+ 
+ 
+                            more (16)
+                         
+ 
+ 
+ 
+ 
+ 
+ 
+ English Language & Usage 
+ Skeptics 
+ Mi Yodeya (Judaism) 
+ Travel 
+ Christianity 
+ English Language Learners 
+ Japanese Language 
+ 
+ Arqade (gaming) 
+ Bicycles 
+ Role-playing Games 
+ Anime & Manga 
+ Puzzling 
+ Motor Vehicle Maintenance & Repair 
+ 
+ 
+ 
+                            more (32)
+                         
+ 
+ 
+ 
+ 
+ 
+ 
+ MathOverflow 
+ Mathematics 
+ Cross Validated (stats) 
+ Theoretical Computer Science 
+ Physics 
+ Chemistry 
+ Biology 
+ 
+ Computer Science 
+ Philosophy 
+ 
+ 
+ 
+                            more (10)
+                         
+ 
+ 
+ 
+ 
+ 
+ 
+ Meta Stack Exchange 
+ Stack Apps 
+ API 
+ Data 
+ Area 51 
+ 
+ 
+ 
+ 
+ 
+ Blog 
+ Facebook 
+ Twitter 
+ LinkedIn 
+ 
+ 
+ 
+                                    site design / logo © 2017 Stack Exchange Inc; user contributions licensed under  cc by-sa 3.0 
+                                    with  attribution required .
+                                     rev 2017.7.13.1278 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ Stack Overflow works best with JavaScript enabled
+             
+ 
+ 
+ var z=document.createElement("script");z.type="text/javascript",z.async=!0,z.src="https://static.adzerk.net/ados.js";var s=document.getElementsByTagName("script")[0];s.parentNode.insertBefore(z,s); 
+ 
+var ados = ados || {};
+ados.run = ados.run || [];
+
+ 
+ 
+            (function(i, s, o, g, r, a, m) {
+                i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function() { (i[r].q = i[r].q || []).push(arguments) }, i[r].l = 1 * new Date(); a = s.createElement(o),
+                m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m);
+            })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+                ga('create', 'UA-5620270-1');
+                ga('create', 'UA-5620270-60', {name: 'pageData', sampleRate: 100 });
+                ga('send', 'pageview');
+                ga('pageData.send', 'pageview');
+        var _qevents = _qevents || [],
+            _comscore = _comscore || [];
+        (function () {
+            var ssl='https:'==document.location.protocol,
+                s=document.getElementsByTagName('script')[0],
+                qc=document.createElement('script');
+                qc.async = true;
+                qc.src = (ssl ? 'https://secure' : 'http://edge') + '.quantserve.com/quant.js';
+                s.parentNode.insertBefore(qc, s);
+                _qevents.push({ qacct: "p-c1rF4kxgLUzNc" });
+                            var sc=document.createElement('script');
+                sc.async=true;
+                sc.src=(ssl?'https://sb':'http://b') + '.scorecardresearch.com/beacon.js';
+                s.parentNode.insertBefore(sc, s);
+                _comscore.push({ c1: "2", c2: "17440561" });
+        })();
+
+     
+ 
+                
+                (function(appendChild) {
+                    Node.prototype.appendChild = function() {
+                        var parent = this;
+                        var newNode = arguments[0];
+                        if (parent.nodeName === 'HEAD'
+                            && newNode
+                            && newNode.nodeName === 'SCRIPT'
+                            && newNode.src) {
+                            
+                            window.setTimeout(function() {
+                                var result = newNode.src.match(/^https:\/\/maps\.googleapis\.com\/maps\/api\/place\/js\/(\w+)Service\./i) || [];
+                                var service = result[1];
+                                if (service) {
+                                    if (service === 'Autocompletion') service =  2;
+                                    else if (service === 'Place') service = 1;
+                                    else service = 0;
+                                    StackExchange.using('gps', function() {
+                                        StackExchange.gps.track('google_maps_places_api.call', { service: service });
+                                    });
+                                }
+                            }, 0);
+                        }
+                        return appendChild.apply(this, arguments);
+                    };
+                })(Node.prototype.appendChild);
+             

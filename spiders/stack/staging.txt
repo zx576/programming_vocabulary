@@ -1,0 +1,1390 @@
+
+ (function () { var old = $.fn.contents; $.fn.contents = function () { try { return old.apply(this, arguments); } catch (e) { return $([]); } } })() 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ Stack Overflow 
+ 
+ 
+ 
+ 
+ Questions 
+ 
+ 
+ Developer Jobs 
+ 
+ 
+ Documentation  beta 
+ 
+ 
+ Tags 
+ 
+ 
+ Users 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ current community 
+ 
+ 
+ 
+ 
+ 
+ 
+ help 
+ chat 
+ 
+ 
+ 
+        Stack Overflow
+     
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+        Meta Stack Overflow
+     
+ 
+ 
+ 
+ 
+ 
+your communities             
+ 
+ 
+ 
+ Sign up  or  log in  to customize your list.
+                 
+ 
+ 
+ more stack exchange communities 
+ 
+ company blog 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+                            Tour
+                             
+                                Start here for a quick overview of the site
+                             
+ 
+ 
+ 
+ 
+                        Help Center
+                         
+                            Detailed answers to any questions you might have
+                         
+ 
+ 
+ 
+ 
+                                Meta
+                                 
+                                    Discuss the workings and policies of this site
+                                 
+ 
+ 
+ 
+ 
+                                About Us
+                                 
+                                    Learn more about Stack Overflow the company
+                                 
+ 
+ 
+ 
+ 
+                                Business
+                                 
+                                    Learn more about hiring developers or posting ads with us
+                                 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ Log In 
+ Sign Up 
+ 
+ 
+ 
+ 
+ 
+        StackExchange.ready(function () { StackExchange.topbar.init(); });
+            StackExchange.scrollPadding.setPaddingTop(60, 10);      
+ 
+ 
+ 
+ 
+ Git 
+ 
+ 
+ 
+ 
+   
+ 
+ 
+ 
+ 
+ dashboard 
+ all topics 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ Popular 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+        StackExchange.ready(function () {
+            StackExchange.docs.search.init({
+                popularTopicsJson: [{"Id":245,"DocTag":"git","Title":"Ignoring Files and Folders","Url":"/documentation/git/245/ignoring-files-and-folders"},{"Id":218,"DocTag":"git","Title":"Getting started with Git","Url":"/documentation/git/218/getting-started-with-git"},{"Id":415,"DocTag":"git","Title":"Branching","Url":"/documentation/git/415/branching"},{"Id":355,"DocTag":"git","Title":"Rebasing","Url":"/documentation/git/355/rebasing"},{"Id":323,"DocTag":"git","Title":"Committing","Url":"/documentation/git/323/committing"}]
+            });
+        });
+     
+   
+ 
+ 
+ 
+ Topic 
+ 
+ 
+ 
+ 
+ 
+ 
+ You must  sign up  or  log in  to make a topic request. 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+    StackExchange.ready(function () {
+        StackExchange.docs.requestTopic.init('git');
+    });
+   
+ 
+ 
+ 
+ 
+ 
+ 
+ Staging   
+            All Versions
+         
+ 
+ 
+ 
+ topic 
+ discuss 
+ 
+ 
+ 
+ 
+ Title 
+ 
+ 
+ 
+ Versions 
+ 
+ 
+                        0.99
+                     
+ 
+                        1.0
+                     
+ 
+                        1.1
+                     
+ 
+                        1.2
+                     
+ 
+                        1.3
+                     
+ 
+                        1.4
+                     
+ 
+                        1.5
+                     
+ 
+                        1.5.3
+                     
+ 
+                        1.6
+                     
+ 
+                        1.6.3
+                     
+ 
+                        1.6.5
+                     
+ 
+                        1.7
+                     
+ 
+                        1.7.10
+                     
+ 
+                        1.8
+                     
+ 
+                        1.8.3
+                     
+ 
+                        1.9
+                     
+ 
+                        2.0
+                     
+ 
+                        2.1
+                     
+ 
+                        2.2
+                     
+ 
+                        2.3
+                     
+ 
+                        2.4
+                     
+ 
+                        2.5
+                     
+ 
+                        2.6
+                     
+ 
+                        2.7
+                     
+ 
+                        2.8
+                     
+ 
+                        2.9
+                     
+ 
+                        2.10
+                     
+ 
+                        2.10.2
+                     
+ 
+                        2.11
+                     
+ 
+                        2.11.1
+                     
+ 
+                        2.12
+                     
+ 
+                        2.13
+                     
+ 
+ 
+ 
+ Introduction 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+   add introduction 
+ edit 
+ share 
+ request improvement 
+   edit 
+ move 
+ delete topic 
+ share 
+ 
+ 
+ 
+ 
+ 
+                var ados = ados || {}; ados.run = ados.run || [];
+                ados.run.push(function () { ados_add_placement(22,499571,"adzerk2109197357",4).setZone(29); });
+             
+ 
+ 
+ 
+ 
+ This draft deletes the entire topic. 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+                    Examples
+                     
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 10 
+ 
+ Staging All Changes to Files 
+ 
+ 
+ 
+ 
+ 
+ 10 
+ 
+ 
+ 
+ 
+ 
+   
+ 
+ git add -A
+ 
+ 2.0 
+ git add .
+ 
+ 
+ In version 2.x,  git add .  will stage all changes to files in the current directory and all its subdirectories. However, in 1.x it will only stage  new and modified files, not deleted files . 
+ Use  git add -A , or its equivalent command  git add --all , to stage all changes to files in any version of git. 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ edited  Sep 11 '16 at 17:44 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+   
+ 
+ 
+   edit 
+ share 
+ discuss 
+ request improvement 
+   edit 
+ move example 
+ delete example 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 8 
+ 
+ Unstage a file that contains changes 
+ 
+ 
+ 
+ 
+ 
+ 8 
+ 
+ 
+ git reset <filePath>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ edited  Sep 11 '16 at 17:44 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+   
+ 
+ 
+   edit 
+ share 
+ discuss 
+ request improvement 
+   edit 
+ move example 
+ delete example 
+ 
+ 
+ 
+   
+ 
+                var ados = ados || {}; ados.run = ados.run || [];
+                ados.run.push(function () { ados_add_placement(22,499571,"adzerk674348074",4).setZone(30); });
+             
+ 
+ 
+   
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 7 
+ 
+ Add changes by hunk 
+ 
+ 
+ 
+ 
+ 
+ 7 
+ 
+ 
+ You can see what "hunks" of work would be staged for commit using the patch flag: 
+ git add -p
+ 
+ or 
+ git add --patch
+ 
+ This opens an interactive prompt that allows you to look at the diffs and let you decide whether you want to include them or not. 
+ Stage this hunk [y,n,q,a,d,/,s,e,?]?
+ 
+ 
+ y  stage this hunk for the next commit 
+ n  do not stage this hunk for the next commit 
+ q  quit; do not stage this hunk or any of the remaining hunks 
+ a  stage this hunk and all later hunks in the file 
+ d  do not stage this hunk or any of the later hunks in the file 
+ g  select a hunk to go to 
+ /  search for a hunk matching the given regex 
+ j  leave this hunk undecided, see next undecided hunk 
+ J  leave this hunk undecided, see next hunk 
+ k  leave this hunk undecided, see previous undecided hunk 
+ K  leave this hunk undecided, see previous hunk 
+ s  split the current hunk into smaller hunks 
+ e  manually edit the current hunk 
+ ?  print hunk help 
+ 
+ This makes it easy to catch changes which you do not want to commit. 
+ You can also open this via  git add --interactive  and selecting  p . 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ edited  Aug 19 '16 at 4:39 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+   
+ 
+ 
+   edit 
+ share 
+ discuss 
+ request improvement 
+   edit 
+ move example 
+ delete example 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 5 
+ 
+ Interactive add 
+ 
+ 
+ 
+ 
+ 
+ 5 
+ 
+ 
+ git add -i  (or  --interactive ) will give you an interactive interface where you can edit the index, to prepare what you want to have in the next commit. You can add and remove changes to whole files, add untracked files and remove files from being tracked, but also select subsection of changes to put in the index, by selecting chunks of changes to be added, splitting those chunks, or even editing the diff. Many graphical commit tools for Git (like e.g.  git gui ) include such feature; this might be easier to use than the command line version. 
+ It is very useful (1) if you have entangled changes in the working directory that you want to put in separate commits, and not all in one single commit (2) if you are in the middle of an interactive rebase and want to split too large commit. 
+ $ git add -i
+           staged     unstaged path
+  1:    unchanged        +4/-4 index.js
+  2:        +1/-0      nothing package.json
+
+*** Commands ***
+  1: status       2: update       3: revert       4: add untracked
+  5: patch        6: diff         7: quit         8: help
+What now>
+ 
+ The top half of this output shows the current state of the index broken up into staged and unstaged columns: 
+ 
+ index.js  has had 4 lines added and 4 lines removed. It is currently not staged, as the current status reports "unchanged." When this file becomes staged, the  +4/-4  bit will be transferred to the staged column and the unstaged column will read "nothing." 
+ package.json  has had one line added and has been staged. There are no further changes since it has been staged as indicated by the "nothing" line under the unstaged column. 
+ 
+ The bottom half shows what you can do. Either enter a number (1-8) or a letter ( s ,  u ,  r ,  a ,  p ,  d ,  q ,  h ). 
+ status  shows output identical to the top part of the output above. 
+ update  allows you to make further changes to the staged commits with additional syntax. 
+ revert  will revert the staged commit information back to HEAD. 
+ add untracked  allows you to add filepaths previously untracked by version control. 
+ patch  allows for one path to be selected out of an output similar to  status  for further analysis. 
+ diff  displays what will be committed. 
+ quit  exits the command. 
+ help  presents further help on using this command. 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ edited  Jul 21 '16 at 19:57 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+   
+ 
+ 
+   edit 
+ share 
+ discuss 
+ request improvement 
+   edit 
+ move example 
+ delete example 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 3 
+ 
+ Show Staged Changes 
+ 
+ 
+ 
+ 
+ 
+ 3 
+ 
+ 
+ To display the hunks that are staged for commit: 
+ git diff --cached
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ created  Jul 22 '16 at 2:50 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+   
+ 
+ 
+   edit 
+ share 
+ discuss 
+ request improvement 
+   edit 
+ move example 
+ delete example 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 2 
+ 
+ Staging A Single File 
+ 
+ 
+ 
+ 
+ 
+ 2 
+ 
+ 
+ To stage a file for committing, run 
+ git add <filename>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ edited  Jul 24 '16 at 14:41 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+   
+ 
+ 
+   edit 
+ share 
+ discuss 
+ request improvement 
+   edit 
+ move example 
+ delete example 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 0 
+ 
+ Stage deleted files 
+ 
+ 
+ 
+ 
+ 
+ 0 
+ 
+ 
+ git rm filename
+ 
+ To delete the file from git without removing it from disk, use the  --cached  flag 
+ git rm --cached filename
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ created  Apr 1 '16 at 13:40 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+   
+ 
+ 
+   edit 
+ share 
+ discuss 
+ request improvement 
+   edit 
+ move example 
+ delete example 
+ 
+ 
+ 
+ 
+ 
+ 
+ + 
+            Add Example
+         
+ 
+ 
+ 
+        Please consider making a request to improve this example.
+         Request Improvement 
+ 
+ 
+ 
+ 
+ 
+ Syntax 
+ 
+ 
+ Syntax 
+ 
+ 
+ 
+   add syntax 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ Parameters 
+ 
+ 
+ Parameters 
+ 
+ 
+ 
+   add parameters 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ Remarks 
+ It's worth noting that staging has little to do with 'files' themselves and everything to do with the changes within each given file. We stage files that contain changes, and git tracks the changes as commits (even when the changes in a commit are made across several files). 
+ The distinction between files and commits may seem minor, but understanding this difference is fundamental to understanding essential functions like cherry-pick and diff. (See the frustration in  comments regarding the complexity of an accepted answer that proposes cherry-pick as a file management tool .) 
+ What's a good place for explaining concepts? Is it in remarks? 
+ Key concepts: 
+ A files is the more common metaphor of the two in information technology. Best practice dictates that a filename not change as its contents change (with a few recognized exceptions). 
+ A commit is a metaphor that is unique to source code management. Commits are changes related to a specific effort, like a bug fix. Commits often involve several files. A single, minor bug fix may involve tweaks to templates and css in unique files. As the change is described, developed, documented, reviewed and deployed, the changes across the separate files can be annotated and handled as a single unit. The single unit in this case is the commit. Equally important, focusing just on the commit during a review allows the unchanged lines of code in the various affected files to be ignored safely. 
+ 
+ 
+ 
+   edit 
+ share 
+ 
+   edit 
+ 
+ 
+ 
+ 
+ 
+ 
+ edited  Sep 11 '16 at 17:44 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+                    +5
+                     
+ 
+ 
+   
+ 
+ Still have a question about Staging? 
+ Ask Question 
+ 
+ 
+ 
+ 
+ Topic Outline 
+ 
+ 7 Examples 
+ 
+ 
+ 
+ 
+ Staging All Changes to Files 
+ 
+ 
+ Unstage a file that contains changes 
+ 
+ 
+ Add changes by hunk 
+ 
+ 
+ Interactive add 
+ 
+ 
+ Show Staged Changes 
+ 
+ 
+ Staging A Single File 
+ 
+ 
+ Stage deleted files 
+ 
+ Show more 
+ 
+ 
+ Remarks 
+ 
+ 
+ 
+ 
+                    Blog
+                 
+ 
+ 
+ 
+ 
+   
+ 
+ 
+ Trends in Government Software Developers 
+ 
+ 
+ 
+ 
+ 
+ 
+   
+ 
+ 
+ Introducing Channels: Private Q&A for Your Team 
+ 
+ 
+ 
+ 
+   
+ 
+                var ados = ados || {}; ados.run = ados.run || [];
+                ados.run.push(function () { ados_add_placement(22,499571,"adzerk1790615250",5).setZone(56016); });
+             
+ 
+ 
+ 
+ 
+        StackExchange.ready(function () { $.get('/documentation/git/ivc/244-636356032701544334:ccghe68fjz4xviplsmymlleamki.gif?topicId=244'); });
+     
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+                    Topic Outline
+                         
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ Save Draft 
+ Discard 
+ 
+ 
+ 
+ 
+ Sign up or log in 
+ Save edit as a guest 
+ Join Stack Overflow 
+ 
+ 
+ 
+ Using Google 
+ 
+ 
+ Using Facebook 
+ 
+ 
+ Using Email and Password 
+ 
+ 
+ 
+ 
+ Name 
+ 
+ 
+ 
+ Email 
+ 
+ Save Draft 
+ 
+ 
+ 
+ 
+ We recognize you from another Stack Exchange Network site! 
+ Join and Save Draft 
+ 
+ Discard Draft 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ Stack Overflow 
+ 
+ Questions 
+ Jobs 
+ Developer Jobs Directory 
+ Documentation 
+ Help 
+ Mobile 
+ 
+ 
+ 
+ Stack Overflow  Business 
+ 
+ Talent 
+ Ads 
+ Enterprise 
+ Insights 
+ 
+ 
+ 
+ Company 
+ 
+ About 
+ Press 
+ Work Here 
+ Legal 
+ Privacy Policy 
+ Contact Us 
+ 
+ 
+ 
+ 
+ 
+ Stack Exchange  Network 
+ 
+ Technology 
+ Life / Arts 
+ Culture / Recreation 
+ Science 
+ Other 
+ 
+ 
+ 
+ 
+ 
+ Stack Overflow 
+ Server Fault 
+ Super User 
+ Web Applications 
+ Ask Ubuntu 
+ Webmasters 
+ Game Development 
+ 
+ TeX - LaTeX 
+ Software Engineering 
+ Unix & Linux 
+ Ask Different (Apple) 
+ WordPress Development 
+ Geographic Information Systems 
+ Electrical Engineering 
+ 
+ Android Enthusiasts 
+ Information Security 
+ Database Administrators 
+ Drupal Answers 
+ SharePoint 
+ User Experience 
+ Data Science 
+ 
+ Mathematica 
+ Salesforce 
+ ExpressionEngine® Answers 
+ Blender 
+ Network Engineering 
+ Cryptography 
+ Code Review 
+ 
+ Magento 
+ Software Recommendations 
+ Signal Processing 
+ Emacs 
+ Raspberry Pi 
+ Programming Puzzles & Code Golf 
+ Ethereum 
+ 
+ 
+ 
+                            more (27)
+                         
+ 
+ 
+ 
+ 
+ 
+ 
+ Photography 
+ Science Fiction & Fantasy 
+ Graphic Design 
+ Movies & TV 
+ Music: Practice & Theory 
+ Worldbuilding 
+ Seasoned Advice (cooking) 
+ 
+ Home Improvement 
+ Personal Finance & Money 
+ Academia 
+ Law 
+ 
+ 
+ 
+                            more (16)
+                         
+ 
+ 
+ 
+ 
+ 
+ 
+ English Language & Usage 
+ Skeptics 
+ Mi Yodeya (Judaism) 
+ Travel 
+ Christianity 
+ English Language Learners 
+ Japanese Language 
+ 
+ Arqade (gaming) 
+ Bicycles 
+ Role-playing Games 
+ Anime & Manga 
+ Puzzling 
+ Motor Vehicle Maintenance & Repair 
+ 
+ 
+ 
+                            more (32)
+                         
+ 
+ 
+ 
+ 
+ 
+ 
+ MathOverflow 
+ Mathematics 
+ Cross Validated (stats) 
+ Theoretical Computer Science 
+ Physics 
+ Chemistry 
+ Biology 
+ 
+ Computer Science 
+ Philosophy 
+ 
+ 
+ 
+                            more (10)
+                         
+ 
+ 
+ 
+ 
+ 
+ 
+ Meta Stack Exchange 
+ Stack Apps 
+ API 
+ Data 
+ Area 51 
+ 
+ 
+ 
+ 
+ 
+ Blog 
+ Facebook 
+ Twitter 
+ LinkedIn 
+ 
+ 
+ 
+                                    site design / logo © 2017 Stack Exchange Inc; user contributions licensed under  cc by-sa 3.0 
+                                    with  attribution required .
+                                     rev 2017.7.13.1278 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ Stack Overflow works best with JavaScript enabled
+             
+ 
+ 
+ var z=document.createElement("script");z.type="text/javascript",z.async=!0,z.src="https://static.adzerk.net/ados.js";var s=document.getElementsByTagName("script")[0];s.parentNode.insertBefore(z,s); 
+ 
+var ados = ados || {};
+ados.run = ados.run || [];
+
+ 
+ 
+            (function(i, s, o, g, r, a, m) {
+                i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function() { (i[r].q = i[r].q || []).push(arguments) }, i[r].l = 1 * new Date(); a = s.createElement(o),
+                m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m);
+            })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+                ga('create', 'UA-5620270-1');
+                ga('create', 'UA-5620270-60', {name: 'pageData', sampleRate: 100 });
+                ga('send', 'pageview');
+                ga('pageData.send', 'pageview');
+        var _qevents = _qevents || [],
+            _comscore = _comscore || [];
+        (function () {
+            var ssl='https:'==document.location.protocol,
+                s=document.getElementsByTagName('script')[0],
+                qc=document.createElement('script');
+                qc.async = true;
+                qc.src = (ssl ? 'https://secure' : 'http://edge') + '.quantserve.com/quant.js';
+                s.parentNode.insertBefore(qc, s);
+                _qevents.push({ qacct: "p-c1rF4kxgLUzNc" });
+                            var sc=document.createElement('script');
+                sc.async=true;
+                sc.src=(ssl?'https://sb':'http://b') + '.scorecardresearch.com/beacon.js';
+                s.parentNode.insertBefore(sc, s);
+                _comscore.push({ c1: "2", c2: "17440561" });
+        })();
+
+     
+ 
+                
+                (function(appendChild) {
+                    Node.prototype.appendChild = function() {
+                        var parent = this;
+                        var newNode = arguments[0];
+                        if (parent.nodeName === 'HEAD'
+                            && newNode
+                            && newNode.nodeName === 'SCRIPT'
+                            && newNode.src) {
+                            
+                            window.setTimeout(function() {
+                                var result = newNode.src.match(/^https:\/\/maps\.googleapis\.com\/maps\/api\/place\/js\/(\w+)Service\./i) || [];
+                                var service = result[1];
+                                if (service) {
+                                    if (service === 'Autocompletion') service =  2;
+                                    else if (service === 'Place') service = 1;
+                                    else service = 0;
+                                    StackExchange.using('gps', function() {
+                                        StackExchange.gps.track('google_maps_places_api.call', { service: service });
+                                    });
+                                }
+                            }, 0);
+                        }
+                        return appendChild.apply(this, arguments);
+                    };
+                })(Node.prototype.appendChild);
+             

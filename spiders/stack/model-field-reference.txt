@@ -1,0 +1,1324 @@
+
+ (function () { var old = $.fn.contents; $.fn.contents = function () { try { return old.apply(this, arguments); } catch (e) { return $([]); } } })() 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ Stack Overflow 
+ 
+ 
+ 
+ 
+ Questions 
+ 
+ 
+ Developer Jobs 
+ 
+ 
+ Documentation  beta 
+ 
+ 
+ Tags 
+ 
+ 
+ Users 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ current community 
+ 
+ 
+ 
+ 
+ 
+ 
+ help 
+ chat 
+ 
+ 
+ 
+        Stack Overflow
+     
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+        Meta Stack Overflow
+     
+ 
+ 
+ 
+ 
+ 
+your communities             
+ 
+ 
+ 
+ Sign up  or  log in  to customize your list.
+                 
+ 
+ 
+ more stack exchange communities 
+ 
+ company blog 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+                            Tour
+                             
+                                Start here for a quick overview of the site
+                             
+ 
+ 
+ 
+ 
+                        Help Center
+                         
+                            Detailed answers to any questions you might have
+                         
+ 
+ 
+ 
+ 
+                                Meta
+                                 
+                                    Discuss the workings and policies of this site
+                                 
+ 
+ 
+ 
+ 
+                                About Us
+                                 
+                                    Learn more about Stack Overflow the company
+                                 
+ 
+ 
+ 
+ 
+                                Business
+                                 
+                                    Learn more about hiring developers or posting ads with us
+                                 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ Log In 
+ Sign Up 
+ 
+ 
+ 
+ 
+ 
+        StackExchange.ready(function () { StackExchange.topbar.init(); });
+            StackExchange.scrollPadding.setPaddingTop(60, 10);      
+ 
+ 
+ 
+ 
+ Django 
+ 
+ 
+ 
+ 
+   
+ 
+ 
+ 
+ 
+ dashboard 
+ all topics 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ Popular 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+        StackExchange.ready(function () {
+            StackExchange.docs.search.init({
+                popularTopicsJson: [{"Id":200,"DocTag":"django","Title":"Getting started with Django","Url":"/documentation/django/200/getting-started-with-django"},{"Id":942,"DocTag":"django","Title":"Settings","Url":"/documentation/django/942/settings"},{"Id":888,"DocTag":"django","Title":"Models","Url":"/documentation/django/888/models"},{"Id":1235,"DocTag":"django","Title":"Querysets","Url":"/documentation/django/1235/querysets"},{"Id":1721,"DocTag":"django","Title":"Middleware","Url":"/documentation/django/1721/middleware"}]
+            });
+        });
+     
+   
+ 
+ 
+ 
+ Topic 
+ 
+ 
+ 
+ 
+ 
+ 
+ You must  sign up  or  log in  to make a topic request. 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+    StackExchange.ready(function () {
+        StackExchange.docs.requestTopic.init('django');
+    });
+   
+ 
+ 
+ 
+ 
+ 
+ 
+ Model Field Reference   
+            All Versions
+         
+ 
+ 
+ 
+ topic 
+ discuss 
+ 
+ 
+ 
+ 
+ Title 
+ 
+ 
+ 
+ Versions 
+ 
+ 
+                        1.0
+                     
+ 
+                        1.1
+                     
+ 
+                        1.2
+                     
+ 
+                        1.3
+                     
+ 
+                        1.4
+                     
+ 
+                        1.5
+                     
+ 
+                        1.6
+                     
+ 
+                        1.7
+                     
+ 
+                        1.8
+                     
+ 
+                        1.9
+                     
+ 
+                        1.10
+                     
+ 
+                        1.11
+                     
+ 
+ 
+ 
+ Introduction 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+   add introduction 
+ edit 
+ share 
+ request improvement 
+   edit 
+ move 
+ delete topic 
+ share 
+ 
+ 
+ 
+ 
+ 
+                var ados = ados || {}; ados.run = ados.run || [];
+                ados.run.push(function () { ados_add_placement(22,499571,"adzerk1129863546",4).setZone(29); });
+             
+ 
+ 
+ 
+ 
+ This draft deletes the entire topic. 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+                    Examples
+                     
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 2 
+ 
+ ForeignKey 
+ 
+ 
+ 
+ 
+ 
+ 2 
+ 
+ 
+ 
+ 
+ 
+   
+ ForeignKey field is used to create a  many-to-one  relationship between models.
+Not like the most of other fields requires positional arguments.
+The following example demonstrates the car and owner relation: 
+ from django.db import models
+
+class Person(models.Model):
+    GENDER_FEMALE = 'F'
+    GENDER_MALE = 'M'
+
+    GENDER_CHOICES = (
+        (GENDER_FEMALE, 'Female'),
+        (GENDER_MALE, 'Male'),
+    )
+
+    first_name = models.CharField(max_length=100)
+    last_name = models.CharField(max_length=100)
+    gender = models.CharField(max_length=1, choices=GENDER_CHOICES)
+    age = models.SmallIntegerField()
+
+
+class Car(model.Model)
+    owner = models.ForeignKey('Person')
+    plate = models.CharField(max_length=15)
+    brand = models.CharField(max_length=50)
+    model = models.CharField(max_length=50)
+    color = models.CharField(max_length=50)
+ 
+ The first argument of the field is the class to which the model is related.
+The second positional argument is  on_delete  argument.
+In the current versions this argument is not required, but it will be required in Django 2.0.
+The default functionality of the argument is shown as following: 
+ class Car(model.Model)
+    owner = models.ForeignKey('Person', on_delete=models.CASCADE)
+    ...
+ 
+ 
+ This will cause Car objects to be deleted from the model when its owner deleted from Person model.
+This is the default functionality. 
+ 
+ class Car(model.Model)
+    owner = models.ForeignKey('Person', on_delete=models.PROTECT)
+    ...
+ 
+ 
+ This will prevents Person objects to be deleted if they are related to at least one Car object.
+All of the Car objects which reference a Person object should be deleted first.
+And then the Person Object can be deleted. 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ created  May 16 at 16:00 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+   
+ 
+ 
+   edit 
+ share 
+ discuss 
+ request improvement 
+   edit 
+ move example 
+ delete example 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 2 
+ 
+ Number Fields 
+ 
+ 
+ 
+ 
+ 
+ 2 
+ 
+ 
+ Examples of numeric fields are given: 
+ AutoField 
+ An auto-incrementing integer generally used for primary keys. 
+ from django.db import models
+
+class MyModel(models.Model):
+    pk = models.AutoField()
+ 
+ 
+ Each model gets a primary key field (called  id ) by default. Therefore, it is not necessary to duplicate an id field in the model for the purposes of a primary key. 
+ 
+ 
+ BigIntegerField 
+ An integer fitting numbers from  -9223372036854775808  to  9223372036854775807 ( 8 Bytes ). 
+ from django.db import models
+
+class MyModel(models.Model):
+    number_of_seconds = models.BigIntegerField()
+ 
+ 
+ IntegerField 
+ The IntegerField is used to store integer values from -2147483648 to 2147483647 ( 4 Bytes ). 
+ from django.db import models
+
+class Food(models.Model):
+    name = models.CharField(max_length=255)
+    calorie = models.IntegerField(default=0)
+ 
+ 
+ default  parameter is not mandatory.
+But it's useful to set a default value. 
+ 
+ 
+ PositiveIntegerField 
+ Like an IntegerField, but must be either positive or zero (0). The PositiveIntegerField is used to store integer values from 0 to 2147483647 ( 4 Bytes ). This can be useful at field which should be semantically positive. For example if you are recording foods with its calories, it should not be negative. This field will prevent negative values via its validations. 
+ from django.db import models
+
+class Food(models.Model):
+    name = models.CharField(max_length=255)
+    calorie = models.PositiveIntegerField(default=0)
+ 
+ 
+ default  parameter is not mandatory.
+But it's useful to set a default value. 
+ 
+ 
+ SmallIntegerField 
+ The SmallIntegerField is used to store integer values from -32768 to 32767 ( 2 Bytes ).
+This field is useful for values not are not extremes. 
+ from django.db import models
+
+class Place(models.Model):
+    name = models.CharField(max_length=255)
+    temperature = models.SmallIntegerField(null=True)
+ 
+ 
+ PositiveSmallIntegerField 
+ The SmallIntegerField is used to store integer values from 0to 32767 ( 2 Bytes ).
+Just like SmallIntegerField this field is useful for values not going so high and  should be semantically positive. For example it can store age which cannot be negative. 
+ from django.db import models
+
+class Staff(models.Model):
+    first_name = models.CharField(max_length=255)
+    last_name = models.CharField(max_length=255)
+    age = models.PositiveSmallIntegerField(null=True)
+ 
+ Besides PositiveSmallIntegerField is useful for choices, this is the Djangoic way of implementing Enum: 
+ from django.db import models
+from django.utils.translation import gettext as _
+
+APPLICATION_NEW = 1
+APPLICATION_RECEIVED = 2
+APPLICATION_APPROVED = 3
+APPLICATION_REJECTED = 4
+
+APLICATION_CHOICES = (
+    (APPLICATION_NEW, _('New')),
+    (APPLICATION_RECEIVED, _('Received')),
+    (APPLICATION_APPROVED, _('Approved')),
+    (APPLICATION_REJECTED, _('Rejected')),
+)
+
+class JobApplication(models.Model):
+    first_name = models.CharField(max_length=255)
+    last_name = models.CharField(max_length=255)
+    status = models.PositiveSmallIntegerField(
+        choices=APLICATION_CHOICES, 
+        default=APPLICATION_NEW
+    )
+    ...
+ 
+ 
+ Definition of the choices as class variables or module variables according to the situation is a good way to use them. If choices are passed to field without friendly names than it will create confusion. 
+ 
+ 
+ DecimalField 
+ A fixed-precision decimal number, represented in Python by a Decimal instance.
+Unlike IntegerField and its derivatives this field has 2 required arguments: 
+ 
+ DecimalField.max_digits : The maximum number of digits allowed in the number. Note that this number must be greater than or equal to decimal_places. 
+ DecimalField.decimal_places : The number of decimal places to store with the number. 
+ 
+ If you want to store numbers up to 99 with 3 decimal places you need use  max_digits=5  and  decimal_places=3 : 
+ class Place(models.Model):
+    name = models.CharField(max_length=255)
+    atmospheric_pressure = models.DecimalField(max_digits=5, decimal_places=3)
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ edited  May 16 at 16:00 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+   
+ 
+ 
+   edit 
+ share 
+ discuss 
+ request improvement 
+   edit 
+ move example 
+ delete example 
+ 
+ 
+ 
+   
+ 
+                var ados = ados || {}; ados.run = ados.run || [];
+                ados.run.push(function () { ados_add_placement(22,499571,"adzerk328913859",4).setZone(30); });
+             
+ 
+ 
+   
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 1 
+ 
+ CharField 
+ 
+ 
+ 
+ 
+ 
+ 1 
+ 
+ 
+ The CharField is used for storing defined lengths of text. In the example below up to 128 characters of text can be stored in the field. Entering a string longer than this will result in a validation error being raised. 
+ from django.db import models
+
+class MyModel(models.Model):
+    name = models.CharField(max_length=128, blank=True)
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ edited  Aug 1 '16 at 12:59 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+   
+ 
+ 
+   edit 
+ share 
+ discuss 
+ request improvement 
+   edit 
+ move example 
+ delete example 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 1 
+ 
+ DateTimeField 
+ 
+ 
+ 
+ 
+ 
+ 1 
+ 
+ 
+ DateTimeField is used to store date time values. 
+ class MyModel(models.Model):
+    start_time = models.DateFimeField(null=True, blank=True)
+    created_on = models.DateTimeField(auto_now_add=True)
+    updated_on = models.DateTimeField(auto_now=True)
+ 
+ A  DateTimeField  has two optional parameters: 
+ 
+ 
+ auto_now_add  sets the value of the field to current datetime when the object is created. 
+ 
+ 
+ auto_now  sets the value of the field to current datetime every time the field is saved. 
+ 
+ 
+ These options and the  default  parameter are mutually exclusive. 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ edited  Aug 10 '16 at 14:56 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+   
+ 
+ 
+   edit 
+ share 
+ discuss 
+ request improvement 
+   edit 
+ move example 
+ delete example 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ -1 
+ 
+ BinaryField 
+ 
+ 
+ 
+ 
+ 
+ -1 
+ 
+ 
+ This is a specialized field, used to store binary data. It only accepts  bytes . Data is base64 serialized upon storage. 
+ As this is storing binary data, this field cannot be used in a filter. 
+ from django.db import models
+
+class MyModel(models.Model):
+    my_binary_data = models.BinaryField()
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ edited  Aug 1 '16 at 8:31 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+   
+ 
+ 
+   edit 
+ share 
+ discuss 
+ request improvement 
+   edit 
+ move example 
+ delete example 
+ 
+ 
+ 
+ 
+ 
+ 
+ + 
+            Add Example
+         
+ 
+ 
+ 
+        Please consider making a request to improve this example.
+         Request Improvement 
+ 
+ 
+ 
+ 
+ 
+ Syntax 
+ 
+ 
+ Syntax 
+ 
+ 
+ 
+   add syntax 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ Parameters 
+ Parameter Details null If true, empty values may be stored as  null  in the database blank If true, then the field will not be required in forms. If fields are left blank, Django will use the default field value. choices An iterable of 2-element iterables to be used as choices for this field. If set, field is rendered as a drop-down in the admin.  [('m', 'Male'),('f','Female'),('z','Prefer Not to Disclose')] . To group options, simply nest the values:  [('Video Source',((1,'YouTube'),(2,'Facebook')),('Audio Source',((3, 'Soundcloud'),(4, 'Spotify'))] db_column By default, django uses the field name for the database column. Use this to provide a custom name db_index If  True , an index will be created on this field in the database db_tablespace The tablespace to use for this field's index.  This field is only used if the database engine supports it, otherwise its ignored . default The default value for this field. Can be a value, or a callable object. For mutable defaults (a list, a set, a dictionary) you  must  use a callable. Due to compatibility with migrations, you cannot use lambdas. editable If  False , the field is not shown in the model admin or any  ModelForm . Default is  True . error_messages Used to customize the default error messages shown for this field. The value is a dictionary, with the keys representing the error and the value being the message. Default keys (for error messages) are  null ,  blank ,  invalid ,  invalid_choice ,  unique  and  unique_for_date ; additional error messages may be defined by custom fields. help_text Text to be displayed with the field, to assist users. HTML is allowed. on_delete When an object referenced by a ForeignKey is deleted, Django will emulate the behavior of the SQL constraint specified by the on_delete argument. This is the second positional argument for both  ForeignKey  and  OneToOneField  fields. Other fields do not have this argument. primary_key If  True , this field will be the primary key. Django automatically adds a primary key; so this is only required if you wish to create a custom primary key. You can only have one primary key per model. unique If  True , errors are raised if duplicate values are entered for this field. This is a database-level restriction, and not simply a user-interface block. unique_for_date Set the value to a  DateField  or  DateTimeField , and errors will be raised if there are duplicate values  for the same date or date time . unique_for_month Similar to  unique_for_date , except checks are limited for the month. unique_for_year Similar to  unique_for_date , except checks are limited to the year. verbose_name A friendly name for the field, used by django in various places (such as creating labels in the admin and model forms). validators A list of  validators  for this field. 
+ 
+ 
+ 
+   edit 
+ share 
+ 
+   edit 
+ 
+ 
+ 
+ 
+ 
+ 
+ Remarks 
+ 
+ You can write your own fields if you find it necessary 
+ You can override functions of the base model class, most commonly the  save()  function 
+ 
+ 
+ 
+ 
+   edit 
+ share 
+ 
+   edit 
+ 
+ 
+ 
+ 
+ 
+ 
+ edited  May 16 at 16:00 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+                    +3
+                     
+ 
+ 
+   
+ 
+ Still have a question about Model Field Reference? 
+ Ask Question 
+ 
+ 
+ 
+ 
+ Topic Outline 
+ 
+ 5 Examples 
+ 
+ 
+ 
+ 
+ ForeignKey 
+ 
+ 
+ Number Fields 
+ 
+ 
+ CharField 
+ 
+ 
+ DateTimeField 
+ 
+ 
+ BinaryField 
+ 
+ Show more 
+ 
+ Parameters 
+ 
+ Remarks 
+ 
+ 
+ 
+ 
+                    Blog
+                 
+ 
+ 
+ 
+ 
+   
+ 
+ 
+ Trends in Government Software Developers 
+ 
+ 
+ 
+ 
+ 
+ 
+   
+ 
+ 
+ Introducing Channels: Private Q&A for Your Team 
+ 
+ 
+ 
+ 
+   
+ 
+                var ados = ados || {}; ados.run = ados.run || [];
+                ados.run.push(function () { ados_add_placement(22,499571,"adzerk1371045586",5).setZone(56016); });
+             
+ 
+ 
+ 
+ 
+        StackExchange.ready(function () { $.get('/documentation/django/ivc/3686-636356028197889926:bpsvetce8sbssvmvu6wprexlnos.gif?topicId=3686'); });
+     
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+                    Topic Outline
+                         
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ Save Draft 
+ Discard 
+ 
+ 
+ 
+ 
+ Sign up or log in 
+ Save edit as a guest 
+ Join Stack Overflow 
+ 
+ 
+ 
+ Using Google 
+ 
+ 
+ Using Facebook 
+ 
+ 
+ Using Email and Password 
+ 
+ 
+ 
+ 
+ Name 
+ 
+ 
+ 
+ Email 
+ 
+ Save Draft 
+ 
+ 
+ 
+ 
+ We recognize you from another Stack Exchange Network site! 
+ Join and Save Draft 
+ 
+ Discard Draft 
+ 
+ 
+ 
+ default 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ Stack Overflow 
+ 
+ Questions 
+ Jobs 
+ Developer Jobs Directory 
+ Documentation 
+ Help 
+ Mobile 
+ 
+ 
+ 
+ Stack Overflow  Business 
+ 
+ Talent 
+ Ads 
+ Enterprise 
+ Insights 
+ 
+ 
+ 
+ Company 
+ 
+ About 
+ Press 
+ Work Here 
+ Legal 
+ Privacy Policy 
+ Contact Us 
+ 
+ 
+ 
+ 
+ 
+ Stack Exchange  Network 
+ 
+ Technology 
+ Life / Arts 
+ Culture / Recreation 
+ Science 
+ Other 
+ 
+ 
+ 
+ 
+ 
+ Stack Overflow 
+ Server Fault 
+ Super User 
+ Web Applications 
+ Ask Ubuntu 
+ Webmasters 
+ Game Development 
+ 
+ TeX - LaTeX 
+ Software Engineering 
+ Unix & Linux 
+ Ask Different (Apple) 
+ WordPress Development 
+ Geographic Information Systems 
+ Electrical Engineering 
+ 
+ Android Enthusiasts 
+ Information Security 
+ Database Administrators 
+ Drupal Answers 
+ SharePoint 
+ User Experience 
+ Data Science 
+ 
+ Mathematica 
+ Salesforce 
+ ExpressionEngine® Answers 
+ Blender 
+ Network Engineering 
+ Cryptography 
+ Code Review 
+ 
+ Magento 
+ Software Recommendations 
+ Signal Processing 
+ Emacs 
+ Raspberry Pi 
+ Programming Puzzles & Code Golf 
+ Ethereum 
+ 
+ 
+ 
+                            more (27)
+                         
+ 
+ 
+ 
+ 
+ 
+ 
+ Photography 
+ Science Fiction & Fantasy 
+ Graphic Design 
+ Movies & TV 
+ Music: Practice & Theory 
+ Worldbuilding 
+ Seasoned Advice (cooking) 
+ 
+ Home Improvement 
+ Personal Finance & Money 
+ Academia 
+ Law 
+ 
+ 
+ 
+                            more (16)
+                         
+ 
+ 
+ 
+ 
+ 
+ 
+ English Language & Usage 
+ Skeptics 
+ Mi Yodeya (Judaism) 
+ Travel 
+ Christianity 
+ English Language Learners 
+ Japanese Language 
+ 
+ Arqade (gaming) 
+ Bicycles 
+ Role-playing Games 
+ Anime & Manga 
+ Puzzling 
+ Motor Vehicle Maintenance & Repair 
+ 
+ 
+ 
+                            more (32)
+                         
+ 
+ 
+ 
+ 
+ 
+ 
+ MathOverflow 
+ Mathematics 
+ Cross Validated (stats) 
+ Theoretical Computer Science 
+ Physics 
+ Chemistry 
+ Biology 
+ 
+ Computer Science 
+ Philosophy 
+ 
+ 
+ 
+                            more (10)
+                         
+ 
+ 
+ 
+ 
+ 
+ 
+ Meta Stack Exchange 
+ Stack Apps 
+ API 
+ Data 
+ Area 51 
+ 
+ 
+ 
+ 
+ 
+ Blog 
+ Facebook 
+ Twitter 
+ LinkedIn 
+ 
+ 
+ 
+                                    site design / logo © 2017 Stack Exchange Inc; user contributions licensed under  cc by-sa 3.0 
+                                    with  attribution required .
+                                     rev 2017.7.13.1278 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ Stack Overflow works best with JavaScript enabled
+             
+ 
+ 
+ var z=document.createElement("script");z.type="text/javascript",z.async=!0,z.src="https://static.adzerk.net/ados.js";var s=document.getElementsByTagName("script")[0];s.parentNode.insertBefore(z,s); 
+ 
+var ados = ados || {};
+ados.run = ados.run || [];
+
+ 
+ 
+            (function(i, s, o, g, r, a, m) {
+                i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function() { (i[r].q = i[r].q || []).push(arguments) }, i[r].l = 1 * new Date(); a = s.createElement(o),
+                m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m);
+            })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+                ga('create', 'UA-5620270-1');
+                ga('create', 'UA-5620270-60', {name: 'pageData', sampleRate: 100 });
+                ga('send', 'pageview');
+                ga('pageData.send', 'pageview');
+        var _qevents = _qevents || [],
+            _comscore = _comscore || [];
+        (function () {
+            var ssl='https:'==document.location.protocol,
+                s=document.getElementsByTagName('script')[0],
+                qc=document.createElement('script');
+                qc.async = true;
+                qc.src = (ssl ? 'https://secure' : 'http://edge') + '.quantserve.com/quant.js';
+                s.parentNode.insertBefore(qc, s);
+                _qevents.push({ qacct: "p-c1rF4kxgLUzNc" });
+                            var sc=document.createElement('script');
+                sc.async=true;
+                sc.src=(ssl?'https://sb':'http://b') + '.scorecardresearch.com/beacon.js';
+                s.parentNode.insertBefore(sc, s);
+                _comscore.push({ c1: "2", c2: "17440561" });
+        })();
+
+     
+ 
+                
+                (function(appendChild) {
+                    Node.prototype.appendChild = function() {
+                        var parent = this;
+                        var newNode = arguments[0];
+                        if (parent.nodeName === 'HEAD'
+                            && newNode
+                            && newNode.nodeName === 'SCRIPT'
+                            && newNode.src) {
+                            
+                            window.setTimeout(function() {
+                                var result = newNode.src.match(/^https:\/\/maps\.googleapis\.com\/maps\/api\/place\/js\/(\w+)Service\./i) || [];
+                                var service = result[1];
+                                if (service) {
+                                    if (service === 'Autocompletion') service =  2;
+                                    else if (service === 'Place') service = 1;
+                                    else service = 0;
+                                    StackExchange.using('gps', function() {
+                                        StackExchange.gps.track('google_maps_places_api.call', { service: service });
+                                    });
+                                }
+                            }, 0);
+                        }
+                        return appendChild.apply(this, arguments);
+                    };
+                })(Node.prototype.appendChild);
+             

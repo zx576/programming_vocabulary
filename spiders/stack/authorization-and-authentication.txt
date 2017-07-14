@@ -1,0 +1,1057 @@
+
+ (function () { var old = $.fn.contents; $.fn.contents = function () { try { return old.apply(this, arguments); } catch (e) { return $([]); } } })() 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ Stack Overflow 
+ 
+ 
+ 
+ 
+ Questions 
+ 
+ 
+ Developer Jobs 
+ 
+ 
+ Documentation  beta 
+ 
+ 
+ Tags 
+ 
+ 
+ Users 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ current community 
+ 
+ 
+ 
+ 
+ 
+ 
+ help 
+ chat 
+ 
+ 
+ 
+        Stack Overflow
+     
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+        Meta Stack Overflow
+     
+ 
+ 
+ 
+ 
+ 
+your communities             
+ 
+ 
+ 
+ Sign up  or  log in  to customize your list.
+                 
+ 
+ 
+ more stack exchange communities 
+ 
+ company blog 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+                            Tour
+                             
+                                Start here for a quick overview of the site
+                             
+ 
+ 
+ 
+ 
+                        Help Center
+                         
+                            Detailed answers to any questions you might have
+                         
+ 
+ 
+ 
+ 
+                                Meta
+                                 
+                                    Discuss the workings and policies of this site
+                                 
+ 
+ 
+ 
+ 
+                                About Us
+                                 
+                                    Learn more about Stack Overflow the company
+                                 
+ 
+ 
+ 
+ 
+                                Business
+                                 
+                                    Learn more about hiring developers or posting ads with us
+                                 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ Log In 
+ Sign Up 
+ 
+ 
+ 
+ 
+ 
+        StackExchange.ready(function () { StackExchange.topbar.init(); });
+            StackExchange.scrollPadding.setPaddingTop(60, 10);      
+ 
+ 
+ 
+ 
+ Flask 
+ 
+ 
+ 
+ 
+   
+ 
+ 
+ 
+ 
+ dashboard 
+ all topics 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ Popular 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+        StackExchange.ready(function () {
+            StackExchange.docs.search.init({
+                popularTopicsJson: [{"Id":790,"DocTag":"flask","Title":"Getting started with Flask","Url":"/documentation/flask/790/getting-started-with-flask"},{"Id":4637,"DocTag":"flask","Title":"Deploying Flask application using uWSGI web server with Nginx","Url":"/documentation/flask/4637/deploying-flask-application-using-uwsgi-web-server-with-nginx"},{"Id":2415,"DocTag":"flask","Title":"Routing","Url":"/documentation/flask/2415/routing"},{"Id":6427,"DocTag":"flask","Title":"Blueprints","Url":"/documentation/flask/6427/blueprints"},{"Id":1260,"DocTag":"flask","Title":"Testing","Url":"/documentation/flask/1260/testing"}]
+            });
+        });
+     
+   
+ 
+ 
+ 
+ Topic 
+ 
+ 
+ 
+ 
+ 
+ 
+ You must  sign up  or  log in  to make a topic request. 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+    StackExchange.ready(function () {
+        StackExchange.docs.requestTopic.init('flask');
+    });
+   
+ 
+ 
+ 
+ 
+ 
+ 
+ Authorization and authentication   
+            All Versions
+         
+ 
+ 
+ 
+ topic 
+ discuss 
+ 
+ 
+ 
+ 
+ Title 
+ 
+ 
+ 
+ Versions 
+ 
+ 
+                        0.10
+                     
+ 
+                        0.11
+                     
+ 
+                        0.12
+                     
+ 
+ 
+ 
+ Introduction 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+   add introduction 
+ edit 
+ share 
+ request improvement 
+   edit 
+ move 
+ delete topic 
+ share 
+ 
+ 
+ 
+ 
+ 
+                var ados = ados || {}; ados.run = ados.run || [];
+                ados.run.push(function () { ados_add_placement(22,499571,"adzerk1450120938",4).setZone(29); });
+             
+ 
+ 
+ 
+ 
+ This draft deletes the entire topic. 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+                    Examples
+                     
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 2 
+ 
+ Using flask-login extension 
+ 
+ 
+ 
+ 
+ 
+ 2 
+ 
+ 
+ 
+ 
+ 
+   
+ One of the simpler ways of implementing an authorization system is using the  flask-login  extension. The project's website contains a detailed and well-written quickstart, a shorter version of which is available in this example. 
+ General idea 
+ The extension exposes a set of functions used for: 
+ 
+ logging users in 
+ logging users out 
+ checking if a user is logged in or not and finding out which user is that 
+ 
+ What it doesn't do and what you have to do on your own: 
+ 
+ doesn't provide a way of storing the users, for example in the database 
+ doesn't provide a way of checking user's credentials, for example username and password 
+ 
+ Below there is a minimal set of steps needed to get everything working. 
+ I would recommend to place all auth related code in a separate module or package, for example  auth.py . That way you can create the necessary classes, objects or custom functions separately. 
+ Create a  LoginManager 
+ The extension uses a  LoginManager  class which has to be registered on your  Flask  application object. 
+ from flask_login import LoginManager
+login_manager = LoginManager()
+login_manager.init_app(app) # app is a Flask object
+ 
+ As mentioned earlier  LoginManager  can for example be a global variable in a separate file or package. Then it can be imported in the file in which the  Flask  object is created or in your application factory function and initialized. 
+ Specify a callback used for loading users 
+ A users will normally be loaded from a database. The callback must return an object which represents a user corresponding to the provided ID. It should return  None  if the ID is not valid. 
+ @login_manager.user_loader
+def load_user(user_id):
+    return User.get(user_id) # Fetch the user from the database
+ 
+ This can be done directly below creating your  LoginManager . 
+ A class representing your user 
+ As mentioned the  user_loader  callback has to return an object which represent a user. What does that mean exactly? That object can for example be a wrapper around user objects stored in your database or simply directly a model from your database. That object has to implement the following methods and properties. That means that if the callback returns your database model you need to ensure that the mentioned properties and methods are added to your model. 
+ 
+ 
+ is_authenticated 
+ This property should return  True  if the user is authenticated, i.e. they have provided valid credentials. You will want to ensure that the objects which represent your users returned by the  user_loader  callback return  True  for that method. 
+ 
+ 
+ is_active 
+ This property should return True if this is an active user - in addition to being authenticated, they also have activated their account, not been suspended, or any condition your application has for rejecting an account. Inactive accounts may not log in. If you don't have such a mechanism present return  True  from this method. 
+ 
+ 
+ is_anonymous 
+ This property should return True if this is an anonymous user. That means that your user object returned by the  user_loader  callback should return  True . 
+ 
+ 
+ get_id() 
+ This method must return a unicode that uniquely identifies this user, and can be used to load the user from the  user_loader  callback. Note that this must be a unicode - if the ID is natively an int or some other type, you will need to convert it to unicode. If the  user_loader  callback returns objects from the database this method will most likely return the database ID of this particular user. The same ID should of course cause the  user_loader  callback to return the same user later on. 
+ 
+ 
+ If you want to make things easier for yourself (**it is in fact recommended) you can inherit from  UserMixin  in the object returned by the  user_loader  callback (presumably a database model). You can see how those methods and properties are implemented by default in this mixin      here . 
+ Logging the users in 
+ The extension leaves the validation of the username and  password entered by the user to you. In fact the extension doesn't care if you use a username and password combo or other mechanism. This is an example for logging users in using username and password. 
+ @app.route('/login', methods=['GET', 'POST'])
+def login():
+    # Here we use a class of some kind to represent and validate our
+    # client-side form data. For example, WTForms is a library that will
+    # handle this for us, and we use a custom LoginForm to validate.
+    form = LoginForm()
+    if form.validate_on_submit():
+        # Login and validate the user.
+        # user should be an instance of your `User` class
+        login_user(user)
+
+        flask.flash('Logged in successfully.')
+
+        next = flask.request.args.get('next')
+        # is_safe_url should check if the url is safe for redirects.
+        # See http://flask.pocoo.org/snippets/62/ for an example.
+        if not is_safe_url(next):
+            return flask.abort(400)
+
+        return flask.redirect(next or flask.url_for('index'))
+    return flask.render_template('login.html', form=form)
+ 
+ In general logging users in is accomplished by calling  login_user  and passing an instance of an object representing your user mentioned earlier to it. As shown this will usually happen after retrieving the user from the database and validating his credentials, however the user object just magically appears in this example. 
+ I have logged in a user, what now? 
+ The object returned by the  user_loader  callback can be accessed in multiple ways. 
+ 
+ 
+ In templates: 
+ The extension automatically injects it under the name  current_user  using a template context processor. To disable that behaviour and use your custom processor set  add_context_processor=False  in your  LoginManager  constructor. 
+   {% if current_user.is_authenticated %}
+    Hi {{ current_user.name }}!
+  {% endif %}
+ 
+ 
+ 
+ In Python code: 
+ The extension provides a request-bound object called  current_user . 
+   from flask_login import current_user    
+
+  @app.route("/hello")
+  def hello():
+      # Assuming that there is a name property on your user object
+      # returned by the callback
+      if current_user.is_authenticated:
+          return 'Hello %s!' % current_user.name 
+      else:
+          return 'You are not logged in!'
+ 
+ 
+ 
+ Limiting access quickly using a decorator
+A  login_required  decorator can be used to limit access quickly. 
+   from flask_login import login_required
+
+  @app.route("/settings")
+  @login_required
+  def settings():
+      pass
+ 
+ 
+ 
+ Logging users out 
+ Users can be logged out by calling  logout_user() . It appears that it is safe to do so even if the user is not logged in so the  @login_required  decorator can most likely be ommited. 
+ @app.route("/logout")
+@login_required
+def logout():
+    logout_user()
+    return redirect(somewhere)
+ 
+ What happens if a user is not logged in and I access the  current_user  object? 
+ By defult an  AnonymousUserMixin  is returned: 
+ 
+ is_active  and  is_authenticated  are  False 
+ is_anonymous  is  True 
+ get_id()  returns  None 
+ 
+ To use a different object for anonymous users provide a callable (either a class or factory function) that creates anonymous users to your  LoginManager  with: 
+ login_manager.anonymous_user = MyAnonymousUser
+ 
+ What next? 
+ This concludes the basic introduction to the extension. To learn more about configuration and additional options it is highly recommended to  read the official guide . 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ created  Feb 11 at 22:03 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+   
+ 
+ 
+   edit 
+ share 
+ discuss 
+ request improvement 
+   edit 
+ move example 
+ delete example 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 0 
+ 
+ Timing  out the login session 
+ 
+ 
+ 
+ 
+ 
+ 0 
+ 
+ 
+ Its good practice to time out logged in session after specific time, you can achieve that with Flask-Login. 
+ from flask import Flask, session
+from datetime import timedelta
+from flask_login import LoginManager, login_require, login_user, logout_user
+
+# Create Flask application
+
+app = Flask(__name__) 
+
+# Define Flask-login configuration 
+
+login_mgr = LoginManager(app)
+login_mgr.login_view = 'login'
+login_mgr.refresh_view = 'relogin'
+login_mgr.needs_refresh_message = (u"Session timedout, please re-login")
+login_mgr.needs_refresh_message_category = "info"
+
+
+@app.before_request
+def before_request():
+    session.permanent = True
+    app.permanent_session_lifetime = timedelta(minutes=5)
+ 
+ Default session lifetime is 31 days, user need to specify the login refresh view in case of timeout. 
+ app.permanent_session_lifetime = timedelta(minutes=5)
+ 
+ Above line will force user to re-login every 5 minutes. 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ created  May 4 at 11:09 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+   
+ 
+ 
+   edit 
+ share 
+ discuss 
+ request improvement 
+   edit 
+ move example 
+ delete example 
+ 
+ 
+ 
+   
+ 
+                var ados = ados || {}; ados.run = ados.run || [];
+                ados.run.push(function () { ados_add_placement(22,499571,"adzerk1446784021",4).setZone(30); });
+             
+ 
+ 
+ 
+ 
+ 
+ 
+ + 
+            Add Example
+         
+ 
+ 
+ 
+        Please consider making a request to improve this example.
+         Request Improvement 
+ 
+ 
+ 
+ 
+ 
+ Syntax 
+ 
+ 
+ Syntax 
+ 
+ 
+ 
+   add syntax 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ Parameters 
+ 
+ 
+ Parameters 
+ 
+ 
+ 
+   add parameters 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ Remarks 
+ 
+ 
+ Remarks 
+ 
+ 
+ 
+   add remarks 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ edited  May 4 at 11:09 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+   
+ 
+ Still have a question about Authorization and authentication? 
+ Ask Question 
+ 
+ 
+ 
+ 
+ Topic Outline 
+ 
+ 2 Examples 
+ 
+ 
+ 
+ 
+ Using flask-login extension 
+ 
+ 
+ Timing  out the login session 
+ 
+ Show more 
+ 
+ 
+ 
+ 
+                    Blog
+                 
+ 
+ 
+ 
+ 
+   
+ 
+ 
+ Trends in Government Software Developers 
+ 
+ 
+ 
+ 
+ 
+ 
+   
+ 
+ 
+ Introducing Channels: Private Q&A for Your Team 
+ 
+ 
+ 
+ 
+   
+ 
+                var ados = ados || {}; ados.run = ados.run || [];
+                ados.run.push(function () { ados_add_placement(22,499571,"adzerk989802259",5).setZone(56016); });
+             
+ 
+ 
+ 
+ 
+        StackExchange.ready(function () { $.get('/documentation/flask/ivc/9053-636356046859496556:g9d2k2c2xo0iuz3jmnstoxzt3i.gif?topicId=9053'); });
+     
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+                    Topic Outline
+                         
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ Save Draft 
+ Discard 
+ 
+ 
+ 
+ 
+ Sign up or log in 
+ Save edit as a guest 
+ Join Stack Overflow 
+ 
+ 
+ 
+ Using Google 
+ 
+ 
+ Using Facebook 
+ 
+ 
+ Using Email and Password 
+ 
+ 
+ 
+ 
+ Name 
+ 
+ 
+ 
+ Email 
+ 
+ Save Draft 
+ 
+ 
+ 
+ 
+ We recognize you from another Stack Exchange Network site! 
+ Join and Save Draft 
+ 
+ Discard Draft 
+ 
+ 
+ 
+ lang-py 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ Stack Overflow 
+ 
+ Questions 
+ Jobs 
+ Developer Jobs Directory 
+ Documentation 
+ Help 
+ Mobile 
+ 
+ 
+ 
+ Stack Overflow  Business 
+ 
+ Talent 
+ Ads 
+ Enterprise 
+ Insights 
+ 
+ 
+ 
+ Company 
+ 
+ About 
+ Press 
+ Work Here 
+ Legal 
+ Privacy Policy 
+ Contact Us 
+ 
+ 
+ 
+ 
+ 
+ Stack Exchange  Network 
+ 
+ Technology 
+ Life / Arts 
+ Culture / Recreation 
+ Science 
+ Other 
+ 
+ 
+ 
+ 
+ 
+ Stack Overflow 
+ Server Fault 
+ Super User 
+ Web Applications 
+ Ask Ubuntu 
+ Webmasters 
+ Game Development 
+ 
+ TeX - LaTeX 
+ Software Engineering 
+ Unix & Linux 
+ Ask Different (Apple) 
+ WordPress Development 
+ Geographic Information Systems 
+ Electrical Engineering 
+ 
+ Android Enthusiasts 
+ Information Security 
+ Database Administrators 
+ Drupal Answers 
+ SharePoint 
+ User Experience 
+ Data Science 
+ 
+ Mathematica 
+ Salesforce 
+ ExpressionEngine® Answers 
+ Blender 
+ Network Engineering 
+ Cryptography 
+ Code Review 
+ 
+ Magento 
+ Software Recommendations 
+ Signal Processing 
+ Emacs 
+ Raspberry Pi 
+ Programming Puzzles & Code Golf 
+ Ethereum 
+ 
+ 
+ 
+                            more (27)
+                         
+ 
+ 
+ 
+ 
+ 
+ 
+ Photography 
+ Science Fiction & Fantasy 
+ Graphic Design 
+ Movies & TV 
+ Music: Practice & Theory 
+ Worldbuilding 
+ Seasoned Advice (cooking) 
+ 
+ Home Improvement 
+ Personal Finance & Money 
+ Academia 
+ Law 
+ 
+ 
+ 
+                            more (16)
+                         
+ 
+ 
+ 
+ 
+ 
+ 
+ English Language & Usage 
+ Skeptics 
+ Mi Yodeya (Judaism) 
+ Travel 
+ Christianity 
+ English Language Learners 
+ Japanese Language 
+ 
+ Arqade (gaming) 
+ Bicycles 
+ Role-playing Games 
+ Anime & Manga 
+ Puzzling 
+ Motor Vehicle Maintenance & Repair 
+ 
+ 
+ 
+                            more (32)
+                         
+ 
+ 
+ 
+ 
+ 
+ 
+ MathOverflow 
+ Mathematics 
+ Cross Validated (stats) 
+ Theoretical Computer Science 
+ Physics 
+ Chemistry 
+ Biology 
+ 
+ Computer Science 
+ Philosophy 
+ 
+ 
+ 
+                            more (10)
+                         
+ 
+ 
+ 
+ 
+ 
+ 
+ Meta Stack Exchange 
+ Stack Apps 
+ API 
+ Data 
+ Area 51 
+ 
+ 
+ 
+ 
+ 
+ Blog 
+ Facebook 
+ Twitter 
+ LinkedIn 
+ 
+ 
+ 
+                                    site design / logo © 2017 Stack Exchange Inc; user contributions licensed under  cc by-sa 3.0 
+                                    with  attribution required .
+                                     rev 2017.7.13.1278 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ Stack Overflow works best with JavaScript enabled
+             
+ 
+ 
+ var z=document.createElement("script");z.type="text/javascript",z.async=!0,z.src="https://static.adzerk.net/ados.js";var s=document.getElementsByTagName("script")[0];s.parentNode.insertBefore(z,s); 
+ 
+var ados = ados || {};
+ados.run = ados.run || [];
+
+ 
+ 
+            (function(i, s, o, g, r, a, m) {
+                i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function() { (i[r].q = i[r].q || []).push(arguments) }, i[r].l = 1 * new Date(); a = s.createElement(o),
+                m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m);
+            })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+                ga('create', 'UA-5620270-1');
+                ga('create', 'UA-5620270-60', {name: 'pageData', sampleRate: 100 });
+                ga('send', 'pageview');
+                ga('pageData.send', 'pageview');
+        var _qevents = _qevents || [],
+            _comscore = _comscore || [];
+        (function () {
+            var ssl='https:'==document.location.protocol,
+                s=document.getElementsByTagName('script')[0],
+                qc=document.createElement('script');
+                qc.async = true;
+                qc.src = (ssl ? 'https://secure' : 'http://edge') + '.quantserve.com/quant.js';
+                s.parentNode.insertBefore(qc, s);
+                _qevents.push({ qacct: "p-c1rF4kxgLUzNc" });
+                            var sc=document.createElement('script');
+                sc.async=true;
+                sc.src=(ssl?'https://sb':'http://b') + '.scorecardresearch.com/beacon.js';
+                s.parentNode.insertBefore(sc, s);
+                _comscore.push({ c1: "2", c2: "17440561" });
+        })();
+
+     
+ 
+                
+                (function(appendChild) {
+                    Node.prototype.appendChild = function() {
+                        var parent = this;
+                        var newNode = arguments[0];
+                        if (parent.nodeName === 'HEAD'
+                            && newNode
+                            && newNode.nodeName === 'SCRIPT'
+                            && newNode.src) {
+                            
+                            window.setTimeout(function() {
+                                var result = newNode.src.match(/^https:\/\/maps\.googleapis\.com\/maps\/api\/place\/js\/(\w+)Service\./i) || [];
+                                var service = result[1];
+                                if (service) {
+                                    if (service === 'Autocompletion') service =  2;
+                                    else if (service === 'Place') service = 1;
+                                    else service = 0;
+                                    StackExchange.using('gps', function() {
+                                        StackExchange.gps.track('google_maps_places_api.call', { service: service });
+                                    });
+                                }
+                            }, 0);
+                        }
+                        return appendChild.apply(this, arguments);
+                    };
+                })(Node.prototype.appendChild);
+             

@@ -1,0 +1,1421 @@
+
+ (function () { var old = $.fn.contents; $.fn.contents = function () { try { return old.apply(this, arguments); } catch (e) { return $([]); } } })() 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ Stack Overflow 
+ 
+ 
+ 
+ 
+ Questions 
+ 
+ 
+ Developer Jobs 
+ 
+ 
+ Documentation  beta 
+ 
+ 
+ Tags 
+ 
+ 
+ Users 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ current community 
+ 
+ 
+ 
+ 
+ 
+ 
+ help 
+ chat 
+ 
+ 
+ 
+        Stack Overflow
+     
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+        Meta Stack Overflow
+     
+ 
+ 
+ 
+ 
+ 
+your communities             
+ 
+ 
+ 
+ Sign up  or  log in  to customize your list.
+                 
+ 
+ 
+ more stack exchange communities 
+ 
+ company blog 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+                            Tour
+                             
+                                Start here for a quick overview of the site
+                             
+ 
+ 
+ 
+ 
+                        Help Center
+                         
+                            Detailed answers to any questions you might have
+                         
+ 
+ 
+ 
+ 
+                                Meta
+                                 
+                                    Discuss the workings and policies of this site
+                                 
+ 
+ 
+ 
+ 
+                                About Us
+                                 
+                                    Learn more about Stack Overflow the company
+                                 
+ 
+ 
+ 
+ 
+                                Business
+                                 
+                                    Learn more about hiring developers or posting ads with us
+                                 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ Log In 
+ Sign Up 
+ 
+ 
+ 
+ 
+ 
+        StackExchange.ready(function () { StackExchange.topbar.init(); });
+            StackExchange.scrollPadding.setPaddingTop(60, 10);      
+ 
+ 
+ 
+ 
+ algorithm 
+ 
+ 
+ 
+ 
+   
+ 
+ 
+ 
+ 
+ dashboard 
+ all topics 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ Popular 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+        StackExchange.ready(function () {
+            StackExchange.docs.search.init({
+                popularTopicsJson: [{"Id":1529,"DocTag":"algorithm","Title":"Algorithm Complexity","Url":"/documentation/algorithm/1529/algorithm-complexity"},{"Id":757,"DocTag":"algorithm","Title":"Getting started with algorithm","Url":"/documentation/algorithm/757/getting-started-with-algorithm"},{"Id":4770,"DocTag":"algorithm","Title":"Big-O Notation","Url":"/documentation/algorithm/4770/big-o-notation"},{"Id":5735,"DocTag":"algorithm","Title":"Binary Search Trees","Url":"/documentation/algorithm/5735/binary-search-trees"},{"Id":2299,"DocTag":"algorithm","Title":"Graph","Url":"/documentation/algorithm/2299/graph"}]
+            });
+        });
+     
+   
+ 
+ 
+ 
+ Topic 
+ 
+ 
+ 
+ 
+ 
+ 
+ You must  sign up  or  log in  to make a topic request. 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+    StackExchange.ready(function () {
+        StackExchange.docs.requestTopic.init('algorithm');
+    });
+   
+ 
+ 
+ 
+ 
+ 
+ 
+ Merge Sort 
+ 
+ 
+ 
+ topic 
+ discuss 
+ 
+ 
+ 
+ 
+ Title 
+ 
+ 
+ 
+ Versions 
+ 
+ 
+ Introduction 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+   add introduction 
+ edit 
+ share 
+ request improvement 
+   edit 
+ move 
+ delete topic 
+ share 
+ 
+ 
+ 
+ 
+ 
+                var ados = ados || {}; ados.run = ados.run || [];
+                ados.run.push(function () { ados_add_placement(22,499571,"adzerk876606983",4).setZone(29); });
+             
+ 
+ 
+ 
+ 
+ This draft deletes the entire topic. 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+                    Examples
+                     
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 6 
+ 
+ Merge Sort Basics 
+ 
+ 
+ 
+ 
+ 
+ 6 
+ 
+ 
+ 
+ 
+ 
+   
+ Merge Sort is a divide-and-conquer algorithm. It divides the input list of length n in half successively until there are n lists of size 1. Then, pairs of lists are merged together with the smaller first element among the pair of lists being added in each step. Through successive merging and through comparison of first elements, the sorted list is built. 
+ An example: 
+ 
+ Time Complexity :  T(n) = 2T(n/2) + Θ(n) 
+ The above recurrence can be solved either using Recurrence Tree method or Master method. It falls in case II of Master Method and solution of the recurrence is  Θ(nLogn) .
+Time complexity of  Merge Sort  is  Θ(nLogn)  in all 3 cases ( worst, average and best ) as merge sort always divides the array in two halves and take linear time to merge two halves. 
+ Auxiliary Space :  O(n) 
+ Algorithmic Paradigm : Divide and Conquer 
+ Sorting In Place : Not in a typical implementation 
+ Stable : Yes 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ edited  Oct 12 '16 at 23:07 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+   
+ 
+ 
+   edit 
+ share 
+ discuss 
+ request improvement 
+   edit 
+ move example 
+ delete example 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 1 
+ 
+ Merge Sort Implementation in Go 
+ 
+ 
+ 
+ 
+ 
+ 1 
+ 
+ 
+ package main
+
+import "fmt"
+
+func mergeSort(a []int) []int {
+    if len(a) < 2 {
+        return a
+    }
+    m := (len(a)) / 2
+
+    f := mergeSort(a[:m])
+    s := mergeSort(a[m:])
+
+    return merge(f, s)
+}
+
+func merge(f []int, s []int) []int {
+    var i, j int
+    size := len(f) + len(s)
+
+    a := make([]int, size, size)
+
+    for z := 0; z < size; z++ {
+        lenF := len(f)
+        lenS := len(s)
+
+        if i > lenF-1 && j <= lenS-1 {
+            a[z] = s[j]
+            j++
+        } else if j > lenS-1 && i <= lenF-1 {
+            a[z] = f[i]
+            i++
+        } else if f[i] < s[j] {
+            a[z] = f[i]
+            i++
+        } else {
+            a[z] = s[j]
+            j++
+        }
+    }
+
+    return a
+}
+
+func main() {
+    a := []int{75, 12, 34, 45, 0, 123, 32, 56, 32, 99, 123, 11, 86, 33}
+    fmt.Println(a)
+    fmt.Println(mergeSort(a))
+}
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ created  Jan 11 at 11:37 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+   
+ 
+ 
+   edit 
+ share 
+ discuss 
+ request improvement 
+   edit 
+ move example 
+ delete example 
+ 
+ 
+ 
+   
+ 
+                var ados = ados || {}; ados.run = ados.run || [];
+                ados.run.push(function () { ados_add_placement(22,499571,"adzerk250890551",4).setZone(30); });
+             
+ 
+ 
+   
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 0 
+ 
+ Bottoms-up Java Implementation 
+ 
+ 
+ 
+ 
+ 
+ 0 
+ 
+ 
+ public class MergeSortBU {
+    private static Integer[] array = { 4, 3, 1, 8, 9, 15, 20, 2, 5, 6, 30, 70, 60,80,0,9,67,54,51,52,24,54,7 };
+
+    public MergeSortBU() {
+    }
+
+    private static void merge(Comparable[] arrayToSort, Comparable[] aux, int lo,int mid, int hi) {
+
+        for (int index = 0; index < arrayToSort.length; index++) {
+            aux[index] = arrayToSort[index];
+        }
+
+        int i = lo;
+        int j = mid + 1;
+        for (int k = lo; k <= hi; k++) {
+            if (i > mid)
+                arrayToSort[k] = aux[j++];
+            else if (j > hi)
+                arrayToSort[k] = aux[i++];
+            else if (isLess(aux[i], aux[j])) {
+                arrayToSort[k] = aux[i++];
+            } else {
+                arrayToSort[k] = aux[j++];
+            }
+
+        }
+    }
+
+    public static void sort(Comparable[] arrayToSort, Comparable[] aux, int lo, int hi) {
+        int N = arrayToSort.length;
+        for (int sz = 1; sz < N; sz = sz + sz) {
+            for (int low = 0; low < N; low = low + sz + sz) {
+                System.out.println("Size:"+ sz);
+                merge(arrayToSort, aux, low, low + sz -1 ,Math.min(low + sz + sz - 1, N - 1));
+                print(arrayToSort);
+            }
+        }
+
+    }
+
+    public static boolean isLess(Comparable a, Comparable b) {
+        return a.compareTo(b) <= 0;
+    }
+
+    private static void print(Comparable[] array) {http://stackoverflow.com/documentation/algorithm/5732/merge-sort#
+        StringBuffer buffer = new StringBuffer();http://stackoverflow.com/documentation/algorithm/5732/merge-sort#
+        for (Comparable value : array) {
+            buffer.append(value);
+            buffer.append(' ');
+        }
+        System.out.println(buffer);
+    }
+
+    public static void main(String[] args) {
+        Comparable[] aux = new Comparable[array.length];
+        print(array);
+        MergeSortBU.sort(array, aux, 0, array.length - 1);
+    }
+}
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ edited  Jan 11 at 11:51 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+   
+ 
+ 
+   edit 
+ share 
+ discuss 
+ request improvement 
+   edit 
+ move example 
+ delete example 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 0 
+ 
+ Merge Sort Implementation in  C & C# 
+ 
+ 
+ 
+ 
+ 
+ 0 
+ 
+ 
+ C Merge Sort 
+ int merge(int arr[],int l,int m,int h)
+{
+  int arr1[10],arr2[10];  // Two temporary arrays to
+  hold the two arrays to be merged
+  int n1,n2,i,j,k;
+  n1=m-l+1;
+  n2=h-m;
+
+  for(i=0; i<n1; i++)
+    arr1[i]=arr[l+i];
+  for(j=0; j<n2; j++)
+    arr2[j]=arr[m+j+1];
+
+  arr1[i]=9999;  // To mark the end of each temporary array
+  arr2[j]=9999;
+
+  i=0;
+  j=0;
+  for(k=l; k<=h; k++) { //process of combining two sorted arrays
+    if(arr1[i]<=arr2[j])
+      arr[k]=arr1[i++];
+    else
+      arr[k]=arr2[j++];
+  }
+
+  return 0;
+}
+
+int merge_sort(int arr[],int low,int high)
+{
+  int mid;
+  if(low<high) {
+    mid=(low+high)/2;
+    // Divide and Conquer
+    merge_sort(arr,low,mid);
+    merge_sort(arr,mid+1,high);
+    // Combine
+    merge(arr,low,mid,high);
+  }
+
+  return 0;
+}
+ 
+ C# Merge Sort 
+ public class MergeSort
+    {
+        static void Merge(int[] input, int l, int m, int r)
+        {
+            int i, j;
+            var n1 = m - l + 1;
+            var n2 = r - m;
+
+            var left = new int[n1];
+            var right = new int[n2];
+
+            for (i = 0; i < n1; i++)
+            {
+                left[i] = input[l + i];
+            }
+
+            for (j = 0; j < n2; j++)
+            {
+                right[j] = input[m + j + 1];
+            }
+
+            i = 0;
+            j = 0;
+            var k = l;
+
+            while (i < n1 && j < n2)
+            {
+                if (left[i] <= right[j])
+                {
+                    input[k] = left[i];
+                    i++;
+                }
+                else
+                {
+                    input[k] = right[j];
+                    j++;
+                }
+                k++;
+            }
+
+            while (i < n1)
+            {
+                input[k] = left[i];
+                i++;
+                k++;
+            }
+
+            while (j < n2)
+            {
+                input[k] = right[j];
+                j++;
+                k++;
+            }
+        }
+
+        static void SortMerge(int[] input, int l, int r)
+        {
+            if (l < r)
+            {
+                int m = l + (r - l) / 2;
+                SortMerge(input, l, m);
+                SortMerge(input, m + 1, r);
+                Merge(input, l, m, r);
+            }
+        }
+
+        public static int[] Main(int[] input)
+        {
+            SortMerge(input, 0, input.Length - 1);
+            return input;
+        }
+    }
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ edited  Jun 18 at 7:34 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+   
+ 
+ 
+   edit 
+ share 
+ discuss 
+ request improvement 
+   edit 
+ move example 
+ delete example 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 0 
+ 
+ Merge Sort Implementation in Java 
+ 
+ 
+ 
+ 
+ 
+ 0 
+ 
+ 
+ Below there is the implementation in Java using a generics approach. It is the same algorithm, which is presented above. 
+ public interface InPlaceSort<T extends Comparable<T>> {
+void sort(final T[] elements); }
+
+
+public class MergeSort < T extends Comparable < T >> implements InPlaceSort < T > {
+
+
+@Override
+public void sort(T[] elements) {
+    T[] arr = (T[]) new Comparable[elements.length];
+    sort(elements, arr, 0, elements.length - 1);
+}
+
+// We check both our sides and then merge them
+private void sort(T[] elements, T[] arr, int low, int high) {
+    if (low >= high) return;
+    int mid = low + (high - low) / 2;
+    sort(elements, arr, low, mid);
+    sort(elements, arr, mid + 1, high);
+    merge(elements, arr, low, high, mid);
+}
+
+
+private void merge(T[] a, T[] b, int low, int high, int mid) {
+    int i = low;
+    int j = mid + 1;
+
+    // We select the smallest element of the two. And then we put it into b
+    for (int k = low; k <= high; k++) {
+
+        if (i <= mid && j <= high) {
+            if (a[i].compareTo(a[j]) >= 0) {
+                b[k] = a[j++];
+            } else {
+                b[k] = a[i++];
+            }
+        } else if (j > high && i <= mid) {
+            b[k] = a[i++];
+        } else if (i > mid && j <= high) {
+            b[k] = a[j++];
+        }
+    }
+
+    for (int n = low; n <= high; n++) {
+        a[n] = b[n];
+    }}}
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ created  Nov 22 '16 at 2:03 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+   
+ 
+ 
+   edit 
+ share 
+ discuss 
+ request improvement 
+   edit 
+ move example 
+ delete example 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 0 
+ 
+ Merge Sort Implementation in Python 
+ 
+ 
+ 
+ 
+ 
+ 0 
+ 
+ 
+ def merge(X, Y):
+    " merge two sorted lists "
+    p1 = p2 = 0
+    out = []
+    while p1 < len(X) and p2 < len(Y):
+        if X[p1] < Y[p2]:
+            out.append(X[p1])
+            p1 += 1
+        else:
+            out.append(Y[p2])
+            p2 += 1
+    out += X[p1:] + Y[p2:]
+    return out
+
+def mergeSort(A):
+    if len(A) <= 1:
+        return A
+    if len(A) == 2:
+        return sorted(A)
+
+    mid = len(A) / 2
+    return merge(mergeSort(A[:mid]), mergeSort(A[mid:]))
+
+if __name__ == "__main__":
+    # Generate 20 random numbers and sort them
+    A = [randint(1, 100) for i in xrange(20)]
+    print mergeSort(A)
+
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ created  Nov 30 '16 at 21:07 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+   
+ 
+ 
+   edit 
+ share 
+ discuss 
+ request improvement 
+   edit 
+ move example 
+ delete example 
+ 
+ 
+ 
+ 
+ 
+ 
+ + 
+            Add Example
+         
+ 
+ 
+ 
+        Please consider making a request to improve this example.
+         Request Improvement 
+ 
+ 
+ 
+ 
+ 
+ Syntax 
+ 
+ 
+ Syntax 
+ 
+ 
+ 
+   add syntax 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ Parameters 
+ 
+ 
+ Parameters 
+ 
+ 
+ 
+   add parameters 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ Remarks 
+ 
+ 
+ Remarks 
+ 
+ 
+ 
+   add remarks 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ created  Aug 31 '16 at 21:15 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+   
+ 
+ Still have a question about Merge Sort? 
+ Ask Question 
+ 
+ 
+ 
+ 
+ Topic Outline 
+ 
+ 6 Examples 
+ 
+ 
+ 
+ 
+ Merge Sort Basics 
+ 
+ 
+ Merge Sort Implementation in Go 
+ 
+ 
+ Bottoms-up Java Implementation 
+ 
+ 
+ Merge Sort Implementation in  C & C# 
+ 
+ 
+ Merge Sort Implementation in Java 
+ 
+ 
+ Merge Sort Implementation in Python 
+ 
+ Show more 
+ 
+ 
+ 
+ 
+                    Blog
+                 
+ 
+ 
+ 
+ 
+   
+ 
+ 
+ Trends in Government Software Developers 
+ 
+ 
+ 
+ 
+ 
+ 
+   
+ 
+ 
+ Introducing Channels: Private Q&A for Your Team 
+ 
+ 
+ 
+ 
+   
+ 
+                var ados = ados || {}; ados.run = ados.run || [];
+                ados.run.push(function () { ados_add_placement(22,499571,"adzerk1539920172",5).setZone(56016); });
+             
+ 
+ 
+ 
+ 
+        StackExchange.ready(function () { $.get('/documentation/algorithm/ivc/5732-636356029071262801:v3fx63vi8364qlb3rfqlzahqpkw.gif?topicId=5732'); });
+     
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+                    Topic Outline
+                         
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ Save Draft 
+ Discard 
+ 
+ 
+ 
+ 
+ Sign up or log in 
+ Save edit as a guest 
+ Join Stack Overflow 
+ 
+ 
+ 
+ Using Google 
+ 
+ 
+ Using Facebook 
+ 
+ 
+ Using Email and Password 
+ 
+ 
+ 
+ 
+ Name 
+ 
+ 
+ 
+ Email 
+ 
+ Save Draft 
+ 
+ 
+ 
+ 
+ We recognize you from another Stack Exchange Network site! 
+ Join and Save Draft 
+ 
+ Discard Draft 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ Stack Overflow 
+ 
+ Questions 
+ Jobs 
+ Developer Jobs Directory 
+ Documentation 
+ Help 
+ Mobile 
+ 
+ 
+ 
+ Stack Overflow  Business 
+ 
+ Talent 
+ Ads 
+ Enterprise 
+ Insights 
+ 
+ 
+ 
+ Company 
+ 
+ About 
+ Press 
+ Work Here 
+ Legal 
+ Privacy Policy 
+ Contact Us 
+ 
+ 
+ 
+ 
+ 
+ Stack Exchange  Network 
+ 
+ Technology 
+ Life / Arts 
+ Culture / Recreation 
+ Science 
+ Other 
+ 
+ 
+ 
+ 
+ 
+ Stack Overflow 
+ Server Fault 
+ Super User 
+ Web Applications 
+ Ask Ubuntu 
+ Webmasters 
+ Game Development 
+ 
+ TeX - LaTeX 
+ Software Engineering 
+ Unix & Linux 
+ Ask Different (Apple) 
+ WordPress Development 
+ Geographic Information Systems 
+ Electrical Engineering 
+ 
+ Android Enthusiasts 
+ Information Security 
+ Database Administrators 
+ Drupal Answers 
+ SharePoint 
+ User Experience 
+ Data Science 
+ 
+ Mathematica 
+ Salesforce 
+ ExpressionEngine® Answers 
+ Blender 
+ Network Engineering 
+ Cryptography 
+ Code Review 
+ 
+ Magento 
+ Software Recommendations 
+ Signal Processing 
+ Emacs 
+ Raspberry Pi 
+ Programming Puzzles & Code Golf 
+ Ethereum 
+ 
+ 
+ 
+                            more (27)
+                         
+ 
+ 
+ 
+ 
+ 
+ 
+ Photography 
+ Science Fiction & Fantasy 
+ Graphic Design 
+ Movies & TV 
+ Music: Practice & Theory 
+ Worldbuilding 
+ Seasoned Advice (cooking) 
+ 
+ Home Improvement 
+ Personal Finance & Money 
+ Academia 
+ Law 
+ 
+ 
+ 
+                            more (16)
+                         
+ 
+ 
+ 
+ 
+ 
+ 
+ English Language & Usage 
+ Skeptics 
+ Mi Yodeya (Judaism) 
+ Travel 
+ Christianity 
+ English Language Learners 
+ Japanese Language 
+ 
+ Arqade (gaming) 
+ Bicycles 
+ Role-playing Games 
+ Anime & Manga 
+ Puzzling 
+ Motor Vehicle Maintenance & Repair 
+ 
+ 
+ 
+                            more (32)
+                         
+ 
+ 
+ 
+ 
+ 
+ 
+ MathOverflow 
+ Mathematics 
+ Cross Validated (stats) 
+ Theoretical Computer Science 
+ Physics 
+ Chemistry 
+ Biology 
+ 
+ Computer Science 
+ Philosophy 
+ 
+ 
+ 
+                            more (10)
+                         
+ 
+ 
+ 
+ 
+ 
+ 
+ Meta Stack Exchange 
+ Stack Apps 
+ API 
+ Data 
+ Area 51 
+ 
+ 
+ 
+ 
+ 
+ Blog 
+ Facebook 
+ Twitter 
+ LinkedIn 
+ 
+ 
+ 
+                                    site design / logo © 2017 Stack Exchange Inc; user contributions licensed under  cc by-sa 3.0 
+                                    with  attribution required .
+                                     rev 2017.7.13.1278 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ Stack Overflow works best with JavaScript enabled
+             
+ 
+ 
+ var z=document.createElement("script");z.type="text/javascript",z.async=!0,z.src="https://static.adzerk.net/ados.js";var s=document.getElementsByTagName("script")[0];s.parentNode.insertBefore(z,s); 
+ 
+var ados = ados || {};
+ados.run = ados.run || [];
+
+ 
+ 
+            (function(i, s, o, g, r, a, m) {
+                i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function() { (i[r].q = i[r].q || []).push(arguments) }, i[r].l = 1 * new Date(); a = s.createElement(o),
+                m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m);
+            })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+                ga('create', 'UA-5620270-1');
+                ga('create', 'UA-5620270-60', {name: 'pageData', sampleRate: 100 });
+                ga('send', 'pageview');
+                ga('pageData.send', 'pageview');
+        var _qevents = _qevents || [],
+            _comscore = _comscore || [];
+        (function () {
+            var ssl='https:'==document.location.protocol,
+                s=document.getElementsByTagName('script')[0],
+                qc=document.createElement('script');
+                qc.async = true;
+                qc.src = (ssl ? 'https://secure' : 'http://edge') + '.quantserve.com/quant.js';
+                s.parentNode.insertBefore(qc, s);
+                _qevents.push({ qacct: "p-c1rF4kxgLUzNc" });
+                            var sc=document.createElement('script');
+                sc.async=true;
+                sc.src=(ssl?'https://sb':'http://b') + '.scorecardresearch.com/beacon.js';
+                s.parentNode.insertBefore(sc, s);
+                _comscore.push({ c1: "2", c2: "17440561" });
+        })();
+
+     
+ 
+                
+                (function(appendChild) {
+                    Node.prototype.appendChild = function() {
+                        var parent = this;
+                        var newNode = arguments[0];
+                        if (parent.nodeName === 'HEAD'
+                            && newNode
+                            && newNode.nodeName === 'SCRIPT'
+                            && newNode.src) {
+                            
+                            window.setTimeout(function() {
+                                var result = newNode.src.match(/^https:\/\/maps\.googleapis\.com\/maps\/api\/place\/js\/(\w+)Service\./i) || [];
+                                var service = result[1];
+                                if (service) {
+                                    if (service === 'Autocompletion') service =  2;
+                                    else if (service === 'Place') service = 1;
+                                    else service = 0;
+                                    StackExchange.using('gps', function() {
+                                        StackExchange.gps.track('google_maps_places_api.call', { service: service });
+                                    });
+                                }
+                            }, 0);
+                        }
+                        return appendChild.apply(this, arguments);
+                    };
+                })(Node.prototype.appendChild);
+             

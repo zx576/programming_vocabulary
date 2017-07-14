@@ -1,0 +1,981 @@
+
+ (function () { var old = $.fn.contents; $.fn.contents = function () { try { return old.apply(this, arguments); } catch (e) { return $([]); } } })() 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ Stack Overflow 
+ 
+ 
+ 
+ 
+ Questions 
+ 
+ 
+ Developer Jobs 
+ 
+ 
+ Documentation  beta 
+ 
+ 
+ Tags 
+ 
+ 
+ Users 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ current community 
+ 
+ 
+ 
+ 
+ 
+ 
+ help 
+ chat 
+ 
+ 
+ 
+        Stack Overflow
+     
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+        Meta Stack Overflow
+     
+ 
+ 
+ 
+ 
+ 
+your communities             
+ 
+ 
+ 
+ Sign up  or  log in  to customize your list.
+                 
+ 
+ 
+ more stack exchange communities 
+ 
+ company blog 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+                            Tour
+                             
+                                Start here for a quick overview of the site
+                             
+ 
+ 
+ 
+ 
+                        Help Center
+                         
+                            Detailed answers to any questions you might have
+                         
+ 
+ 
+ 
+ 
+                                Meta
+                                 
+                                    Discuss the workings and policies of this site
+                                 
+ 
+ 
+ 
+ 
+                                About Us
+                                 
+                                    Learn more about Stack Overflow the company
+                                 
+ 
+ 
+ 
+ 
+                                Business
+                                 
+                                    Learn more about hiring developers or posting ads with us
+                                 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ Log In 
+ Sign Up 
+ 
+ 
+ 
+ 
+ 
+        StackExchange.ready(function () { StackExchange.topbar.init(); });
+            StackExchange.scrollPadding.setPaddingTop(60, 10);      
+ 
+ 
+ 
+ 
+ algorithm 
+ 
+ 
+ 
+ 
+   
+ 
+ 
+ 
+ 
+ dashboard 
+ all topics 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ Popular 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+        StackExchange.ready(function () {
+            StackExchange.docs.search.init({
+                popularTopicsJson: [{"Id":1529,"DocTag":"algorithm","Title":"Algorithm Complexity","Url":"/documentation/algorithm/1529/algorithm-complexity"},{"Id":757,"DocTag":"algorithm","Title":"Getting started with algorithm","Url":"/documentation/algorithm/757/getting-started-with-algorithm"},{"Id":4770,"DocTag":"algorithm","Title":"Big-O Notation","Url":"/documentation/algorithm/4770/big-o-notation"},{"Id":5735,"DocTag":"algorithm","Title":"Binary Search Trees","Url":"/documentation/algorithm/5735/binary-search-trees"},{"Id":2299,"DocTag":"algorithm","Title":"Graph","Url":"/documentation/algorithm/2299/graph"}]
+            });
+        });
+     
+   
+ 
+ 
+ 
+ Topic 
+ 
+ 
+ 
+ 
+ 
+ 
+ You must  sign up  or  log in  to make a topic request. 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+    StackExchange.ready(function () {
+        StackExchange.docs.requestTopic.init('algorithm');
+    });
+   
+ 
+ 
+ 
+ 
+ 
+ 
+ Dijkstra’s Algorithm 
+ 
+ 
+ 
+ topic 
+ discuss 
+ 
+ 
+ 
+ 
+ Title 
+ 
+ 
+ 
+ Versions 
+ 
+ 
+ Introduction 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+   add introduction 
+ edit 
+ share 
+ request improvement 
+   edit 
+ move 
+ delete topic 
+ share 
+ 
+ 
+ 
+ 
+ 
+                var ados = ados || {}; ados.run = ados.run || [];
+                ados.run.push(function () { ados_add_placement(22,499571,"adzerk1474265993",4).setZone(29); });
+             
+ 
+ 
+ 
+ 
+ This draft deletes the entire topic. 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+                    Examples
+                     
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 4 
+ 
+ Dijkstra's Shortest Path Algorithm 
+ 
+ 
+ 
+ 
+ 
+ 4 
+ 
+ 
+ 
+ 
+ 
+   
+ Before proceeding, it is recommended to have a brief idea about Adjacency Matrix and BFS 
+ Dijkstra's algorithm  is known as single-source shortest path algorithm. It is used for finding the shortest paths between nodes in a graph, which may represent, for example, road networks. It was conceived by  Edsger W. Dijkstra  in 1956 and published three years later. 
+ We can find shortest path using Breadth First Search (BFS) searching algorithm. This algorithm works fine, but the problem is, it assumes the cost of traversing each path is same, that means the cost of each edge is same. Dijkstra's algorithm helps us to find the shortest path where the cost of each path is not the same. 
+ At first we will see, how to modify BFS to write Dijkstra's algorithm, then we will add priority queue to make it a complete Dijkstra's algorithm. 
+ Let's say, the distance of each node from the source is kept in  d[]  array. As in,  d[3]  represents that  d[3]  time is taken to reach  node 3  from  source . If we don't know the distance, we will store  infinity  in  d[3] . Also, let  cost[u][v]  represent the cost of  u-v . That means it takes  cost[u][v]  to go from  u  node to  v  node. 
+ 
+ We need to understand Edge Relaxation. Let's say, from your house, that is  source , it takes  10  minutes to go to place  A . And it takes  25  minutes to go to place  B . We have, 
+ d[A] = 10
+d[B] = 25
+ 
+ Now let's say it takes  7  minutes to go from place  A  to place  B , that means: 
+ cost[A][B] = 7
+ 
+ Then we can go to place  B  from  source  by going to place  A  from  source  and then from place  A , going to place  B , which will take  10 + 7 = 17  minutes, instead of  25  minutes. So, 
+ d[A] + cost[A][B] < d[B]
+ 
+ Then we update, 
+ d[B] = d[A] + cost[A][B]
+ 
+ This is called relaxation. We will go from node  u  to node  v  and if  d[u] + cost[u][v] < d[v]  then we will update  d[v] = d[u] + cost[u][v] . 
+ In BFS, we didn't need to visit any node twice. We only checked if a node is visited or not. If it was not visited, we pushed the node in queue, marked it as visited and incremented the distance by 1. In Dijkstra, we can push a node in queue and instead of updating it with visited, we  relax  or update the new edge. Let's look at one example: 
+ 
+ Let's assume,  Node 1  is the  Source . Then, 
+ d[1] = 0
+d[2] = d[3] = d[4] = infinity (or a large value)
+ 
+ We set,  d[2], d[3]  and  d[4]   to  infinity  because we don't know the distance yet. And the distance of  source  is of course  0 . Now, we go to other nodes from  source  and if we can update them, then we'll push them in the queue. Say for example, we'll traverse  edge 1-2 . As  d[1] + 2 < d[2]  which will make  d[2] = 2 . Similarly, we'll traverse  edge 1-3  which makes  d[3] = 5 . 
+ We can clearly see that  5  is not the shortest distance we can cross to go to  node 3 . So traversing a node only once, like BFS, doesn't work here. If we go from  node 2  to  node 3  using  edge 2-3 , we can update  d[3] = d[2] + 1 = 3 . So we can see that one node can be updated many times. How many times you ask? The maximum number of times a node can be updated is the number of in-degree of a node. 
+ Let's see the pseudo-code for visiting any node multiple times. We will simply modify BFS: 
+ procedure BFSmodified(G, source):
+Q = queue()
+distance[] = infinity
+Q.enqueue(source)
+distance[source]=0
+while Q is not empty
+    u <- Q.pop()
+    for all edges from u to v in G.adjacentEdges(v) do
+        if distance[u] + cost[u][v] < distance[v]
+            distance[v] = distance[u] + cost[u][v]
+        end if
+    end for
+end while
+Return distance
+ 
+ This can be used to find the shortest path of all node from the source. The complexity of this code is not so good. Here's why, 
+ In BFS, when we go from  node 1  to all other nodes, we follow  first come, first serve  method. For example, we went to  node 3  from  source  before processing  node 2 . If we go to  node 3  from  source , we update  node 4  as  5 + 3 = 8 . When we again update  node 3  from  node 2 , we need to update  node 4  as  3 + 3 = 6  again! So  node 4  is updated twice. 
+ Dijkstra  proposed, instead of going for  First come, first serve  method, if we update the nearest nodes first, then it'll take less updates. If we processed  node 2  before, then  node 3  would have been updated before, and after updating  node 4  accordingly, we'd easily get the shortest distance! The idea is to choose from the queue, the node, that is closest to the  source . So we will use  Priority Queue  here so that when we pop the queue, it will bring us the closest node  u  from  source . How will it do that? It'll check the value of  d[u]  with it. 
+ Let's see the pseudo-code: 
+ procedure dijkstra(G, source):
+Q = priority_queue()
+distance[] = infinity
+Q.enqueue(source)
+distance[source] = 0
+while Q is not empty
+    u <- nodes in Q with minimum distance[]
+    remove u from the Q
+    for all edges from u to v in G.adjacentEdges(v) do
+        if distance[u] + cost[u][v] < distance[v]
+            distance[v] = distance[u] + cost[u][v]
+            Q.enqueue(v)
+        end if
+    end for
+end while
+Return distance
+ 
+ The pseudo-code returns distance of all other nodes from the  source . If we want to know distance of a single node  v , we can simply return the value when  v  is popped from the queue. 
+ Now, does Dijkstra's Algorithm work when there's a negative edge? If there's a negative cycle, then infinity loop will occur, as it will keep reducing the cost every time. Even if there is a negative edge, Dijkstra won't work, unless we return right after the target is popped. But then, it won't be a Dijkstra algorithm. We'll need  Bellman–Ford  algorithm for processing negative edge/cycle. 
+ Complexity: 
+ The complexity of BFS is  O(log(V+E))  where  V  is the number of nodes and  E  is the number of edges. For Dijkstra, the complexity is similar, but sorting of  Priority Queue  takes  O(logV) . So the total complexity is:  O(Vlog(V)+E) 
+ Below is a Java example to solve Dijkstra's Shortest Path Algorithm using Adjacency Matrix 
+ import java.util.*;
+import java.lang.*;
+import java.io.*;
+
+class ShortestPath
+{
+    static final int V=9;
+    int minDistance(int dist[], Boolean sptSet[])
+    {
+        int min = Integer.MAX_VALUE, min_index=-1;
+
+        for (int v = 0; v < V; v++)
+            if (sptSet[v] == false && dist[v] <= min)
+            {
+                min = dist[v];
+                min_index = v;
+            }
+
+        return min_index;
+    }
+
+    void printSolution(int dist[], int n)
+    {
+        System.out.println("Vertex Distance from Source");
+        for (int i = 0; i < V; i++)
+            System.out.println(i+" \t\t "+dist[i]);
+    }
+
+    void dijkstra(int graph[][], int src)
+    {
+
+        Boolean sptSet[] = new Boolean[V];
+
+        for (int i = 0; i < V; i++)
+        {
+            dist[i] = Integer.MAX_VALUE;
+            sptSet[i] = false;
+        }
+
+        dist[src] = 0;
+
+        for (int count = 0; count < V-1; count++)
+        {
+            int u = minDistance(dist, sptSet);
+
+            sptSet[u] = true;
+
+            for (int v = 0; v < V; v++)
+
+                if (!sptSet[v] && graph[u][v]!=0 &&
+                        dist[u] != Integer.MAX_VALUE &&
+                        dist[u]+graph[u][v] < dist[v])
+                    dist[v] = dist[u] + graph[u][v];
+        }
+
+        printSolution(dist, V);
+    }
+
+    public static void main (String[] args)
+    {
+    int graph[][] = new int[][]{{0, 4, 0, 0, 0, 0, 0, 8, 0},
+                                {4, 0, 8, 0, 0, 0, 0, 11, 0},
+                                {0, 8, 0, 7, 0, 4, 0, 0, 2},
+                                {0, 0, 7, 0, 9, 14, 0, 0, 0},
+                                {0, 0, 0, 9, 0, 10, 0, 0, 0},
+                                {0, 0, 4, 14, 10, 0, 2, 0, 0},
+                                {0, 0, 0, 0, 0, 2, 0, 1, 6},
+                                {8, 11, 0, 0, 0, 0, 1, 0, 7},
+                                {0, 0, 2, 0, 0, 0, 6, 7, 0}
+                                };
+        ShortestPath t = new ShortestPath();
+        t.dijkstra(graph, 0);
+    }
+}
+ 
+ Expected output of the program is 
+ Vertex   Distance from Source
+0                0
+1                4
+2                12
+3                19
+4                21
+5                11
+6                9
+7                8
+8                14
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ edited  Dec 6 '16 at 10:02 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+   
+ 
+ 
+   edit 
+ share 
+ discuss 
+ request improvement 
+   edit 
+ move example 
+ delete example 
+ 
+ 
+ 
+ 
+ 
+ 
+ + 
+            Add Example
+         
+ 
+ 
+ 
+        Please consider making a request to improve this example.
+         Request Improvement 
+ 
+ 
+ 
+ 
+ 
+ Syntax 
+ 
+ 
+ Syntax 
+ 
+ 
+ 
+   add syntax 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ Parameters 
+ 
+ 
+ Parameters 
+ 
+ 
+ 
+   add parameters 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ Remarks 
+ 
+ 
+ Remarks 
+ 
+ 
+ 
+   add remarks 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ created  Sep 30 '16 at 16:31 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+   
+ 
+ Still have a question about Dijkstra’s Algorithm? 
+ Ask Question 
+ 
+ 
+ 
+ 
+ Topic Outline 
+ 
+ 1 Examples 
+ 
+ 
+ 
+ 
+ Dijkstra's Shortest Path Algorithm 
+ 
+ Show more 
+ 
+ 
+ 
+ 
+                    Blog
+                 
+ 
+ 
+ 
+ 
+   
+ 
+ 
+ Trends in Government Software Developers 
+ 
+ 
+ 
+ 
+ 
+ 
+   
+ 
+ 
+ Introducing Channels: Private Q&A for Your Team 
+ 
+ 
+ 
+ 
+   
+ 
+                var ados = ados || {}; ados.run = ados.run || [];
+                ados.run.push(function () { ados_add_placement(22,499571,"adzerk206635020",5).setZone(56016); });
+             
+ 
+ 
+ 
+ 
+        StackExchange.ready(function () { $.get('/documentation/algorithm/ivc/7151-636356029178949031:wlscsgacgiwvhka1xwpmjeik7c.gif?topicId=7151'); });
+     
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+                    Topic Outline
+                         
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ Save Draft 
+ Discard 
+ 
+ 
+ 
+ 
+ Sign up or log in 
+ Save edit as a guest 
+ Join Stack Overflow 
+ 
+ 
+ 
+ Using Google 
+ 
+ 
+ Using Facebook 
+ 
+ 
+ Using Email and Password 
+ 
+ 
+ 
+ 
+ Name 
+ 
+ 
+ 
+ Email 
+ 
+ Save Draft 
+ 
+ 
+ 
+ 
+ We recognize you from another Stack Exchange Network site! 
+ Join and Save Draft 
+ 
+ Discard Draft 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ Stack Overflow 
+ 
+ Questions 
+ Jobs 
+ Developer Jobs Directory 
+ Documentation 
+ Help 
+ Mobile 
+ 
+ 
+ 
+ Stack Overflow  Business 
+ 
+ Talent 
+ Ads 
+ Enterprise 
+ Insights 
+ 
+ 
+ 
+ Company 
+ 
+ About 
+ Press 
+ Work Here 
+ Legal 
+ Privacy Policy 
+ Contact Us 
+ 
+ 
+ 
+ 
+ 
+ Stack Exchange  Network 
+ 
+ Technology 
+ Life / Arts 
+ Culture / Recreation 
+ Science 
+ Other 
+ 
+ 
+ 
+ 
+ 
+ Stack Overflow 
+ Server Fault 
+ Super User 
+ Web Applications 
+ Ask Ubuntu 
+ Webmasters 
+ Game Development 
+ 
+ TeX - LaTeX 
+ Software Engineering 
+ Unix & Linux 
+ Ask Different (Apple) 
+ WordPress Development 
+ Geographic Information Systems 
+ Electrical Engineering 
+ 
+ Android Enthusiasts 
+ Information Security 
+ Database Administrators 
+ Drupal Answers 
+ SharePoint 
+ User Experience 
+ Data Science 
+ 
+ Mathematica 
+ Salesforce 
+ ExpressionEngine® Answers 
+ Blender 
+ Network Engineering 
+ Cryptography 
+ Code Review 
+ 
+ Magento 
+ Software Recommendations 
+ Signal Processing 
+ Emacs 
+ Raspberry Pi 
+ Programming Puzzles & Code Golf 
+ Ethereum 
+ 
+ 
+ 
+                            more (27)
+                         
+ 
+ 
+ 
+ 
+ 
+ 
+ Photography 
+ Science Fiction & Fantasy 
+ Graphic Design 
+ Movies & TV 
+ Music: Practice & Theory 
+ Worldbuilding 
+ Seasoned Advice (cooking) 
+ 
+ Home Improvement 
+ Personal Finance & Money 
+ Academia 
+ Law 
+ 
+ 
+ 
+                            more (16)
+                         
+ 
+ 
+ 
+ 
+ 
+ 
+ English Language & Usage 
+ Skeptics 
+ Mi Yodeya (Judaism) 
+ Travel 
+ Christianity 
+ English Language Learners 
+ Japanese Language 
+ 
+ Arqade (gaming) 
+ Bicycles 
+ Role-playing Games 
+ Anime & Manga 
+ Puzzling 
+ Motor Vehicle Maintenance & Repair 
+ 
+ 
+ 
+                            more (32)
+                         
+ 
+ 
+ 
+ 
+ 
+ 
+ MathOverflow 
+ Mathematics 
+ Cross Validated (stats) 
+ Theoretical Computer Science 
+ Physics 
+ Chemistry 
+ Biology 
+ 
+ Computer Science 
+ Philosophy 
+ 
+ 
+ 
+                            more (10)
+                         
+ 
+ 
+ 
+ 
+ 
+ 
+ Meta Stack Exchange 
+ Stack Apps 
+ API 
+ Data 
+ Area 51 
+ 
+ 
+ 
+ 
+ 
+ Blog 
+ Facebook 
+ Twitter 
+ LinkedIn 
+ 
+ 
+ 
+                                    site design / logo © 2017 Stack Exchange Inc; user contributions licensed under  cc by-sa 3.0 
+                                    with  attribution required .
+                                     rev 2017.7.13.1278 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ Stack Overflow works best with JavaScript enabled
+             
+ 
+ 
+ var z=document.createElement("script");z.type="text/javascript",z.async=!0,z.src="https://static.adzerk.net/ados.js";var s=document.getElementsByTagName("script")[0];s.parentNode.insertBefore(z,s); 
+ 
+var ados = ados || {};
+ados.run = ados.run || [];
+
+ 
+ 
+            (function(i, s, o, g, r, a, m) {
+                i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function() { (i[r].q = i[r].q || []).push(arguments) }, i[r].l = 1 * new Date(); a = s.createElement(o),
+                m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m);
+            })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+                ga('create', 'UA-5620270-1');
+                ga('create', 'UA-5620270-60', {name: 'pageData', sampleRate: 100 });
+                ga('send', 'pageview');
+                ga('pageData.send', 'pageview');
+        var _qevents = _qevents || [],
+            _comscore = _comscore || [];
+        (function () {
+            var ssl='https:'==document.location.protocol,
+                s=document.getElementsByTagName('script')[0],
+                qc=document.createElement('script');
+                qc.async = true;
+                qc.src = (ssl ? 'https://secure' : 'http://edge') + '.quantserve.com/quant.js';
+                s.parentNode.insertBefore(qc, s);
+                _qevents.push({ qacct: "p-c1rF4kxgLUzNc" });
+                            var sc=document.createElement('script');
+                sc.async=true;
+                sc.src=(ssl?'https://sb':'http://b') + '.scorecardresearch.com/beacon.js';
+                s.parentNode.insertBefore(sc, s);
+                _comscore.push({ c1: "2", c2: "17440561" });
+        })();
+
+     
+ 
+                
+                (function(appendChild) {
+                    Node.prototype.appendChild = function() {
+                        var parent = this;
+                        var newNode = arguments[0];
+                        if (parent.nodeName === 'HEAD'
+                            && newNode
+                            && newNode.nodeName === 'SCRIPT'
+                            && newNode.src) {
+                            
+                            window.setTimeout(function() {
+                                var result = newNode.src.match(/^https:\/\/maps\.googleapis\.com\/maps\/api\/place\/js\/(\w+)Service\./i) || [];
+                                var service = result[1];
+                                if (service) {
+                                    if (service === 'Autocompletion') service =  2;
+                                    else if (service === 'Place') service = 1;
+                                    else service = 0;
+                                    StackExchange.using('gps', function() {
+                                        StackExchange.gps.track('google_maps_places_api.call', { service: service });
+                                    });
+                                }
+                            }, 0);
+                        }
+                        return appendChild.apply(this, arguments);
+                    };
+                })(Node.prototype.appendChild);
+             

@@ -1,0 +1,1345 @@
+
+ (function () { var old = $.fn.contents; $.fn.contents = function () { try { return old.apply(this, arguments); } catch (e) { return $([]); } } })() 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ Stack Overflow 
+ 
+ 
+ 
+ 
+ Questions 
+ 
+ 
+ Developer Jobs 
+ 
+ 
+ Documentation  beta 
+ 
+ 
+ Tags 
+ 
+ 
+ Users 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ current community 
+ 
+ 
+ 
+ 
+ 
+ 
+ help 
+ chat 
+ 
+ 
+ 
+        Stack Overflow
+     
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+        Meta Stack Overflow
+     
+ 
+ 
+ 
+ 
+ 
+your communities             
+ 
+ 
+ 
+ Sign up  or  log in  to customize your list.
+                 
+ 
+ 
+ more stack exchange communities 
+ 
+ company blog 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+                            Tour
+                             
+                                Start here for a quick overview of the site
+                             
+ 
+ 
+ 
+ 
+                        Help Center
+                         
+                            Detailed answers to any questions you might have
+                         
+ 
+ 
+ 
+ 
+                                Meta
+                                 
+                                    Discuss the workings and policies of this site
+                                 
+ 
+ 
+ 
+ 
+                                About Us
+                                 
+                                    Learn more about Stack Overflow the company
+                                 
+ 
+ 
+ 
+ 
+                                Business
+                                 
+                                    Learn more about hiring developers or posting ads with us
+                                 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ Log In 
+ Sign Up 
+ 
+ 
+ 
+ 
+ 
+        StackExchange.ready(function () { StackExchange.topbar.init(); });
+            StackExchange.scrollPadding.setPaddingTop(60, 10);      
+ 
+ 
+ 
+ 
+ Django 
+ 
+ 
+ 
+ 
+   
+ 
+ 
+ 
+ 
+ dashboard 
+ all topics 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ Popular 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+        StackExchange.ready(function () {
+            StackExchange.docs.search.init({
+                popularTopicsJson: [{"Id":200,"DocTag":"django","Title":"Getting started with Django","Url":"/documentation/django/200/getting-started-with-django"},{"Id":942,"DocTag":"django","Title":"Settings","Url":"/documentation/django/942/settings"},{"Id":888,"DocTag":"django","Title":"Models","Url":"/documentation/django/888/models"},{"Id":1235,"DocTag":"django","Title":"Querysets","Url":"/documentation/django/1235/querysets"},{"Id":1721,"DocTag":"django","Title":"Middleware","Url":"/documentation/django/1721/middleware"}]
+            });
+        });
+     
+   
+ 
+ 
+ 
+ Topic 
+ 
+ 
+ 
+ 
+ 
+ 
+ You must  sign up  or  log in  to make a topic request. 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+    StackExchange.ready(function () {
+        StackExchange.docs.requestTopic.init('django');
+    });
+   
+ 
+ 
+ 
+ 
+ 
+ 
+ Database Setup   
+            All Versions
+         
+ 
+ 
+ 
+ topic 
+ discuss 
+ 
+ 
+ 
+ 
+ Title 
+ 
+ 
+ 
+ Versions 
+ 
+ 
+                        1.0
+                     
+ 
+                        1.1
+                     
+ 
+                        1.2
+                     
+ 
+                        1.3
+                     
+ 
+                        1.4
+                     
+ 
+                        1.5
+                     
+ 
+                        1.6
+                     
+ 
+                        1.7
+                     
+ 
+                        1.8
+                     
+ 
+                        1.9
+                     
+ 
+                        1.10
+                     
+ 
+                        1.11
+                     
+ 
+ 
+ 
+ Introduction 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+   add introduction 
+ edit 
+ share 
+ request improvement 
+   edit 
+ move 
+ delete topic 
+ share 
+ 
+ 
+ 
+ 
+ 
+                var ados = ados || {}; ados.run = ados.run || [];
+                ados.run.push(function () { ados_add_placement(22,499571,"adzerk527660523",4).setZone(29); });
+             
+ 
+ 
+ 
+ 
+ This draft deletes the entire topic. 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+                    Examples
+                     
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 9 
+ 
+ Fixtures 
+ 
+ 
+ 
+ 
+ 
+ 9 
+ 
+ 
+ 
+ 
+ 
+   
+ Fixtures are initial data for the database.
+The most straightforward way when you have some existing data already is to use the command  dumpdata 
+  ./manage.py dumpdata > databasedump.json                # full database
+ ./manage.py dumpdata myapp > databasedump.json          # only 1 app
+ ./manage.py dumpdata myapp.mymodel > databasedump.json  # only 1 model (table)
+ 
+ This will create a json file which can be imported again by using 
+ ./manage.py loaddata databasedump.json
+ 
+ When using the  loadddata  without specifying a file, Django will look for a  fixtures  folder in your app or the list of directories provided in the  FIXTURE_DIRS  in settings, and use its content instead. 
+ /myapp
+   /fixtures 
+        myfixtures.json
+        morefixtures.xml 
+ 
+ Possible file formats are:  JSON, XML or YAML 
+ Fixtures JSON example: 
+ [
+  {
+    "model": "myapp.person",
+    "pk": 1,
+    "fields": {
+      "first_name": "John",
+      "last_name": "Lennon"
+    }
+  },
+  {
+    "model": "myapp.person",
+    "pk": 2,
+    "fields": {
+      "first_name": "Paul",
+      "last_name": "McCartney"
+    }
+  }
+]
+ 
+ Fixtures YAML example: 
+ - model: myapp.person
+  pk: 1
+  fields:
+    first_name: John
+    last_name: Lennon
+- model: myapp.person
+  pk: 2
+  fields:
+    first_name: Paul
+    last_name: McCartney
+ 
+ Fixtures XML example: 
+ <?xml version="1.0" encoding="utf-8"?>
+<django-objects version="1.0">
+    <object pk="1" model="myapp.person">
+        <field type="CharField" name="first_name">John</field>
+        <field type="CharField" name="last_name">Lennon</field>
+    </object>
+    <object pk="2" model="myapp.person">
+        <field type="CharField" name="first_name">Paul</field>
+        <field type="CharField" name="last_name">McCartney</field>
+    </object>
+</django-objects>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ edited  Nov 25 '16 at 19:45 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+   
+ 
+ 
+   edit 
+ share 
+ discuss 
+ request improvement 
+   edit 
+ move example 
+ delete example 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 8 
+ 
+ PostgreSQL 
+ 
+ 
+ 
+ 
+ 
+ 8 
+ 
+ 
+ Make sure to have some packages installed: 
+ sudo apt-get install libpq-dev
+pip install psycopg2
+ 
+ Database settings for PostgreSQL: 
+ #myapp/settings/settings.py
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'myprojectDB',
+        'USER': 'myprojectuser',
+        'PASSWORD': 'password',
+        'HOST': '127.0.0.1',
+        'PORT': '5432',
+    }
+}
+ 
+ In older versions you can also use the alias  django.db.backends.postgresql_psycopg2 . 
+ When using Postresql you'll have access to some extra features: 
+ Modelfields: 
+ ArrayField         # A field for storing lists of data. 
+HStoreField        # A field for storing mappings of strings to strings. 
+JSONField          # A field for storing JSON encoded data. 
+IntegerRangeField  # Stores a range of integers 
+BigIntegerRangeField # Stores a big range of integers 
+FloatRangeField    # Stores a range of floating point values. 
+DateTimeRangeField # Stores a range of timestamps
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ edited  Nov 24 '16 at 12:13 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+   
+ 
+ 
+   edit 
+ share 
+ discuss 
+ request improvement 
+   edit 
+ move example 
+ delete example 
+ 
+ 
+ 
+   
+ 
+                var ados = ados || {}; ados.run = ados.run || [];
+                ados.run.push(function () { ados_add_placement(22,499571,"adzerk881078869",4).setZone(30); });
+             
+ 
+ 
+   
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 7 
+ 
+ MySQL / MariaDB 
+ 
+ 
+ 
+ 
+ 
+ 7 
+ 
+ 
+ Django supports MySQL 5.5 and higher. 
+ Make sure to have some packages installed: 
+ $ sudo apt-get install mysql-server libmysqlclient-dev
+$ sudo apt-get install python-dev python-pip              # for python 2
+$ sudo apt-get install python3-dev python3-pip            # for python 3
+ 
+ As well as one of the Python MySQL drivers ( mysqlclient  beeing the recommended choice for Django): 
+ $ pip install mysqlclient    # python 2 and 3
+$ pip install MySQL-python   # python 2
+$ pip install pymysql        # python 2 and 3
+ 
+ 
+ The database encoding can not be set by Django, but needs to be
+configured on the database level. Look for  default-character-set  in
+my.cnf (or  /etc/mysql/mariadb.conf/*.cnf  ) and set the encoding: 
+ 
+    [mysql]
+   #default-character-set = latin1    #default on some systems.
+   #default-character-set = utf8mb4   #default on some systems.
+   default-character-set = utf8
+
+   ...
+   [mysqld]
+   #character-set-server  = utf8mb4
+   #collation-server      = utf8mb4_general_ci
+   character-set-server  = utf8
+   collation-server      = utf8_general_ci
+ 
+ Database configuration for MySQL or MariaDB 
+ #myapp/settings/settings.py
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'DB_NAME',
+        'USER': 'DB_USER',
+        'PASSWORD': 'DB_PASSWORD',
+        'HOST': 'localhost',   # Or an IP Address that your database is hosted on
+        'PORT': '3306',
+        #optional:
+        'OPTIONS': {
+            'charset' : 'utf8',
+            'use_unicode' : True,
+             'init_command': 'SET '
+                'storage_engine=INNODB,'
+                'character_set_connection=utf8,'
+                'collation_connection=utf8_bin'
+                #'sql_mode=STRICT_TRANS_TABLES,'    # see note below
+                #'SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED',
+        },
+        'TEST_CHARSET': 'utf8',
+        'TEST_COLLATION': 'utf8_general_ci',
+    }
+}
+ 
+ If you are using Oracle's MySQL connector your  ENGINE  line should look like this: 
+ 'ENGINE': 'mysql.connector.django',
+ 
+ When you create a database, make sure that to specify the encoding and collation: 
+ CREATE DATABASE mydatabase CHARACTER SET utf8 COLLATE utf8_bin
+ 
+ 
+ From MySQL 5.7 onwards and on fresh installs of MySQL 5.6, the default value of the sql_mode option contains  STRICT_TRANS_TABLES . That option escalates warnings into errors when
+data is truncated upon insertion. Django highly recommends activating
+a  strict mode  for MySQL to prevent data loss (either
+STRICT_TRANS_TABLES or STRICT_ALL_TABLES). To enable add to  /etc/my.cnf   sql-mode = STRICT_TRANS_TABLES 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ edited  Nov 7 '16 at 17:38 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+   
+ 
+ 
+   edit 
+ share 
+ discuss 
+ request improvement 
+   edit 
+ move example 
+ delete example 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 1 
+ 
+ Django Cassandra Engine 
+ 
+ 
+ 
+ 
+ 
+ 1 
+ 
+ 
+ 
+ Install pip :
+ $ pip install django-cassandra-engine 
+ Add Getting Started to INSTALLED_APPS in your settings.py file:
+ INSTALLED_APPS = ['django_cassandra_engine'] 
+ Cange DATABASES setting Standart: 
+ 
+ 
+ Standart 
+ 
+ DATABASES = {
+    'default': {
+        'ENGINE': 'django_cassandra_engine',
+        'NAME': 'db',
+        'TEST_NAME': 'test_db',
+        'HOST': 'db1.example.com,db2.example.com',
+        'OPTIONS': {
+            'replication': {
+                'strategy_class': 'SimpleStrategy',
+                'replication_factor': 1
+            }
+        }
+    }
+}
+ 
+ 
+ Cassandra create new user cqlsh : 
+ 
+ DATABASES = {
+'default': {
+    'ENGINE': 'django_cassandra_engine',
+    'NAME': 'db',
+    'TEST_NAME': 'test_db',
+    'USER_NAME'='cassandradb',
+    'PASSWORD'= '123cassandra',
+    'HOST': 'db1.example.com,db2.example.com',
+    'OPTIONS': {
+        'replication': {
+            'strategy_class': 'SimpleStrategy',
+            'replication_factor': 1
+        }
+    }
+}
+ 
+ } 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ created  Feb 26 at 0:00 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+   
+ 
+ 
+   edit 
+ share 
+ discuss 
+ request improvement 
+   edit 
+ move example 
+ delete example 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ -1 
+ 
+ sqlite 
+ 
+ 
+ 
+ 
+ 
+ -1 
+ 
+ 
+ sqlite is the default for Django.
+ It should not be used in production since it is usually slow. 
+ #myapp/settings/settings.py
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': 'db/development.sqlite3',
+        'USER': '',
+        'PASSWORD': '',
+        'HOST': '',
+        'PORT': '',
+    },
+}
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ created  Aug 2 '16 at 9:25 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+   
+ 
+ 
+   edit 
+ share 
+ discuss 
+ request improvement 
+   edit 
+ move example 
+ delete example 
+ 
+ 
+ 
+ 
+ 
+ 
+ + 
+            Add Example
+         
+ 
+ 
+ 
+        Please consider making a request to improve this example.
+         Request Improvement 
+ 
+ 
+ 
+ 
+ 
+ Syntax 
+ 
+ 
+ Syntax 
+ 
+ 
+ 
+   add syntax 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ Parameters 
+ 
+ 
+ Parameters 
+ 
+ 
+ 
+   add parameters 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ Remarks 
+ 
+ 
+ Remarks 
+ 
+ 
+ 
+   add remarks 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ edited  Feb 26 at 0:00 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+                    +3
+                     
+ 
+ 
+   
+ 
+ Still have a question about Database Setup? 
+ Ask Question 
+ 
+ 
+ 
+ 
+ Topic Outline 
+ 
+ 5 Examples 
+ 
+ 
+ 
+ 
+ Fixtures 
+ 
+ 
+ PostgreSQL 
+ 
+ 
+ MySQL / MariaDB 
+ 
+ 
+ Django Cassandra Engine 
+ 
+ 
+ sqlite 
+ 
+ Show more 
+ 
+ 
+ 
+ 
+                    Blog
+                 
+ 
+ 
+ 
+ 
+   
+ 
+ 
+ Trends in Government Software Developers 
+ 
+ 
+ 
+ 
+ 
+ 
+   
+ 
+ 
+ Introducing Channels: Private Q&A for Your Team 
+ 
+ 
+ 
+ 
+   
+ 
+                var ados = ados || {}; ados.run = ados.run || [];
+                ados.run.push(function () { ados_add_placement(22,499571,"adzerk501358785",5).setZone(56016); });
+             
+ 
+ 
+ 
+ 
+        StackExchange.ready(function () { $.get('/documentation/django/ivc/4933-636356027739134485:vd1dzsa7wl2lebszj3jgvbamcvo.gif?topicId=4933'); });
+     
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+                    Topic Outline
+                         
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ Save Draft 
+ Discard 
+ 
+ 
+ 
+ 
+ Sign up or log in 
+ Save edit as a guest 
+ Join Stack Overflow 
+ 
+ 
+ 
+ Using Google 
+ 
+ 
+ Using Facebook 
+ 
+ 
+ Using Email and Password 
+ 
+ 
+ 
+ 
+ Name 
+ 
+ 
+ 
+ Email 
+ 
+ Save Draft 
+ 
+ 
+ 
+ 
+ We recognize you from another Stack Exchange Network site! 
+ Join and Save Draft 
+ 
+ Discard Draft 
+ 
+ 
+ 
+ default 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ Stack Overflow 
+ 
+ Questions 
+ Jobs 
+ Developer Jobs Directory 
+ Documentation 
+ Help 
+ Mobile 
+ 
+ 
+ 
+ Stack Overflow  Business 
+ 
+ Talent 
+ Ads 
+ Enterprise 
+ Insights 
+ 
+ 
+ 
+ Company 
+ 
+ About 
+ Press 
+ Work Here 
+ Legal 
+ Privacy Policy 
+ Contact Us 
+ 
+ 
+ 
+ 
+ 
+ Stack Exchange  Network 
+ 
+ Technology 
+ Life / Arts 
+ Culture / Recreation 
+ Science 
+ Other 
+ 
+ 
+ 
+ 
+ 
+ Stack Overflow 
+ Server Fault 
+ Super User 
+ Web Applications 
+ Ask Ubuntu 
+ Webmasters 
+ Game Development 
+ 
+ TeX - LaTeX 
+ Software Engineering 
+ Unix & Linux 
+ Ask Different (Apple) 
+ WordPress Development 
+ Geographic Information Systems 
+ Electrical Engineering 
+ 
+ Android Enthusiasts 
+ Information Security 
+ Database Administrators 
+ Drupal Answers 
+ SharePoint 
+ User Experience 
+ Data Science 
+ 
+ Mathematica 
+ Salesforce 
+ ExpressionEngine® Answers 
+ Blender 
+ Network Engineering 
+ Cryptography 
+ Code Review 
+ 
+ Magento 
+ Software Recommendations 
+ Signal Processing 
+ Emacs 
+ Raspberry Pi 
+ Programming Puzzles & Code Golf 
+ Ethereum 
+ 
+ 
+ 
+                            more (27)
+                         
+ 
+ 
+ 
+ 
+ 
+ 
+ Photography 
+ Science Fiction & Fantasy 
+ Graphic Design 
+ Movies & TV 
+ Music: Practice & Theory 
+ Worldbuilding 
+ Seasoned Advice (cooking) 
+ 
+ Home Improvement 
+ Personal Finance & Money 
+ Academia 
+ Law 
+ 
+ 
+ 
+                            more (16)
+                         
+ 
+ 
+ 
+ 
+ 
+ 
+ English Language & Usage 
+ Skeptics 
+ Mi Yodeya (Judaism) 
+ Travel 
+ Christianity 
+ English Language Learners 
+ Japanese Language 
+ 
+ Arqade (gaming) 
+ Bicycles 
+ Role-playing Games 
+ Anime & Manga 
+ Puzzling 
+ Motor Vehicle Maintenance & Repair 
+ 
+ 
+ 
+                            more (32)
+                         
+ 
+ 
+ 
+ 
+ 
+ 
+ MathOverflow 
+ Mathematics 
+ Cross Validated (stats) 
+ Theoretical Computer Science 
+ Physics 
+ Chemistry 
+ Biology 
+ 
+ Computer Science 
+ Philosophy 
+ 
+ 
+ 
+                            more (10)
+                         
+ 
+ 
+ 
+ 
+ 
+ 
+ Meta Stack Exchange 
+ Stack Apps 
+ API 
+ Data 
+ Area 51 
+ 
+ 
+ 
+ 
+ 
+ Blog 
+ Facebook 
+ Twitter 
+ LinkedIn 
+ 
+ 
+ 
+                                    site design / logo © 2017 Stack Exchange Inc; user contributions licensed under  cc by-sa 3.0 
+                                    with  attribution required .
+                                     rev 2017.7.13.1278 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ Stack Overflow works best with JavaScript enabled
+             
+ 
+ 
+ var z=document.createElement("script");z.type="text/javascript",z.async=!0,z.src="https://static.adzerk.net/ados.js";var s=document.getElementsByTagName("script")[0];s.parentNode.insertBefore(z,s); 
+ 
+var ados = ados || {};
+ados.run = ados.run || [];
+
+ 
+ 
+            (function(i, s, o, g, r, a, m) {
+                i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function() { (i[r].q = i[r].q || []).push(arguments) }, i[r].l = 1 * new Date(); a = s.createElement(o),
+                m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m);
+            })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+                ga('create', 'UA-5620270-1');
+                ga('create', 'UA-5620270-60', {name: 'pageData', sampleRate: 100 });
+                ga('send', 'pageview');
+                ga('pageData.send', 'pageview');
+        var _qevents = _qevents || [],
+            _comscore = _comscore || [];
+        (function () {
+            var ssl='https:'==document.location.protocol,
+                s=document.getElementsByTagName('script')[0],
+                qc=document.createElement('script');
+                qc.async = true;
+                qc.src = (ssl ? 'https://secure' : 'http://edge') + '.quantserve.com/quant.js';
+                s.parentNode.insertBefore(qc, s);
+                _qevents.push({ qacct: "p-c1rF4kxgLUzNc" });
+                            var sc=document.createElement('script');
+                sc.async=true;
+                sc.src=(ssl?'https://sb':'http://b') + '.scorecardresearch.com/beacon.js';
+                s.parentNode.insertBefore(sc, s);
+                _comscore.push({ c1: "2", c2: "17440561" });
+        })();
+
+     
+ 
+                
+                (function(appendChild) {
+                    Node.prototype.appendChild = function() {
+                        var parent = this;
+                        var newNode = arguments[0];
+                        if (parent.nodeName === 'HEAD'
+                            && newNode
+                            && newNode.nodeName === 'SCRIPT'
+                            && newNode.src) {
+                            
+                            window.setTimeout(function() {
+                                var result = newNode.src.match(/^https:\/\/maps\.googleapis\.com\/maps\/api\/place\/js\/(\w+)Service\./i) || [];
+                                var service = result[1];
+                                if (service) {
+                                    if (service === 'Autocompletion') service =  2;
+                                    else if (service === 'Place') service = 1;
+                                    else service = 0;
+                                    StackExchange.using('gps', function() {
+                                        StackExchange.gps.track('google_maps_places_api.call', { service: service });
+                                    });
+                                }
+                            }, 0);
+                        }
+                        return appendChild.apply(this, arguments);
+                    };
+                })(Node.prototype.appendChild);
+             

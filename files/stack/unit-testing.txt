@@ -1,0 +1,1472 @@
+
+ (function () { var old = $.fn.contents; $.fn.contents = function () { try { return old.apply(this, arguments); } catch (e) { return $([]); } } })() 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ Stack Overflow 
+ 
+ 
+ 
+ 
+ Questions 
+ 
+ 
+ Developer Jobs 
+ 
+ 
+ Documentation  beta 
+ 
+ 
+ Tags 
+ 
+ 
+ Users 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ current community 
+ 
+ 
+ 
+ 
+ 
+ 
+ help 
+ chat 
+ 
+ 
+ 
+        Stack Overflow
+     
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+        Meta Stack Overflow
+     
+ 
+ 
+ 
+ 
+ 
+your communities             
+ 
+ 
+ 
+ Sign up  or  log in  to customize your list.
+                 
+ 
+ 
+ more stack exchange communities 
+ 
+ company blog 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+                            Tour
+                             
+                                Start here for a quick overview of the site
+                             
+ 
+ 
+ 
+ 
+                        Help Center
+                         
+                            Detailed answers to any questions you might have
+                         
+ 
+ 
+ 
+ 
+                                Meta
+                                 
+                                    Discuss the workings and policies of this site
+                                 
+ 
+ 
+ 
+ 
+                                About Us
+                                 
+                                    Learn more about Stack Overflow the company
+                                 
+ 
+ 
+ 
+ 
+                                Business
+                                 
+                                    Learn more about hiring developers or posting ads with us
+                                 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ Log In 
+ Sign Up 
+ 
+ 
+ 
+ 
+ 
+        StackExchange.ready(function () { StackExchange.topbar.init(); });
+            StackExchange.scrollPadding.setPaddingTop(60, 10);      
+ 
+ 
+ 
+ 
+ Django 
+ 
+ 
+ 
+ 
+   
+ 
+ 
+ 
+ 
+ dashboard 
+ all topics 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ Popular 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+        StackExchange.ready(function () {
+            StackExchange.docs.search.init({
+                popularTopicsJson: [{"Id":200,"DocTag":"django","Title":"Getting started with Django","Url":"/documentation/django/200/getting-started-with-django"},{"Id":942,"DocTag":"django","Title":"Settings","Url":"/documentation/django/942/settings"},{"Id":888,"DocTag":"django","Title":"Models","Url":"/documentation/django/888/models"},{"Id":1235,"DocTag":"django","Title":"Querysets","Url":"/documentation/django/1235/querysets"},{"Id":1721,"DocTag":"django","Title":"Middleware","Url":"/documentation/django/1721/middleware"}]
+            });
+        });
+     
+   
+ 
+ 
+ 
+ Topic 
+ 
+ 
+ 
+ 
+ 
+ 
+ You must  sign up  or  log in  to make a topic request. 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+    StackExchange.ready(function () {
+        StackExchange.docs.requestTopic.init('django');
+    });
+   
+ 
+ 
+ 
+ 
+ 
+ 
+ Unit Testing   
+            All Versions
+         
+ 
+ 
+ 
+ topic 
+ discuss (2) 
+ 
+ 
+ 
+ 
+ Title 
+ 
+ 
+ 
+ Versions 
+ 
+ 
+                        1.0
+                     
+ 
+                        1.1
+                     
+ 
+                        1.2
+                     
+ 
+                        1.3
+                     
+ 
+                        1.4
+                     
+ 
+                        1.5
+                     
+ 
+                        1.6
+                     
+ 
+                        1.7
+                     
+ 
+                        1.8
+                     
+ 
+                        1.9
+                     
+ 
+                        1.10
+                     
+ 
+                        1.11
+                     
+ 
+ 
+ 
+ Introduction 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+   add introduction 
+ edit 
+ share 
+ request improvement 
+   edit 
+ move 
+ delete topic 
+ share 
+ 
+ 
+ 
+ 
+ 
+                var ados = ados || {}; ados.run = ados.run || [];
+                ados.run.push(function () { ados_add_placement(22,499571,"adzerk469038414",4).setZone(29); });
+             
+ 
+ 
+ 
+ 
+ This draft deletes the entire topic. 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+                    Examples
+                     
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 8 
+ 
+ The Database and Testing 
+ 
+ 
+ 
+ 
+ 
+ 8 
+ 
+ 
+ 
+ 
+ 
+   
+ Django uses special database settings when testing so that tests can use the database normally but by default run on an empty database.  Database changes in one test will not be seen by another.  For example, both of the following tests will pass: 
+ from django.test import TestCase
+from myapp.models import Thing
+
+class MyTest(TestCase):
+
+    def test_1(self):
+        self.assertEqual(Thing.objects.count(), 0)
+        Thing.objects.create()
+        self.assertEqual(Thing.objects.count(), 1)
+
+    def test_2(self):
+        self.assertEqual(Thing.objects.count(), 0)
+        Thing.objects.create(attr1="value")
+        self.assertEqual(Thing.objects.count(), 1)
+ 
+ Fixtures 
+ If you want to have database objects used by multiple tests, either create them in the  setUp  method of the test case.  Additionally, if you have defined fixtures in your django project, they can be included like so: 
+ class MyTest(TestCase):
+    fixtures = ["fixture1.json", "fixture2.json"]
+ 
+ By default, django is looking for fixtures in the  fixtures  directory in each app. Further directories can be set using the  FIXTURE_DIRS  setting: 
+ # myapp/settings.py
+FIXTURE_DIRS = [
+    os.path.join(BASE_DIR, 'path', 'to', 'directory'),
+]
+ 
+ Let's assume you have created a model as follows: 
+ # models.py
+from django.db import models
+
+
+class Person(models.Model):
+    """A person defined by his/her first- and lastname."""
+    firstname = models.CharField(max_length=255)
+    lastname = models.CharField(max_length=255)
+ 
+ Then your .json fixtures could look like that: 
+ # fixture1.json
+[
+    { "model": "myapp.person",
+        "pk": 1,
+        "fields": {
+            "firstname": "Peter",
+            "lastname": "Griffin"
+        }
+    },
+    { "model": "myapp.person",
+        "pk": 2,
+        "fields": {
+            "firstname": "Louis",
+            "lastname": "Griffin"
+        }
+    },
+]
+ 
+ Reuse the test-database 
+ To speed up your test-runs you can tell the management-command to reuse the test-database (and to prevent it from being created before and deleted after every test-run).
+This can be done using the keepdb (or shorthand  -k ) flag like so: 
+ # Reuse the test-database (since django version 1.8)
+$ python manage.py test --keepdb
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ edited  Sep 25 '16 at 14:05 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+   
+ 
+ 
+   edit 
+ share 
+ discuss 
+ request improvement 
+   edit 
+ move example 
+ delete example 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 3 
+ 
+ Limit the number of tests executed 
+ 
+ 
+ 
+ 
+ 
+ 3 
+ 
+ 
+ It is possible to limit the tests executed by  manage.py test  by specifying which modules should be discovered by the test runner: 
+ # Run only tests for the app names "app1"
+$ python manage.py test app1
+
+# If you split the tests file into a module with several tests files for an app
+$ python manage.py test app1.tests.test_models
+
+# it's possible to dig down to individual test methods.
+$ python manage.py test app1.tests.test_models.MyTestCase.test_something
+ 
+ If you want to run a bunch of tests you can pass a pattern of filenames. For example, you may want to run only tests that involving of your models: 
+ $ python manage.py test -p test_models*
+Creating test database for alias 'default'...
+.................................................
+----------------------------------------------------------------------
+Ran 115 tests in 3.869s
+
+OK
+ 
+ Finally, it is possible to stop the test suite at the first fail, using  --failfast . This argument allows to get quickly the potential error encountered in the suite: 
+ $ python manage.py test app1
+...F..
+----------------------------------------------------------------------
+Ran 6 tests in 0.977s
+
+FAILED (failures=1)
+
+
+$ python manage.py test app1 --failfast
+...F
+======================================================================
+[Traceback of the failing test]
+----------------------------------------------------------------------
+Ran 4 tests in 0.372s
+
+FAILED (failures=1)
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ edited  Jul 24 '16 at 15:20 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+   
+ 
+ 
+   edit 
+ share 
+ discuss 
+ request improvement 
+   edit 
+ move example 
+ delete example 
+ 
+ 
+ 
+   
+ 
+                var ados = ados || {}; ados.run = ados.run || [];
+                ados.run.push(function () { ados_add_placement(22,499571,"adzerk1053773801",4).setZone(30); });
+             
+ 
+ 
+   
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 3 
+ 
+ Testing - a complete example 
+ 
+ 
+ 
+ 
+ 
+ 3 
+ 
+ 
+ This assumes that you have read the documentation about starting a new Django project. Let us assume that the main app in your project is named td (short for test driven). To create your first test, create a file named test_view.py and copy paste the following content into it. 
+ from django.test import Client, TestCase
+
+class ViewTest(TestCase):
+
+    def test_hello(self):
+        c = Client()
+        resp = c.get('/hello/')
+        self.assertEqual(200, resp.status_code)
+ 
+ You can run this test by 
+  ./manage.py test
+ 
+ and it will most naturally fail! You will see an error similar to the following. 
+ Traceback (most recent call last):
+  File "/home/me/workspace/td/tests_view.py", line 9, in test_hello
+    self.assertEqual(200, resp.status_code)
+AssertionError: 200 != 404
+ 
+ Why does that happen? Because we haven't defined a view for that! So let's do it. Create a file called views.py and place in it the following code 
+ from django.http import HttpResponse
+def hello(request):
+    return HttpResponse('hello')
+ 
+ Next map it to the /hello/ by editing urls py as follows: 
+ from td import views
+
+urlpatterns = [
+    url(r'^admin/', include(admin.site.urls)),
+    url(r'^hello/', views.hello),
+    ....
+]
+ 
+ Now run the test again  ./manage.py test  again and viola!! 
+ Creating test database for alias 'default'...
+.
+----------------------------------------------------------------------
+Ran 1 test in 0.004s
+
+OK
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ edited  Aug 4 '16 at 12:45 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+   
+ 
+ 
+   edit 
+ share 
+ discuss 
+ request improvement 
+   edit 
+ move example 
+ delete example 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Improvements requested:                     
+ 
+ 
+ 
+ 
+ 
+ 
+            Other: needlessly complicated. can be simplied.
+ –      e4c5 
+ Jul 24 '16 at 14:09 
+ 
+ 
+ 
+ 
+ 
+ 
+ Edit Example 
+ Delete Example 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 2 
+ 
+ Testing Access Control in Django Views 
+ 
+ 
+ 
+ 
+ 
+ 2 
+ 
+ 
+ tl;dr  : Create a base class that defines two user objects (say  user  and  another_user ). Create your other models and define three  Client  instances. 
+ 
+ self.client  : Representing  user  logged in browser 
+ self.another_client  : Representing  another_user  's client 
+ self.unlogged_client  : Representing unlogged person 
+ 
+ Now access all your public and private urls from these three client objects and dictact the response you expect. Below I've showcased the strategy for a  Book  object that can either be  private  (owned by a few privileged users) or  public  (visible to everyone). 
+ from django.test import TestCase, RequestFactory, Client
+from django.core.urlresolvers import reverse
+
+class BaseViewTestCase(TestCase):
+
+    @classmethod
+    def setUpClass(cls):
+        super(BaseViewTestCase, cls).setUpClass()
+        cls.client = Client()
+        cls.another_client = Client()
+        cls.unlogged_client = Client()
+        cls.user = User.objects.create_user(
+                'dummy',password='dummy'
+                )
+        cls.user.save()
+        cls.another_user = User.objects.create_user(
+                'dummy2', password='dummy2'
+                )
+        cls.another_user.save()
+        cls.first_book = Book.objects.create(
+                name='first',
+                private = true
+        )
+        cls.first_book.readers.add(cls.user)
+        cls.first_book.save()
+        cls.public_book = Template.objects.create(
+                name='public',
+                private=False
+        )
+        cls.public_book.save()
+
+
+    def setUp(self):
+        self.client.login(username=self.user.username, password=self.user.username)
+        self.another_client.login(username=self.another_user.username, password=self.another_user.username)
+
+
+"""
+   Only cls.user owns the first_book and thus only he should be able to see it.
+   Others get 403(Forbidden) error
+"""
+class PrivateBookAccessTestCase(BaseViewTestCase):
+    
+    def setUp(self):
+        super(PrivateBookAccessTestCase, self).setUp()
+        self.url = reverse('view_book',kwargs={'book_id':str(self.first_book.id)})
+
+    def test_user_sees_own_book(self):
+        response = self.client.get(self.url)
+        self.assertEqual(200, response.status_code)
+        self.assertEqual(self.first_book.name,response.context['book'].name)
+        self.assertTemplateUsed('myapp/book/view_template.html')
+
+    def test_user_cant_see_others_books(self):
+        response = self.another_client.get(self.url)
+        self.assertEqual(403, response.status_code)
+        
+    def test_unlogged_user_cant_see_private_books(self):
+        response = self.unlogged_client.get(self.url)
+        self.assertEqual(403, response.status_code)
+
+"""
+    Since book is public all three clients should be able to see the book
+"""
+ class PublicBookAccessTestCase(BaseViewTestCase):
+    
+    def setUp(self):
+        super(PublicBookAccessTestCase, self).setUp()
+        self.url = reverse('view_book',kwargs={'book_id':str(self.public_book.id)})
+
+    def test_user_sees_book(self):
+        response = self.client.get(self.url)
+        self.assertEqual(200, response.status_code)
+        self.assertEqual(self.public_book.name,response.context['book'].name)
+        self.assertTemplateUsed('myapp/book/view_template.html')
+
+    def test_another_user_sees_public_books(self):
+        response = self.another_client.get(self.url)
+        self.assertEqual(200, response.status_code)
+        
+    def test_unlogged_user_sees_public_books(self):
+        response = self.unlogged_client.get(self.url)
+        self.assertEqual(200, response.status_code)
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ created  Jul 21 '16 at 19:26 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+   
+ 
+ 
+   edit 
+ share 
+ discuss 
+ request improvement (1) 
+   edit 
+ move example 
+ delete example 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Improvements requested:                     
+ 
+ 
+ 
+ 
+ 
+ 
+            Other: needlessly complicated. Why create all those classes?
+
+ –      e4c5 
+ Jul 24 '16 at 14:08 
+ 
+ 
+ 
+ 
+ 
+ 
+ Edit Example 
+ Delete Example 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 0 
+ 
+ Testing Django Models Effectively 
+ 
+ 
+ 
+ 
+ 
+ 0 
+ 
+ 
+ Assuming a class 
+ from django.db import models
+
+class Author(models.Model):
+   name = models.CharField(max_length=50)
+   
+    def __str__(self):
+        return self.name
+    
+    def get_absolute_url(self):
+        return reverse('view_author', args=[str(self.id)])
+
+
+class Book(models.Model):
+    author = models.ForeignKey(Manufacturer, on_delete=models.CASCADE)
+    private = models.BooleanField(default=false)
+    publish_date = models.DateField()
+
+    def get_absolute_url(self):
+        return reverse('view_book', args=[str(self.id)])
+    
+    def __str__(self):
+        return self.name
+ 
+ Testing examples 
+ from django.test import TestCase
+from .models import Book, Author
+
+class BaseModelTestCase(TestCase):
+
+    @classmethod
+    def setUpClass(cls):
+        super(BaseModelTestCase, cls).setUpClass()
+        cls.author = Author(name='hawking')
+        cls.author.save()
+        cls.first_book = Book(author=cls.author, name="short_history_of_time")
+        cls.first_book.save()
+        cls.second_book = Book(author=cls.author, name="long_history_of_time")
+        cls.second_book.save()
+
+
+class AuthorModelTestCase(BaseModelTestCase):
+    def test_created_properly(self):
+         self.assertEqual(self.author.name, 'hawking')
+         self.assertEqual(True, self.first_book in self.author.book_set.all())
+    
+    def test_absolute_url(self):
+        self.assertEqual(self.author.get_absolute_url(), reverse('view_author', args=[str(self.author.id)]))
+
+class BookModelTestCase(BaseModelTestCase):
+    
+    def test_created_properly(self:
+        ...
+        self.assertEqual(1, len(Book.objects.filter(name__startswith='long'))
+    
+    def test_absolute_url(self):
+        ...
+ 
+ Some points 
+ 
+ created_properly  tests are used to verify the state properties of django models. They help catch sitautions where we've changed default values, file_upload_paths etc. 
+ absolute_url  might seem trivial but I've found that it's helped me prevent some bugs when changing url paths 
+ I similarly write test cases for all the methods implemented inside a model (using  mock  objects etc) 
+ By defining a common  BaseModelTestCase  we can setup the necessary relationships between models to ensure proper testing. 
+ 
+ Finally, when in doubt, write a test. Trivial behavior changes are caught by paying attention to detail and long forgotten pieces of code don't end up causing unnecessary trouble. 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ created  Jul 21 '16 at 19:26 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+   
+ 
+ 
+   edit 
+ share 
+ discuss 
+ request improvement (1) 
+   edit 
+ move example 
+ delete example 
+ 
+ 
+ 
+ 
+ 
+ 
+ + 
+            Add Example
+         
+ 
+ 
+ 
+        Please consider making a request to improve this example.
+         Request Improvement 
+ 
+ 
+ 
+ 
+ 
+ Syntax 
+ 
+ 
+ Syntax 
+ 
+ 
+ 
+   add syntax 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ Parameters 
+ 
+ 
+ Parameters 
+ 
+ 
+ 
+   add parameters 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ Remarks 
+ 
+ 
+ Remarks 
+ 
+ 
+ 
+   add remarks 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ edited  Sep 25 '16 at 14:05 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+                    +3
+                     
+ 
+ 
+   
+ 
+ Still have a question about Unit Testing? 
+ Ask Question 
+ 
+ 
+ 
+ 
+ Topic Outline 
+ 
+ 5 Examples 
+ 
+ 
+ 
+ 
+ The Database and Testing 
+ 
+ 
+ Limit the number of tests executed 
+ 
+ 
+ Testing - a complete example 
+ 
+ 
+ Testing Access Control in Django Views 
+ 
+ 
+ Testing Django Models Effectively 
+ 
+ Show more 
+ 
+ 
+ 
+ 
+                    Blog
+                 
+ 
+ 
+ 
+ 
+   
+ 
+ 
+ Trends in Government Software Developers 
+ 
+ 
+ 
+ 
+ 
+ 
+   
+ 
+ 
+ Introducing Channels: Private Q&A for Your Team 
+ 
+ 
+ 
+ 
+   
+ 
+                var ados = ados || {}; ados.run = ados.run || [];
+                ados.run.push(function () { ados_add_placement(22,499571,"adzerk389167836",5).setZone(56016); });
+             
+ 
+ 
+ 
+ 
+        StackExchange.ready(function () { $.get('/documentation/django/ivc/1232-636356027907065712:tm07bqsjlard6aaik6wb3mg9sa.gif?topicId=1232'); });
+     
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+                    Topic Outline
+                         
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ Save Draft 
+ Discard 
+ 
+ 
+ 
+ 
+ Sign up or log in 
+ Save edit as a guest 
+ Join Stack Overflow 
+ 
+ 
+ 
+ Using Google 
+ 
+ 
+ Using Facebook 
+ 
+ 
+ Using Email and Password 
+ 
+ 
+ 
+ 
+ Name 
+ 
+ 
+ 
+ Email 
+ 
+ Save Draft 
+ 
+ 
+ 
+ 
+ We recognize you from another Stack Exchange Network site! 
+ Join and Save Draft 
+ 
+ Discard Draft 
+ 
+ 
+ 
+ default 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ Stack Overflow 
+ 
+ Questions 
+ Jobs 
+ Developer Jobs Directory 
+ Documentation 
+ Help 
+ Mobile 
+ 
+ 
+ 
+ Stack Overflow  Business 
+ 
+ Talent 
+ Ads 
+ Enterprise 
+ Insights 
+ 
+ 
+ 
+ Company 
+ 
+ About 
+ Press 
+ Work Here 
+ Legal 
+ Privacy Policy 
+ Contact Us 
+ 
+ 
+ 
+ 
+ 
+ Stack Exchange  Network 
+ 
+ Technology 
+ Life / Arts 
+ Culture / Recreation 
+ Science 
+ Other 
+ 
+ 
+ 
+ 
+ 
+ Stack Overflow 
+ Server Fault 
+ Super User 
+ Web Applications 
+ Ask Ubuntu 
+ Webmasters 
+ Game Development 
+ 
+ TeX - LaTeX 
+ Software Engineering 
+ Unix & Linux 
+ Ask Different (Apple) 
+ WordPress Development 
+ Geographic Information Systems 
+ Electrical Engineering 
+ 
+ Android Enthusiasts 
+ Information Security 
+ Database Administrators 
+ Drupal Answers 
+ SharePoint 
+ User Experience 
+ Data Science 
+ 
+ Mathematica 
+ Salesforce 
+ ExpressionEngine® Answers 
+ Blender 
+ Network Engineering 
+ Cryptography 
+ Code Review 
+ 
+ Magento 
+ Software Recommendations 
+ Signal Processing 
+ Emacs 
+ Raspberry Pi 
+ Programming Puzzles & Code Golf 
+ Ethereum 
+ 
+ 
+ 
+                            more (27)
+                         
+ 
+ 
+ 
+ 
+ 
+ 
+ Photography 
+ Science Fiction & Fantasy 
+ Graphic Design 
+ Movies & TV 
+ Music: Practice & Theory 
+ Worldbuilding 
+ Seasoned Advice (cooking) 
+ 
+ Home Improvement 
+ Personal Finance & Money 
+ Academia 
+ Law 
+ 
+ 
+ 
+                            more (16)
+                         
+ 
+ 
+ 
+ 
+ 
+ 
+ English Language & Usage 
+ Skeptics 
+ Mi Yodeya (Judaism) 
+ Travel 
+ Christianity 
+ English Language Learners 
+ Japanese Language 
+ 
+ Arqade (gaming) 
+ Bicycles 
+ Role-playing Games 
+ Anime & Manga 
+ Puzzling 
+ Motor Vehicle Maintenance & Repair 
+ 
+ 
+ 
+                            more (32)
+                         
+ 
+ 
+ 
+ 
+ 
+ 
+ MathOverflow 
+ Mathematics 
+ Cross Validated (stats) 
+ Theoretical Computer Science 
+ Physics 
+ Chemistry 
+ Biology 
+ 
+ Computer Science 
+ Philosophy 
+ 
+ 
+ 
+                            more (10)
+                         
+ 
+ 
+ 
+ 
+ 
+ 
+ Meta Stack Exchange 
+ Stack Apps 
+ API 
+ Data 
+ Area 51 
+ 
+ 
+ 
+ 
+ 
+ Blog 
+ Facebook 
+ Twitter 
+ LinkedIn 
+ 
+ 
+ 
+                                    site design / logo © 2017 Stack Exchange Inc; user contributions licensed under  cc by-sa 3.0 
+                                    with  attribution required .
+                                     rev 2017.7.13.1278 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ Stack Overflow works best with JavaScript enabled
+             
+ 
+ 
+ var z=document.createElement("script");z.type="text/javascript",z.async=!0,z.src="https://static.adzerk.net/ados.js";var s=document.getElementsByTagName("script")[0];s.parentNode.insertBefore(z,s); 
+ 
+var ados = ados || {};
+ados.run = ados.run || [];
+
+ 
+ 
+            (function(i, s, o, g, r, a, m) {
+                i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function() { (i[r].q = i[r].q || []).push(arguments) }, i[r].l = 1 * new Date(); a = s.createElement(o),
+                m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m);
+            })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+                ga('create', 'UA-5620270-1');
+                ga('create', 'UA-5620270-60', {name: 'pageData', sampleRate: 100 });
+                ga('send', 'pageview');
+                ga('pageData.send', 'pageview');
+        var _qevents = _qevents || [],
+            _comscore = _comscore || [];
+        (function () {
+            var ssl='https:'==document.location.protocol,
+                s=document.getElementsByTagName('script')[0],
+                qc=document.createElement('script');
+                qc.async = true;
+                qc.src = (ssl ? 'https://secure' : 'http://edge') + '.quantserve.com/quant.js';
+                s.parentNode.insertBefore(qc, s);
+                _qevents.push({ qacct: "p-c1rF4kxgLUzNc" });
+                            var sc=document.createElement('script');
+                sc.async=true;
+                sc.src=(ssl?'https://sb':'http://b') + '.scorecardresearch.com/beacon.js';
+                s.parentNode.insertBefore(sc, s);
+                _comscore.push({ c1: "2", c2: "17440561" });
+        })();
+
+     
+ 
+                
+                (function(appendChild) {
+                    Node.prototype.appendChild = function() {
+                        var parent = this;
+                        var newNode = arguments[0];
+                        if (parent.nodeName === 'HEAD'
+                            && newNode
+                            && newNode.nodeName === 'SCRIPT'
+                            && newNode.src) {
+                            
+                            window.setTimeout(function() {
+                                var result = newNode.src.match(/^https:\/\/maps\.googleapis\.com\/maps\/api\/place\/js\/(\w+)Service\./i) || [];
+                                var service = result[1];
+                                if (service) {
+                                    if (service === 'Autocompletion') service =  2;
+                                    else if (service === 'Place') service = 1;
+                                    else service = 0;
+                                    StackExchange.using('gps', function() {
+                                        StackExchange.gps.track('google_maps_places_api.call', { service: service });
+                                    });
+                                }
+                            }, 0);
+                        }
+                        return appendChild.apply(this, arguments);
+                    };
+                })(Node.prototype.appendChild);
+             

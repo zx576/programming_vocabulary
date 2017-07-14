@@ -1,0 +1,1118 @@
+
+ (function () { var old = $.fn.contents; $.fn.contents = function () { try { return old.apply(this, arguments); } catch (e) { return $([]); } } })() 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ Stack Overflow 
+ 
+ 
+ 
+ 
+ Questions 
+ 
+ 
+ Developer Jobs 
+ 
+ 
+ Documentation  beta 
+ 
+ 
+ Tags 
+ 
+ 
+ Users 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ current community 
+ 
+ 
+ 
+ 
+ 
+ 
+ help 
+ chat 
+ 
+ 
+ 
+        Stack Overflow
+     
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+        Meta Stack Overflow
+     
+ 
+ 
+ 
+ 
+ 
+your communities             
+ 
+ 
+ 
+ Sign up  or  log in  to customize your list.
+                 
+ 
+ 
+ more stack exchange communities 
+ 
+ company blog 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+                            Tour
+                             
+                                Start here for a quick overview of the site
+                             
+ 
+ 
+ 
+ 
+                        Help Center
+                         
+                            Detailed answers to any questions you might have
+                         
+ 
+ 
+ 
+ 
+                                Meta
+                                 
+                                    Discuss the workings and policies of this site
+                                 
+ 
+ 
+ 
+ 
+                                About Us
+                                 
+                                    Learn more about Stack Overflow the company
+                                 
+ 
+ 
+ 
+ 
+                                Business
+                                 
+                                    Learn more about hiring developers or posting ads with us
+                                 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ Log In 
+ Sign Up 
+ 
+ 
+ 
+ 
+ 
+        StackExchange.ready(function () { StackExchange.topbar.init(); });
+            StackExchange.scrollPadding.setPaddingTop(60, 10);      
+ 
+ 
+ 
+ 
+ Flask 
+ 
+ 
+ 
+ 
+   
+ 
+ 
+ 
+ 
+ dashboard 
+ all topics 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ Popular 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+        StackExchange.ready(function () {
+            StackExchange.docs.search.init({
+                popularTopicsJson: [{"Id":790,"DocTag":"flask","Title":"Getting started with Flask","Url":"/documentation/flask/790/getting-started-with-flask"},{"Id":4637,"DocTag":"flask","Title":"Deploying Flask application using uWSGI web server with Nginx","Url":"/documentation/flask/4637/deploying-flask-application-using-uwsgi-web-server-with-nginx"},{"Id":2415,"DocTag":"flask","Title":"Routing","Url":"/documentation/flask/2415/routing"},{"Id":6427,"DocTag":"flask","Title":"Blueprints","Url":"/documentation/flask/6427/blueprints"},{"Id":1260,"DocTag":"flask","Title":"Testing","Url":"/documentation/flask/1260/testing"}]
+            });
+        });
+     
+   
+ 
+ 
+ 
+ Topic 
+ 
+ 
+ 
+ 
+ 
+ 
+ You must  sign up  or  log in  to make a topic request. 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+    StackExchange.ready(function () {
+        StackExchange.docs.requestTopic.init('flask');
+    });
+   
+ 
+ 
+ 
+ 
+ 
+ 
+ File Uploads   
+            All Versions
+         
+ 
+ 
+ 
+ topic 
+ discuss (1) 
+ 
+ 
+ 
+ 
+ Title 
+ 
+ 
+ 
+ Versions 
+ 
+ 
+                        0.10
+                     
+ 
+                        0.11
+                     
+ 
+                        0.12
+                     
+ 
+ 
+ 
+ Introduction 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+   add introduction 
+ edit 
+ share 
+ request improvement 
+   edit 
+ move 
+ delete topic 
+ share 
+ 
+ 
+ 
+ 
+ 
+                var ados = ados || {}; ados.run = ados.run || [];
+                ados.run.push(function () { ados_add_placement(22,499571,"adzerk1642132769",4).setZone(29); });
+             
+ 
+ 
+ 
+ 
+ This draft deletes the entire topic. 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+                    Examples
+                     
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 0 
+ 
+ Save uploads on the server 
+ 
+ 
+ 
+ 
+ 
+ 0 
+ 
+ 
+ 
+ 
+ 
+   
+ Uploaded files are available in  request.files , a  MultiDict  mapping field names to file objects.  Use  getlist  — instead of  []  or  get  — if multiple files were uploaded with the same field name. 
+ request.files['profile']  # single file (even if multiple were sent)
+request.files.getlist('charts')  # list of files (even if one was sent)
+ 
+ The objects in  request.files  have a  save  method which saves the file locally.  Create a common directory to save the files to. 
+ The  filename  attribute is the name the file was uploaded with.  This can be set arbitrarily by the client, so pass it through the  secure_filename  method to generate a valid and safe name to save as.   This doesn't ensure that the name is  unique , so existing files will be overwritten unless you do extra work to detect that. 
+ import os
+from flask import render_template, request, redirect, url_for
+from werkzeug import secure_filename
+
+# Create a directory in a known location to save files to.
+uploads_dir = os.path.join(app.instance_path, 'uploads')
+os.makedirs(uploads_dir, exists_ok=True)
+
+@app.route('/upload', methods=['GET', 'POST'])
+def upload():
+    if request.method == 'POST':
+        # save the single "profile" file
+        profile = request.files['profile']
+        profile.save(os.path.join(uploads_dir, secure_filename(profile.filename)))
+
+        # save each "charts" file
+        for file in request.files.getlist('charts'):
+            file.save(os.path.join(uploads_dir, secure_filename(file.name)))
+
+        return redirect(url_for('upload'))
+
+    return render_template('upload.html')
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ edited  Aug 30 '16 at 15:08 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+   
+ 
+ 
+   edit 
+ share 
+ discuss 
+ request improvement 
+   edit 
+ move example 
+ delete example 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 1 
+ 
+ Passing data to WTForms and Flask-WTF 
+ 
+ 
+ 
+ 
+ 
+ 1 
+ 
+ 
+ WTForms provides a  FileField  to render a file type input.  It doesn't do anything special with the uploaded data.  However, since Flask splits the form data ( request.form ) and the file data ( request.files ), you need to make sure to pass the correct data when creating the form.  You can use a  CombinedMultiDict  to combine the two into a single structure that WTForms understands. 
+ form = ProfileForm(CombinedMultiDict((request.files, request.form)))
+ 
+ If you're using  Flask-WTF , an extension to integrate Flask and WTForms, passing the correct data will be handled for you automatically. 
+ Due to a bug in WTForms, only one file will be present for each field, even if multiple were uploaded.  See  this issue  for more details.  It will be fixed in 3.0. 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ created  Aug 14 '16 at 15:32 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+   
+ 
+ 
+   edit 
+ share 
+ discuss 
+ request improvement 
+   edit 
+ move example 
+ delete example 
+ 
+ 
+ 
+   
+ 
+                var ados = ados || {}; ados.run = ados.run || [];
+                ados.run.push(function () { ados_add_placement(22,499571,"adzerk297938532",4).setZone(30); });
+             
+ 
+ 
+   
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 1 
+ 
+ Uploading Files 
+ 
+ 
+ 
+ 
+ 
+ 1 
+ 
+ 
+ HTML Form 
+ 
+ Use a  file  type input  and the browser will provide a field that lets the user select a file to upload. 
+ Only forms with the  post  method can send file data. 
+ Make sure to set the form's  enctype=multipart/form-data  attribute.  Otherwise the file's name will be sent but not the file's data. 
+ Use the  multiple  attribute on the input to allow selecting multiple files for the single field. 
+ 
+ <form method=post enctype=multipart/form-data>
+    <!-- single file for the "profile" field -->
+    <input type=file name=profile>
+    <!-- multiple files for the "charts" field -->
+    <input type=file multiple name=charts>
+    <input type=submit>
+</form>
+ 
+ Python Requests 
+ Requests  is a powerful Python library for making HTTP requests.  You can use it (or other tools) to  post files  without a browser. 
+ 
+ Open the files to read in binary mode. 
+ There are multiple data structures that  files  takes.  This demonstrates a list of  (name, data)  tuples, which allows multiple files like the form above. 
+ 
+ import requests
+
+with open('profile.txt', 'rb') as f1, open('chart1.csv', 'rb') as f2, open('chart2.csv', 'rb') as f3:
+    files = [
+        ('profile', f1),
+        ('charts', f2),
+        ('charts', f3)
+    ]
+    requests.post('http://localhost:5000/upload', files=files)
+ 
+ 
+ This is not meant to be an exhaustive list.  For examples using your favorite tool or more complex scenarios, see the docs for that tool. 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ edited  Aug 15 '16 at 20:29 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+   
+ 
+ 
+   edit 
+ share 
+ discuss 
+ request improvement 
+   edit 
+ move example 
+ delete example 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 0 
+ 
+ PARSE CSV FILE UPLOAD AS LIST OF DICTIONARIES IN FLASK WITHOUT SAVING 
+ 
+ 
+ 
+ 
+ 
+ 0 
+ 
+ 
+ Developers often need to design web sites that allow users to upload a CSV file.  Usually there is  no reason  to  save  the actual CSV file since the data will processed and/or stored in a database once uploaded.  However, many if not most, PYTHON methods of parsing CSV data requires the data to be read in as a file.  This may present a bit of a headache if you are using  FLASK  for web development. 
+ Suppose our CSV has a header row and looks like the following: 
+ h1,h2,h3
+'yellow','orange','blue'
+'green','white','black'
+'orange','pink','purple'
+ 
+ Now, suppose the html form to upload a file is as follows: 
+ <form action="upload.html" method="post" enctype="multipart/form-data">
+    <input type="file" name="fileupload" id="fileToUpload">
+    <input type="submit" value="Upload File" name="submit">
+</form>
+ 
+ Since no one wants to reinvent the wheel you decide to  IMPORT csv  into your  FLASK  script.  There is no guarantee that people will upload the csv file with the columns in the correct order.  If the csv file has a header row, then with the help of the  csv.DictReader  method you can read the CSV file as a list of dictionaries, keyed by the entries in the header row.  However,  csv.DictReader  needs a file and does not directly accept strings.  You may think you need to use  FLASK  methods to first save the uploaded file, get the new file name and location, open it using  csv.DictReader , and then delete the file. Seems like a bit of a waste. 
+ Luckily, we can get the file contents as a string and then split the string up by terminated lines.  The csv method  csv.DictReader  will accept this as a substitute to a file.  The following code demonstrates how this can be accomplished without temporarily saving the file. 
+ @application.route('upload.html',methods = ['POST'])
+def upload_route_summary():
+    if request.method == 'POST':
+
+        # Create variable for uploaded file
+        f = request.files['fileupload']  
+
+        #store the file contents as a string
+        fstring = f.read()
+        
+        #create list of dictionaries keyed by header row
+        csv_dicts = [{k: v for k, v in row.items()} for row in csv.DictReader(fstring.splitlines(), skipinitialspace=True)]
+
+        #do something list of dictionaries
+    return "success"
+ 
+ The variable  csv_dicts  is now the following list of dictionaries: 
+    csv_dicts = 
+    [
+        {'h1':'yellow','h2':'orange','h3':'blue'},
+        {'h1':'green','h2':'white','h3':'black'},
+        {'h1':'orange','h2':'pink','h3':'purple'}
+    ]
+ 
+ In case you are new to PYTHON, you can access data like the following: 
+ csv_dicts[1]['h2'] = 'white'
+csv_dicts[0]['h3'] = 'blue'
+ 
+ Other solutions involve importing the  io  module and use the  io.Stream  method.  I feel that this is a more straightforward approach.  I believe the code is a little easier to follow than using the  io  method. This approach is specific to the example of parsing an uploaded CSV file. 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ created  Jul 1 at 23:11 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+   
+ 
+ 
+   edit 
+ share 
+ discuss 
+ request improvement 
+   edit 
+ move example 
+ delete example 
+ 
+ 
+ 
+ 
+ 
+ 
+ + 
+            Add Example
+         
+ 
+ 
+ 
+        Please consider making a request to improve this example.
+         Request Improvement 
+ 
+ 
+ 
+ 
+ 
+ Syntax 
+ 
+ request.files['name']  # single required file 
+ request.files.get('name')  # None if not posted 
+ request.files.getlist('name')  # list of zero or more files posted 
+ CombinedMultiDict((request.files, request.form))  # combine form and file data 
+ 
+ 
+ 
+ 
+   edit 
+ share 
+ 
+   edit 
+ 
+ 
+ 
+ 
+ 
+ 
+ Parameters 
+ 
+ 
+ Parameters 
+ 
+ 
+ 
+   add parameters 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ Remarks 
+ 
+ 
+ Remarks 
+ 
+ 
+ 
+   add remarks 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ edited  Jul 1 at 23:11 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+   
+ 
+ Still have a question about File Uploads? 
+ Ask Question 
+ 
+ 
+ 
+ 
+ Topic Outline 
+ 
+ 4 Examples 
+ 
+ 
+ 
+ 
+ Passing data to WTForms and Flask-WTF 
+ 
+ 
+ Uploading Files 
+ 
+ 
+ PARSE CSV FILE UPLOAD AS LIST OF DICTIONARIES IN FLASK WITHOUT SAVING 
+ 
+ 
+ Save uploads on the server 
+ 
+ Show more 
+ 
+ Syntax 
+ 
+ 
+ 
+                    Blog
+                 
+ 
+ 
+ 
+ 
+   
+ 
+ 
+ Trends in Government Software Developers 
+ 
+ 
+ 
+ 
+ 
+ 
+   
+ 
+ 
+ Introducing Channels: Private Q&A for Your Team 
+ 
+ 
+ 
+ 
+   
+ 
+                var ados = ados || {}; ados.run = ados.run || [];
+                ados.run.push(function () { ados_add_placement(22,499571,"adzerk886733236",5).setZone(56016); });
+             
+ 
+ 
+ 
+ 
+        StackExchange.ready(function () { $.get('/documentation/flask/ivc/5459-636356046646982531:80z5roltfj8b2wzvmsaxxvweh0.gif?topicId=5459'); });
+     
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+                    Topic Outline
+                         
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ Save Draft 
+ Discard 
+ 
+ 
+ 
+ 
+ Sign up or log in 
+ Save edit as a guest 
+ Join Stack Overflow 
+ 
+ 
+ 
+ Using Google 
+ 
+ 
+ Using Facebook 
+ 
+ 
+ Using Email and Password 
+ 
+ 
+ 
+ 
+ Name 
+ 
+ 
+ 
+ Email 
+ 
+ Save Draft 
+ 
+ 
+ 
+ 
+ We recognize you from another Stack Exchange Network site! 
+ Join and Save Draft 
+ 
+ Discard Draft 
+ 
+ 
+ 
+ lang-py 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ Stack Overflow 
+ 
+ Questions 
+ Jobs 
+ Developer Jobs Directory 
+ Documentation 
+ Help 
+ Mobile 
+ 
+ 
+ 
+ Stack Overflow  Business 
+ 
+ Talent 
+ Ads 
+ Enterprise 
+ Insights 
+ 
+ 
+ 
+ Company 
+ 
+ About 
+ Press 
+ Work Here 
+ Legal 
+ Privacy Policy 
+ Contact Us 
+ 
+ 
+ 
+ 
+ 
+ Stack Exchange  Network 
+ 
+ Technology 
+ Life / Arts 
+ Culture / Recreation 
+ Science 
+ Other 
+ 
+ 
+ 
+ 
+ 
+ Stack Overflow 
+ Server Fault 
+ Super User 
+ Web Applications 
+ Ask Ubuntu 
+ Webmasters 
+ Game Development 
+ 
+ TeX - LaTeX 
+ Software Engineering 
+ Unix & Linux 
+ Ask Different (Apple) 
+ WordPress Development 
+ Geographic Information Systems 
+ Electrical Engineering 
+ 
+ Android Enthusiasts 
+ Information Security 
+ Database Administrators 
+ Drupal Answers 
+ SharePoint 
+ User Experience 
+ Data Science 
+ 
+ Mathematica 
+ Salesforce 
+ ExpressionEngine® Answers 
+ Blender 
+ Network Engineering 
+ Cryptography 
+ Code Review 
+ 
+ Magento 
+ Software Recommendations 
+ Signal Processing 
+ Emacs 
+ Raspberry Pi 
+ Programming Puzzles & Code Golf 
+ Ethereum 
+ 
+ 
+ 
+                            more (27)
+                         
+ 
+ 
+ 
+ 
+ 
+ 
+ Photography 
+ Science Fiction & Fantasy 
+ Graphic Design 
+ Movies & TV 
+ Music: Practice & Theory 
+ Worldbuilding 
+ Seasoned Advice (cooking) 
+ 
+ Home Improvement 
+ Personal Finance & Money 
+ Academia 
+ Law 
+ 
+ 
+ 
+                            more (16)
+                         
+ 
+ 
+ 
+ 
+ 
+ 
+ English Language & Usage 
+ Skeptics 
+ Mi Yodeya (Judaism) 
+ Travel 
+ Christianity 
+ English Language Learners 
+ Japanese Language 
+ 
+ Arqade (gaming) 
+ Bicycles 
+ Role-playing Games 
+ Anime & Manga 
+ Puzzling 
+ Motor Vehicle Maintenance & Repair 
+ 
+ 
+ 
+                            more (32)
+                         
+ 
+ 
+ 
+ 
+ 
+ 
+ MathOverflow 
+ Mathematics 
+ Cross Validated (stats) 
+ Theoretical Computer Science 
+ Physics 
+ Chemistry 
+ Biology 
+ 
+ Computer Science 
+ Philosophy 
+ 
+ 
+ 
+                            more (10)
+                         
+ 
+ 
+ 
+ 
+ 
+ 
+ Meta Stack Exchange 
+ Stack Apps 
+ API 
+ Data 
+ Area 51 
+ 
+ 
+ 
+ 
+ 
+ Blog 
+ Facebook 
+ Twitter 
+ LinkedIn 
+ 
+ 
+ 
+                                    site design / logo © 2017 Stack Exchange Inc; user contributions licensed under  cc by-sa 3.0 
+                                    with  attribution required .
+                                     rev 2017.7.13.1278 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ Stack Overflow works best with JavaScript enabled
+             
+ 
+ 
+ var z=document.createElement("script");z.type="text/javascript",z.async=!0,z.src="https://static.adzerk.net/ados.js";var s=document.getElementsByTagName("script")[0];s.parentNode.insertBefore(z,s); 
+ 
+var ados = ados || {};
+ados.run = ados.run || [];
+
+ 
+ 
+            (function(i, s, o, g, r, a, m) {
+                i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function() { (i[r].q = i[r].q || []).push(arguments) }, i[r].l = 1 * new Date(); a = s.createElement(o),
+                m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m);
+            })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+                ga('create', 'UA-5620270-1');
+                ga('create', 'UA-5620270-60', {name: 'pageData', sampleRate: 100 });
+                ga('send', 'pageview');
+                ga('pageData.send', 'pageview');
+        var _qevents = _qevents || [],
+            _comscore = _comscore || [];
+        (function () {
+            var ssl='https:'==document.location.protocol,
+                s=document.getElementsByTagName('script')[0],
+                qc=document.createElement('script');
+                qc.async = true;
+                qc.src = (ssl ? 'https://secure' : 'http://edge') + '.quantserve.com/quant.js';
+                s.parentNode.insertBefore(qc, s);
+                _qevents.push({ qacct: "p-c1rF4kxgLUzNc" });
+                            var sc=document.createElement('script');
+                sc.async=true;
+                sc.src=(ssl?'https://sb':'http://b') + '.scorecardresearch.com/beacon.js';
+                s.parentNode.insertBefore(sc, s);
+                _comscore.push({ c1: "2", c2: "17440561" });
+        })();
+
+     
+ 
+                
+                (function(appendChild) {
+                    Node.prototype.appendChild = function() {
+                        var parent = this;
+                        var newNode = arguments[0];
+                        if (parent.nodeName === 'HEAD'
+                            && newNode
+                            && newNode.nodeName === 'SCRIPT'
+                            && newNode.src) {
+                            
+                            window.setTimeout(function() {
+                                var result = newNode.src.match(/^https:\/\/maps\.googleapis\.com\/maps\/api\/place\/js\/(\w+)Service\./i) || [];
+                                var service = result[1];
+                                if (service) {
+                                    if (service === 'Autocompletion') service =  2;
+                                    else if (service === 'Place') service = 1;
+                                    else service = 0;
+                                    StackExchange.using('gps', function() {
+                                        StackExchange.gps.track('google_maps_places_api.call', { service: service });
+                                    });
+                                }
+                            }, 0);
+                        }
+                        return appendChild.apply(this, arguments);
+                    };
+                })(Node.prototype.appendChild);
+             

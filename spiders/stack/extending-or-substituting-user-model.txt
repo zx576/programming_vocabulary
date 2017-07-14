@@ -1,0 +1,1573 @@
+
+ (function () { var old = $.fn.contents; $.fn.contents = function () { try { return old.apply(this, arguments); } catch (e) { return $([]); } } })() 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ Stack Overflow 
+ 
+ 
+ 
+ 
+ Questions 
+ 
+ 
+ Developer Jobs 
+ 
+ 
+ Documentation  beta 
+ 
+ 
+ Tags 
+ 
+ 
+ Users 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ current community 
+ 
+ 
+ 
+ 
+ 
+ 
+ help 
+ chat 
+ 
+ 
+ 
+        Stack Overflow
+     
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+        Meta Stack Overflow
+     
+ 
+ 
+ 
+ 
+ 
+your communities             
+ 
+ 
+ 
+ Sign up  or  log in  to customize your list.
+                 
+ 
+ 
+ more stack exchange communities 
+ 
+ company blog 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+                            Tour
+                             
+                                Start here for a quick overview of the site
+                             
+ 
+ 
+ 
+ 
+                        Help Center
+                         
+                            Detailed answers to any questions you might have
+                         
+ 
+ 
+ 
+ 
+                                Meta
+                                 
+                                    Discuss the workings and policies of this site
+                                 
+ 
+ 
+ 
+ 
+                                About Us
+                                 
+                                    Learn more about Stack Overflow the company
+                                 
+ 
+ 
+ 
+ 
+                                Business
+                                 
+                                    Learn more about hiring developers or posting ads with us
+                                 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ Log In 
+ Sign Up 
+ 
+ 
+ 
+ 
+ 
+        StackExchange.ready(function () { StackExchange.topbar.init(); });
+            StackExchange.scrollPadding.setPaddingTop(60, 10);      
+ 
+ 
+ 
+ 
+ Django 
+ 
+ 
+ 
+ 
+   
+ 
+ 
+ 
+ 
+ dashboard 
+ all topics 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ Popular 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+        StackExchange.ready(function () {
+            StackExchange.docs.search.init({
+                popularTopicsJson: [{"Id":200,"DocTag":"django","Title":"Getting started with Django","Url":"/documentation/django/200/getting-started-with-django"},{"Id":942,"DocTag":"django","Title":"Settings","Url":"/documentation/django/942/settings"},{"Id":888,"DocTag":"django","Title":"Models","Url":"/documentation/django/888/models"},{"Id":1235,"DocTag":"django","Title":"Querysets","Url":"/documentation/django/1235/querysets"},{"Id":1721,"DocTag":"django","Title":"Middleware","Url":"/documentation/django/1721/middleware"}]
+            });
+        });
+     
+   
+ 
+ 
+ 
+ Topic 
+ 
+ 
+ 
+ 
+ 
+ 
+ You must  sign up  or  log in  to make a topic request. 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+    StackExchange.ready(function () {
+        StackExchange.docs.requestTopic.init('django');
+    });
+   
+ 
+ 
+ 
+ 
+ 
+ 
+ Extending or Substituting User Model   
+            All Versions
+         
+ 
+ 
+ 
+ topic 
+ discuss 
+ 
+ 
+ 
+ 
+ Title 
+ 
+ 
+ 
+ Versions 
+ 
+ 
+                        1.0
+                     
+ 
+                        1.1
+                     
+ 
+                        1.2
+                     
+ 
+                        1.3
+                     
+ 
+                        1.4
+                     
+ 
+                        1.5
+                     
+ 
+                        1.6
+                     
+ 
+                        1.7
+                     
+ 
+                        1.8
+                     
+ 
+                        1.9
+                     
+ 
+                        1.10
+                     
+ 
+                        1.11
+                     
+ 
+ 
+ 
+ Introduction 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+   add introduction 
+ edit 
+ share 
+ request improvement 
+   edit 
+ move 
+ delete topic 
+ share 
+ 
+ 
+ 
+ 
+ 
+                var ados = ados || {}; ados.run = ados.run || [];
+                ados.run.push(function () { ados_add_placement(22,499571,"adzerk703423066",4).setZone(29); });
+             
+ 
+ 
+ 
+ 
+ This draft deletes the entire topic. 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+                    Examples
+                     
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 4 
+ 
+ Custom user model with email as primary login field. 
+ 
+ 
+ 
+ 
+ 
+ 4 
+ 
+ 
+ 
+ 
+ 
+   
+ models.py : 
+ from __future__ import unicode_literals
+from django.db import models
+from django.contrib.auth.models import (
+        AbstractBaseUser, BaseUserManager, PermissionsMixin)
+from django.utils import timezone
+from django.utils.translation import ugettext_lazy as _
+
+
+class UserManager(BaseUserManager):
+    def _create_user(self, email,password, is_staff, is_superuser, **extra_fields):
+        now = timezone.now()
+        if not email:
+            raise ValueError('users must have an email address')
+        email = self.normalize_email(email)
+        user = self.model(email = email,
+                            is_staff = is_staff,
+                            is_superuser = is_superuser,
+                            last_login = now,
+                            date_joined = now,
+                            **extra_fields)
+        user.set_password(password)
+        user.save(using = self._db)
+        return user
+
+    def create_user(self, email, password=None, **extra_fields):
+        user = self._create_user(email, password, False, False, **extra_fields)
+        return user
+
+    def create_superuser(self, email, password, **extra_fields):
+        user = self._create_user(email, password, True, True, **extra_fields)
+        return user
+
+class User(AbstractBaseUser,PermissionsMixin):
+    """My own custom user class"""
+
+    email = models.EmailField(max_length=255, unique=True, db_index=True, verbose_name=_('email address'))
+    date_joined = models.DateTimeField(auto_now_add=True)
+    is_active = models.BooleanField(default=True)
+    is_staff = models.BooleanField(default=False)
+
+    objects = UserManager()
+
+    USERNAME_FIELD = 'email'
+    REQUIRED_FIELDS = []
+
+    class Meta:
+        verbose_name = _('user')
+        verbose_name_plural = _('users')
+
+    def get_full_name(self):
+    """Return the email."""
+        return self.email
+
+    def get_short_name(self):
+    """Return the email."""
+        return self.email
+ 
+ forms.py : 
+ from django import forms
+from django.contrib.auth.forms import UserCreationForm
+from .models import User
+
+
+class RegistrationForm(UserCreationForm):
+    email = forms.EmailField(widget=forms.TextInput(
+        attrs={'class': 'form-control','type':'text','name': 'email'}),
+        label="Email")
+    password1 = forms.CharField(widget=forms.PasswordInput(
+        attrs={'class':'form-control','type':'password', 'name':'password1'}),
+        label="Password")
+    password2 = forms.CharField(widget=forms.PasswordInput(
+        attrs={'class':'form-control','type':'password', 'name': 'password2'}),
+        label="Password (again)")
+
+    '''added attributes so as to customise for styling, like bootstrap'''
+    class Meta:
+        model = User
+        fields = ['email','password1','password2']
+        field_order = ['email','password1','password2']
+
+    def clean(self):
+    """
+    Verifies that the values entered into the password fields match
+    NOTE : errors here will appear in 'non_field_errors()'
+    """
+        cleaned_data = super(RegistrationForm, self).clean()
+        if 'password1' in self.cleaned_data and 'password2' in self.cleaned_data:
+            if self.cleaned_data['password1'] != self.cleaned_data['password2']:
+                raise forms.ValidationError("Passwords don't match. Please try again!")
+        return self.cleaned_data
+
+    def save(self, commit=True):
+        user = super(RegistrationForm,self).save(commit=False)
+        user.set_password(self.cleaned_data['password1'])
+        if commit:
+            user.save()
+        return user
+
+#The save(commit=False) tells Django to save the new record, but dont commit it to the database yet
+
+class AuthenticationForm(forms.Form): # Note: forms.Form NOT forms.ModelForm
+    email = forms.EmailField(widget=forms.TextInput(
+        attrs={'class': 'form-control','type':'text','name': 'email','placeholder':'Email'}), 
+        label='Email')
+    password = forms.CharField(widget=forms.PasswordInput(
+        attrs={'class':'form-control','type':'password', 'name': 'password','placeholder':'Password'}),
+        label='Password')
+
+    class Meta:
+        fields = ['email', 'password']
+ 
+ views.py : 
+ from django.shortcuts import redirect, render, HttpResponse
+from django.contrib.auth import login as django_login, logout as django_logout, authenticate as django_authenticate
+#importing as such so that it doesn't create a confusion with our methods and django's default methods
+
+from django.contrib.auth.decorators import login_required
+from .forms import AuthenticationForm, RegistrationForm
+
+
+def login(request):
+    if request.method == 'POST':
+        form = AuthenticationForm(data = request.POST)
+        if form.is_valid():
+            email = request.POST['email']
+            password = request.POST['password']
+            user = django_authenticate(email=email, password=password)
+            if user is not None:
+                if user.is_active:
+                    django_login(request,user)
+                    return redirect('/dashboard') #user is redirected to dashboard
+    else:
+        form = AuthenticationForm()
+
+    return render(request,'login.html',{'form':form,})
+
+def register(request):
+    if request.method == 'POST':
+        form = RegistrationForm(data = request.POST)
+        if form.is_valid():
+            user = form.save()
+            u = django_authenticate(user.email = user, user.password = password)
+            django_login(request,u)
+            return redirect('/dashboard')
+    else:
+        form = RegistrationForm()
+
+    return render(request,'register.html',{'form':form,})
+
+def logout(request):
+    django_logout(request)
+    return redirect('/')
+
+@login_required(login_url ="/")
+def dashboard(request):
+    return render(request, 'dashboard.html',{})
+ 
+ settings.py : 
+ AUTH_USER_MODEL = 'myapp.User'
+ 
+ admin.py 
+ from django.contrib import admin
+from django.contrib.auth.admin import UserAdmin as BaseUserAdmin
+from django.contrib.auth.models import Group
+from .models import User
+
+
+class UserAdmin(BaseUserAdmin):
+    list_display = ('email','is_staff')
+    list_filter = ('is_staff',)
+    fieldsets = ((None, 
+                  {'fields':('email','password')}), ('Permissions',{'fields':('is_staff',)}),)
+    add_fieldsets = ((None, {'classes': ('wide',), 'fields': ('email', 'password1', 'password2')}),)
+    search_fields =('email',)
+    ordering = ('email',)
+    filter_horizontal = ()
+
+admin.site.register(User, UserAdmin)
+admin.site.unregister(Group)
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ edited  Feb 14 at 7:53 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+   
+ 
+ 
+   edit 
+ share 
+ discuss 
+ request improvement 
+   edit 
+ move example 
+ delete example 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 3 
+ 
+ Use the `email` as username and get rid of the `username` field 
+ 
+ 
+ 
+ 
+ 
+ 3 
+ 
+ 
+ If you want to get rid of the  username  field and use  email  as unique user identifier, you will have to create a custom  User  model extending  AbstractBaseUser  instead of  AbstractUser . Indeed,  username  and  email  are defined in  AbstractUser  and you can't override them. This means you will also have to redefine all fields you want that are defined in  AbstractUser . 
+ from django.contrib.auth.models import (
+    AbstractBaseUser, PermissionsMixin, BaseUserManager,
+)
+from django.db import models
+from django.utils import timezone
+from django.utils.translation import ugettext_lazy as _
+
+class UserManager(BaseUserManager):
+
+    use_in_migrations = True
+
+    def _create_user(self, email, password, **extra_fields):
+        if not email:
+            raise ValueError('The given email must be set')
+        email = self.normalize_email(email)
+        user = self.model(email=email, **extra_fields)
+        user.set_password(password)
+        user.save(using=self._db)
+        return user
+
+    def create_user(self, email, password=None, **extra_fields):
+        extra_fields.setdefault('is_staff', False)
+        extra_fields.setdefault('is_superuser', False)
+        return self._create_user(email, password, **extra_fields)
+
+    def create_superuser(self, email, password, **extra_fields):
+        extra_fields.setdefault('is_staff', True)
+        extra_fields.setdefault('is_superuser', True)
+
+        if extra_fields.get('is_staff') is not True:
+            raise ValueError('Superuser must have is_staff=True.')
+        if extra_fields.get('is_superuser') is not True:
+            raise ValueError('Superuser must have is_superuser=True.')
+
+    return self._create_user(email, password, **extra_fields)
+
+
+class User(AbstractBaseUser, PermissionsMixin):
+    """PermissionsMixin contains the following fields:
+        - `is_superuser`
+        - `groups`
+        - `user_permissions`
+     You can omit this mix-in if you don't want to use permissions or
+     if you want to implement your own permissions logic.
+     """
+
+    class Meta:
+        verbose_name = _("user")
+        verbose_name_plural = _("users")
+        db_table = 'auth_user'
+        # `db_table` is only needed if you move from the existing default
+        # User model to a custom one. This enables to keep the existing data.
+
+    USERNAME_FIELD = 'email'
+    """Use the email as unique username."""
+
+    REQUIRED_FIELDS = ['first_name', 'last_name']
+
+    GENDER_MALE = 'M'
+    GENDER_FEMALE = 'F'
+    GENDER_CHOICES = [
+        (GENDER_MALE, _("Male")),
+        (GENDER_FEMALE, _("Female")),
+    ]
+
+    email = models.EmailField(
+        verbose_name=_("email address"), unique=True,
+        error_messages={
+            'unique': _(
+                "A user is already registered with this email address"),
+        },
+    )
+    gender = models.CharField(
+        max_length=1, blank=True, choices=GENDER_CHOICES,
+        verbose_name=_("gender"),
+    )
+    first_name = models.CharField(
+        max_length=30, verbose_name=_("first name"),
+    )
+    last_name = models.CharField(
+        max_length=30, verbose_name=_("last name"),
+    )
+    is_staff = models.BooleanField(
+        verbose_name=_("staff status"),
+        default=False,
+        help_text=_(
+            "Designates whether the user can log into this admin site."
+        ),
+    )
+    is_active = models.BooleanField(
+        verbose_name=_("active"),
+        default=True,
+        help_text=_(
+            "Designates whether this user should be treated as active. "
+            "Unselect this instead of deleting accounts."
+        ),
+    )
+    date_joined = models.DateTimeField(
+        verbose_name=_("date joined"), default=timezone.now,
+    )
+
+    objects = UserManager()
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ created  Jul 21 '16 at 20:25 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+   
+ 
+ 
+   edit 
+ share 
+ discuss 
+ request improvement 
+   edit 
+ move example 
+ delete example 
+ 
+ 
+ 
+   
+ 
+                var ados = ados || {}; ados.run = ados.run || [];
+                ados.run.push(function () { ados_add_placement(22,499571,"adzerk786430170",4).setZone(30); });
+             
+ 
+ 
+   
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 0 
+ 
+ Extend Django User Model Easily 
+ 
+ 
+ 
+ 
+ 
+ 0 
+ 
+ 
+ Our  UserProfile  class 
+ Create a  UserProfile  model class with the relationship of  OneToOne  to the default  User  model: 
+ from django.db import models
+from django.contrib.auth.models import User
+from django.db.models.signals import post_save
+
+class UserProfile(models.Model):
+    user = models.OneToOneField(User, related_name='user')
+    photo = FileField(verbose_name=_("Profile Picture"),
+                      upload_to=upload_to("main.UserProfile.photo", "profiles"),
+                      format="Image", max_length=255, null=True, blank=True)
+    website = models.URLField(default='', blank=True)
+    bio = models.TextField(default='', blank=True)
+    phone = models.CharField(max_length=20, blank=True, default='')
+    city = models.CharField(max_length=100, default='', blank=True)
+    country = models.CharField(max_length=100, default='', blank=True)
+    organization = models.CharField(max_length=100, default='', blank=True)
+ 
+ Django Signals at work 
+ Using Django Signals, create a new  UserProfile  immediately a  User  object is created. This function can be tucked beneath the  UserProfile  model class in the same file, or place it wherever you like. I don't care, as along as you reference it properly. 
+ def create_profile(sender, **kwargs):
+    user = kwargs["instance"]
+    if kwargs["created"]:
+        user_profile = UserProfile(user=user)
+        user_profile.save()
+post_save.connect(create_profile, sender=User)
+ 
+ inlineformset_factory  to the rescue 
+ Now for your  views.py , you might have something like this: 
+ from django.shortcuts import render, HttpResponseRedirect
+from django.contrib.auth.decorators import login_required
+from django.contrib.auth.models import User
+from .models import UserProfile
+from .forms import UserForm
+from django.forms.models import inlineformset_factory
+from django.core.exceptions import PermissionDenied
+@login_required() # only logged in users should access this
+def edit_user(request, pk):
+    # querying the User object with pk from url
+    user = User.objects.get(pk=pk)
+
+    # prepopulate UserProfileForm with retrieved user values from above.
+    user_form = UserForm(instance=user)
+
+    # The sorcery begins from here, see explanation https://blog.khophi.co/extending-django-user-model-userprofile-like-a-pro/
+    ProfileInlineFormset = inlineformset_factory(User, UserProfile, fields=('website', 'bio', 'phone', 'city', 'country', 'organization'))
+    formset = ProfileInlineFormset(instance=user)
+
+    if request.user.is_authenticated() and request.user.id == user.id:
+        if request.method == "POST":
+            user_form = UserForm(request.POST, request.FILES, instance=user)
+            formset = ProfileInlineFormset(request.POST, request.FILES, instance=user)
+
+            if user_form.is_valid():
+                created_user = user_form.save(commit=False)
+                formset = ProfileInlineFormset(request.POST, request.FILES, instance=created_user)
+
+                if formset.is_valid():
+                    created_user.save()
+                    formset.save()
+                    return HttpResponseRedirect('/accounts/profile/')
+
+        return render(request, "account/account_update.html", {
+            "noodle": pk,
+            "noodle_form": user_form,
+            "formset": formset,
+        })
+    else:
+        raise PermissionDenied
+ 
+ Our Template 
+ Then spit everything to your template  account_update.html  as so: 
+ {% load material_form %}
+<!-- Material form is just a materialize thing for django forms -->
+<div class="col s12 m8 offset-m2">
+      <div class="card">
+        <div class="card-content">
+        <h2 class="flow-text">Update your information</h2>
+          <form action="." method="POST" class="padding">
+            {% csrf_token %} {{ noodle_form.as_p }}
+            <div class="divider"></div>
+            {{ formset.management_form }}
+                {{ formset.as_p }}
+            <button type="submit" class="btn-floating btn-large waves-light waves-effect"><i class="large material-icons">done</i></button>
+            <a href="#" onclick="window.history.back(); return false;" title="Cancel" class="btn-floating waves-effect waves-light red"><i class="material-icons">history</i></a>
+ 
+        </form>
+        </div>
+    </div>
+</div>
+ 
+ Above snippet taken from  Extending Django UserProfile like a Pro 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ created  Sep 12 '16 at 8:14 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+   
+ 
+ 
+   edit 
+ share 
+ discuss 
+ request improvement 
+   edit 
+ move example 
+ delete example 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 0 
+ 
+ Referencing the User model 
+ 
+ 
+ 
+ 
+ 
+ 0 
+ 
+ 
+ Your code will not work in projects where you reference the  User  model ( and where the  AUTH_USER_MODEL  setting has been changed ) directly. 
+ For example: if you want to create  Post  model for a blog with a customized  User  model, you should specify the custom  User  model like this: 
+ from django.conf import settings
+from django.db import models
+
+class Post(models.Model):
+    author = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ edited  Dec 27 '16 at 23:47 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+   
+ 
+ 
+   edit 
+ share 
+ discuss 
+ request improvement 
+   edit 
+ move example 
+ delete example 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 0 
+ 
+ Specifing a custom User model 
+ 
+ 
+ 
+ 
+ 
+ 0 
+ 
+ 
+ Django's built-in  User  model is not always appropiate for some kinds of projects. On some sites it might make more sense to use an email address instead of a username for instance. 
+ You can override the default  User  model adding your customized  User  model to the  AUTH_USER_MODEL  setting, in your projects settings file: 
+ AUTH_USER_MODEL = 'myapp.MyUser'
+ 
+ Note  that it's highly adviced to create the  AUTH_USER_MODEL  before creating any migrations or running  manage.py migrate  for the first time. Due to limitations of Django's synamic dependecy feature. 
+ For example on your blog you might want other authors to be able to sign-in with an email address instead of the regular username, so we create a custom  User  model with an email address as  USERNAME_FIELD : 
+ from django.contrib.auth.models import AbstractBaseUser
+
+class CustomUser(AbstractBaseUser):
+     email = models.EmailField(unique=True)
+     
+     USERNAME_FIELD = 'email'
+ 
+ By inherinting the  AbstractBaseUser  we can construct a compliant  User  model.  AbstractBaseUser  provides the core implementation of a  User  model. 
+ In order to let the Django  manage.py createsuperuser  command know which other fields al required we can specify a  REQUIRED_FIELDS . This value has no effect in other parts of Django! 
+ class CustomUser(AbstractBaseUser):
+    ...
+    first_name = models.CharField(max_length=254)
+    last_name = models.CharField(max_length=254)
+    ...
+    REQUIRED_FIELDS = ['first_name', 'last_name']
+ 
+ To be compliant with other part of Django we still have to specify the value  is_active , the functions  get_full_name()  and  get_short_name() : 
+ class CustomUser(AbstractBaseUser):
+    ...
+    is_active = models.BooleanField(default=False)
+    ...
+    def get_full_name(self):
+        full_name = "{0} {1}".format(self.first_name, self.last_name)
+        return full_name.strip()
+
+    def get_short_name(self):
+        return self.first_name
+ 
+ You should also create a custom  UserManager  for your  User  model, which allows Django to use the  create_user()  and  create_superuser()  functions: 
+ from django.contrib.auth.models import BaseUserManager
+
+class CustomUserManager(BaseUserManager):
+    def create_user(self, email, first_name, last_name, password=None):
+        if not email:
+            raise ValueError('Users must have an email address')
+
+        user = self.model(
+            email=self.normalize_email(email),
+        )
+
+        user.set_password(password)
+        user.first_name = first_name
+        user.last_name = last_name
+        user.save(using=self._db)
+        return user
+
+    def create_superuser(self, email, first_name, last_name, password):
+        user = self.create_user(
+            email=email,
+            first_name=first_name,
+            last_name=last_name,
+            password=password,
+        )
+
+        user.is_admin = True
+        user.is_active = True
+        user.save(using=self.db)
+        return user
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ edited  Sep 22 '16 at 2:31 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+   
+ 
+ 
+   edit 
+ share 
+ discuss 
+ request improvement 
+   edit 
+ move example 
+ delete example 
+ 
+ 
+ 
+ 
+ 
+ 
+ + 
+            Add Example
+         
+ 
+ 
+ 
+        Please consider making a request to improve this example.
+         Request Improvement 
+ 
+ 
+ 
+ 
+ 
+ Syntax 
+ 
+ 
+ Syntax 
+ 
+ 
+ 
+   add syntax 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ Parameters 
+ 
+ 
+ Parameters 
+ 
+ 
+ 
+   add parameters 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ Remarks 
+ 
+ 
+ Remarks 
+ 
+ 
+ 
+   add remarks 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ edited  Feb 14 at 7:53 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+                    +2
+                     
+ 
+ 
+   
+ 
+ Still have a question about Extending or Substituting User Model? 
+ Ask Question 
+ 
+ 
+ 
+ 
+ Topic Outline 
+ 
+ 5 Examples 
+ 
+ 
+ 
+ 
+ Custom user model with email as primary login field. 
+ 
+ 
+ Use the `email` as username and get rid of the `username` field 
+ 
+ 
+ Extend Django User Model Easily 
+ 
+ 
+ Referencing the User model 
+ 
+ 
+ Specifing a custom User model 
+ 
+ Show more 
+ 
+ 
+ 
+ 
+                    Blog
+                 
+ 
+ 
+ 
+ 
+   
+ 
+ 
+ Trends in Government Software Developers 
+ 
+ 
+ 
+ 
+ 
+ 
+   
+ 
+ 
+ Introducing Channels: Private Q&A for Your Team 
+ 
+ 
+ 
+ 
+   
+ 
+                var ados = ados || {}; ados.run = ados.run || [];
+                ados.run.push(function () { ados_add_placement(22,499571,"adzerk44431010",5).setZone(56016); });
+             
+ 
+ 
+ 
+ 
+        StackExchange.ready(function () { $.get('/documentation/django/ivc/1209-636356028109885437:xihpzbldmey2xsuocmbbsnjp-oi.gif?topicId=1209'); });
+     
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+                    Topic Outline
+                         
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ Save Draft 
+ Discard 
+ 
+ 
+ 
+ 
+ Sign up or log in 
+ Save edit as a guest 
+ Join Stack Overflow 
+ 
+ 
+ 
+ Using Google 
+ 
+ 
+ Using Facebook 
+ 
+ 
+ Using Email and Password 
+ 
+ 
+ 
+ 
+ Name 
+ 
+ 
+ 
+ Email 
+ 
+ Save Draft 
+ 
+ 
+ 
+ 
+ We recognize you from another Stack Exchange Network site! 
+ Join and Save Draft 
+ 
+ Discard Draft 
+ 
+ 
+ 
+ default 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ Stack Overflow 
+ 
+ Questions 
+ Jobs 
+ Developer Jobs Directory 
+ Documentation 
+ Help 
+ Mobile 
+ 
+ 
+ 
+ Stack Overflow  Business 
+ 
+ Talent 
+ Ads 
+ Enterprise 
+ Insights 
+ 
+ 
+ 
+ Company 
+ 
+ About 
+ Press 
+ Work Here 
+ Legal 
+ Privacy Policy 
+ Contact Us 
+ 
+ 
+ 
+ 
+ 
+ Stack Exchange  Network 
+ 
+ Technology 
+ Life / Arts 
+ Culture / Recreation 
+ Science 
+ Other 
+ 
+ 
+ 
+ 
+ 
+ Stack Overflow 
+ Server Fault 
+ Super User 
+ Web Applications 
+ Ask Ubuntu 
+ Webmasters 
+ Game Development 
+ 
+ TeX - LaTeX 
+ Software Engineering 
+ Unix & Linux 
+ Ask Different (Apple) 
+ WordPress Development 
+ Geographic Information Systems 
+ Electrical Engineering 
+ 
+ Android Enthusiasts 
+ Information Security 
+ Database Administrators 
+ Drupal Answers 
+ SharePoint 
+ User Experience 
+ Data Science 
+ 
+ Mathematica 
+ Salesforce 
+ ExpressionEngine® Answers 
+ Blender 
+ Network Engineering 
+ Cryptography 
+ Code Review 
+ 
+ Magento 
+ Software Recommendations 
+ Signal Processing 
+ Emacs 
+ Raspberry Pi 
+ Programming Puzzles & Code Golf 
+ Ethereum 
+ 
+ 
+ 
+                            more (27)
+                         
+ 
+ 
+ 
+ 
+ 
+ 
+ Photography 
+ Science Fiction & Fantasy 
+ Graphic Design 
+ Movies & TV 
+ Music: Practice & Theory 
+ Worldbuilding 
+ Seasoned Advice (cooking) 
+ 
+ Home Improvement 
+ Personal Finance & Money 
+ Academia 
+ Law 
+ 
+ 
+ 
+                            more (16)
+                         
+ 
+ 
+ 
+ 
+ 
+ 
+ English Language & Usage 
+ Skeptics 
+ Mi Yodeya (Judaism) 
+ Travel 
+ Christianity 
+ English Language Learners 
+ Japanese Language 
+ 
+ Arqade (gaming) 
+ Bicycles 
+ Role-playing Games 
+ Anime & Manga 
+ Puzzling 
+ Motor Vehicle Maintenance & Repair 
+ 
+ 
+ 
+                            more (32)
+                         
+ 
+ 
+ 
+ 
+ 
+ 
+ MathOverflow 
+ Mathematics 
+ Cross Validated (stats) 
+ Theoretical Computer Science 
+ Physics 
+ Chemistry 
+ Biology 
+ 
+ Computer Science 
+ Philosophy 
+ 
+ 
+ 
+                            more (10)
+                         
+ 
+ 
+ 
+ 
+ 
+ 
+ Meta Stack Exchange 
+ Stack Apps 
+ API 
+ Data 
+ Area 51 
+ 
+ 
+ 
+ 
+ 
+ Blog 
+ Facebook 
+ Twitter 
+ LinkedIn 
+ 
+ 
+ 
+                                    site design / logo © 2017 Stack Exchange Inc; user contributions licensed under  cc by-sa 3.0 
+                                    with  attribution required .
+                                     rev 2017.7.13.1278 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ Stack Overflow works best with JavaScript enabled
+             
+ 
+ 
+ var z=document.createElement("script");z.type="text/javascript",z.async=!0,z.src="https://static.adzerk.net/ados.js";var s=document.getElementsByTagName("script")[0];s.parentNode.insertBefore(z,s); 
+ 
+var ados = ados || {};
+ados.run = ados.run || [];
+
+ 
+ 
+            (function(i, s, o, g, r, a, m) {
+                i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function() { (i[r].q = i[r].q || []).push(arguments) }, i[r].l = 1 * new Date(); a = s.createElement(o),
+                m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m);
+            })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+                ga('create', 'UA-5620270-1');
+                ga('create', 'UA-5620270-60', {name: 'pageData', sampleRate: 100 });
+                ga('send', 'pageview');
+                ga('pageData.send', 'pageview');
+        var _qevents = _qevents || [],
+            _comscore = _comscore || [];
+        (function () {
+            var ssl='https:'==document.location.protocol,
+                s=document.getElementsByTagName('script')[0],
+                qc=document.createElement('script');
+                qc.async = true;
+                qc.src = (ssl ? 'https://secure' : 'http://edge') + '.quantserve.com/quant.js';
+                s.parentNode.insertBefore(qc, s);
+                _qevents.push({ qacct: "p-c1rF4kxgLUzNc" });
+                            var sc=document.createElement('script');
+                sc.async=true;
+                sc.src=(ssl?'https://sb':'http://b') + '.scorecardresearch.com/beacon.js';
+                s.parentNode.insertBefore(sc, s);
+                _comscore.push({ c1: "2", c2: "17440561" });
+        })();
+
+     
+ 
+                
+                (function(appendChild) {
+                    Node.prototype.appendChild = function() {
+                        var parent = this;
+                        var newNode = arguments[0];
+                        if (parent.nodeName === 'HEAD'
+                            && newNode
+                            && newNode.nodeName === 'SCRIPT'
+                            && newNode.src) {
+                            
+                            window.setTimeout(function() {
+                                var result = newNode.src.match(/^https:\/\/maps\.googleapis\.com\/maps\/api\/place\/js\/(\w+)Service\./i) || [];
+                                var service = result[1];
+                                if (service) {
+                                    if (service === 'Autocompletion') service =  2;
+                                    else if (service === 'Place') service = 1;
+                                    else service = 0;
+                                    StackExchange.using('gps', function() {
+                                        StackExchange.gps.track('google_maps_places_api.call', { service: service });
+                                    });
+                                }
+                            }, 0);
+                        }
+                        return appendChild.apply(this, arguments);
+                    };
+                })(Node.prototype.appendChild);
+             

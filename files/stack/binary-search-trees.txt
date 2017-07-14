@@ -1,0 +1,1209 @@
+
+ (function () { var old = $.fn.contents; $.fn.contents = function () { try { return old.apply(this, arguments); } catch (e) { return $([]); } } })() 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ Stack Overflow 
+ 
+ 
+ 
+ 
+ Questions 
+ 
+ 
+ Developer Jobs 
+ 
+ 
+ Documentation  beta 
+ 
+ 
+ Tags 
+ 
+ 
+ Users 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ current community 
+ 
+ 
+ 
+ 
+ 
+ 
+ help 
+ chat 
+ 
+ 
+ 
+        Stack Overflow
+     
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+        Meta Stack Overflow
+     
+ 
+ 
+ 
+ 
+ 
+your communities             
+ 
+ 
+ 
+ Sign up  or  log in  to customize your list.
+                 
+ 
+ 
+ more stack exchange communities 
+ 
+ company blog 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+                            Tour
+                             
+                                Start here for a quick overview of the site
+                             
+ 
+ 
+ 
+ 
+                        Help Center
+                         
+                            Detailed answers to any questions you might have
+                         
+ 
+ 
+ 
+ 
+                                Meta
+                                 
+                                    Discuss the workings and policies of this site
+                                 
+ 
+ 
+ 
+ 
+                                About Us
+                                 
+                                    Learn more about Stack Overflow the company
+                                 
+ 
+ 
+ 
+ 
+                                Business
+                                 
+                                    Learn more about hiring developers or posting ads with us
+                                 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ Log In 
+ Sign Up 
+ 
+ 
+ 
+ 
+ 
+        StackExchange.ready(function () { StackExchange.topbar.init(); });
+            StackExchange.scrollPadding.setPaddingTop(60, 10);      
+ 
+ 
+ 
+ 
+ algorithm 
+ 
+ 
+ 
+ 
+   
+ 
+ 
+ 
+ 
+ dashboard 
+ all topics 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ Popular 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+        StackExchange.ready(function () {
+            StackExchange.docs.search.init({
+                popularTopicsJson: [{"Id":1529,"DocTag":"algorithm","Title":"Algorithm Complexity","Url":"/documentation/algorithm/1529/algorithm-complexity"},{"Id":757,"DocTag":"algorithm","Title":"Getting started with algorithm","Url":"/documentation/algorithm/757/getting-started-with-algorithm"},{"Id":4770,"DocTag":"algorithm","Title":"Big-O Notation","Url":"/documentation/algorithm/4770/big-o-notation"},{"Id":5735,"DocTag":"algorithm","Title":"Binary Search Trees","Url":"/documentation/algorithm/5735/binary-search-trees"},{"Id":2299,"DocTag":"algorithm","Title":"Graph","Url":"/documentation/algorithm/2299/graph"}]
+            });
+        });
+     
+   
+ 
+ 
+ 
+ Topic 
+ 
+ 
+ 
+ 
+ 
+ 
+ You must  sign up  or  log in  to make a topic request. 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+    StackExchange.ready(function () {
+        StackExchange.docs.requestTopic.init('algorithm');
+    });
+   
+ 
+ 
+ 
+ 
+ 
+ 
+ Binary Search Trees 
+ 
+ 
+ 
+ topic 
+ discuss 
+ 
+ 
+ 
+ 
+ Title 
+ 
+ 
+ 
+ Versions 
+ 
+ 
+ Introduction 
+ 
+ Binary tree is a tree that each node in it has maximum of two children.
+Binary search tree (BST) is a binary tree which its elements positioned in special order. In each BST all values(i.e key) in left sub tree are less than values in right sub tree.  
+ 
+ 
+ 
+ 
+ 
+ Binary tree is a tree that each node in it has maximum of two children.
+Binary search tree (BST) is a binary tree which its elements positioned in special order. In each BST all values(i.e key) in left sub tree are less than values in right sub tree. 
+ 
+ 
+ 
+   edit 
+ share 
+ request improvement 
+   edit 
+ move 
+ delete topic 
+ share 
+ 
+ 
+ 
+ 
+ 
+                var ados = ados || {}; ados.run = ados.run || [];
+                ados.run.push(function () { ados_add_placement(22,499571,"adzerk1275351274",4).setZone(29); });
+             
+ 
+ 
+ 
+ 
+ This draft deletes the entire topic. 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+                    Examples
+                     
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 8 
+ 
+ Binary Search Tree - Insertion (Python) 
+ 
+ 
+ 
+ 
+ 
+ 8 
+ 
+ 
+ 
+ 
+ 
+   
+ This is a simple implementation of Binary Search Tree Insertion using Python. 
+ An example is shown below: 
+ 
+ Following the code snippet each image shows the execution visualization which makes it easier to visualize how this code works. 
+ class Node:
+    def __init__(self, val):
+        self.l_child = None
+        self.r_child = None
+        self.data = val
+ 
+ 
+ def insert(root, node):
+    if root is None:
+        root = node
+    else:
+        if root.data > node.data:
+            if root.l_child is None:
+                root.l_child = node
+            else:
+                insert(root.l_child, node)
+        else:
+            if root.r_child is None:
+                root.r_child = node
+            else:
+                insert(root.r_child, node)
+ 
+ 
+ def in_order_print(root):
+    if not root:
+        return
+    in_order_print(root.l_child)
+    print root.data
+    in_order_print(root.r_child)
+ 
+ 
+ def pre_order_print(root):
+    if not root:
+        return        
+    print root.data
+    pre_order_print(root.l_child)
+    pre_order_print(root.r_child)    
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ edited  Sep 28 '16 at 11:08 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+   
+ 
+ 
+   edit 
+ share 
+ discuss 
+ request improvement 
+   edit 
+ move example 
+ delete example 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 2 
+ 
+ Binary Search Tree - Deletion(C++) 
+ 
+ 
+ 
+ 
+ 
+ 2 
+ 
+ 
+ Before starting with deletion I just want to put some lights on what is a Binary search tree(BST), Each node in a BST can have maximum of two nodes(left and right child).The left sub-tree of a node has a key less than or equal to its parent node's key. The right sub-tree of a node has a key greater than to its parent node's key. 
+ Deleting a node in a tree while maintaining its  Binary search tree property. 
+ 
+ There are three cases to be considered while deleting a node. 
+ 
+ Case 1: Node to be deleted is the leaf node.(Node with value 22). 
+ Case 2: Node to be deleted has one child.(Node with value 26). 
+ Case 3: Node to be deleted has both children.(Node with value 49). 
+ 
+ Explanation of cases: 
+ 
+ When the node to be deleted is a leaf node then simply delete the node and pass  nullptr  to its parent node. 
+ When a node to be deleted is having only one child then copy the child value to the node value and delete the child  (Converted to case 1) 
+ When a node to be delete is having two childs then the minimum  from its right sub tree can be copied to the node and then the minimum value can be deleted from the node's right subtree  (Converted to Case 2) 
+ 
+ Note: 
+The minimum in the right sub tree can have a maximum of one child and that too right child if it's having the left child that means it's not the minimum value or it's not following BST property. 
+ The structure of a node in a tree and the code for Deletion: 
+ struct node
+{
+    int data;
+    node *left, *right;
+};
+
+node* delete_node(node *root, int data)
+{
+  if(root == nullptr) return root;
+  else if(data < root->data) root->left  = delete_node(root->left, data);
+  else if(data > root->data) root->right = delete_node(root->right, data);
+
+  else
+  {
+    if(root->left == nullptr && root->right == nullptr) // Case 1
+    {
+      free(root);
+      root = nullptr;
+    }
+    else if(root->left == nullptr)       // Case 2
+    {
+       node* temp = root;
+       root= root->right;
+       free(temp);
+    }
+    else if(root->right == nullptr)      // Case 2
+    {
+       node* temp = root;
+       root = root->left;
+       free(temp);
+    }
+    else                                 // Case 3
+    {
+       node* temp = root->right;
+
+       while(temp->left != nullptr) temp = temp->left;
+
+       root->data = temp->data;
+       root->right = delete_node(root->right, temp->data);
+    }
+  }
+  return root;
+}
+ 
+ Time complexity of above code is O( h ), where  h  is the height of the tree. 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ edited  Feb 1 at 2:22 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+   
+ 
+ 
+   edit 
+ share 
+ discuss 
+ request improvement 
+   edit 
+ move example 
+ delete example 
+ 
+ 
+ 
+   
+ 
+                var ados = ados || {}; ados.run = ados.run || [];
+                ados.run.push(function () { ados_add_placement(22,499571,"adzerk1567740900",4).setZone(30); });
+             
+ 
+ 
+   
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 1 
+ 
+ Lowest common ancestor in a BST 
+ 
+ 
+ 
+ 
+ 
+ 1 
+ 
+ 
+ Consider the BST: 
+ 
+ Lowest common ancestor of 22 and 26 is 24 
+ Lowest common ancestor of 26 and 49 is 46 
+ Lowest common ancestor of 22 and 24 is 24 
+ Binary search tree property can be used for finding nodes lowest ancestor 
+ Psuedo code: 
+ lowestCommonAncestor(root,node1, node2){
+
+if(root == NULL)    
+return NULL;
+
+
+
+ else if(node1->data == root->data || node2->data== root->data)    
+    return root;
+    
+    else if((node1->data <= root->data && node2->data > root->data)
+              || (node2->data <= root->data && node1->data > root->data)){
+        
+             return root;
+    }
+    
+    else if(root->data > max(node1->data,node2->data)){
+            return lowestCommonAncestor(root->left, node1, node2);
+    }
+        
+        else {
+            return lowestCommonAncestor(root->right, node1, node2);
+      }
+        }
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ created  Jan 19 at 9:05 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+   
+ 
+ 
+   edit 
+ share 
+ discuss 
+ request improvement 
+   edit 
+ move example 
+ delete example 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 0 
+ 
+ Binary Search Tree - Python 
+ 
+ 
+ 
+ 
+ 
+ 0 
+ 
+ 
+ class Node(object):
+    def __init__(self, val):
+        self.l_child = None
+        self.r_child = None
+        self.val = val
+
+
+class BinarySearchTree(object):
+    def insert(self, root, node):
+        if root is None:
+            return node
+
+        if root.val < node.val:
+            root.r_child = self.insert(root.r_child, node)
+        else:
+            root.l_child = self.insert(root.l_child, node)
+
+        return root
+
+
+    def in_order_place(self, root):
+        if not root:
+            return None
+        else:
+            self.in_order_place(root.l_child)
+            print root.val
+            self.in_order_place(root.r_child)
+
+    def pre_order_place(self, root):
+        if not root:
+            return None
+        else:
+            print root.val
+            self.pre_order_place(root.l_child)
+            self.pre_order_place(root.r_child)
+
+    def post_order_place(self, root):
+        if not root:
+            return None
+        else:
+            self.post_order_place(root.l_child)
+            self.post_order_place(root.r_child)
+            print root.val
+ 
+ """ Create different node and insert data into it""" 
+ r = Node(3)
+node = BinarySearchTree()
+nodeList = [1, 8, 5, 12, 14, 6, 15, 7, 16, 8]
+
+for nd in nodeList:
+    node.insert(r, Node(nd))
+
+print "------In order ---------"
+print (node.in_order_place(r))
+print "------Pre order ---------"
+print (node.pre_order_place(r))
+print "------Post order ---------"
+print (node.post_order_place(r))
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ created  Apr 7 at 8:40 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+   
+ 
+ 
+   edit 
+ share 
+ discuss 
+ request improvement 
+   edit 
+ move example 
+ delete example 
+ 
+ 
+ 
+ 
+ 
+ 
+ + 
+            Add Example
+         
+ 
+ 
+ 
+        Please consider making a request to improve this example.
+         Request Improvement 
+ 
+ 
+ 
+ 
+ 
+ Syntax 
+ 
+ 
+ Syntax 
+ 
+ 
+ 
+   add syntax 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ Parameters 
+ 
+ 
+ Parameters 
+ 
+ 
+ 
+   add parameters 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ Remarks 
+ 
+ 
+ Remarks 
+ 
+ 
+ 
+   add remarks 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ edited  Jul 10 at 19:00 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+   
+ 
+ Still have a question about Binary Search Trees? 
+ Ask Question 
+ 
+ 
+ 
+ 
+ Topic Outline 
+ 
+ Introduction 
+ 
+ 
+ 4 Examples 
+ 
+ 
+ 
+ 
+ Binary Search Tree - Insertion (Python) 
+ 
+ 
+ Binary Search Tree - Deletion(C++) 
+ 
+ 
+ Lowest common ancestor in a BST 
+ 
+ 
+ Binary Search Tree - Python 
+ 
+ Show more 
+ 
+ 
+ 
+ 
+                    Blog
+                 
+ 
+ 
+ 
+ 
+   
+ 
+ 
+ Trends in Government Software Developers 
+ 
+ 
+ 
+ 
+ 
+ 
+   
+ 
+ 
+ Introducing Channels: Private Q&A for Your Team 
+ 
+ 
+ 
+ 
+   
+ 
+                var ados = ados || {}; ados.run = ados.run || [];
+                ados.run.push(function () { ados_add_placement(22,499571,"adzerk1401526095",5).setZone(56016); });
+             
+ 
+ 
+ 
+ 
+        StackExchange.ready(function () { $.get('/documentation/algorithm/ivc/5735-636356029033486533:p7tuajyvhkhpudpookmzicguku8.gif?topicId=5735'); });
+     
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+                    Topic Outline
+                         
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ Save Draft 
+ Discard 
+ 
+ 
+ 
+ 
+ Sign up or log in 
+ Save edit as a guest 
+ Join Stack Overflow 
+ 
+ 
+ 
+ Using Google 
+ 
+ 
+ Using Facebook 
+ 
+ 
+ Using Email and Password 
+ 
+ 
+ 
+ 
+ Name 
+ 
+ 
+ 
+ Email 
+ 
+ Save Draft 
+ 
+ 
+ 
+ 
+ We recognize you from another Stack Exchange Network site! 
+ Join and Save Draft 
+ 
+ Discard Draft 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ Stack Overflow 
+ 
+ Questions 
+ Jobs 
+ Developer Jobs Directory 
+ Documentation 
+ Help 
+ Mobile 
+ 
+ 
+ 
+ Stack Overflow  Business 
+ 
+ Talent 
+ Ads 
+ Enterprise 
+ Insights 
+ 
+ 
+ 
+ Company 
+ 
+ About 
+ Press 
+ Work Here 
+ Legal 
+ Privacy Policy 
+ Contact Us 
+ 
+ 
+ 
+ 
+ 
+ Stack Exchange  Network 
+ 
+ Technology 
+ Life / Arts 
+ Culture / Recreation 
+ Science 
+ Other 
+ 
+ 
+ 
+ 
+ 
+ Stack Overflow 
+ Server Fault 
+ Super User 
+ Web Applications 
+ Ask Ubuntu 
+ Webmasters 
+ Game Development 
+ 
+ TeX - LaTeX 
+ Software Engineering 
+ Unix & Linux 
+ Ask Different (Apple) 
+ WordPress Development 
+ Geographic Information Systems 
+ Electrical Engineering 
+ 
+ Android Enthusiasts 
+ Information Security 
+ Database Administrators 
+ Drupal Answers 
+ SharePoint 
+ User Experience 
+ Data Science 
+ 
+ Mathematica 
+ Salesforce 
+ ExpressionEngine® Answers 
+ Blender 
+ Network Engineering 
+ Cryptography 
+ Code Review 
+ 
+ Magento 
+ Software Recommendations 
+ Signal Processing 
+ Emacs 
+ Raspberry Pi 
+ Programming Puzzles & Code Golf 
+ Ethereum 
+ 
+ 
+ 
+                            more (27)
+                         
+ 
+ 
+ 
+ 
+ 
+ 
+ Photography 
+ Science Fiction & Fantasy 
+ Graphic Design 
+ Movies & TV 
+ Music: Practice & Theory 
+ Worldbuilding 
+ Seasoned Advice (cooking) 
+ 
+ Home Improvement 
+ Personal Finance & Money 
+ Academia 
+ Law 
+ 
+ 
+ 
+                            more (16)
+                         
+ 
+ 
+ 
+ 
+ 
+ 
+ English Language & Usage 
+ Skeptics 
+ Mi Yodeya (Judaism) 
+ Travel 
+ Christianity 
+ English Language Learners 
+ Japanese Language 
+ 
+ Arqade (gaming) 
+ Bicycles 
+ Role-playing Games 
+ Anime & Manga 
+ Puzzling 
+ Motor Vehicle Maintenance & Repair 
+ 
+ 
+ 
+                            more (32)
+                         
+ 
+ 
+ 
+ 
+ 
+ 
+ MathOverflow 
+ Mathematics 
+ Cross Validated (stats) 
+ Theoretical Computer Science 
+ Physics 
+ Chemistry 
+ Biology 
+ 
+ Computer Science 
+ Philosophy 
+ 
+ 
+ 
+                            more (10)
+                         
+ 
+ 
+ 
+ 
+ 
+ 
+ Meta Stack Exchange 
+ Stack Apps 
+ API 
+ Data 
+ Area 51 
+ 
+ 
+ 
+ 
+ 
+ Blog 
+ Facebook 
+ Twitter 
+ LinkedIn 
+ 
+ 
+ 
+                                    site design / logo © 2017 Stack Exchange Inc; user contributions licensed under  cc by-sa 3.0 
+                                    with  attribution required .
+                                     rev 2017.7.13.1278 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ Stack Overflow works best with JavaScript enabled
+             
+ 
+ 
+ var z=document.createElement("script");z.type="text/javascript",z.async=!0,z.src="https://static.adzerk.net/ados.js";var s=document.getElementsByTagName("script")[0];s.parentNode.insertBefore(z,s); 
+ 
+var ados = ados || {};
+ados.run = ados.run || [];
+
+ 
+ 
+            (function(i, s, o, g, r, a, m) {
+                i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function() { (i[r].q = i[r].q || []).push(arguments) }, i[r].l = 1 * new Date(); a = s.createElement(o),
+                m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m);
+            })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+                ga('create', 'UA-5620270-1');
+                ga('create', 'UA-5620270-60', {name: 'pageData', sampleRate: 100 });
+                ga('send', 'pageview');
+                ga('pageData.send', 'pageview');
+        var _qevents = _qevents || [],
+            _comscore = _comscore || [];
+        (function () {
+            var ssl='https:'==document.location.protocol,
+                s=document.getElementsByTagName('script')[0],
+                qc=document.createElement('script');
+                qc.async = true;
+                qc.src = (ssl ? 'https://secure' : 'http://edge') + '.quantserve.com/quant.js';
+                s.parentNode.insertBefore(qc, s);
+                _qevents.push({ qacct: "p-c1rF4kxgLUzNc" });
+                            var sc=document.createElement('script');
+                sc.async=true;
+                sc.src=(ssl?'https://sb':'http://b') + '.scorecardresearch.com/beacon.js';
+                s.parentNode.insertBefore(sc, s);
+                _comscore.push({ c1: "2", c2: "17440561" });
+        })();
+
+     
+ 
+                
+                (function(appendChild) {
+                    Node.prototype.appendChild = function() {
+                        var parent = this;
+                        var newNode = arguments[0];
+                        if (parent.nodeName === 'HEAD'
+                            && newNode
+                            && newNode.nodeName === 'SCRIPT'
+                            && newNode.src) {
+                            
+                            window.setTimeout(function() {
+                                var result = newNode.src.match(/^https:\/\/maps\.googleapis\.com\/maps\/api\/place\/js\/(\w+)Service\./i) || [];
+                                var service = result[1];
+                                if (service) {
+                                    if (service === 'Autocompletion') service =  2;
+                                    else if (service === 'Place') service = 1;
+                                    else service = 0;
+                                    StackExchange.using('gps', function() {
+                                        StackExchange.gps.track('google_maps_places_api.call', { service: service });
+                                    });
+                                }
+                            }, 0);
+                        }
+                        return appendChild.apply(this, arguments);
+                    };
+                })(Node.prototype.appendChild);
+             

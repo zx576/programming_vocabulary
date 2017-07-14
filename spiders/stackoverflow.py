@@ -17,7 +17,14 @@ class _Settings():
         # 手动设置
         # topic links
         self.topic = [
-            'https://stackoverflow.com/documentation/python/topics'
+            # python topic
+            # 'https://stackoverflow.com/documentation/python/topics'
+            # 'https://stackoverflow.com/documentation/django/topics',
+            # 'https://stackoverflow.com/documentation/algorithm/topics',
+            # 'https://stackoverflow.com/documentation/git/topics',
+            # 'https://stackoverflow.com/documentation/design-patterns/topics',
+            'https://stackoverflow.com/documentation/flask/topics'
+
         ]
         # question links
         self.res = []
@@ -92,7 +99,6 @@ class Stspider:
             words = self._get_words(url)
             self._save(url, words)
             print('successfully get {0} '.format(url))
-
 
 
 st = Stspider()

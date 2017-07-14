@@ -1,0 +1,1079 @@
+
+ (function () { var old = $.fn.contents; $.fn.contents = function () { try { return old.apply(this, arguments); } catch (e) { return $([]); } } })() 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ Stack Overflow 
+ 
+ 
+ 
+ 
+ Questions 
+ 
+ 
+ Developer Jobs 
+ 
+ 
+ Documentation  beta 
+ 
+ 
+ Tags 
+ 
+ 
+ Users 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ current community 
+ 
+ 
+ 
+ 
+ 
+ 
+ help 
+ chat 
+ 
+ 
+ 
+        Stack Overflow
+     
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+        Meta Stack Overflow
+     
+ 
+ 
+ 
+ 
+ 
+your communities             
+ 
+ 
+ 
+ Sign up  or  log in  to customize your list.
+                 
+ 
+ 
+ more stack exchange communities 
+ 
+ company blog 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+                            Tour
+                             
+                                Start here for a quick overview of the site
+                             
+ 
+ 
+ 
+ 
+                        Help Center
+                         
+                            Detailed answers to any questions you might have
+                         
+ 
+ 
+ 
+ 
+                                Meta
+                                 
+                                    Discuss the workings and policies of this site
+                                 
+ 
+ 
+ 
+ 
+                                About Us
+                                 
+                                    Learn more about Stack Overflow the company
+                                 
+ 
+ 
+ 
+ 
+                                Business
+                                 
+                                    Learn more about hiring developers or posting ads with us
+                                 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ Log In 
+ Sign Up 
+ 
+ 
+ 
+ 
+ 
+        StackExchange.ready(function () { StackExchange.topbar.init(); });
+            StackExchange.scrollPadding.setPaddingTop(60, 10);      
+ 
+ 
+ 
+ 
+ algorithm 
+ 
+ 
+ 
+ 
+   
+ 
+ 
+ 
+ 
+ dashboard 
+ all topics 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ Popular 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+        StackExchange.ready(function () {
+            StackExchange.docs.search.init({
+                popularTopicsJson: [{"Id":1529,"DocTag":"algorithm","Title":"Algorithm Complexity","Url":"/documentation/algorithm/1529/algorithm-complexity"},{"Id":757,"DocTag":"algorithm","Title":"Getting started with algorithm","Url":"/documentation/algorithm/757/getting-started-with-algorithm"},{"Id":4770,"DocTag":"algorithm","Title":"Big-O Notation","Url":"/documentation/algorithm/4770/big-o-notation"},{"Id":5735,"DocTag":"algorithm","Title":"Binary Search Trees","Url":"/documentation/algorithm/5735/binary-search-trees"},{"Id":2299,"DocTag":"algorithm","Title":"Graph","Url":"/documentation/algorithm/2299/graph"}]
+            });
+        });
+     
+   
+ 
+ 
+ 
+ Topic 
+ 
+ 
+ 
+ 
+ 
+ 
+ You must  sign up  or  log in  to make a topic request. 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+    StackExchange.ready(function () {
+        StackExchange.docs.requestTopic.init('algorithm');
+    });
+   
+ 
+ 
+ 
+ 
+ 
+ 
+ Algorithm Complexity 
+ 
+ 
+ 
+ topic 
+ discuss 
+ 
+ 
+ 
+ 
+ Title 
+ 
+ 
+ 
+ Versions 
+ 
+ 
+ Introduction 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+   add introduction 
+ edit 
+ share 
+ request improvement 
+   edit 
+ move 
+ delete topic 
+ share 
+ 
+ 
+ 
+ 
+ 
+                var ados = ados || {}; ados.run = ados.run || [];
+                ados.run.push(function () { ados_add_placement(22,499571,"adzerk1497425491",4).setZone(29); });
+             
+ 
+ 
+ 
+ 
+ This draft deletes the entire topic. 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+                    Examples
+                     
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 23 
+ 
+ Big-Theta notation 
+ 
+ 
+ 
+ 
+ 
+ 23 
+ 
+ 
+ 
+ 
+ 
+   
+ Unlike Big-O notation, which represents only upper bound of the running time for some algorithm, Big-Theta is a tight bound; both upper and lower bound. Tight bound is more precise, but also more difficult to compute. 
+ The Big-Theta notation is symmetric:  f(x) = Ө(g(x)) <=> g(x) = Ө(f(x)) 
+ An intuitive way to grasp it is that  f(x) = Ө(g(x))  means that the graphs of f(x) and g(x) grow in the same rate, or that the graphs 'behave' similarly for big enough values of x. 
+ The full mathematical expression of the Big-Theta notation is as follows: 
+Ө(f(x)) = {g: N 0  -> R and c 1 , c 2 , n 0  > 0, where c 1  < abs(g(n) / f(n)), for every n > n 0  and abs is the absolute value } 
+ An example 
+ If the algorithm for the input  n  takes  42n^2 + 25n + 4  operations to finish, we say that is  O(n^2) , but is also  O(n^3)  and  O(n^100) . However, it is  Ө(n^2)  and it is not  Ө(n^3) ,  Ө(n^4)  etc. Algorithm that is  Ө(f(n))  is also  O(f(n)) , but not vice versa! 
+ Formal mathematical definition 
+ Ө(g(x))  is a set of functions. 
+ Ө(g(x)) = {f(x) such that there exist positive constants c1, c2, N such that 0 <= c1*g(x) <= f(x) <= c2*g(x) for all x > N} 
+ Because  Ө(g(x))  is a set, we could write  f(x) ∈ Ө(g(x)) 
+to indicate that  f(x)  is a member of  Ө(g(x)) . Instead, we will usually write
+ f(x) = Ө(g(x))  to express the same notion - that's the common way. 
+ Whenever  Ө(g(x))  appears in a formula, we interpret it as standing for some anonymous function that we do not care to name. For example the equation  T(n) = T(n/2) + Ө(n) , means  T(n) = T(n/2) + f(n)  where  f(n)  is a function in the set  Ө(n) . 
+ Let  f  and  g  be two functions defined on some subset of the real numbers. We write  f(x) = Ө(g(x))  as  x->infinity  if and only if there are positive constants  K  and  L  and a real number  x0  such that holds: 
+ K|g(x)| <= f(x) <= L|g(x)|  for all  x >= x0 . 
+ The definition is equal to: 
+ f(x) = O(g(x)) and f(x) = Ω(g(x)) 
+ A method that uses limits 
+ if  limit(x->infinity) f(x)/g(x) = c ∈ (0,∞)  i.e. the limit exists and it's positive, then  f(x) = Ө(g(x)) 
+ Common Complexity Classes 
+ Name Notation n = 10 n = 100 Constant Ө(1) 1 1 Logarithmic Ө(log(n)) 3 7 Linear Ө(n) 10 100 Linearithmic Ө(n*log(n)) 30 700 Quadratic Ө(n^2) 100 10 000 Exponential Ө(2^n) 1 024 1.267650e+ 30 Factorial Ө(n!) 3 628 800 9.332622e+157 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ edited  Jun 29 at 18:44 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+                    +3
+                     
+ 
+ 
+   
+ 
+ 
+   edit 
+ share 
+ discuss 
+ request improvement 
+   edit 
+ move example 
+ delete example 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 8 
+ 
+ Comparison of the asymptotic notations 
+ 
+ 
+ 
+ 
+ 
+ 8 
+ 
+ 
+ Let  f(n)  and  g(n)  be two functions defined on the set of the positive real numbers,  c, c1, c2, n0  are positive real constants. 
+ Notation f(n) = O(g(n)) f(n) = Ω(g(n)) f(n) = Θ(g(n)) f(n) = o(g(n)) f(n) = ω(g(n)) Formal definition ∃ c > 0, ∃ n0 > 0 : ∀ n ≥ n0, 0 ≤ f(n) ≤ c g(n) ∃ c > 0, ∃ n0 > 0 : ∀ n ≥ n0, 0 ≤ c g(n) ≤ f(n) ∃ c1, c2 > 0, ∃ n0 > 0 : ∀ n ≥ n0, 0 ≤ c1 g(n) ≤ f(n) ≤ c2 g(n) ∀ c > 0, ∃ n0 > 0 : ∀ n ≥ n0, 0 ≤ f(n) < c g(n) ∀ c > 0, ∃ n0 > 0 : ∀ n ≥ n0, 0 ≤ c g(n) < f(n) Analogy between the asymptotic comparison of  f, g  and real numbers  a, b a ≤ b a ≥ b a = b a < b a > b Example 7n + 10 = O(n^2 + n - 9) n^3 - 34 = Ω(10n^2 - 7n + 1) 1/2 n^2 - 7n = Θ(n^2) 5n^2 = o(n^3) 7n^2 = ω(n) Graphic interpretation 
+ The asymptotic notations can be represented on a Venn diagram as follows:
+ 
+ Links 
+ Thomas H. Cormen, Charles E. Leiserson, Ronald L. Rivest, Clifford Stein. Introduction to Algorithms. 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ edited  Jun 29 at 18:44 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+   
+ 
+ 
+   edit 
+ share 
+ discuss 
+ request improvement 
+   edit 
+ move example 
+ delete example 
+ 
+ 
+ 
+   
+ 
+                var ados = ados || {}; ados.run = ados.run || [];
+                ados.run.push(function () { ados_add_placement(22,499571,"adzerk1652065681",4).setZone(30); });
+             
+ 
+ 
+   
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 4 
+ 
+ Big-Omega Notation 
+ 
+ 
+ 
+ 
+ 
+ 4 
+ 
+ 
+ Ω-notation is used for asymptotic lower bound. 
+ Formal definition 
+ Let  f(n)  and  g(n)  be two functions defined on the set of the positive real numbers. We write  f(n) = Ω(g(n))  if there are positive constants  c  and  n0  such that: 
+ 0 ≤ c g(n) ≤ f(n) for all n ≥ n0 . 
+ Notes 
+ f(n) = Ω(g(n))  means that  f(n)  grows asymptotically no slower than  g(n) .
+Also we can say about  Ω(g(n))  when algorithm analysis is not enough for statement about  Θ(g(n))  or / and  O(g(n)) . 
+ From the definitions of notations follows the theorem: 
+ For two any functions  f(n)  and  g(n)  we have  f(n) = Ө(g(n))  if and only if
+ f(n) = O(g(n)) and f(n) = Ω(g(n)) . 
+ Graphically Ω-notation may be represented as follows: 
+ 
+ For example lets we have  f(n) = 3n^2 + 5n - 4 . Then  f(n) = Ω(n^2) . It is also correct  f(n) = Ω(n) , or even  f(n) = Ω(1) . 
+ Another example to solve perfect matching algorithm : If the number of vertices is odd then output "No Perfect Matching" otherwise try all possible matchings. 
+ We would like to say the algorithm requires exponential time but in fact you cannot prove a  Ω(n^2)  lower bound using the usual definition of  Ω  since the algorithm runs in linear time for n odd. We should instead define  f(n)=Ω(g(n))  by saying for some constant  c>0 ,  f(n)≥ c g(n)  for infinitely many  n . This gives a nice correspondence between upper and lower bounds:  f(n)=Ω(g(n))  iff  f(n) != o(g(n)) . 
+ References 
+ Formal definition and theorem are taken from the book "Thomas H. Cormen, Charles E. Leiserson, Ronald L. Rivest, Clifford Stein. Introduction to Algorithms". 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ edited  Nov 17 '16 at 20:45 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+   
+ 
+ 
+   edit 
+ share 
+ discuss 
+ request improvement 
+   edit 
+ move example 
+ delete example 
+ 
+ 
+ 
+ 
+ 
+ 
+ + 
+            Add Example
+         
+ 
+ 
+ 
+        Please consider making a request to improve this example.
+         Request Improvement 
+ 
+ 
+ 
+ 
+ 
+ Syntax 
+ 
+ 
+ Syntax 
+ 
+ 
+ 
+   add syntax 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ Parameters 
+ 
+ 
+ Parameters 
+ 
+ 
+ 
+   add parameters 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ Remarks 
+ All algorithms are a list of steps to solve a problem.  Each step has dependencies on some set of previous steps, or the start of the algorithm.  A small problem might look like the following: 
+ 
+ This structure is called a directed acyclic graph, or DAG for short.  The links between each node in the graph represent dependencies in the order of operations, and there are no cycles in the graph. 
+ How do dependencies happen?  Take for example the following code: 
+ total = 0
+for(i = 1; i < 10; i++)
+    total = total + i
+ 
+ In this psuedocode, each iteration of the for loop is dependent on the result from the previous iteration because we are using the value calculated in the previous iteration in this next iteration.  The DAG for this code might look like this: 
+ 
+ If you understand this representation of algorithms, you can use it to understand algorithm complexity in terms of work and span. 
+ 
+ Work 
+ Work is the actual number of operations that need to be executed in order to achieve the goal of the algorithm for a given input size  n . 
+ 
+ Span 
+ Span is sometimes referred to as the critical path, and is the fewest number of steps an algorithm must make in order to achieve the goal of the algorithm. 
+ The following image highlights the graph to show the differences between work and span on our sample DAG. 
+ 
+ The work is the number of nodes in the graph as a whole.  This is represented by the graph on the left above.  The span is the critical path, or longest path from the start to the end.  When work can be done in parallel, the yellow highlighted nodes on the right represent span, the fewest number of steps required.  When work must be done serially, the span is the same as the work. 
+ Both work and span can be evaluated independently in terms of analysis.  The speed of an algorithm is determined by the span.  The amount of computational power required is determined by the work. 
+ 
+ 
+ 
+   edit 
+ share 
+ 
+   edit 
+ 
+ 
+ 
+ 
+ 
+ 
+ edited  Jun 29 at 18:44 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+                    +3
+                     
+ 
+ 
+   
+ 
+ Still have a question about Algorithm Complexity? 
+ Ask Question 
+ 
+ 
+ 
+ 
+ Topic Outline 
+ 
+ 3 Examples 
+ 
+ 
+ 
+ 
+ Big-Theta notation 
+ 
+ 
+ Comparison of the asymptotic notations 
+ 
+ 
+ Big-Omega Notation 
+ 
+ Show more 
+ 
+ 
+ Remarks 
+ 
+ 
+ Work 
+ 
+ 
+ Span 
+ 
+ 
+ 
+ 
+ 
+ 
+                    Blog
+                 
+ 
+ 
+ 
+ 
+   
+ 
+ 
+ Trends in Government Software Developers 
+ 
+ 
+ 
+ 
+ 
+ 
+   
+ 
+ 
+ Introducing Channels: Private Q&A for Your Team 
+ 
+ 
+ 
+ 
+   
+ 
+                var ados = ados || {}; ados.run = ados.run || [];
+                ados.run.push(function () { ados_add_placement(22,499571,"adzerk1282665061",5).setZone(56016); });
+             
+ 
+ 
+ 
+ 
+        StackExchange.ready(function () { $.get('/documentation/algorithm/ivc/1529-636356029007331424:c5hh596a3xymqg5taizcbfql3s.gif?topicId=1529'); });
+     
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+                    Topic Outline
+                         
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ Save Draft 
+ Discard 
+ 
+ 
+ 
+ 
+ Sign up or log in 
+ Save edit as a guest 
+ Join Stack Overflow 
+ 
+ 
+ 
+ Using Google 
+ 
+ 
+ Using Facebook 
+ 
+ 
+ Using Email and Password 
+ 
+ 
+ 
+ 
+ Name 
+ 
+ 
+ 
+ Email 
+ 
+ Save Draft 
+ 
+ 
+ 
+ 
+ We recognize you from another Stack Exchange Network site! 
+ Join and Save Draft 
+ 
+ Discard Draft 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ Stack Overflow 
+ 
+ Questions 
+ Jobs 
+ Developer Jobs Directory 
+ Documentation 
+ Help 
+ Mobile 
+ 
+ 
+ 
+ Stack Overflow  Business 
+ 
+ Talent 
+ Ads 
+ Enterprise 
+ Insights 
+ 
+ 
+ 
+ Company 
+ 
+ About 
+ Press 
+ Work Here 
+ Legal 
+ Privacy Policy 
+ Contact Us 
+ 
+ 
+ 
+ 
+ 
+ Stack Exchange  Network 
+ 
+ Technology 
+ Life / Arts 
+ Culture / Recreation 
+ Science 
+ Other 
+ 
+ 
+ 
+ 
+ 
+ Stack Overflow 
+ Server Fault 
+ Super User 
+ Web Applications 
+ Ask Ubuntu 
+ Webmasters 
+ Game Development 
+ 
+ TeX - LaTeX 
+ Software Engineering 
+ Unix & Linux 
+ Ask Different (Apple) 
+ WordPress Development 
+ Geographic Information Systems 
+ Electrical Engineering 
+ 
+ Android Enthusiasts 
+ Information Security 
+ Database Administrators 
+ Drupal Answers 
+ SharePoint 
+ User Experience 
+ Data Science 
+ 
+ Mathematica 
+ Salesforce 
+ ExpressionEngine® Answers 
+ Blender 
+ Network Engineering 
+ Cryptography 
+ Code Review 
+ 
+ Magento 
+ Software Recommendations 
+ Signal Processing 
+ Emacs 
+ Raspberry Pi 
+ Programming Puzzles & Code Golf 
+ Ethereum 
+ 
+ 
+ 
+                            more (27)
+                         
+ 
+ 
+ 
+ 
+ 
+ 
+ Photography 
+ Science Fiction & Fantasy 
+ Graphic Design 
+ Movies & TV 
+ Music: Practice & Theory 
+ Worldbuilding 
+ Seasoned Advice (cooking) 
+ 
+ Home Improvement 
+ Personal Finance & Money 
+ Academia 
+ Law 
+ 
+ 
+ 
+                            more (16)
+                         
+ 
+ 
+ 
+ 
+ 
+ 
+ English Language & Usage 
+ Skeptics 
+ Mi Yodeya (Judaism) 
+ Travel 
+ Christianity 
+ English Language Learners 
+ Japanese Language 
+ 
+ Arqade (gaming) 
+ Bicycles 
+ Role-playing Games 
+ Anime & Manga 
+ Puzzling 
+ Motor Vehicle Maintenance & Repair 
+ 
+ 
+ 
+                            more (32)
+                         
+ 
+ 
+ 
+ 
+ 
+ 
+ MathOverflow 
+ Mathematics 
+ Cross Validated (stats) 
+ Theoretical Computer Science 
+ Physics 
+ Chemistry 
+ Biology 
+ 
+ Computer Science 
+ Philosophy 
+ 
+ 
+ 
+                            more (10)
+                         
+ 
+ 
+ 
+ 
+ 
+ 
+ Meta Stack Exchange 
+ Stack Apps 
+ API 
+ Data 
+ Area 51 
+ 
+ 
+ 
+ 
+ 
+ Blog 
+ Facebook 
+ Twitter 
+ LinkedIn 
+ 
+ 
+ 
+                                    site design / logo © 2017 Stack Exchange Inc; user contributions licensed under  cc by-sa 3.0 
+                                    with  attribution required .
+                                     rev 2017.7.13.1278 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ Stack Overflow works best with JavaScript enabled
+             
+ 
+ 
+ var z=document.createElement("script");z.type="text/javascript",z.async=!0,z.src="https://static.adzerk.net/ados.js";var s=document.getElementsByTagName("script")[0];s.parentNode.insertBefore(z,s); 
+ 
+var ados = ados || {};
+ados.run = ados.run || [];
+
+ 
+ 
+            (function(i, s, o, g, r, a, m) {
+                i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function() { (i[r].q = i[r].q || []).push(arguments) }, i[r].l = 1 * new Date(); a = s.createElement(o),
+                m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m);
+            })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+                ga('create', 'UA-5620270-1');
+                ga('create', 'UA-5620270-60', {name: 'pageData', sampleRate: 100 });
+                ga('send', 'pageview');
+                ga('pageData.send', 'pageview');
+        var _qevents = _qevents || [],
+            _comscore = _comscore || [];
+        (function () {
+            var ssl='https:'==document.location.protocol,
+                s=document.getElementsByTagName('script')[0],
+                qc=document.createElement('script');
+                qc.async = true;
+                qc.src = (ssl ? 'https://secure' : 'http://edge') + '.quantserve.com/quant.js';
+                s.parentNode.insertBefore(qc, s);
+                _qevents.push({ qacct: "p-c1rF4kxgLUzNc" });
+                            var sc=document.createElement('script');
+                sc.async=true;
+                sc.src=(ssl?'https://sb':'http://b') + '.scorecardresearch.com/beacon.js';
+                s.parentNode.insertBefore(sc, s);
+                _comscore.push({ c1: "2", c2: "17440561" });
+        })();
+
+     
+ 
+                
+                (function(appendChild) {
+                    Node.prototype.appendChild = function() {
+                        var parent = this;
+                        var newNode = arguments[0];
+                        if (parent.nodeName === 'HEAD'
+                            && newNode
+                            && newNode.nodeName === 'SCRIPT'
+                            && newNode.src) {
+                            
+                            window.setTimeout(function() {
+                                var result = newNode.src.match(/^https:\/\/maps\.googleapis\.com\/maps\/api\/place\/js\/(\w+)Service\./i) || [];
+                                var service = result[1];
+                                if (service) {
+                                    if (service === 'Autocompletion') service =  2;
+                                    else if (service === 'Place') service = 1;
+                                    else service = 0;
+                                    StackExchange.using('gps', function() {
+                                        StackExchange.gps.track('google_maps_places_api.call', { service: service });
+                                    });
+                                }
+                            }, 0);
+                        }
+                        return appendChild.apply(this, arguments);
+                    };
+                })(Node.prototype.appendChild);
+             

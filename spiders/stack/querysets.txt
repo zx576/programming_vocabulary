@@ -1,0 +1,1527 @@
+
+ (function () { var old = $.fn.contents; $.fn.contents = function () { try { return old.apply(this, arguments); } catch (e) { return $([]); } } })() 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ Stack Overflow 
+ 
+ 
+ 
+ 
+ Questions 
+ 
+ 
+ Developer Jobs 
+ 
+ 
+ Documentation  beta 
+ 
+ 
+ Tags 
+ 
+ 
+ Users 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ current community 
+ 
+ 
+ 
+ 
+ 
+ 
+ help 
+ chat 
+ 
+ 
+ 
+        Stack Overflow
+     
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+        Meta Stack Overflow
+     
+ 
+ 
+ 
+ 
+ 
+your communities             
+ 
+ 
+ 
+ Sign up  or  log in  to customize your list.
+                 
+ 
+ 
+ more stack exchange communities 
+ 
+ company blog 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+                            Tour
+                             
+                                Start here for a quick overview of the site
+                             
+ 
+ 
+ 
+ 
+                        Help Center
+                         
+                            Detailed answers to any questions you might have
+                         
+ 
+ 
+ 
+ 
+                                Meta
+                                 
+                                    Discuss the workings and policies of this site
+                                 
+ 
+ 
+ 
+ 
+                                About Us
+                                 
+                                    Learn more about Stack Overflow the company
+                                 
+ 
+ 
+ 
+ 
+                                Business
+                                 
+                                    Learn more about hiring developers or posting ads with us
+                                 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ Log In 
+ Sign Up 
+ 
+ 
+ 
+ 
+ 
+        StackExchange.ready(function () { StackExchange.topbar.init(); });
+            StackExchange.scrollPadding.setPaddingTop(60, 10);      
+ 
+ 
+ 
+ 
+ Django 
+ 
+ 
+ 
+ 
+   
+ 
+ 
+ 
+ 
+ dashboard 
+ all topics 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ Popular 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+        StackExchange.ready(function () {
+            StackExchange.docs.search.init({
+                popularTopicsJson: [{"Id":200,"DocTag":"django","Title":"Getting started with Django","Url":"/documentation/django/200/getting-started-with-django"},{"Id":942,"DocTag":"django","Title":"Settings","Url":"/documentation/django/942/settings"},{"Id":888,"DocTag":"django","Title":"Models","Url":"/documentation/django/888/models"},{"Id":1235,"DocTag":"django","Title":"Querysets","Url":"/documentation/django/1235/querysets"},{"Id":1721,"DocTag":"django","Title":"Middleware","Url":"/documentation/django/1721/middleware"}]
+            });
+        });
+     
+   
+ 
+ 
+ 
+ Topic 
+ 
+ 
+ 
+ 
+ 
+ 
+ You must  sign up  or  log in  to make a topic request. 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+    StackExchange.ready(function () {
+        StackExchange.docs.requestTopic.init('django');
+    });
+   
+ 
+ 
+ 
+ 
+ 
+ 
+ Querysets   
+            All Versions
+         
+ 
+ 
+ 
+ topic 
+ discuss 
+ 
+ 
+ 
+ 
+ Title 
+ 
+ 
+ 
+ Versions 
+ 
+ 
+                        1.0
+                     
+ 
+                        1.1
+                     
+ 
+                        1.2
+                     
+ 
+                        1.3
+                     
+ 
+                        1.4
+                     
+ 
+                        1.5
+                     
+ 
+                        1.6
+                     
+ 
+                        1.7
+                     
+ 
+                        1.8
+                     
+ 
+                        1.9
+                     
+ 
+                        1.10
+                     
+ 
+                        1.11
+                     
+ 
+ 
+ 
+ Introduction 
+ 
+ A `Queryset` is fundamentally a list of objects derived from a `Model`, by a compilation of database queries. 
+ 
+ 
+ 
+ 
+ 
+ A  Queryset  is fundamentally a list of objects derived from a  Model , by a compilation of database queries. 
+ 
+ 
+ 
+   edit 
+ share 
+ request improvement 
+   edit 
+ move 
+ delete topic 
+ share 
+ 
+ 
+ 
+ 
+ 
+                var ados = ados || {}; ados.run = ados.run || [];
+                ados.run.push(function () { ados_add_placement(22,499571,"adzerk614965966",4).setZone(29); });
+             
+ 
+ 
+ 
+ 
+ This draft deletes the entire topic. 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+                    Examples
+                     
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 13 
+ 
+ Reduce number of queries on ForeignKey field (n+1 issue) 
+ 
+ 
+ 
+ 
+ 
+ 13 
+ 
+ 
+ 
+ 
+ 
+   
+ Problem 
+ Django querysets are evaluated in a lazy fashion. For example: 
+ # models.py:
+class Author(models.Model):
+    name = models.CharField(max_length=100)
+
+class Book(models.Model):
+    author = models.ForeignKey(Author, related_name='books')
+    title = models.CharField(max_length=100)
+ 
+ # views.py
+def myview(request):
+    # Query the database
+    books = Book.objects.all()
+
+    for book in books:
+        # Query the database on each iteration to get author (len(books) times)
+        # if there is 100 books, there will have 100 queries plus the initial query
+        book.author
+        # ...
+
+    # total : 101 queries
+ 
+ The code above causes django to query the database for the author of each book. This is inefficient, and it is better to only have a single query. 
+ Solution 
+ Use  select_related  on  ForeignKey  if you know that you will need to later access a  ForeignKey  field. 
+ # views.py
+def myview(request):
+    # Query the database.
+    books = Books.objects.select_related('author').all()
+    
+    for book in books:
+        # Does not query the database again, since `author` is pre-populated
+        book.author
+        # ...
+
+    # total : 1 query
+ 
+ select_related  can also be used on lookup fields: 
+ # models.py:
+class AuthorProfile(models.Model):
+    city = models.CharField(max_length=100)
+
+class Author(models.Model):
+    name = models.CharField(max_length=100)
+    profile = models.OneToOneField(AuthorProfile)
+
+class Book(models.Model):
+    author = models.ForeignKey(Author, related_name='books')
+    title = models.CharField(max_length=100)    
+ 
+ # views.py
+def myview(request):
+    books = Book.objects.select_related('author')\
+                        .select_related('author__profile').all()
+   
+    for book in books:
+        # Does not query database
+        book.author.name
+        # or
+        book.author.profile.city
+        # ...
+
+    # total : 1 query
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ edited  Nov 25 '16 at 2:44 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+   
+ 
+ 
+   edit 
+ share 
+ discuss 
+ request improvement 
+   edit 
+ move example 
+ delete example 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 7 
+ 
+ Get SQL for Django queryset 
+ 
+ 
+ 
+ 
+ 
+ 7 
+ 
+ 
+ The  query  attribute on queryset gives you SQL equivalent syntax for your query. 
+ >>> queryset = MyModel.objects.all()
+>>> print(queryset.query)
+SELECT "myapp_mymodel"."id", ... FROM "myapp_mymodel"
+ 
+ 
+ Warning: 
+ This output should only be used for debugging purposes. The generated
+query is not backend-specific. As such, the parameters aren't quoted
+properly, leaving it vulnerable to SQL injection, and the query may
+not even be executable on your database backend. 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ edited  Sep 1 '16 at 8:55 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+   
+ 
+ 
+   edit 
+ share 
+ discuss 
+ request improvement 
+   edit 
+ move example 
+ delete example 
+ 
+ 
+ 
+   
+ 
+                var ados = ados || {}; ados.run = ados.run || [];
+                ados.run.push(function () { ados_add_placement(22,499571,"adzerk105670565",4).setZone(30); });
+             
+ 
+ 
+   
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 5 
+ 
+ Advanced queries with Q objects 
+ 
+ 
+ 
+ 
+ 
+ 5 
+ 
+ 
+ Given the model: 
+ class MyModel(models.Model):
+    name = models.CharField(max_length=10)
+    model_num = models.IntegerField()
+    flag = models.NullBooleanField(default=False)
+ 
+ We can use  Q  objects to create   AND  ,  OR  conditions in your lookup query. For example, say we want all objects that have  flag=True   OR   model_num>15 . 
+ from django.db.models import Q
+MyModel.objects.filter(Q(flag=True) | Q(model_num__gt=15))
+ 
+ The above translates to  WHERE flag=True OR model_num > 15  similarly for an  AND  you would do. 
+ MyModel.objects.filter(Q(flag=True) & Q(model_num__gt=15))
+ 
+ Q  objects also allow us to make  NOT  queries with the use of  ~ . Let's say we wanted to get all objects that have  flag=False   AND   model_num!=15 , we would do: 
+ MyModel.objects.filter(Q(flag=True) & ~Q(model_num=15)) 
+ 
+ If using Q objects and "normal" parameters in  filter() , then the  Q  objects must come  first . The following query searches for models with ( flag  set to  True  or a model number greater than  15 ) and a name that starts with "H". 
+ from django.db.models import Q
+MyModel.objects.filter(Q(flag=True) | Q(model_num__gt=15), name__startswith="H")
+ 
+ Note:   Q  objects can be used with any lookup function that takes keyword arguments such as  filter ,  exclude ,  get . Make sure that when you use with  get  that you will only return one object or the  MultipleObjectsReturned  exception will be raised. 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ edited  Nov 28 '16 at 16:48 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+   
+ 
+ 
+   edit 
+ share 
+ discuss 
+ request improvement 
+   edit 
+ move example 
+ delete example 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 3 
+ 
+ Reduce number of queries on ManyToManyField (n+1 issue) 
+ 
+ 
+ 
+ 
+ 
+ 3 
+ 
+ 
+ Problem 
+ # models.py:
+class Library(models.Model):
+    name = models.CharField(max_length=100)
+    books = models.ManyToManyField(Book)
+
+class Book(models.Model):
+    title = models.CharField(max_length=100)
+ 
+ # views.py
+def myview(request):
+    # Query the database.
+    libraries = Library.objects.all()
+
+    # Query the database on each iteration (len(author) times)
+    # if there is 100 librairies, there will have 100 queries plus the initial query
+    for library in libraries:
+        books = library.books.all()
+        books[0].title
+        # ...
+
+    # total : 101 queries
+ 
+ Solution 
+ Use  prefetch_related  on  ManyToManyField  if you know that you will need to access later a field which is a  ManyToManyField  field. 
+ # views.py
+def myview(request):
+    # Query the database.
+    libraries = Library.objects.prefetch_related('books').all()
+    
+    # Does not query the database again, since `books` is pre-populated
+    for library in libraries:
+        books = library.books.all()
+        books[0].title
+        # ...
+
+    # total : 2 queries - 1 for libraries, 1 for books
+ 
+ prefetch_related  can also be used on lookup fields : 
+ # models.py:
+class User(models.Model):
+    name = models.CharField(max_length=100)
+
+class Library(models.Model):
+    name = models.CharField(max_length=100)
+    books = models.ManyToManyField(Book)
+
+class Book(models.Model):
+    title = models.CharField(max_length=100)
+    readers = models.ManyToManyField(User)
+ 
+  # views.py
+def myview(request):
+    # Query the database.
+    libraries = Library.objects.prefetch_related('books', 'books__readers').all()
+    
+    # Does not query the database again, since `books` and `readers` is pre-populated
+    for library in libraries:
+        for book in library.books.all():
+            for user in book.readers.all():
+                user.name
+                # ...
+
+    # total : 3 queries - 1 for libraries, 1 for books, 1 for readers
+ 
+ However, once the queryset has been executed, the data fetched can't be altered without hitting again the database. The following would execute extra queries for example: 
+  # views.py
+def myview(request):
+    # Query the database.
+    libraries = Library.objects.prefetch_related('books').all()
+    for library in libraries:
+        for book in library.books.filter(title__contains="Django"):
+            print(book.name)
+ 
+ The following can be optimized using a  Prefetch  object, introduced in Django 1.7: 
+ from django.db.models import Prefetch
+# views.py
+def myview(request):
+    # Query the database.
+    libraries = Library.objects.prefetch_related(
+        Prefetch('books', queryset=Book.objects.filter(title__contains="Django")
+    ).all()
+    for library in libraries:
+        for book in library.books.all():
+            print(book.name)  # Will print only books containing Django for each library
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ edited  Sep 17 '16 at 11:33 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+   
+ 
+ 
+   edit 
+ share 
+ discuss 
+ request improvement 
+   edit 
+ move example 
+ delete example 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 2 
+ 
+ Get first and last record from QuerySet 
+ 
+ 
+ 
+ 
+ 
+ 2 
+ 
+ 
+ To get First object: 
+ MyModel.objects.first()
+ 
+ To get last objects: 
+ MyModel.objects.last()
+ 
+ Using Filter First object: 
+ MyModel.objects.filter(name='simple').first()
+ 
+ Using Filter Last object: 
+ MyModel.objects.filter(name='simple').last()
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ created  Jul 25 '16 at 14:22 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+   
+ 
+ 
+   edit 
+ share 
+ discuss 
+ request improvement 
+   edit 
+ move example 
+ delete example 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 2 
+ 
+ Simple queries on a standalone model 
+ 
+ 
+ 
+ 
+ 
+ 2 
+ 
+ 
+ Here is a simple model that we will use to run a few test queries: 
+ class MyModel(models.Model):
+    name = models.CharField(max_length=10)
+    model_num = models.IntegerField()
+    flag = models.NullBooleanField(default=False)
+ 
+ Get a single model object where the id/pk is 4:  
+(If there are no items with the id of 4 or there are more than one, this will throw an exception.) 
+ MyModel.objects.get(pk=4)
+ 
+ All model objects: 
+ MyModel.objects.all()
+ 
+ Model objects that have  flag  set to  True : 
+ MyModel.objects.filter(flag=True)
+ 
+ Model objects with a  model_num  greater than 25: 
+ MyModel.objects.filter(model_num__gt=25)
+ 
+ Model objects with the  name  of "Cheap Item" and  flag  set to  False : 
+ MyModel.objects.filter(name="Cheap Item", flag=False)
+ 
+ Models simple search  name  for specific string(Case-sensitive): 
+ MyModel.objects.filter(name__contains="ch")
+ 
+ Models simple search  name  for specific string(Case-insensitive): 
+ MyModel.objects.filter(name__icontains="ch")
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ edited  Feb 17 at 21:40 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+                    +1
+                     
+ 
+ 
+   
+ 
+ 
+   edit 
+ share 
+ discuss 
+ request improvement 
+   edit 
+ move example 
+ delete example 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 1 
+ 
+ Advanced queries with F objects 
+ 
+ 
+ 
+ 
+ 
+ 1 
+ 
+ 
+ 
+ An F() object represents the value of a model field or annotated column. It makes it possible to refer to model field values and perform database operations using them without actually having to pull them out of the database into Python memory. -  F() expressions 
+ 
+ It is appropriate to use  F()  objects whenever you need to reference another field's value in your query. By itself,  F()  objects do not mean anything, and they cannot and should not be called outside of a queryset. They are used to reference a field's value on the same queryset. 
+ For example, given a model ... 
+ SomeModel(models.Model):
+    ...
+    some_field = models.IntegerField()
+ 
+ ... a user can query objects where the  some_field  value is twice its  id  by  referencing the  id  field's value  while filtering using  F()  like this: 
+ SomeModel.objects.filter(some_field=F('id') * 2)
+ 
+ F('id')  simply references the  id  value for that same instance. Django uses it to create corresponding SQL statement. In this case something closely resembling this: 
+ SELECT * FROM some_app_some_model 
+WHERE some_field = ((id * 2))
+ 
+ Without  F()  expressions this would be accomplished with either raw SQL or  filtering in Python (which reduces the performance especially when there are lots of objects). 
+ 
+ References: 
+ 
+ Filters can reference fields on model 
+ F expressions 
+ Answer  from  TinyInstance 
+ 
+ From  F()  class definition: 
+ 
+ An object capable of resolving references to existing query objects. -  F source 
+ 
+ Note: This example posted came from the answer listed above with consent from TinyInstance. 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ edited  Sep 17 '16 at 11:55 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+   
+ 
+ 
+   edit 
+ share 
+ discuss 
+ request improvement 
+   edit 
+ move example 
+ delete example 
+ 
+ 
+ 
+ 
+ 
+ 
+ + 
+            Add Example
+         
+ 
+ 
+ 
+        Please consider making a request to improve this example.
+         Request Improvement 
+ 
+ 
+ 
+ 
+ 
+ Syntax 
+ 
+ 
+ Syntax 
+ 
+ 
+ 
+   add syntax 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ Parameters 
+ 
+ 
+ Parameters 
+ 
+ 
+ 
+   add parameters 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ Remarks 
+ 
+ 
+ Remarks 
+ 
+ 
+ 
+   add remarks 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ edited  May 11 at 9:16 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+                    +12
+                     
+ 
+ 
+   
+ 
+ Still have a question about Querysets? 
+ Ask Question 
+ 
+ 
+ 
+ 
+ Topic Outline 
+ 
+ Introduction 
+ 
+ 
+ 7 Examples 
+ 
+ 
+ 
+ 
+ Reduce number of queries on ForeignKey field (n+1 issue) 
+ 
+ 
+ Get SQL for Django queryset 
+ 
+ 
+ Advanced queries with Q objects 
+ 
+ 
+ Reduce number of queries on ManyToManyField (n+1 issue) 
+ 
+ 
+ Get first and last record from QuerySet 
+ 
+ 
+ Simple queries on a standalone model 
+ 
+ 
+ Advanced queries with F objects 
+ 
+ Show more 
+ 
+ 
+ 
+ 
+                    Blog
+                 
+ 
+ 
+ 
+ 
+   
+ 
+ 
+ Trends in Government Software Developers 
+ 
+ 
+ 
+ 
+ 
+ 
+   
+ 
+ 
+ Introducing Channels: Private Q&A for Your Team 
+ 
+ 
+ 
+ 
+   
+ 
+                var ados = ados || {}; ados.run = ados.run || [];
+                ados.run.push(function () { ados_add_placement(22,499571,"adzerk94799663",5).setZone(56016); });
+             
+ 
+ 
+ 
+ 
+        StackExchange.ready(function () { $.get('/documentation/django/ivc/1235-636356027703330109:odbrvtpdj0t6pfr0v1rkbrjan10.gif?topicId=1235'); });
+     
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+                    Topic Outline
+                         
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ Save Draft 
+ Discard 
+ 
+ 
+ 
+ 
+ Sign up or log in 
+ Save edit as a guest 
+ Join Stack Overflow 
+ 
+ 
+ 
+ Using Google 
+ 
+ 
+ Using Facebook 
+ 
+ 
+ Using Email and Password 
+ 
+ 
+ 
+ 
+ Name 
+ 
+ 
+ 
+ Email 
+ 
+ Save Draft 
+ 
+ 
+ 
+ 
+ We recognize you from another Stack Exchange Network site! 
+ Join and Save Draft 
+ 
+ Discard Draft 
+ 
+ 
+ 
+ default 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ Stack Overflow 
+ 
+ Questions 
+ Jobs 
+ Developer Jobs Directory 
+ Documentation 
+ Help 
+ Mobile 
+ 
+ 
+ 
+ Stack Overflow  Business 
+ 
+ Talent 
+ Ads 
+ Enterprise 
+ Insights 
+ 
+ 
+ 
+ Company 
+ 
+ About 
+ Press 
+ Work Here 
+ Legal 
+ Privacy Policy 
+ Contact Us 
+ 
+ 
+ 
+ 
+ 
+ Stack Exchange  Network 
+ 
+ Technology 
+ Life / Arts 
+ Culture / Recreation 
+ Science 
+ Other 
+ 
+ 
+ 
+ 
+ 
+ Stack Overflow 
+ Server Fault 
+ Super User 
+ Web Applications 
+ Ask Ubuntu 
+ Webmasters 
+ Game Development 
+ 
+ TeX - LaTeX 
+ Software Engineering 
+ Unix & Linux 
+ Ask Different (Apple) 
+ WordPress Development 
+ Geographic Information Systems 
+ Electrical Engineering 
+ 
+ Android Enthusiasts 
+ Information Security 
+ Database Administrators 
+ Drupal Answers 
+ SharePoint 
+ User Experience 
+ Data Science 
+ 
+ Mathematica 
+ Salesforce 
+ ExpressionEngine® Answers 
+ Blender 
+ Network Engineering 
+ Cryptography 
+ Code Review 
+ 
+ Magento 
+ Software Recommendations 
+ Signal Processing 
+ Emacs 
+ Raspberry Pi 
+ Programming Puzzles & Code Golf 
+ Ethereum 
+ 
+ 
+ 
+                            more (27)
+                         
+ 
+ 
+ 
+ 
+ 
+ 
+ Photography 
+ Science Fiction & Fantasy 
+ Graphic Design 
+ Movies & TV 
+ Music: Practice & Theory 
+ Worldbuilding 
+ Seasoned Advice (cooking) 
+ 
+ Home Improvement 
+ Personal Finance & Money 
+ Academia 
+ Law 
+ 
+ 
+ 
+                            more (16)
+                         
+ 
+ 
+ 
+ 
+ 
+ 
+ English Language & Usage 
+ Skeptics 
+ Mi Yodeya (Judaism) 
+ Travel 
+ Christianity 
+ English Language Learners 
+ Japanese Language 
+ 
+ Arqade (gaming) 
+ Bicycles 
+ Role-playing Games 
+ Anime & Manga 
+ Puzzling 
+ Motor Vehicle Maintenance & Repair 
+ 
+ 
+ 
+                            more (32)
+                         
+ 
+ 
+ 
+ 
+ 
+ 
+ MathOverflow 
+ Mathematics 
+ Cross Validated (stats) 
+ Theoretical Computer Science 
+ Physics 
+ Chemistry 
+ Biology 
+ 
+ Computer Science 
+ Philosophy 
+ 
+ 
+ 
+                            more (10)
+                         
+ 
+ 
+ 
+ 
+ 
+ 
+ Meta Stack Exchange 
+ Stack Apps 
+ API 
+ Data 
+ Area 51 
+ 
+ 
+ 
+ 
+ 
+ Blog 
+ Facebook 
+ Twitter 
+ LinkedIn 
+ 
+ 
+ 
+                                    site design / logo © 2017 Stack Exchange Inc; user contributions licensed under  cc by-sa 3.0 
+                                    with  attribution required .
+                                     rev 2017.7.13.1278 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ Stack Overflow works best with JavaScript enabled
+             
+ 
+ 
+ var z=document.createElement("script");z.type="text/javascript",z.async=!0,z.src="https://static.adzerk.net/ados.js";var s=document.getElementsByTagName("script")[0];s.parentNode.insertBefore(z,s); 
+ 
+var ados = ados || {};
+ados.run = ados.run || [];
+
+ 
+ 
+            (function(i, s, o, g, r, a, m) {
+                i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function() { (i[r].q = i[r].q || []).push(arguments) }, i[r].l = 1 * new Date(); a = s.createElement(o),
+                m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m);
+            })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+                ga('create', 'UA-5620270-1');
+                ga('create', 'UA-5620270-60', {name: 'pageData', sampleRate: 100 });
+                ga('send', 'pageview');
+                ga('pageData.send', 'pageview');
+        var _qevents = _qevents || [],
+            _comscore = _comscore || [];
+        (function () {
+            var ssl='https:'==document.location.protocol,
+                s=document.getElementsByTagName('script')[0],
+                qc=document.createElement('script');
+                qc.async = true;
+                qc.src = (ssl ? 'https://secure' : 'http://edge') + '.quantserve.com/quant.js';
+                s.parentNode.insertBefore(qc, s);
+                _qevents.push({ qacct: "p-c1rF4kxgLUzNc" });
+                            var sc=document.createElement('script');
+                sc.async=true;
+                sc.src=(ssl?'https://sb':'http://b') + '.scorecardresearch.com/beacon.js';
+                s.parentNode.insertBefore(sc, s);
+                _comscore.push({ c1: "2", c2: "17440561" });
+        })();
+
+     
+ 
+                
+                (function(appendChild) {
+                    Node.prototype.appendChild = function() {
+                        var parent = this;
+                        var newNode = arguments[0];
+                        if (parent.nodeName === 'HEAD'
+                            && newNode
+                            && newNode.nodeName === 'SCRIPT'
+                            && newNode.src) {
+                            
+                            window.setTimeout(function() {
+                                var result = newNode.src.match(/^https:\/\/maps\.googleapis\.com\/maps\/api\/place\/js\/(\w+)Service\./i) || [];
+                                var service = result[1];
+                                if (service) {
+                                    if (service === 'Autocompletion') service =  2;
+                                    else if (service === 'Place') service = 1;
+                                    else service = 0;
+                                    StackExchange.using('gps', function() {
+                                        StackExchange.gps.track('google_maps_places_api.call', { service: service });
+                                    });
+                                }
+                            }, 0);
+                        }
+                        return appendChild.apply(this, arguments);
+                    };
+                })(Node.prototype.appendChild);
+             

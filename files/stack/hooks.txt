@@ -1,0 +1,1769 @@
+
+ (function () { var old = $.fn.contents; $.fn.contents = function () { try { return old.apply(this, arguments); } catch (e) { return $([]); } } })() 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ Stack Overflow 
+ 
+ 
+ 
+ 
+ Questions 
+ 
+ 
+ Developer Jobs 
+ 
+ 
+ Documentation  beta 
+ 
+ 
+ Tags 
+ 
+ 
+ Users 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ current community 
+ 
+ 
+ 
+ 
+ 
+ 
+ help 
+ chat 
+ 
+ 
+ 
+        Stack Overflow
+     
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+        Meta Stack Overflow
+     
+ 
+ 
+ 
+ 
+ 
+your communities             
+ 
+ 
+ 
+ Sign up  or  log in  to customize your list.
+                 
+ 
+ 
+ more stack exchange communities 
+ 
+ company blog 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+                            Tour
+                             
+                                Start here for a quick overview of the site
+                             
+ 
+ 
+ 
+ 
+                        Help Center
+                         
+                            Detailed answers to any questions you might have
+                         
+ 
+ 
+ 
+ 
+                                Meta
+                                 
+                                    Discuss the workings and policies of this site
+                                 
+ 
+ 
+ 
+ 
+                                About Us
+                                 
+                                    Learn more about Stack Overflow the company
+                                 
+ 
+ 
+ 
+ 
+                                Business
+                                 
+                                    Learn more about hiring developers or posting ads with us
+                                 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ Log In 
+ Sign Up 
+ 
+ 
+ 
+ 
+ 
+        StackExchange.ready(function () { StackExchange.topbar.init(); });
+            StackExchange.scrollPadding.setPaddingTop(60, 10);      
+ 
+ 
+ 
+ 
+ Git 
+ 
+ 
+ 
+ 
+   
+ 
+ 
+ 
+ 
+ dashboard 
+ all topics 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ Popular 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+        StackExchange.ready(function () {
+            StackExchange.docs.search.init({
+                popularTopicsJson: [{"Id":245,"DocTag":"git","Title":"Ignoring Files and Folders","Url":"/documentation/git/245/ignoring-files-and-folders"},{"Id":218,"DocTag":"git","Title":"Getting started with Git","Url":"/documentation/git/218/getting-started-with-git"},{"Id":415,"DocTag":"git","Title":"Branching","Url":"/documentation/git/415/branching"},{"Id":355,"DocTag":"git","Title":"Rebasing","Url":"/documentation/git/355/rebasing"},{"Id":323,"DocTag":"git","Title":"Committing","Url":"/documentation/git/323/committing"}]
+            });
+        });
+     
+   
+ 
+ 
+ 
+ Topic 
+ 
+ 
+ 
+ 
+ 
+ 
+ You must  sign up  or  log in  to make a topic request. 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+    StackExchange.ready(function () {
+        StackExchange.docs.requestTopic.init('git');
+    });
+   
+ 
+ 
+ 
+ 
+ 
+ 
+ Hooks   
+            All Versions
+         
+ 
+ 
+ 
+ topic 
+ discuss 
+ 
+ 
+ 
+ 
+ Title 
+ 
+ 
+ 
+ Versions 
+ 
+ 
+                        0.99
+                     
+ 
+                        1.0
+                     
+ 
+                        1.1
+                     
+ 
+                        1.2
+                     
+ 
+                        1.3
+                     
+ 
+                        1.4
+                     
+ 
+                        1.5
+                     
+ 
+                        1.5.3
+                     
+ 
+                        1.6
+                     
+ 
+                        1.6.3
+                     
+ 
+                        1.6.5
+                     
+ 
+                        1.7
+                     
+ 
+                        1.7.10
+                     
+ 
+                        1.8
+                     
+ 
+                        1.8.3
+                     
+ 
+                        1.9
+                     
+ 
+                        2.0
+                     
+ 
+                        2.1
+                     
+ 
+                        2.2
+                     
+ 
+                        2.3
+                     
+ 
+                        2.4
+                     
+ 
+                        2.5
+                     
+ 
+                        2.6
+                     
+ 
+                        2.7
+                     
+ 
+                        2.8
+                     
+ 
+                        2.9
+                     
+ 
+                        2.10
+                     
+ 
+                        2.10.2
+                     
+ 
+                        2.11
+                     
+ 
+                        2.11.1
+                     
+ 
+                        2.12
+                     
+ 
+                        2.13
+                     
+ 
+ 
+ 
+ Introduction 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+   add introduction 
+ edit 
+ share 
+ request improvement 
+   edit 
+ move 
+ delete topic 
+ share 
+ 
+ 
+ 
+ 
+ 
+                var ados = ados || {}; ados.run = ados.run || [];
+                ados.run.push(function () { ados_add_placement(22,499571,"adzerk1243008398",4).setZone(29); });
+             
+ 
+ 
+ 
+ 
+ This draft deletes the entire topic. 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+                    Examples
+                     
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 1 
+ 
+ Pre-push 
+ 
+ 
+ 
+ 
+ 
+ 1 
+ 
+ 
+ 
+ 
+ 
+   
+ Available in  Git 1.8.2  and above. 
+ 1.8 
+ Pre-push hooks can be used to prevent a push from going though. Reasons this is helpful include: blocking accidental manual pushes to specific branches, or blocking pushes if an established check fails (unit tests, syntax). 
+ A pre-push hook is created by simply creating a file named  pre-push  under  .git/hooks/ , and ( gotcha alert ), making sure the file is executable:  chmod +x ./git/hooks/pre-push . 
+ Here's an example from  Hannah Wolfe  that blocks a push to master: 
+ #!/bin/bash
+
+protected_branch='master'  
+current_branch=$(git symbolic-ref HEAD | sed -e 's,.*/\(.*\),\1,')
+
+if [ $protected_branch = $current_branch ]  
+then  
+    read -p "You're about to push master, is that what you intended? [y|n] " -n 1 -r < /dev/tty
+    echo
+    if echo $REPLY | grep -E '^[Yy]$' > /dev/null
+    then
+        exit 0 # push will execute
+    fi
+    exit 1 # push will not execute
+else  
+    exit 0 # push will execute
+fi  
+ 
+ Here's an example from  Volkan Unsal  which makes sure RSpec tests pass before allowing the push: 
+ #!/usr/bin/env ruby
+require 'pty'
+html_path = "rspec_results.html"
+begin
+  PTY.spawn( "rspec spec --format h > rspec_results.html" ) do |stdin, stdout, pid|
+  begin
+    stdin.each { |line| print line }
+  rescue Errno::EIO
+  end
+end
+rescue PTY::ChildExited
+  puts "Child process exit!"
+end
+
+# find out if there were any errors  
+html = open(html_path).read
+examples = html.match(/(\d+) examples/)[0].to_i rescue 0
+errors = html.match(/(\d+) errors/)[0].to_i rescue 0
+if errors == 0 then
+  errors = html.match(/(\d+) failure/)[0].to_i rescue 0
+end
+pending = html.match(/(\d+) pending/)[0].to_i rescue 0
+
+if errors.zero?
+  puts "0 failed! #{examples} run, #{pending} pending"
+  # HTML Output when tests ran successfully:
+  # puts "View spec results at #{File.expand_path(html_path)}"
+  sleep 1
+  exit 0
+else
+  puts "\aCOMMIT FAILED!!"
+  puts "View your rspec results at #{File.expand_path(html_path)}"
+  puts
+  puts "#{errors} failed! #{examples} run, #{pending} pending"
+  # Open HTML Ooutput when tests failed
+  # `open #{html_path}`
+  exit 1
+end
+ 
+ As you can see, there are lots of possibilities, but the core piece is to  exit 0  if good things happened, and  exit 1  if bad things happened. Anytime you  exit 1  the push will be prevented and your code will be in the state it was before running  git push... . 
+ When using client side hooks, keep in mind that users can skip all client side hooks by using the option "--no-verify" on a push.  If you're relying on the hook to enforce process, you can get burned. 
+ Documentation:  https://git-scm.com/docs/githooks#_pre_push 
+Official Sample:  https://github.com/git/git/blob/87c86dd14abe8db7d00b0df5661ef8cf147a72a3/templates/hooks--pre-push.sample 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ edited  Apr 18 at 17:09 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+   
+ 
+ 
+   edit 
+ share 
+ discuss 
+ request improvement 
+   edit 
+ move example 
+ delete example 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 0 
+ 
+ Automatically forward certain pushes to other repositories 
+ 
+ 
+ 
+ 
+ 
+ 0 
+ 
+ 
+ post-receive  hooks can be used to automatically forward incoming pushes to another repository. 
+ $ cat .git/hooks/post-receive
+
+#!/bin/bash
+
+IFS=' '
+while read local_ref local_sha remote_ref remote_sha
+do
+
+  echo "$remote_ref" | egrep '^refs\/heads\/[A-Z]+-[0-9]+$' >/dev/null && {
+    ref=`echo $remote_ref | sed -e 's/^refs\/heads\///'`
+    echo Forwarding feature branch to other repository: $ref
+    git push -q --force other_repos $ref
+  }
+
+done
+ 
+ In this example, the  egrep  regexp looks for a specific branch format (here: JIRA-12345 as used to name Jira issues). You can leave this part off if you want to forward all branches, of course. 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ created  Aug 13 '16 at 14:22 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+   
+ 
+ 
+   edit 
+ share 
+ discuss 
+ request improvement 
+   edit 
+ move example 
+ delete example 
+ 
+ 
+ 
+   
+ 
+                var ados = ados || {}; ados.run = ados.run || [];
+                ados.run.push(function () { ados_add_placement(22,499571,"adzerk1444643883",4).setZone(30); });
+             
+ 
+ 
+   
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 0 
+ 
+ Commit-msg 
+ 
+ 
+ 
+ 
+ 
+ 0 
+ 
+ 
+ This hook is similar to the  prepare-commit-msg  hook, but it's called after the user enters a commit message rather than before. This is usually used to warn developers if their commit message is in an incorrect format. 
+ The only argument passed to this hook is the name of the file that contains the message. If you don't like the message that the user has entered, you can either alter this file in-place (same as  prepare-commit-msg ) or you can abort the commit entirely by exiting with a non-zero status. 
+ The following example is used to check if the word ticket followed by a number is present on the commit message 
+ word="ticket [0-9]"
+isPresent=$(grep -Eoh "$word" $1)
+
+if [[ -z $isPresent ]]
+  then echo "Commit message KO, $word is missing"; exit 1;
+  else echo "Commit message OK"; exit 0;
+fi
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ edited  Sep 14 '16 at 11:49 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+   
+ 
+ 
+   edit 
+ share 
+ discuss 
+ request improvement 
+   edit 
+ move example 
+ delete example 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 0 
+ 
+ Local hooks 
+ 
+ 
+ 
+ 
+ 
+ 0 
+ 
+ 
+ Local hooks affect only the local repositories in which they reside. Each developer can alter their own local hooks, so they can't be used reliably as a way to enforce a commit policy. They are designed to make it easier for developers to adhere to certain guidelines and avoid potential problems down the road. 
+ There are six types of local hooks: pre-commit, prepare-commit-msg, commit-msg, post-commit, post-checkout, and pre-rebase. 
+ The first four hooks relate to commits and allow you to have some control over each part in a commit's life cycle. The final two let you perform some extra actions or safety checks for the git checkout and git rebase commands. 
+ All of the "pre-" hooks let you alter the action that’s about to take place, while the "post-" hooks are used primarily for notifications. 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ created  Jul 23 '16 at 0:36 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+   
+ 
+ 
+   edit 
+ share 
+ discuss 
+ request improvement 
+   edit 
+ move example 
+ delete example 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 0 
+ 
+ Post-checkout 
+ 
+ 
+ 
+ 
+ 
+ 0 
+ 
+ 
+ This hook works similarly to the  post-commit  hook, but it's called whenever you successfully check out a reference with  git checkout . This could be a useful tool for clearing out your working directory of auto-generated files that would otherwise cause confusion. 
+ This hook accepts three parameters: 
+ 
+ the ref of the previous HEAD, 
+ the ref of the new HEAD, and 
+ a flag indicating if it was a branch checkout or a file checkout ( 1  or  0 , respectively). 
+ 
+ Its exit status has no affect on the  git checkout  command. 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ created  Jul 23 '16 at 0:36 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+   
+ 
+ 
+   edit 
+ share 
+ discuss 
+ request improvement 
+   edit 
+ move example 
+ delete example 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 0 
+ 
+ Post-commit 
+ 
+ 
+ 
+ 
+ 
+ 0 
+ 
+ 
+ This hook is called immediately after the  commit-msg  hook. It cannot alter the outcome of the  git commit  operation, therefore it's used primarily for notification purposes. 
+ The script takes no parameters, and its exit status does not affect the commit in any way. 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ created  Jul 23 '16 at 0:36 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+   
+ 
+ 
+   edit 
+ share 
+ discuss 
+ request improvement 
+   edit 
+ move example 
+ delete example 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 0 
+ 
+ Post-receive 
+ 
+ 
+ 
+ 
+ 
+ 0 
+ 
+ 
+ This hook is called after a successful push operation. It is typically used for notification purposes. 
+ The script takes no parameters, but is sent the same information as  pre-receive  via standard input: 
+ <old-value> <new-value> <ref-name>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ created  Jul 23 '16 at 0:36 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+   
+ 
+ 
+   edit 
+ share 
+ discuss 
+ request improvement 
+   edit 
+ move example 
+ delete example 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 0 
+ 
+ Pre-commit 
+ 
+ 
+ 
+ 
+ 
+ 0 
+ 
+ 
+ This hook is executed every time you run  git commit , to verify what is about to be committed. You can use this hook to inspect the snapshot that is about to be committed. 
+ This type of hook is useful for running automated tests to make sure the incoming commit doesn't break existing functionality of your project. This type of hook may also check for whitespace or EOL errors. 
+ No arguments are passed to the pre-commit script, and exiting with a non-zero status aborts the entire commit. 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ edited  Jul 2 at 4:01 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+   
+ 
+ 
+   edit 
+ share 
+ discuss 
+ request improvement 
+   edit 
+ move example 
+ delete example 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 0 
+ 
+ Prepare-commit-msg 
+ 
+ 
+ 
+ 
+ 
+ 0 
+ 
+ 
+ This hook is called after the  pre-commit  hook to populate the text editor with a commit message. This is typically used to alter the automatically generated commit messages for squashed or merged commits. 
+ One to three arguments are passed to this hook: 
+ 
+ The name of a temporary file that contains the message. 
+ The type of commit, either
+ 
+ message ( -m  or  -F  option), 
+ template ( -t  option), 
+ merge (if it's a merge commit), or 
+ squash (if it's squashing other commits). 
+ 
+ 
+ The SHA1 hash of the relevant commit. This is only given if  -c ,  -C , or  --amend  option was given. 
+ 
+ Similar to  pre-commit , exiting with a non-zero status aborts the commit. 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ created  Jul 23 '16 at 0:36 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+   
+ 
+ 
+   edit 
+ share 
+ discuss 
+ request improvement 
+   edit 
+ move example 
+ delete example 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 0 
+ 
+ Pre-rebase 
+ 
+ 
+ 
+ 
+ 
+ 0 
+ 
+ 
+ This hook is called before  git rebase  begins to alter code structure. This hook is typically used for making sure a rebase operation is appropriate. 
+ This hook takes 2 parameters: 
+ 
+ the upstream branch that the series was forked from, and 
+ the branch being rebased (empty when rebasing the current branch). 
+ 
+ You can abort the rebase operation by exiting with a non-zero status. 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ created  Jul 23 '16 at 0:36 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+   
+ 
+ 
+   edit 
+ share 
+ discuss 
+ request improvement 
+   edit 
+ move example 
+ delete example 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 0 
+ 
+ Pre-receive 
+ 
+ 
+ 
+ 
+ 
+ 0 
+ 
+ 
+ This hook is executed every time somebody uses  git push  to push commits to the repository. It always resides in the remote repository that is the destination of the push and not in the originating (local) repository. 
+ The hook runs before any references are updated. It is typically used to enforce any kind of development policy. 
+ The script takes no parameters, but each ref that is being pushed is passed to the script on a separate line on standard input in the following format: 
+ <old-value> <new-value> <ref-name>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ created  Jul 23 '16 at 0:36 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+   
+ 
+ 
+   edit 
+ share 
+ discuss 
+ request improvement 
+   edit 
+ move example 
+ delete example 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 0 
+ 
+ Update 
+ 
+ 
+ 
+ 
+ 
+ 0 
+ 
+ 
+ This hook is called after  pre-receive , and it works the same way. It's called before anything is actually updated, but is called separately for each ref that was pushed rather than all of the refs at once. 
+ This hook accepts the following 3 arguments: 
+ 
+ name of the ref being updated, 
+ old object name stored in the ref, and 
+ new object name stored in the ref. 
+ 
+ This is the same information passed to  pre-receive , but since  update  is invoked separately for each ref, you can reject some refs while allowing others. 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ created  Jul 23 '16 at 0:36 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+   
+ 
+ 
+   edit 
+ share 
+ discuss 
+ request improvement 
+   edit 
+ move example 
+ delete example 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 0 
+ 
+ Verify Maven build (or other build system) before committing 
+ 
+ 
+ 
+ 
+ 
+ 0 
+ 
+ 
+ .git/hooks/pre-commit 
+ #!/bin/sh
+if [ -s pom.xml ]; then
+    echo "Running mvn verify"
+    mvn clean verify
+    if [ $? -ne 0 ]; then
+        echo "Maven build failed"
+        exit 1
+    fi
+fi
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ created  Jul 29 '16 at 12:51 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+   
+ 
+ 
+   edit 
+ share 
+ discuss 
+ request improvement 
+   edit 
+ move example 
+ delete example 
+ 
+ 
+ 
+ 
+ 
+ 
+ + 
+            Add Example
+         
+ 
+ 
+ 
+        Please consider making a request to improve this example.
+         Request Improvement 
+ 
+ 
+ 
+ 
+ 
+ Syntax 
+ 
+ .git/hooks/applypatch-msg 
+ .git/hooks/commit-msg 
+ .git/hooks/post-update 
+ .git/hooks/pre-applypatch 
+ .git/hooks/pre-commit 
+ .git/hooks/prepare-commit-msg 
+ .git/hooks/pre-push 
+ .git/hooks/pre-rebase 
+ .git/hooks/update 
+ 
+ 
+ 
+ 
+   edit 
+ share 
+ 
+   edit 
+ 
+ 
+ 
+ 
+ 
+ 
+ Parameters 
+ 
+ 
+ Parameters 
+ 
+ 
+ 
+   add parameters 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ Remarks 
+ --no-verify  or  -n  to skip all local hooks on the given git command. 
+Eg:  git commit -n 
+ Information on this page was gathered from the  official Git docs  and  Atlassian . 
+ 
+ 
+ 
+   edit 
+ share 
+ 
+   edit 
+ 
+ 
+ 
+ 
+ 
+ 
+ edited  Jul 2 at 4:01 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+                    +4
+                     
+ 
+ 
+   
+ 
+ Still have a question about Hooks? 
+ Ask Question 
+ 
+ 
+ 
+ 
+ Topic Outline 
+ 
+ 13 Examples 
+ 
+ 
+ 
+ 
+ Pre-push 
+ 
+ 
+ Automatically forward certain pushes to other repositories 
+ 
+ 
+ Commit-msg 
+ 
+ 
+ Local hooks 
+ 
+ 
+ Post-checkout 
+ 
+ 
+ Post-commit 
+ 
+ 
+ Post-receive 
+ 
+ 
+ Pre-commit 
+ 
+ 
+ Prepare-commit-msg 
+ 
+ 
+ Pre-rebase 
+ 
+ 
+ Pre-receive 
+ 
+ 
+ Update 
+ 
+ 
+ Verify Maven build (or other build system) before committing 
+ 
+ Show more 
+ 
+ Syntax 
+ 
+ Remarks 
+ 
+ 
+ 
+ 
+                    Blog
+                 
+ 
+ 
+ 
+ 
+   
+ 
+ 
+ Trends in Government Software Developers 
+ 
+ 
+ 
+ 
+ 
+ 
+   
+ 
+ 
+ Introducing Channels: Private Q&A for Your Team 
+ 
+ 
+ 
+ 
+   
+ 
+                var ados = ados || {}; ados.run = ados.run || [];
+                ados.run.push(function () { ados_add_placement(22,499571,"adzerk940701294",5).setZone(56016); });
+             
+ 
+ 
+ 
+ 
+        StackExchange.ready(function () { $.get('/documentation/git/ivc/1330-636356035407041077:fheohin-bhz6npdwgofu6u3qupo.gif?topicId=1330'); });
+     
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+                    Topic Outline
+                         
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ Save Draft 
+ Discard 
+ 
+ 
+ 
+ 
+ Sign up or log in 
+ Save edit as a guest 
+ Join Stack Overflow 
+ 
+ 
+ 
+ Using Google 
+ 
+ 
+ Using Facebook 
+ 
+ 
+ Using Email and Password 
+ 
+ 
+ 
+ 
+ Name 
+ 
+ 
+ 
+ Email 
+ 
+ Save Draft 
+ 
+ 
+ 
+ 
+ We recognize you from another Stack Exchange Network site! 
+ Join and Save Draft 
+ 
+ Discard Draft 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ Stack Overflow 
+ 
+ Questions 
+ Jobs 
+ Developer Jobs Directory 
+ Documentation 
+ Help 
+ Mobile 
+ 
+ 
+ 
+ Stack Overflow  Business 
+ 
+ Talent 
+ Ads 
+ Enterprise 
+ Insights 
+ 
+ 
+ 
+ Company 
+ 
+ About 
+ Press 
+ Work Here 
+ Legal 
+ Privacy Policy 
+ Contact Us 
+ 
+ 
+ 
+ 
+ 
+ Stack Exchange  Network 
+ 
+ Technology 
+ Life / Arts 
+ Culture / Recreation 
+ Science 
+ Other 
+ 
+ 
+ 
+ 
+ 
+ Stack Overflow 
+ Server Fault 
+ Super User 
+ Web Applications 
+ Ask Ubuntu 
+ Webmasters 
+ Game Development 
+ 
+ TeX - LaTeX 
+ Software Engineering 
+ Unix & Linux 
+ Ask Different (Apple) 
+ WordPress Development 
+ Geographic Information Systems 
+ Electrical Engineering 
+ 
+ Android Enthusiasts 
+ Information Security 
+ Database Administrators 
+ Drupal Answers 
+ SharePoint 
+ User Experience 
+ Data Science 
+ 
+ Mathematica 
+ Salesforce 
+ ExpressionEngine® Answers 
+ Blender 
+ Network Engineering 
+ Cryptography 
+ Code Review 
+ 
+ Magento 
+ Software Recommendations 
+ Signal Processing 
+ Emacs 
+ Raspberry Pi 
+ Programming Puzzles & Code Golf 
+ Ethereum 
+ 
+ 
+ 
+                            more (27)
+                         
+ 
+ 
+ 
+ 
+ 
+ 
+ Photography 
+ Science Fiction & Fantasy 
+ Graphic Design 
+ Movies & TV 
+ Music: Practice & Theory 
+ Worldbuilding 
+ Seasoned Advice (cooking) 
+ 
+ Home Improvement 
+ Personal Finance & Money 
+ Academia 
+ Law 
+ 
+ 
+ 
+                            more (16)
+                         
+ 
+ 
+ 
+ 
+ 
+ 
+ English Language & Usage 
+ Skeptics 
+ Mi Yodeya (Judaism) 
+ Travel 
+ Christianity 
+ English Language Learners 
+ Japanese Language 
+ 
+ Arqade (gaming) 
+ Bicycles 
+ Role-playing Games 
+ Anime & Manga 
+ Puzzling 
+ Motor Vehicle Maintenance & Repair 
+ 
+ 
+ 
+                            more (32)
+                         
+ 
+ 
+ 
+ 
+ 
+ 
+ MathOverflow 
+ Mathematics 
+ Cross Validated (stats) 
+ Theoretical Computer Science 
+ Physics 
+ Chemistry 
+ Biology 
+ 
+ Computer Science 
+ Philosophy 
+ 
+ 
+ 
+                            more (10)
+                         
+ 
+ 
+ 
+ 
+ 
+ 
+ Meta Stack Exchange 
+ Stack Apps 
+ API 
+ Data 
+ Area 51 
+ 
+ 
+ 
+ 
+ 
+ Blog 
+ Facebook 
+ Twitter 
+ LinkedIn 
+ 
+ 
+ 
+                                    site design / logo © 2017 Stack Exchange Inc; user contributions licensed under  cc by-sa 3.0 
+                                    with  attribution required .
+                                     rev 2017.7.13.1278 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ Stack Overflow works best with JavaScript enabled
+             
+ 
+ 
+ var z=document.createElement("script");z.type="text/javascript",z.async=!0,z.src="https://static.adzerk.net/ados.js";var s=document.getElementsByTagName("script")[0];s.parentNode.insertBefore(z,s); 
+ 
+var ados = ados || {};
+ados.run = ados.run || [];
+
+ 
+ 
+            (function(i, s, o, g, r, a, m) {
+                i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function() { (i[r].q = i[r].q || []).push(arguments) }, i[r].l = 1 * new Date(); a = s.createElement(o),
+                m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m);
+            })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+                ga('create', 'UA-5620270-1');
+                ga('create', 'UA-5620270-60', {name: 'pageData', sampleRate: 100 });
+                ga('send', 'pageview');
+                ga('pageData.send', 'pageview');
+        var _qevents = _qevents || [],
+            _comscore = _comscore || [];
+        (function () {
+            var ssl='https:'==document.location.protocol,
+                s=document.getElementsByTagName('script')[0],
+                qc=document.createElement('script');
+                qc.async = true;
+                qc.src = (ssl ? 'https://secure' : 'http://edge') + '.quantserve.com/quant.js';
+                s.parentNode.insertBefore(qc, s);
+                _qevents.push({ qacct: "p-c1rF4kxgLUzNc" });
+                            var sc=document.createElement('script');
+                sc.async=true;
+                sc.src=(ssl?'https://sb':'http://b') + '.scorecardresearch.com/beacon.js';
+                s.parentNode.insertBefore(sc, s);
+                _comscore.push({ c1: "2", c2: "17440561" });
+        })();
+
+     
+ 
+                
+                (function(appendChild) {
+                    Node.prototype.appendChild = function() {
+                        var parent = this;
+                        var newNode = arguments[0];
+                        if (parent.nodeName === 'HEAD'
+                            && newNode
+                            && newNode.nodeName === 'SCRIPT'
+                            && newNode.src) {
+                            
+                            window.setTimeout(function() {
+                                var result = newNode.src.match(/^https:\/\/maps\.googleapis\.com\/maps\/api\/place\/js\/(\w+)Service\./i) || [];
+                                var service = result[1];
+                                if (service) {
+                                    if (service === 'Autocompletion') service =  2;
+                                    else if (service === 'Place') service = 1;
+                                    else service = 0;
+                                    StackExchange.using('gps', function() {
+                                        StackExchange.gps.track('google_maps_places_api.call', { service: service });
+                                    });
+                                }
+                            }, 0);
+                        }
+                        return appendChild.apply(this, arguments);
+                    };
+                })(Node.prototype.appendChild);
+             

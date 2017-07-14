@@ -69,7 +69,7 @@ class Dt:
 
 # ======test=========
 # 建表
-dt = Dt()
+# dt = Dt()
 # 解析文件路径
 s = ParseFile()
 res = s.parse(DIRS, FILES)

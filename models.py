@@ -6,9 +6,9 @@
 # 将单词以及词频存入数据库
 
 from peewee import *
-from settings import DATABASE
+# from settings import DATABASE
 
-db = SqliteDatabase(DATABASE)
+db = SqliteDatabase('vocabulary.db')
 
 
 class Book(Model):

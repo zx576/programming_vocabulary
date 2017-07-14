@@ -1,0 +1,1117 @@
+
+ (function () { var old = $.fn.contents; $.fn.contents = function () { try { return old.apply(this, arguments); } catch (e) { return $([]); } } })() 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ Stack Overflow 
+ 
+ 
+ 
+ 
+ Questions 
+ 
+ 
+ Developer Jobs 
+ 
+ 
+ Documentation  beta 
+ 
+ 
+ Tags 
+ 
+ 
+ Users 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ current community 
+ 
+ 
+ 
+ 
+ 
+ 
+ help 
+ chat 
+ 
+ 
+ 
+        Stack Overflow
+     
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+        Meta Stack Overflow
+     
+ 
+ 
+ 
+ 
+ 
+your communities             
+ 
+ 
+ 
+ Sign up  or  log in  to customize your list.
+                 
+ 
+ 
+ more stack exchange communities 
+ 
+ company blog 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+                            Tour
+                             
+                                Start here for a quick overview of the site
+                             
+ 
+ 
+ 
+ 
+                        Help Center
+                         
+                            Detailed answers to any questions you might have
+                         
+ 
+ 
+ 
+ 
+                                Meta
+                                 
+                                    Discuss the workings and policies of this site
+                                 
+ 
+ 
+ 
+ 
+                                About Us
+                                 
+                                    Learn more about Stack Overflow the company
+                                 
+ 
+ 
+ 
+ 
+                                Business
+                                 
+                                    Learn more about hiring developers or posting ads with us
+                                 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ Log In 
+ Sign Up 
+ 
+ 
+ 
+ 
+ 
+        StackExchange.ready(function () { StackExchange.topbar.init(); });
+            StackExchange.scrollPadding.setPaddingTop(60, 10);      
+ 
+ 
+ 
+ 
+ algorithm 
+ 
+ 
+ 
+ 
+   
+ 
+ 
+ 
+ 
+ dashboard 
+ all topics 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ Popular 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+        StackExchange.ready(function () {
+            StackExchange.docs.search.init({
+                popularTopicsJson: [{"Id":1529,"DocTag":"algorithm","Title":"Algorithm Complexity","Url":"/documentation/algorithm/1529/algorithm-complexity"},{"Id":757,"DocTag":"algorithm","Title":"Getting started with algorithm","Url":"/documentation/algorithm/757/getting-started-with-algorithm"},{"Id":4770,"DocTag":"algorithm","Title":"Big-O Notation","Url":"/documentation/algorithm/4770/big-o-notation"},{"Id":5735,"DocTag":"algorithm","Title":"Binary Search Trees","Url":"/documentation/algorithm/5735/binary-search-trees"},{"Id":2299,"DocTag":"algorithm","Title":"Graph","Url":"/documentation/algorithm/2299/graph"}]
+            });
+        });
+     
+   
+ 
+ 
+ 
+ Topic 
+ 
+ 
+ 
+ 
+ 
+ 
+ You must  sign up  or  log in  to make a topic request. 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+    StackExchange.ready(function () {
+        StackExchange.docs.requestTopic.init('algorithm');
+    });
+   
+ 
+ 
+ 
+ 
+ 
+ 
+ A* Pathfinding 
+ 
+ 
+ 
+ topic 
+ discuss (2) 
+ 
+ 
+ 
+ 
+ Title 
+ 
+ 
+ 
+ Versions 
+ 
+ 
+ Introduction 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+   add introduction 
+ edit 
+ share 
+ request improvement (1) 
+   edit 
+ move 
+ delete topic 
+ share 
+ 
+ 
+ 
+ 
+ 
+                var ados = ados || {}; ados.run = ados.run || [];
+                ados.run.push(function () { ados_add_placement(22,499571,"adzerk215664571",4).setZone(29); });
+             
+ 
+ 
+ 
+ 
+ 
+Improvements requested:                     
+ 
+ 
+ 
+ 
+ 
+ 
+            This topic would benefit from examples that don't currently exist. –      bolzano 
+ Jun 6 at 21:33 
+ Add implementation (e.g. in C++ / Python) 
+ 
+ 
+ 
+ 
+ 
+ 
+ It's better to add pseudo-code rather than implementation in any language. That way, by following the pseudo-code, algorithm can be implemented in any language. 
+ 
+                –      kiner_shah 
+ Jul 3 at 3:04 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ Edit Topic 
+ 
+ 
+ 
+ 
+ This draft deletes the entire topic. 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+                    Examples
+                     
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Improvements requested:                     
+ 
+ 
+ 
+ 
+ 
+ 
+            This was posted as an example, but it does not attempt to illustrate the topic.  It should possibly be an edit to the topic, a separate topic, or deleted altogether. –      Peter O. 
+ Dec 1 at 4:31 
+ Move this to the Introduction section, not as an example. 
+ 
+ 
+ 
+ 
+ 
+ 
+ Edit Example 
+ Delete Example 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 3 
+ 
+ Introduction to A* 
+ 
+ 
+ 
+ 
+ 
+ 3 
+ 
+ 
+ 
+ 
+ 
+   
+ A* (A star) is a search algorithm that is used for finding path from one node to another. So it can be compared with  Breadth First Search , or  Dijkstra’s algorithm , or  Depth First Search , or Best First Search. A* algorithm is widely used in graph search for being better in efficiency and accuracy, where graph pre-processing is not an option. 
+ A* is a an specialization of Best First Search , in which the function of evaluation  f  is define in a particular way. 
+ f(n) = g(n) + h(n)  is the minimum cost since the initial node to the objectives conditioned to go thought node  n . 
+ g(n)  is the minimum cost from the initial node to  n . 
+ h(n)  is the minimum cost from  n  to the closest objective to  n 
+ A* is an informed search algorithm and it always guarantees to find the smallest path (path with minimum cost) in the least possible time (if uses  admissible heuristic ). So it is both  complete  and  optimal . The following animation demonstrates A* search- 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ edited  Oct 23 '16 at 12:22 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+   
+ 
+ 
+   edit 
+ share 
+ discuss 
+ request improvement (1) 
+   edit 
+ move example 
+ delete example 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 1 
+ 
+ A* Pathfinding through a maze with no obstacles 
+ 
+ 
+ 
+ 
+ 
+ 1 
+ 
+ 
+ Let's say we have the following 4 by 4 grid: 
+ 
+ Let's assume that this is a  maze . There are no walls/obstacles, though. We only have a starting point (the green square), and an ending point (the red square).
+Let's also assume that in order to get from green to red, we cannot move diagonally.
+So, starting from the green square, let's see which squares we can move to, and highlight them in blue: 
+ 
+ In order to choose which square to move to next, we need to take into account 2 heuristics: 
+ 
+ The "g" value - This is how far away this node is from the green square. 
+ The "h" value - This is how far away this node is from the red square. 
+ The "f" value - This is the sum of the "g" value and the "h" value. This is the final number which tells us which node to move to. 
+ 
+ In order to calculate these heuristics, this is the formula we will use:  distance = abs(from.x - to.x) + abs(from.y - to.y) 
+ This is known as the  "Manhattan Distance"  formula. 
+ Let's calculate the "g" value for the blue square immediately to the left of the green square:
+ abs(3 - 2) + abs(2 - 2) = 1 
+ Great! We've got the value: 1.
+Now, let's try calculating the "h" value:
+ abs(2 - 0) + abs(2 - 0) = 4 
+ Perfect. Now, let's get the "f" value:
+ 1 + 4 = 5 
+ So, the final value for this node is "5". 
+ Let's do the same for all the other blue squares. The big number in the center of each square is the "f" value, while the number on the top left is the "g" value, and the number on the top right is the "h" value: 
+ 
+ We've calculated the g, h, and f values for all of the blue nodes. Now, which do we pick? 
+ Whichever one has the lowest f value. 
+ However, in this case, we have 2 nodes with the same f value, 5. How do we pick between them? 
+ Simply, either choose one at random, or have a priority set. I usually prefer to have a priority like so:
+"Right > Up > Down > Left" 
+ One of the nodes with the f value of 5 takes us in the "Down" direction, and the other takes us "Left". Since Down is at a higher priority than Left, we choose the square which takes us "Down". 
+ I now mark the nodes which we calculated the heuristics for, but did not move to, as orange, and the node which we chose as cyan: 
+ 
+ Alright, now let's calculate the same heuristics for the nodes around the cyan node: 
+ 
+ Again, we choose the node going down from the cyan node, as all the options have the same f value: 
+ 
+ Let's calculate the heuristics for the only neighbour that the cyan node has: 
+ 
+ Alright, since we will follow the same pattern we have been following: 
+ 
+ Once more, let's calculate the heuristics for the node's neighbour: 
+ 
+ Let's move there: 
+ 
+ Finally, we can see that we have a  winning square  beside us, so we move there, and we are done. 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ created  Jan 11 at 8:06 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+   
+ 
+ 
+   edit 
+ share 
+ discuss 
+ request improvement 
+   edit 
+ move example 
+ delete example 
+ 
+ 
+ 
+   
+ 
+                var ados = ados || {}; ados.run = ados.run || [];
+                ados.run.push(function () { ados_add_placement(22,499571,"adzerk2120958716",4).setZone(30); });
+             
+ 
+ 
+   
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 0 
+ 
+ Solving 8-puzzle problem using A* algorithm 
+ 
+ 
+ 
+ 
+ 
+ 0 
+ 
+ 
+ 
+ Problem definition : 
+ 
+ An 8 puzzle is a simple game consisting of a 3 x 3 grid (containing 9 squares). One of the squares is empty. The object is to move to squares around into different positions and having the numbers displayed in the "goal state". 
+ 
+ Given an initial state of 8-puzzle game and a final state of to be reached, find the most cost-effective path to reach the final state from initial state. 
+ 
+ Initial state : 
+ 
+ _ 1 3
+4 2 5
+7 8 6
+ 
+ 
+ Final state : 
+ 
+ 1 2 3
+4 5 6
+7 8 _
+ 
+ 
+ Heuristic to be assumed : 
+ 
+ Let us consider the Manhattan distance between the current and final state as the heuristic for this problem statement. 
+ h(n) = | x - p | + | y - q |
+where x and y are cell co-ordinates in the current state
+      p and q are cell co-ordinates in the final state
+ 
+ 
+ Total cost function : 
+ 
+ So the total cost function  f(n)  is given by, 
+ f(n) = g(n) + h(n), where g(n) is the cost required to reach the current state from given initial state
+ 
+ 
+ Solution to example problem : 
+ 
+ First we find the heuristic value required to reach the final state from initial state. The cost function, g(n) = 0, as we are in the initial state 
+ h(n) = 8
+ 
+ The above value is obtained, as  1  in the current state is 1 horizontal distance away than the  1  in final state. Same goes for  2 ,  5 ,  6 .  _  is 2 horizontal distance away and 2 vertical distance away. So total value for  h(n)  is 1 + 1 + 1 + 1 + 2 + 2 = 8. Total cost function  f(n)  is equal to 8 + 0 = 8. 
+ Now, the possible states that can be reached from initial state are found and it happens that we can either move  _  to right or downwards. 
+ So states obtained after moving those moves are: 
+ 1 _ 3    4 1 3
+4 2 5    _ 2 5
+7 8 6    7 8 6
+ (1)      (2)
+ 
+ Again the total cost function is computed for these states using the method described above and it turns out to be 6 and 7 respectively. We chose the state with minimum cost which is state (1). The next possible moves can be Left, Right or Down. We won't move Left as we were previously in that state. So, we can move Right or Down. 
+ Again we find the states obtained from (1). 
+ 1 3 _    1 2 3
+4 2 5    4 _ 5
+7 8 6    7 8 6
+ (3)      (4)
+ 
+ (3) leads to cost function equal to 6 and (4) leads to 4. Also, we will consider (2) obtained before which has cost function equal to 7. Choosing minimum from them leads to (4). Next possible moves can be Left or Right or Down. We get states: 
+ 1 2 3    1 2 3    1 2 3
+_ 4 5    4 5 _    4 8 5
+7 8 6    7 8 6    7 _ 6
+ (5)      (6)      (7)
+ 
+ We get costs equal to 5, 2 and 4 for (5), (6) and (7) respectively. Also, we have previous states (3) and (2) with 6 and 7 respectively. We chose minimum cost state which is (6). Next possible moves are Up, and Down and clearly Down will lead us to final state leading to heuristic function value equal to 0. 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ created  Dec 24 '16 at 10:10 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+   
+ 
+ 
+   edit 
+ share 
+ discuss 
+ request improvement 
+   edit 
+ move example 
+ delete example 
+ 
+ 
+ 
+ 
+ 
+ 
+ + 
+            Add Example
+         
+ 
+ 
+ 
+        Please consider making a request to improve this example.
+         Request Improvement 
+ 
+ 
+ 
+ 
+ 
+ Syntax 
+ 
+ 
+ Syntax 
+ 
+ 
+ 
+   add syntax 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ Parameters 
+ 
+ 
+ Parameters 
+ 
+ 
+ 
+   add parameters 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ Remarks 
+ 
+ 
+ Remarks 
+ 
+ 
+ 
+   add remarks 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ edited  Oct 23 '16 at 12:22 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+   
+ 
+ Still have a question about A* Pathfinding? 
+ Ask Question 
+ 
+ 
+ 
+ 
+ Topic Outline 
+ 
+ 3 Examples 
+ 
+ 
+ 
+ 
+ Introduction to A* 
+ 
+ 
+ A* Pathfinding through a maze with no obstacles 
+ 
+ 
+ Solving 8-puzzle problem using A* algorithm 
+ 
+ Show more 
+ 
+ 
+ 
+ 
+                    Blog
+                 
+ 
+ 
+ 
+ 
+   
+ 
+ 
+ Trends in Government Software Developers 
+ 
+ 
+ 
+ 
+ 
+ 
+   
+ 
+ 
+ Introducing Channels: Private Q&A for Your Team 
+ 
+ 
+ 
+ 
+   
+ 
+                var ados = ados || {}; ados.run = ados.run || [];
+                ados.run.push(function () { ados_add_placement(22,499571,"adzerk379296749",5).setZone(56016); });
+             
+ 
+ 
+ 
+ 
+        StackExchange.ready(function () { $.get('/documentation/algorithm/ivc/7439-636356029135567382:w610naqf1tahmb1lahmcnsbzfii.gif?topicId=7439'); });
+     
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+                    Topic Outline
+                         
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ Save Draft 
+ Discard 
+ 
+ 
+ 
+ 
+ Sign up or log in 
+ Save edit as a guest 
+ Join Stack Overflow 
+ 
+ 
+ 
+ Using Google 
+ 
+ 
+ Using Facebook 
+ 
+ 
+ Using Email and Password 
+ 
+ 
+ 
+ 
+ Name 
+ 
+ 
+ 
+ Email 
+ 
+ Save Draft 
+ 
+ 
+ 
+ 
+ We recognize you from another Stack Exchange Network site! 
+ Join and Save Draft 
+ 
+ Discard Draft 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ Stack Overflow 
+ 
+ Questions 
+ Jobs 
+ Developer Jobs Directory 
+ Documentation 
+ Help 
+ Mobile 
+ 
+ 
+ 
+ Stack Overflow  Business 
+ 
+ Talent 
+ Ads 
+ Enterprise 
+ Insights 
+ 
+ 
+ 
+ Company 
+ 
+ About 
+ Press 
+ Work Here 
+ Legal 
+ Privacy Policy 
+ Contact Us 
+ 
+ 
+ 
+ 
+ 
+ Stack Exchange  Network 
+ 
+ Technology 
+ Life / Arts 
+ Culture / Recreation 
+ Science 
+ Other 
+ 
+ 
+ 
+ 
+ 
+ Stack Overflow 
+ Server Fault 
+ Super User 
+ Web Applications 
+ Ask Ubuntu 
+ Webmasters 
+ Game Development 
+ 
+ TeX - LaTeX 
+ Software Engineering 
+ Unix & Linux 
+ Ask Different (Apple) 
+ WordPress Development 
+ Geographic Information Systems 
+ Electrical Engineering 
+ 
+ Android Enthusiasts 
+ Information Security 
+ Database Administrators 
+ Drupal Answers 
+ SharePoint 
+ User Experience 
+ Data Science 
+ 
+ Mathematica 
+ Salesforce 
+ ExpressionEngine® Answers 
+ Blender 
+ Network Engineering 
+ Cryptography 
+ Code Review 
+ 
+ Magento 
+ Software Recommendations 
+ Signal Processing 
+ Emacs 
+ Raspberry Pi 
+ Programming Puzzles & Code Golf 
+ Ethereum 
+ 
+ 
+ 
+                            more (27)
+                         
+ 
+ 
+ 
+ 
+ 
+ 
+ Photography 
+ Science Fiction & Fantasy 
+ Graphic Design 
+ Movies & TV 
+ Music: Practice & Theory 
+ Worldbuilding 
+ Seasoned Advice (cooking) 
+ 
+ Home Improvement 
+ Personal Finance & Money 
+ Academia 
+ Law 
+ 
+ 
+ 
+                            more (16)
+                         
+ 
+ 
+ 
+ 
+ 
+ 
+ English Language & Usage 
+ Skeptics 
+ Mi Yodeya (Judaism) 
+ Travel 
+ Christianity 
+ English Language Learners 
+ Japanese Language 
+ 
+ Arqade (gaming) 
+ Bicycles 
+ Role-playing Games 
+ Anime & Manga 
+ Puzzling 
+ Motor Vehicle Maintenance & Repair 
+ 
+ 
+ 
+                            more (32)
+                         
+ 
+ 
+ 
+ 
+ 
+ 
+ MathOverflow 
+ Mathematics 
+ Cross Validated (stats) 
+ Theoretical Computer Science 
+ Physics 
+ Chemistry 
+ Biology 
+ 
+ Computer Science 
+ Philosophy 
+ 
+ 
+ 
+                            more (10)
+                         
+ 
+ 
+ 
+ 
+ 
+ 
+ Meta Stack Exchange 
+ Stack Apps 
+ API 
+ Data 
+ Area 51 
+ 
+ 
+ 
+ 
+ 
+ Blog 
+ Facebook 
+ Twitter 
+ LinkedIn 
+ 
+ 
+ 
+                                    site design / logo © 2017 Stack Exchange Inc; user contributions licensed under  cc by-sa 3.0 
+                                    with  attribution required .
+                                     rev 2017.7.13.1278 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ Stack Overflow works best with JavaScript enabled
+             
+ 
+ 
+ var z=document.createElement("script");z.type="text/javascript",z.async=!0,z.src="https://static.adzerk.net/ados.js";var s=document.getElementsByTagName("script")[0];s.parentNode.insertBefore(z,s); 
+ 
+var ados = ados || {};
+ados.run = ados.run || [];
+
+ 
+ 
+            (function(i, s, o, g, r, a, m) {
+                i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function() { (i[r].q = i[r].q || []).push(arguments) }, i[r].l = 1 * new Date(); a = s.createElement(o),
+                m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m);
+            })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+                ga('create', 'UA-5620270-1');
+                ga('create', 'UA-5620270-60', {name: 'pageData', sampleRate: 100 });
+                ga('send', 'pageview');
+                ga('pageData.send', 'pageview');
+        var _qevents = _qevents || [],
+            _comscore = _comscore || [];
+        (function () {
+            var ssl='https:'==document.location.protocol,
+                s=document.getElementsByTagName('script')[0],
+                qc=document.createElement('script');
+                qc.async = true;
+                qc.src = (ssl ? 'https://secure' : 'http://edge') + '.quantserve.com/quant.js';
+                s.parentNode.insertBefore(qc, s);
+                _qevents.push({ qacct: "p-c1rF4kxgLUzNc" });
+                            var sc=document.createElement('script');
+                sc.async=true;
+                sc.src=(ssl?'https://sb':'http://b') + '.scorecardresearch.com/beacon.js';
+                s.parentNode.insertBefore(sc, s);
+                _comscore.push({ c1: "2", c2: "17440561" });
+        })();
+
+     
+ 
+                
+                (function(appendChild) {
+                    Node.prototype.appendChild = function() {
+                        var parent = this;
+                        var newNode = arguments[0];
+                        if (parent.nodeName === 'HEAD'
+                            && newNode
+                            && newNode.nodeName === 'SCRIPT'
+                            && newNode.src) {
+                            
+                            window.setTimeout(function() {
+                                var result = newNode.src.match(/^https:\/\/maps\.googleapis\.com\/maps\/api\/place\/js\/(\w+)Service\./i) || [];
+                                var service = result[1];
+                                if (service) {
+                                    if (service === 'Autocompletion') service =  2;
+                                    else if (service === 'Place') service = 1;
+                                    else service = 0;
+                                    StackExchange.using('gps', function() {
+                                        StackExchange.gps.track('google_maps_places_api.call', { service: service });
+                                    });
+                                }
+                            }, 0);
+                        }
+                        return appendChild.apply(this, arguments);
+                    };
+                })(Node.prototype.appendChild);
+             
