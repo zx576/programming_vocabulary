@@ -14617,3 +14617,30 @@ None
 None
 None
 None
+Traceback (most recent call last):
+  File "/root/zhouxin/venv/lib/python3.5/site-packages/peewee.py", line 3768, in execute_sql
+    cursor.execute(sql, params or ())
+sqlite3.OperationalError: no such table: newword
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/root/zhouxin/codedir/programming_vocabulary/translate.py", line 98, in <module>
+    t.trans()
+  File "/root/zhouxin/codedir/programming_vocabulary/translate.py", line 69, in trans
+    if not query:
+  File "/root/zhouxin/venv/lib/python3.5/site-packages/peewee.py", line 3257, in __len__
+    return len(self.execute())
+  File "/root/zhouxin/venv/lib/python3.5/site-packages/peewee.py", line 3233, in execute
+    self._qr = ResultWrapper(model_class, self._execute(), query_meta)
+  File "/root/zhouxin/venv/lib/python3.5/site-packages/peewee.py", line 2912, in _execute
+    return self.database.execute_sql(sql, params, self.require_commit)
+  File "/root/zhouxin/venv/lib/python3.5/site-packages/peewee.py", line 3775, in execute_sql
+    self.commit()
+  File "/root/zhouxin/venv/lib/python3.5/site-packages/peewee.py", line 3598, in __exit__
+    reraise(new_type, new_type(*exc_args), traceback)
+  File "/root/zhouxin/venv/lib/python3.5/site-packages/peewee.py", line 135, in reraise
+    raise value.with_traceback(tb)
+  File "/root/zhouxin/venv/lib/python3.5/site-packages/peewee.py", line 3768, in execute_sql
+    cursor.execute(sql, params or ())
+peewee.OperationalError: no such table: newword
