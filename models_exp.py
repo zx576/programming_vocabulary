@@ -3,6 +3,10 @@
 # date = 2017.7.14
 # description
 # expand exsited database, add some nessary column, and reserve some columns
+# 使用 peewee 库操作 sqlite3
+# 建立两个 table: word-book
+# 以下为 newword 的原因是由于之前创建过一次，但需要扩展字段
+# 所有迁移了数据，重新建了表
 
 from settings import DATABASE
 from peewee import *
@@ -18,6 +22,7 @@ class NewBook(Model):
     # 是否已经统计
     is_analyzed = BooleanField(default=False)
     # reserved columns
+    # 保留字段，便于之后扩展
     re1 = CharField(default='')
     re2 = CharField(default='')
     re3 = IntegerField(default=0)
@@ -40,6 +45,7 @@ class NewWord(Model):
     # 音标
     phonogram = CharField(default='')
     # reserved columns
+    # 保留字段，便于之后扩展
     re1 = CharField(default='')
     re2 = CharField(default='')
     re3 = IntegerField(default=0)

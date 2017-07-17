@@ -3,6 +3,7 @@
 # date = 2017.7.12
 # description
 # crawl README's words about most projects of awesome-python on the github.com
+# 爬取 github 上的资源集合， 或者某个独立的项目
 
 import bs4
 import re
@@ -18,10 +19,13 @@ class _Settings:
     def __init__(self):
 
         # github projects which contain many python directories
+        # 资源集合
         self.projectsPool = ['https://github.com/vinta/awesome-python']
         # dependent directories
+        # 独立的仓库
         self.projectsUrl = []
         # invoke general class
+        # 爬虫工具箱
         self.util = Utils()
 
     # parse projects(like awesome-python)
@@ -60,6 +64,7 @@ class _Settings:
         return list(set(self.projectsUrl+self._parse_pool()))
 
 
+# 爬虫程序
 class GitSpider:
 
     def __init__(self):
@@ -96,5 +101,6 @@ class GitSpider:
             print('successfully get {0} '.format(url))
 
 
-gs = GitSpider()
-gs.start()
+if __name__ == '__main__':
+    gs = GitSpider()
+    gs.start()

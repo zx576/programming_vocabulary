@@ -43,7 +43,6 @@ class AnlysisBook():
         return newbook
 
     # filter valid words
-    # select the 500(default, you can change it in settings.py) frequency words
     def _filter_words(self, raw_words, count=NUMBERS):
 
         new_words = []
@@ -55,19 +54,17 @@ class AnlysisBook():
         ct = 10
         for i, j in NUMBERS:
             if len(new_words) < i:
-
                 ct = j
                 break
 
-        print(ct)
-
+        # print(ct)
         c = Counter(new_words)
         return c.most_common(ct)
 
     # insert words into database
     # firstly, it will check out if the book exist in the database
     # if not, the words will be inserted into database
-    # or , it will return cos the words has been handled
+    # or , it will return None cus the words has been handled
     # last, the book will be marked as analyzed
     def _insert_book(self, book, words):
 
@@ -87,11 +84,13 @@ class AnlysisBook():
                             name=word,
                             frequency=fre,
                         )
-        print('处理了 {} 个单词'.format(len(words)))
+
+        # print('处理了 {} 个单词'.format(len(words)))
         # 标记该书已经被处理
         book.is_analyzed = True
         book.save()
 
+    # 对外接口
     def analysis(self, lst_files):
 
         # filename = 'Data+Structures+and+Algorithms+Using+Python.txt'

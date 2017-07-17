@@ -1,4 +1,7 @@
-
+# coding=utf-8
+# author = zhouxin
+# description
+# 下载 pdf 文件， 将 pdf 下载地址添加到 downlst ,运行程序即可
 
 import requests
 
@@ -26,13 +29,11 @@ downlst = [
     # 'http://www.oreilly.com/programming/free/files/functional-programming-python.pdf',
     # 'http://www.oreilly.com/programming/free/files/python-in-education.pdf',
     # 'http://www.oreilly.com/programming/free/files/from-future-import-python.pdf'
-
     # 'http://trickntip.com/wp-content/uploads/2017/01/Head-First-Python-ora-2011.pdf'
     # ''''''''''''''''
     # 'http://victoria.lviv.ua/html/fl5/NaturalLanguageProcessingWithPython.pdf',
     # 'http://www3.canisius.edu/~yany/python/Python4DataAnalysis.pdf',
-    # 'ftp://ftp.micronet-rostov.ru/linux-support/books/programming/Python/[O%60Reilly]%20-%20Programming%20Python,%204th%20ed.%20-%20[Lutz]/[O%60Reilly]%20-%20Programming%20Python,%204th%20ed.%20-%20[Lutz].pdf'
-    
+    # 'ftp://ftp.micronet-rostov.ru/linux-support/books/programming/Python/[O%60Reilly]%20-%20Programming%20Python,%204th%20ed.%20-%20[Lutz]/[O%60Reilly]%20-%20Programming%20Python,%204th%20ed.%20-%20[Lutz].pdf
     # ..for 
     # 'https://media.readthedocs.org/pdf/requests/latest/requests.pdf',
     # 'http://gsl.mit.edu/media/programs/nigeria-summer-2012/materials/python/django.pdf',
@@ -53,6 +54,7 @@ downlst = [
 
 ]
 
+if __name__ == '__main__':
 
-# for l in downlst:
-#     download(l)
+    for l in downlst:
+        download(l)

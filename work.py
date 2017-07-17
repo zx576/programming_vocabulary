@@ -13,6 +13,8 @@ from models_exp import new_db, NewWord, NewBook
 # 解析所有文件路径
 class ParseFile:
 
+    # 解析 settings 中的文件夹地址
+    # 程序只会将 txt 文件添加到待获取列表
     def _parse_dirs(self, dirs):
 
         assert isinstance(dirs, list), 'type(dirs) should be list '
@@ -32,12 +34,13 @@ class ParseFile:
 
         return files
 
+    # 解析单个文件
     def _parse_files(self, files):
 
         assert isinstance(files, list), 'type(files) should be list '
         f = []
         for path in files:
-            if not os.path.isfile(path):
+            if not os.path.isfile(path) or '.txt' not in path:
                 continue
             f.append(path)
 

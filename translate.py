@@ -2,7 +2,7 @@
 # author=zhouxin
 # date=2017.7.10
 # description
-# 调用翻译接口，逐步翻译数据库内词汇
+# 调用翻译接口，翻译数据库内词汇
 
 import requests
 import time
@@ -18,6 +18,7 @@ class Translate:
 
     # translation api, tranlate a english word to chinese
     # return translation result
+    # 百度翻译接口
     def _trans(self, word):
         # res = self.trans.translate('hello', dest='zh-CN')
         url = 'http://fanyi.baidu.com/sug'
@@ -54,7 +55,7 @@ class Translate:
         for part in data['parts']:
             ex += part['part'] + ';'.join(part['means']) + ';'
 
-        return ph_en+ph_am
+        return ph_en+ph_am, ex
 
     # 扇贝单词 api
     def _trans_shanbay(self, word):
@@ -62,7 +63,10 @@ class Translate:
         req = requests.get(url)
         print(req.json())
 
+
     # 使用 金山单词 翻译接口
+    # 百度接口没有音标
+    # 扇贝接口包含的信息不如其他两家
     def trans(self):
 
         query = NewWord.select().where(NewWord.explanation != '')
@@ -73,27 +77,21 @@ class Translate:
             res = self._trans_ici(word.name)
             # print(res)
             if res:
-                word.phonogram = res
+                word.phonogram = res[0]
                 # word.
-                # word.explanation = res
+                word.explanation = res[1]
 
             else:
                 word.is_valid = False
             word.save()
             time.sleep(1)
 
-    def _test(self):
-        query = NewWord.select()
-
-        for word in query[:100]:
-            print(word.name)
-            print(word.explanation)
-            print(word.frequency)
 
 if __name__ == '__main__':
 
     t = Translate()
     # res = t._trans_shanbay('hello')
     # print(res)
-    # t._test()
-    t.trans()
+    # t.trans()
+    res = t._trans_ici('hello')
+    print(res)

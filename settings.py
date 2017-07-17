@@ -22,7 +22,7 @@ DIRS = [
 # 文件也可以单独添加
 FILES = [
     # 示例， 该文件在项目文件夹下， 名为 'python.txt'
-    # os.path.join(_BASEDIR, 'afe.txt')
+    # os.path.join(_BASEDIR, 'fortest.txt')
 
 ]
 

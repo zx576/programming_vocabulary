@@ -1,14 +1,16 @@
 # coding=utf-8
 # author = zhouxin
 # date = 2017.7.13
-# des
-# download online books
+# description
+# download online books,
+# 资源来自与 readthedocs.io
+# 下载某个在线的文档所有的文字
 
-import requests
 import bs4
 import queue
 
 from spiders.utils import Utils
+
 
 class _Down:
 
@@ -18,7 +20,6 @@ class _Down:
     def _save(self, title, words):
         if not words:
             return
-
         with open('docs/{}'.format(title), 'a+')as f:
             f.write(words)
 
@@ -78,10 +79,10 @@ class Pat1(_Down):
     def __init__(self):
         # super(_Down, self).__init__()
         self.util = Utils()
-        # self.url = 'https://interactivepython.org/courselib/static/pythonds/index.html'
-        # self.domain = 'https://interactivepython.org/courselib/static/pythonds/'
-        # title = 'Problem Solving with Algorithms and Data Structures using Python.txt'
-
+        # 某文档信息
+        self.url = 'https://interactivepython.org/courselib/static/pythonds/index.html'
+        self.domain = 'https://interactivepython.org/courselib/static/pythonds/'
+        self.title = 'Problem Solving with Algorithms and Data Structures using Python.txt'
         # self.url = 'http://chimera.labs.oreilly.com/books/1230000000393/index.html'
         # self.domain = 'http://chimera.labs.oreilly.com/books/1230000000393/'
         # self.title = 'Python Cookbook.txt'
@@ -99,9 +100,9 @@ class Pat1(_Down):
 
         return self.download(self.url, self.domain, self.title)
 
-
-p1 = Pat1()
-p1.get()
+if __name__ == '__main__':
+    p1 = Pat1()
+    p1.get()
 
 
 

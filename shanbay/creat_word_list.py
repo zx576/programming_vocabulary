@@ -51,6 +51,7 @@ class Create_list:
 
             time.sleep(1)
 
+if __name__ == '__main__':
 
-c = Create_list()
-c.create()
+    c = Create_list()
+    c.create()

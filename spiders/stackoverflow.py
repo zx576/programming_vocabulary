@@ -3,12 +3,11 @@
 # date = 2017.7.12
 # description
 # crwal stacloverflow's topic
+
 import bs4
-import queue
 
 from spiders.utils import Utils
 
-# stqueue = queue.Queue()
 
 class _Settings():
 
@@ -24,7 +23,6 @@ class _Settings():
             # 'https://stackoverflow.com/documentation/git/topics',
             # 'https://stackoverflow.com/documentation/design-patterns/topics',
             'https://stackoverflow.com/documentation/flask/topics'
-
         ]
         # question links
         self.res = []
@@ -33,6 +31,7 @@ class _Settings():
         self.util = Utils()
         self.domain = 'https://stackoverflow.com'
 
+    # 解析这个 topic 下的所有答案链接
     def _parse_topic(self):
         if not self.topic:
             return
@@ -58,6 +57,7 @@ class _Settings():
             next_url =self.domain + soup_next['href']
             return self._add_url(next_url)
 
+
     def parse(self):
 
         self._parse_topic()
@@ -70,6 +70,7 @@ class Stspider:
         self.links = _Settings().parse()
         self.util = Utils()
 
+    # 获取所有文字内容
     def _get_words(self, url):
         page = self.util.req(url)
         if not page:
@@ -83,6 +84,7 @@ class Stspider:
 
         return words
 
+    # 保存文字内容
     def _save(self, url, words):
         if not words:
             return
@@ -90,6 +92,7 @@ class Stspider:
         with open(r'stack/{}.txt'.format(title), 'w')as f:
             f.write(words)
 
+    # 启动
     def start(self):
 
         if not self.links:
@@ -101,7 +104,8 @@ class Stspider:
             print('successfully get {0} '.format(url))
 
 
-st = Stspider()
-st.start()
+if __name__ == '__main__':
+    st = Stspider()
+    st.start()
 
 

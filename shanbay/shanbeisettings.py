@@ -36,7 +36,7 @@ CHAPTER_NAME = create()
 
 
 # 登录凭证
-# 扇贝账户与密码
+# 扇贝账户与密码 - 未实现
 # 或者手动复制 cookie 信息
 
 HEADER = {
@@ -59,9 +59,7 @@ HEADER = {
 # 创建的单词书ID
 WORKBOOKID = 187711
 
-
 # workbook_id 输出文件地址
-
 WORKBOOK_PATH = 'workbook_id.txt'
 
 
