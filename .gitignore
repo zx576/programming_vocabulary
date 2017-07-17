@@ -2,3 +2,4 @@
 _pycache__
 *.csv
 test.py
+*.pyc
