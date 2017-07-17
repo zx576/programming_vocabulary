@@ -8,20 +8,25 @@
 
 from models_exp import NewWord
 import csv
+import chardet
 
 def extract():
 
     query = NewWord.select().where((NewWord.is_valid == True) & (NewWord.re1 == 'added')).order_by(-NewWord.frequency)
     # print(len(query))
     for word in query:
-        yield [word.name, word.phonogram, word.explanation]
+        # print(chardet.detect(word.name))
+        res = []
+        for i in [word.name, word.phonogram, word.explanation]:
+            res.append(i)
 
+        yield res
 
 def save(res):
 
-    with open('python-words.csv', 'a+', newline='')as f:
+    with open('python-words.csv', 'a+', errors='ignore', newline='')as f:
         csv_writer = csv.writer(f)
-        csv_writer.writerows(res)
+        csv_writer.writerow(res)
 
 
 def main():
@@ -29,8 +34,6 @@ def main():
     row = extract()
     count = 1
     while True:
-        if count > 10:
-            break
         try:
             row_data = next(row)
         except:
@@ -40,7 +43,7 @@ def main():
 
 if __name__ == '__main__':
     main()
-# res = extract()
-# print(next(res))
-# print(next(res))
-# print(next(res))
+    # res = extract()
+    # print(next(res))
+    # print(next(res))
+    # print(next(res))

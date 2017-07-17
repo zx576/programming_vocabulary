@@ -26,4 +26,66 @@
 6、 从数据库提取所有词汇到 csv
 
 
+#### python 高频词汇内容整理
+
+
+##### 书籍系列
+
+Head-First-Python-ora-2011.pdf
+from-future-import-python.pdf
+20-python-libraries-you-arent-using-but-should.pdf
+functional-programming-python.pdf
+hadoop-with-python.pdf
+how-to-make-mistakes-in-python.pdf
+OReilly-Core-PythonProgramming.pdf
+a-whirlwind-tour-of-python.pdf
+Learn-Python-The-Hard-Way-3rd-Edition-V413HAV.pdf
+python-in-education.pdf
+NaturalLanguageProcessingWithPython.pdf
+Python_Succinctly.pdf
+beautiful-soup-4.pdf
+MongoDB-and-Python-Patterns-and-Processes-for-the-Popular-Document-Oriented-Database.pdf
+Natural_Language_Processing_with_Python.pdf
+Python4DataAnalysis.pdf
+Python-Pocket-Reference-Python-in-Your-Pocke.pdf
+SciPy_Programming_Succinctly.pdf
+Learning-Python-5t-Edition.pdf
+fluent-python-2015-.pdf
+
+
+#### python 常用库文档：
+
+scrapy.pdf
+pandas.pdf
+pillow.pdf
+xlwt.pdf
+flask.pdf
+requests.pdf
+django.pdf
+numpy-ref-1.11.0.pdf
+jinja2.pdf
+peewee.pdf
+lxmldoc-3.4.4.pdf
+python官方文档
+
+
+#### github
+
+python-awesome 下近 400 个项目的 readme 文档
+[python-awesome](https://github.com/vinta/awesome-python)
+
+
+#### stackoverfolw 文档
+
+##### python 以及相关 tag
+
+python
+django
+algorithm
+git
+design-patterns
+flask
+
+共 396 个相关 topics
+
 
