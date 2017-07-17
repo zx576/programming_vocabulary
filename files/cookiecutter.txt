@@ -1,0 +1,516 @@
+Cookiecutter 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ A command-line utility that creates projects from  cookiecutters  (project
+templates), e.g. creating a Python package project from a Python package project template. 
+ 
+ Documentation:  https://cookiecutter.readthedocs.io 
+ GitHub:  https://github.com/audreyr/cookiecutter 
+ PyPI:  https://pypi.python.org/pypi/cookiecutter 
+ Free and open source software:  BSD license 
+ 
+ 
+ We are proud to be an open source sponsor of  PyCon 2016 . 
+ 
+ Features 
+ Did someone say features? 
+ 
+ Cross-platform: Windows, Mac, and Linux are officially supported. 
+ 
+ Works with Python 2.7, 3.3, 3.4, 3.5, 3.6, and PyPy.  (But you don't have to
+know/write Python code to use Cookiecutter.) 
+ 
+ Project templates can be in any programming language or markup format:
+Python, JavaScript, Ruby, CoffeeScript, RST, Markdown, CSS, HTML, you name
+it. You can use multiple languages in the same project template. 
+ 
+ Simple command line usage: 
+ 
+ #  Create project from the cookiecutter-pypackage.git repo template 
+ #  You'll be prompted to enter values. 
+ #  Then it'll create your Python package in the current working directory, 
+ #  based on those values. 
+$ cookiecutter https://github.com/audreyr/cookiecutter-pypackage
+ #  For the sake of brevity, repos on GitHub can just use the 'gh' prefix 
+$ cookiecutter gh:audreyr/cookiecutter-pypackage 
+ 
+ 
+ Use it at the command line with a local template: 
+ 
+ #  Create project in the current working directory, from the local 
+ #  cookiecutter-pypackage/ template 
+$ cookiecutter cookiecutter-pypackage/ 
+ 
+ 
+ Or use it from Python: 
+ 
+ from  cookiecutter.main  import  cookiecutter
+
+ #  Create project from the cookiecutter-pypackage/ template 
+cookiecutter( ' cookiecutter-pypackage/ ' )
+
+ #  Create project from the cookiecutter-pypackage.git repo template 
+cookiecutter( ' https://github.com/audreyr/cookiecutter-pypackage.git ' ) 
+ 
+ 
+ Directory names and filenames can be templated. For example: 
+ {{cookiecutter.repo_name}}/{{cookiecutter.repo_name}}/{{cookiecutter.repo_name}}.py
+ 
+ 
+ Supports unlimited levels of directory nesting. 
+ 
+ 100% of templating is done with Jinja2. This includes file and directory names. 
+ 
+ Simply define your template variables in a  cookiecutter.json  file. For example: 
+ 
+ {
+     " full_name " :  " Audrey Roy " ,
+     " email " :  " audreyr@gmail.com " ,
+     " project_name " :  " Complexity " ,
+     " repo_name " :  " complexity " ,
+     " project_short_description " :  " Refreshingly simple static site generator. " ,
+     " release_date " :  " 2013-07-10 " ,
+     " year " :  " 2013 " ,
+     " version " :  " 0.1.1 " 
+} 
+ 
+ 
+ Unless you suppress it with  --no-input , you are prompted for input: 
+ 
+ Prompts are the keys in  cookiecutter.json . 
+ Default responses are the values in  cookiecutter.json . 
+ Prompts are shown in order. 
+ 
+ 
+ Cross-platform support for  ~/.cookiecutterrc  files: 
+ 
+ default_context :
+     full_name :  " Audrey Roy " 
+     email :  " audreyr@gmail.com " 
+     github_username :  " audreyr " 
+ cookiecutters_dir :  " ~/.cookiecutters/ " 
+ 
+ 
+ Cookiecutters (cloned Cookiecutter project templates) are put into
+ ~/.cookiecutters/  by default, or cookiecutters_dir if specified. 
+ 
+ If you have already cloned a cookiecutter into  ~/.cookiecutters/ , you
+can reference it by directory name: 
+ 
+ #  Clone cookiecutter-pypackage 
+$ cookiecutter gh:audreyr/cookiecutter-pypackage
+ #  Now you can use the already cloned cookiecutter by name 
+$ cookiecutter cookiecutter-pypackage 
+ 
+ 
+ You can use local cookiecutters, or remote cookiecutters directly from Git
+repos or from Mercurial repos on Bitbucket. 
+ 
+ Default context: specify key/value pairs that you want used as defaults
+whenever you generate a project 
+ 
+ Inject extra context with command-line arguments: 
+ 
+ $ cookiecutter --no-input gh:msabramo/cookiecutter-supervisor program_name=foobar startsecs=10 
+ 
+ 
+ Direct access to the Cookiecutter API allows for injection of extra context. 
+ 
+ Pre- and post-generate hooks: Python or shell scripts to run before or after
+generating a project. 
+ 
+ Paths to local projects can be specified as absolute or relative. 
+ 
+ Projects are always generated to your current directory. 
+ 
+ 
+ 
+ Available Cookiecutters 
+ Making great cookies takes a lot of cookiecutters and contributors. We're so
+pleased that there are many Cookiecutter project templates to choose from. We
+hope you find a cookiecutter that is just right for your needs. 
+ 
+ Cookiecutter Specials 
+ These Cookiecutters are maintained by the cookiecutter team: 
+ 
+ cookiecutter-pypackage :  @audreyr 's ultimate Python package project
+template. 
+ cookiecutter-django : A bleeding edge Django project template with
+Bootstrap 4, customizable users app, starter templates, working user
+registration, celery setup, and much more. 
+ cookiecutter-pytest-plugin : Minimal Cookiecutter template for authoring
+ pytest  plugins that help you to write better programs. 
+ 
+ 
+ Categories of Cookiecutters 
+ Python  |
+ Python-Django  |
+ Python-Pyramid  |
+ Cookiecutter (meta)  |
+ Ansible  |
+ Git  |
+ C  |
+ C++  |
+ C#  |
+ Common Lisp  |
+ Elm  |
+ Golang  |
+ Java  |
+ JS  |
+ Kotlin  |
+ LaTeX/XeTeX  |
+ PHP  |
+ Berkshelf-Vagrant  |
+ HTML  |
+ Scala  |
+ 6502 Assembly  |
+ Data Science  |
+ Tornado  |
+ Reproducible Science  |
+ Continuous Delivery 
+ If you don't find a cookiecutter that suits your needs here, please consider
+writing or suggesting one. We wish for our users to find a solution for their
+use cases, and we provide a list of other projects that we do not maintain for
+your convenience (please see the  Similar Projects  section). 
+ 
+ Community 
+ The core committer team is  @audreyr ,  @pydanny ,  @michaeljoseph ,
+ @pfmoore , and  @hackebrot . We
+welcome you and invite you to participate. 
+ Stuck? Try one of the following: 
+ 
+ See the  Troubleshooting  page. 
+ Ask for help on  Stack Overflow . 
+ You are strongly encouraged to  file an issue  about the problem, even if
+it's just "I can't get it to work on this cookiecutter" with a link to your
+cookiecutter. Don't worry about naming/pinpointing the issue properly. 
+ Ask for help on  Gitter  if you must (but please try one of the other
+options first, so that others can benefit from the discussion) 
+ 
+ Development on Cookiecutter is community-driven: 
+ 
+ Huge thanks to all the  contributors  who have pitched in to help make
+Cookiecutter an even better tool. 
+ Everyone is invited to contribute. Read the  contributing instructions ,
+then get started. 
+ 
+ Connect with other Cookiecutter contributors and users on  Gitter : 
+ 
+ https://gitter.im/audreyr/cookiecutter  (note: due to work and commitments,
+a core committer might not always be available) 
+ 
+ Encouragement is unbelievably motivating. If you want more work done on
+Cookiecutter, show support: 
+ 
+ Thank a core committer for their efforts. 
+ Star  Cookiecutter on GitHub . 
+ Support this project 
+ 
+ Got criticism or complaints? 
+ 
+ File an issue  so that Cookiecutter can be improved. Be friendly
+and constructive about what could be better. Make detailed suggestions. 
+ Keep us in the loop so that we can help.  For example, if you are
+discussing problems with Cookiecutter on a mailing list,  file an issue 
+where you link to the discussion thread and/or cc at least 1 core committer on
+the email. 
+ Be encouraging. A comment like "This function ought to be rewritten like
+this" is much more likely to result in action than a comment like "Eww, look
+how bad this function is." 
+ 
+ Waiting for a response to an issue/question? 
+ 
+ Be patient and persistent. All issues are on the core committer team's radar and
+will be considered thoughtfully, but we have a lot of issues to work through. If
+urgent, it's fine to ping a core committer in the issue with a reminder. 
+ Ask others to comment, discuss, review, etc. 
+ Search the Cookiecutter repo for issues related to yours. 
+ Need a fix/feature/release/help urgently, and can't wait?  @audreyr  is
+available for hire for consultation or custom development. 
+ 
+ 
+ Support This Project 
+ This project is run by volunteers. Please support them in their efforts to
+maintain and improve Cookiecutter: 
+ 
+ Daniel Roy Greenfeld ( @pydanny ):  patreon.com/danielroygreenfeld 
+ Raphael Pierzina ( @hackebrot ):  patreon.com/hackebrot 
+ 
+ You can also support the maintainers by spreading the word about Two Scoops of
+Django 1.11! 
+ 
+ 
+ Backers 
+ We would like to thank the following people for supporting us: 
+ 
+ Bruno Alla 
+ Russell Keith-Magee 
+ 
+ 
+ Code of Conduct 
+ Everyone interacting in the Cookiecutter project's codebases, issue trackers, chat
+rooms, and mailing lists is expected to follow the  PyPA Code of Conduct . 
+ 
+ 
+ A Pantry Full of Cookiecutters 
+ Here is a list of  cookiecutters  (aka Cookiecutter project templates) for
+you to use or fork. 
+ Make your own, then submit a pull request adding yours to this list! 
+ 
+ Python 
+ 
+ cookiecutter-pypackage :  @audreyr 's ultimate Python package project
+template. 
+ cookiecutter-pipproject : Minimal package for pip-installable projects 
+ cookiecutter-pypackage-minimal : A minimal Python package template. 
+ cookiecutter-lux-python : A boilerplate Python project that aims to create Python package with a convenient Makefile-facility and additional helpers. 
+ cookiecutter-flask  : A Flask template with Bootstrap 3, starter templates, and working user registration. 
+ cookiecutter-flask-2 : A heavier weight fork of cookiecutter-flask, with more boilerplate including forgotten password and Heroku integration 
+ cookiecutter-flask-foundation  : Flask Template with caching, forms, sqlalchemy and unit-testing. 
+ cookiecutter-bottle  : A cookiecutter template for creating reusable Bottle projects quickly. 
+ cookiecutter-openstack : A template for an OpenStack project. 
+ cookiecutter-docopt : A template for a Python command-line script that uses  docopt  for arguments parsing. 
+ cookiecutter-quokka-module : A template to create a blueprint module for Quokka Flask CMS. 
+ cookiecutter-kivy : A template for NUI applications built upon the kivy python-framework. 
+ cookiedozer : A template for Python Kivy apps ready to be deployed to android devices with Buildozer. 
+ cookiecutter-pylibrary : An intricate template designed to quickly get started with good testing and packaging (working configuration for Tox, Pytest, Travis-CI, Coveralls, AppVeyor, Sphinx docs, isort, bumpversion, packaging checks etc). 
+ cookiecutter-pyvanguard : A template for cutting edge Python development.  Invoke , pytest, bumpversion, and Python 2/3 compatability. 
+ Python-iOS-template : A template to create a Python project that will run on iOS devices. 
+ Python-Android-template : A template to create a Python project that will run on Android devices. 
+ cookiecutter-tryton : A template to create base and external Tryton modules. 
+ cookiecutter-tryton-fulfilio : A template for creating tryton modules. 
+ cookiecutter-pytest-plugin : Minimal Cookiecutter template for authoring  pytest  plugins that help you to write better programs. 
+ cookiecutter-tapioca : A Template for building  tapioca-wrapper  based web API wrappers (clients). 
+ cookiecutter-muffin : A Muffin template with Bootstrap 3, starter templates, and working user registration. 
+ cookiecutter-octoprint-plugin : A template for building plugins for  OctoPrint . 
+ cookiecutter-funkload-friendly : Cookiecutter template for a  funkload-friendly  project. 
+ cookiecutter-python-app : A template to create a Python CLI application with subcommands, logging, YAML configuration, pytest tests, and Virtualenv deployment. 
+ morepath-cookiecutter : Cookiecutter template for Morepath, the web microframework with superpowers. 
+ Springerle/hovercraft-slides : A template for new  Hovercraft!  presentation projects ( impress.js  slides in  re Structured Text ). 
+ cookiecutter-snakemake-analysis-pipeline : One way to easily set up  Snakemake -based analysis pipelines. 
+ cookiecutter-py3tkinter : Template for Python 3 Tkinter application gui. 
+ cookiecutter-pyqt5 : A prebuilt PyQt5 GUI template with a fully featured Pytest test suite and Travis CI integration all in an optimal Python package. 
+ cookiecutter-pyqt4 : A prebuilt PyQt4 GUI template with a logging support, structure for tests and separation of ui and worker components. 
+ cookiecutter-xontrib : A template for building xontribs, a.k.a  xonsh  contributions 
+ 
+ 
+ Python-Django 
+ 
+ cookiecutter-django : A bleeding edge Django project template with Bootstrap 4, customizable users app, starter templates,  working user registration, celery setup, and much more. 
+ cookiecutter-django-rest : For creating REST apis for mobile and web applications. 
+ cookiecutter-simple-django : A cookiecutter template for creating reusable Django projects quickly. 
+ django-docker-bootstrap : Django development/production environment with docker, integrated with Postgres, NodeJS(React), Nginx, uWSGI. 
+ cookiecutter-djangopackage : A template designed to create reusable third-party PyPI friendly Django apps. Documentation is written in tutorial format. 
+ cookiecutter-django-cms : A template for Django CMS with simple Bootstrap 3 template. It has a quick start and deploy documentation. 
+ cookiecutter-django-crud : A template to create a Django app with boilerplate CRUD around a model including a factory and tests. 
+ cookiecutter-django-lborgav : Another cookiecutter template for Django project with Booststrap 3 and FontAwesome 4 
+ cookiecutter-django-paas : Django template ready to use in PAAS platforms like Heroku, OpenShift, etc.. 
+ cookiecutter-django-rest-framework : A template for creating reusable Django REST Framework packages. 
+ cookiecutter-django-aws-eb : Get up and running with Django on AWS Elastic Beanstalk. 
+ cookiecutter-wagtail  : A cookiecutter template for  Wagtail  CMS based sites. 
+ wagtail-cookiecutter-foundation : A complete template for Wagtail CMS projects featuring  Zurb Foundation  6, ansible provisioning and deployment , front-end dependency management with bower, modular apps to get your site up and running including photo_gallery, RSS feed etc. 
+ django-starter : A Django template complete with vagrant and provisioning scripts - inspired by 12 factor apps and cookiecutter-django. 
+ cookiecutter-django-gulp : A Cookiecutter template for integrating frontend development tools in Django projects. 
+ wagtail-starter-kit : A cookiecutter complete with wagtail, django layout, vagrant, provisioning scripts, front end build system and more! 
+ cookiecutter-django-herokuapp : A Django 1.7+ template optimized for Python 3 on Heroku. 
+ cookiecutter-simple-django-cn : A simple Django templates for chinese. 
+ cc_django_ember_app : For creating applications with Django and EmberJS 
+ cc_project_app_drf : For creating REST apis based on the "project app" project architecture 
+ cc_project_app_full_with_hooks : For creating Django projects using the "project app" project architecture 
+ cc-automated-drf-template : A template + script that automatically creates your Django REST project with serializers, views, urls, and admin files based on your models file as input. 
+ cookiecutter-django-foundation : Fork of  cookiecutter-django  based on  Zurb Foundation  6 front-end framework 
+ cookiecutter-django-ansible : Cookiecutter Django Ansible is a framework for jumpstarting an ansible project for provisioning a server that is ready for your  cookiecutter-django  application. 
+ 
+ 
+ Python-Pyramid 
+ 
+ pyramid-cookiecutter-alchemy : A Cookiecutter (project template) for creating a Pyramid project using SQLite for persistent storage, SQLAlchemy for an ORM, URL dispatch for routing, and Jinja2 for templating. 
+ pyramid-cookiecutter-starter : A Cookiecutter (project template) for creating a Pyramid starter project using URL dispatch for routing and either Jinja2, Chameleon, or Mako for templating. 
+ pyramid-cookiecutter-zodb : A Cookiecutter (project template) for creating a Pyramid project using ZODB for persistent storage, traversal for routing, and Chameleon for templating. 
+ substanced-cookiecutter : A cookiecutter (project template) for creating a Substance D starter project. Substance D is built on top of Pyramid. 
+ cookiecutter-pyramid-talk-python-starter : An opinionated Cookiecutter template for creating Pyramid web applications starting way further down the development chain. This cookiecutter template will create a new Pyramid web application with email, sqlalchemy, rollbar, and way more integrated. 
+ 
+ 
+ Cookiecutter (meta) 
+ Meta-templates for generating Cookiecutter project templates. 
+ 
+ cookiecutter-template : A template to help in creating cookiecutter templates. 
+ 
+ 
+ Ansible 
+ 
+ cookiecutter-molecule : Create  Molecule  roles following community best practices, with an already implemented test infrastructure leveraging  Molecule , Docker and Testinfra. 
+ cookiecutter-ansible-role : A template to create ansible roles. Forget about file creation and focus on actions. 
+ cookiecutter-ansible-role-ci : Create Ansible roles following best practices, with an already implemented test infrastructure leveraging Test-kitchen, Docker and InSpec. 
+ 
+ 
+ Git 
+ 
+ cookiecutter-git : Git Cookiecutter. A git repository project template! 
+ 
+ 
+ C 
+ 
+ bootstrap.c : A template for simple projects written in C with autotools. 
+ cookiecutter-avr : A template for avr development. 
+ 
+ 
+ C++ 
+ 
+ BoilerplatePP : A simple cmake template with unit testing for projects written in C++. 
+ cookiecutter-dpf-effect : An audio plugin project template for the DISTRHO Plugin Framework (DPF) 
+ cookiecutter-dpf-audiotk : An audio plugin project template for the DISTRHO Plugin Framework (DPF) and the Audio Toolkit (ATK) DSP library 
+ cookiecutter-kata-gtest : A template for C++ test-driven development katas using the Google Test framework. 
+ cookiecutter-kata-cpputest : A template for C++ test-driven-development katas using the CppUTest framework. 
+ 
+ 
+ C# 
+ 
+ cookiecutter-csharp-objc-binding : A template for generating a C# binding project for binding an Objective-C static library. 
+ 
+ 
+ Common Lisp 
+ 
+ cookiecutter-cl-project : A template for Common Lisp project with bootstrap script and Slime integration. 
+ 
+ 
+ Elm 
+ 
+ cookiecutter-elm : Elm based cookiecutter with basic html example. 
+ 
+ 
+ Golang 
+ 
+ cookiecutter-golang : A template to create new go based projects following best practices. 
+ 
+ 
+ Java 
+ 
+ cookiecutter-java : Cookiecutter for basic java application setup with gradle 
+ cookiecutter-spring-boot : Cookiecutter for standard java spring boot gradle application 
+ cookiecutter-android : Cookiecutter for Gradle-based Android projects 
+ 
+ 
+ JS 
+ 
+ cookiecutter-es6-boilerplate : A cookiecutter for front end projects in ES6. 
+ cookiecutter-webpack : A template for webpack 2 projects with hot reloading, babel es6 modules, and react. 
+ cookiecutter-jquery : A jQuery plugin project template based on jQuery
+Boilerplate. 
+ cookiecutter-jswidget : A project template for creating a generic front-end,
+non-jQuery JS widget packaged for multiple JS packaging systems. 
+ cookiecutter-component : A template for a Component JS package. 
+ cookiecutter-tampermonkey : A template for a TamperMonkey browser script. 
+ cookiecutter-es6-package : A template for writing node packages using ES6 via babel. 
+ cookiecutter-angular2 : A template for modular angular2 with typescript apps. 
+ CICADA : A template + script that automatically creates list/detail controllers and partials for an AngularJS frontend to connect to a DRF backend. Works well with  cc-automated-drf-template . 
+ 
+ 
+ Kotlin 
+ 
+ cookiecutter-kotlin-gradle : A bare-bones template for Gradle-based Kotlin projects. 
+ 
+ 
+ LaTeX/XeTeX 
+ 
+ pandoc-talk : A cookiecutter template for giving talks with pandoc and XeTeX. 
+ cookiecutter-latex-article : A LaTeX template geared towards academic use. 
+ cookiecutter-beamer : A template for a LaTeX Beamer presentation. 
+ 
+ 
+ PHP 
+ 
+ cookiecutter-mediawiki-extension : A template for MediaWiki extensions. 
+ 
+ 
+ Sublime Text 
+ 
+ cookiecutter-sublime-text-3-plugin : Sublime Text 3 plugin template with custom settings, commands, key bindings and main menu. 
+ sublime-snippet-package-template : Template for Sublime Text packages containing snippets. 
+ 
+ 
+ Berkshelf-Vagrant 
+ 
+ slim-berkshelf-vagrant : A simple cookiecutter template with sane cookbook defaults for common vagrant/berkshelf cookbooks. 
+ 
+ 
+ HTML 
+ 
+ cookiecutter-complexity : A cookiecutter for a Complexity static site with Bootstrap 3. 
+ cookiecutter-reveal.js : A cookiecutter template for reveal.js presentations. 
+ cookiecutter-tumblr-theme : A cookiecutter for a Tumblr theme project with GruntJS as concatination tool. 
+ 
+ 
+ Scala 
+ 
+ cookiecutter-scala : A cookiecutter template for a simple scala hello world application with a few libraries. 
+ cookiecutter-scala-spark : A cookiecutter template for Apache Spark applications written in Scala. 
+ 
+ 
+ 6502 Assembly 
+ 
+ cookiecutter-atari2600 : A cookiecutter template for Atari2600 projects. 
+ 
+ 
+ Data Science 
+ 
+ widget-cookiecutter : A cookiecutter template for creating a custom Jupyter widget project. 
+ cookiecutter-data-science : A logical, reasonably standardized, but flexible project structure for doing and sharing data science work in Python.  Full documentation available  here . 
+ cookiecutter-r-data-analysis : Template for a R based workflow to docx (via Pandoc) and pdf (via LaTeX) reports. 
+ 
+ 
+ Reproducible Science 
+ 
+ cookiecutter-reproducible-science : A cookiecutter template to start a reproducible and transparent science project including data, models, analysis, and reports (i.e., your scientifc paper) with close resemblances to the philosophy of Cookiecutter  Data Science . 
+ 
+ 
+ Continuous Delivery 
+ 
+ painless-continuous-delivery : A cookiecutter template for software development setups with continuous delivery baked in. Python (Django, Flask), and experimental PHP support. 
+ 
+ 
+ Cloud Tools 
+ 
+ cookiecutter-tf-module : Cookiecutter template for building consistent Terraform modules. 
+ 
+ 
+ Tornado 
+ 
+ cookiecutter-tornado : Cookiecutter template for Tornado based projects 
+ 
+ 
+ Other 
+ 
+ cookiecutter_dotfile : Template for a folder of dotfiles managed by stow. 
+ 
+ 
+ Similar projects 
+ 
+ Paste  has a create option that creates a skeleton project. 
+ Diecutter : an API service that will give you back a configuration file from
+a template and variables. 
+ Django 's startproject and startapp commands can take in a --template
+option. 
+ python-packager : Creates Python packages from its own template, with
+configurable options. 
+ Yeoman  has a Rails-inspired generator system that provides scaffolding
+for apps. 
+ Pyramid 's pcreate command for creating Pyramid projects from scaffold templates. 
+ mr.bob  is a filesystem template renderer, meant to deprecate tools such as
+paster and templer. 
+ grunt-init  used to be built into Grunt and is now a standalone scaffolding tool
+to automate project creation. 
+ scaffolt  consumes JSON generators with Handlebars support. 
+ init-skeleton  clones or copies a repository, executes npm install and bower install and removes the .git directory. 
+ Cog  python-based code generation toolkit developed by Ned Batchelder 
+ Skaffold  python and json config based django/MVC generator, with some add-ons and integrations. 
+ 

@@ -11,6 +11,7 @@ import queue
 
 from spiders.utils import Utils
 
+PATH_DIR = 'docs/'
 
 class _Down:
 
@@ -18,14 +19,16 @@ class _Down:
         self.util = Utils()
 
     def _save(self, title, words):
+
+        self.util.checkpath(PATH_DIR)
         if not words:
             return
-        with open('docs/{}'.format(title), 'a+')as f:
+        with open(PATH_DIR+title, 'a+')as f:
             f.write(words)
 
     # 递归抓取某文档所有链接
     def _download(self, qu, domain, title,switch=True):
-        print(title)
+        # print(title)
         if qu.empty():
             return
 
@@ -80,21 +83,25 @@ class Pat1(_Down):
         # super(_Down, self).__init__()
         self.util = Utils()
         # 某文档信息
-        self.url = 'https://interactivepython.org/courselib/static/pythonds/index.html'
-        self.domain = 'https://interactivepython.org/courselib/static/pythonds/'
-        self.title = 'Problem Solving with Algorithms and Data Structures using Python.txt'
+        # self.url = 'https://interactivepython.org/courselib/static/pythonds/index.html'
+        # self.domain = 'https://interactivepython.org/courselib/static/pythonds/'
+        # self.title = 'Problem Solving with Algorithms and Data Structures using Python.txt'
         # self.url = 'http://chimera.labs.oreilly.com/books/1230000000393/index.html'
         # self.domain = 'http://chimera.labs.oreilly.com/books/1230000000393/'
         # self.title = 'Python Cookbook.txt'
+        self.url = 'http://docs.peewee-orm.com/en/stable/'
+        self.domain = self.url
+        self.title = 'peewee.txt'
 
     def _download_links(self, domain, page):
         lst = []
         soup = bs4.BeautifulSoup(page, 'lxml')
-
-        soup_span = soup.find_all('span', class_="sect1")
-        for span in soup_span:
-            lst.append(domain + span.a['href'])
-        return lst
+        soup_li = soup.find_all('li', class_="toctree-l1")
+        for li in soup_li:
+            lst.append(domain + li.a['href'])
+        res = list(set(lst))
+        # print(len(res))
+        return res
 
     def get(self):
 

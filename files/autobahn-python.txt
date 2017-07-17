@@ -1,0 +1,109 @@
+Autobahn|Python 
+ WebSocket & WAMP for Python on Twisted and asyncio. 
+ 
+ 
+     
+     
+ 
+ 
+ 
+ Quick Links :  Source Code  -  Documentation  -  WebSocket Examples  -  WAMP Examples 
+ Community :  Mailing list  -  StackOverflow  -  Twitter  -  IRC #autobahn/chat.freenode.net 
+ Companion Projects :  Autobahn|JS  -  Autobahn|Cpp  -  Autobahn|Testsuite  -  Crossbar.io  -  WAMP 
+ 
+ 
+ Introduction 
+ Autobahn|Python  is a subproject of  Autobahn  and provides open-source
+implementations of 
+ 
+ The WebSocket Protocol 
+ The Web Application Messaging Protocol (WAMP) 
+ 
+ for Python 2 and 3, and running on  Twisted  and  asyncio . 
+ You can use  Autobahn|Python  to create clients and servers in Python speaking just plain WebSocket or WAMP. 
+ WebSocket  allows  bidirectional real-time messaging on the Web  and beyond, while  WAMP  adds real-time application communication on top of WebSocket. 
+ WAMP  provides asynchronous  Remote Procedure Calls  and  Publish & Subscribe  for applications in  one  protocol running over  WebSocket . WAMP is a  routed  protocol, so you need a  WAMP Router  to connect your  Autobahn|Python  based clients. We provide  Crossbar.io , but there are  other options  as well. 
+ 
+ Features 
+ 
+ framework for  WebSocket  and  WAMP  clients and servers 
+ compatible with Python 2.7 and 3.3 or later 
+ runs on  CPython ,  PyPy  and  Jython 
+ runs under  Twisted  and  asyncio  - implements WebSocket
+ RFC6455  and Draft Hybi-10+ 
+ implements  WebSocket compression 
+ implements  WAMP , the Web Application Messaging Protocol 
+ high-performance, fully asynchronous implementation 
+ best-in-class standards conformance (100% strict passes with  Autobahn Testsuite :  Client   Server ) 
+ message-, frame- and streaming-APIs for WebSocket 
+ supports TLS (secure WebSocket) and proxies 
+ Open-source ( MIT license ) 
+ 
+ 
+ Show me some code 
+ To give you a first impression, here are two examples. We have lot more  in the repo . 
+ 
+ WebSocket Echo Server 
+ Here is a simple WebSocket Echo Server that will echo back any WebSocket
+message received: 
+ from  autobahn.twisted.websocket  import  WebSocketServerProtocol
+ #  or: from autobahn.asyncio.websocket import WebSocketServerProtocol 
+
+ class   MyServerProtocol ( WebSocketServerProtocol ):
+
+     def   onConnect ( self ,  request ):
+         print ( " Client connecting:  {} " .format(request.peer))
+
+     def   onOpen ( self ):
+         print ( " WebSocket connection open. " )
+
+     def   onMessage ( self ,  payload ,  isBinary ):
+         if  isBinary:
+             print ( " Binary message received:  {}  bytes " .format( len (payload)))
+         else :
+             print ( " Text message received:  {} " .format(payload.decode( ' utf8 ' )))
+
+         #  echo back message verbatim 
+         self .sendMessage(payload, isBinary)
+
+     def   onClose ( self ,  wasClean ,  code ,  reason ):
+         print ( " WebSocket connection closed:  {} " .format(reason)) 
+ To actually run above server protocol, you need some lines of  boilerplate . 
+ 
+ WAMP Application Component 
+ Here is a WAMP Application Component that performs all four types of
+actions that WAMP provides: 
+ 
+ subscribe  to a topic 
+ publish  an event 
+ register  a procedure 
+ call  a procedure 
+ 
+ from  autobahn.twisted.wamp  import  ApplicationSession
+ #  or: from autobahn.asyncio.wamp import ApplicationSession 
+
+ class   MyComponent ( ApplicationSession ):
+
+     @inlineCallbacks 
+     def   onJoin ( self ,  details ):
+
+         #  1. subscribe to a topic so we receive events 
+         def   onevent ( msg ):
+             print ( " Got event:  {} " .format(msg))
+
+         yield   self .subscribe(onevent,  ' com.myapp.hello ' )
+
+         #  2. publish an event to a topic 
+         self .publish( ' com.myapp.hello ' ,  ' Hello, world! ' )
+
+         #  3. register a procedure for remote calling 
+         def   add2 ( x ,  y ):
+             return  x  +  y
+
+         self .register(add2,  ' com.myapp.add2 ' ) ; 
+
+         #  4. call a remote procedure 
+        res  =   yield   self .call( ' com.myapp.add2 ' ,  2 ,  3 )
+         print ( " Got result:  {} " .format(res)) 
+ Above code will work on Twisted and asyncio by changing a single line
+(the base class of  MyComponent ). To actually run above application component, you need some lines of  boilerplate  and a  WAMP Router . 

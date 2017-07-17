@@ -8,6 +8,7 @@ import bs4
 
 from spiders.utils import Utils
 
+PATH_DIR = 'stack/'
 
 class _Settings():
 
@@ -20,9 +21,9 @@ class _Settings():
             # 'https://stackoverflow.com/documentation/python/topics'
             # 'https://stackoverflow.com/documentation/django/topics',
             # 'https://stackoverflow.com/documentation/algorithm/topics',
-            # 'https://stackoverflow.com/documentation/git/topics',
+            'https://stackoverflow.com/documentation/git/topics',
             # 'https://stackoverflow.com/documentation/design-patterns/topics',
-            'https://stackoverflow.com/documentation/flask/topics'
+            # 'https://stackoverflow.com/documentation/flask/topics'
         ]
         # question links
         self.res = []
@@ -86,10 +87,12 @@ class Stspider:
 
     # 保存文字内容
     def _save(self, url, words):
+
+        self.util.checkpath(PATH_DIR)
         if not words:
             return
         title = url.split('/')[-1]
-        with open(r'stack/{}.txt'.format(title), 'w')as f:
+        with open(PATH_DIR + '{}.txt'.format(title), 'w')as f:
             f.write(words)
 
     # 启动

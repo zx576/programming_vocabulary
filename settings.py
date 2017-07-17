@@ -9,7 +9,7 @@ import os
 _BASEDIR = os.path.dirname(__file__)
 
 # 数据库名
-DATABASE = os.path.join(_BASEDIR, 'voca.db')
+DATABASE = os.path.join(_BASEDIR, 'fortest.db')
 
 
 # 需要遍历的文件夹

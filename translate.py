@@ -69,7 +69,8 @@ class Translate:
     # 扇贝接口包含的信息不如其他两家
     def trans(self):
 
-        query = NewWord.select().where(NewWord.explanation != '')
+        query = NewWord.select().where(NewWord.explanation == '')
+        # print(len(query))
         if not query:
             return
         for word in query:
@@ -84,6 +85,7 @@ class Translate:
             else:
                 word.is_valid = False
             word.save()
+            # print('suc save word : {}'.format(word.name))
             time.sleep(1)
 
 
@@ -92,6 +94,6 @@ if __name__ == '__main__':
     t = Translate()
     # res = t._trans_shanbay('hello')
     # print(res)
-    # t.trans()
-    res = t._trans_ici('hello')
-    print(res)
+    t.trans()
+    # res = t._trans_ici('hello')
+    # print(res)

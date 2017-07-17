@@ -15,23 +15,25 @@ from shanbay.shanbeisettings import HEADER,WORKBOOK_PATH, WORKBOOKID
 class ShanBay:
 
     def __init__(self):
+
         # 带有登录信息的 header
         self.header = HEADER
         self.url = 'https://www.shanbay.com/api/v1/wordlist/vocabulary/'
         self.listid = []
-        self.book_url = 'https://www.shanbay.com/wordbook/' + WORKBOOKID
-        # print(HEADER)
-
+        self.book_url = 'https://www.shanbay.com/wordbook/{}/'.format(str(WORKBOOKID))
+        print(self.header)
+        print(self.book_url)
     # 存储创建的所有单词章节 id
     def _parse_id(self):
 
-        req = requests.get(self.book_url, headers=self.header)
+        req = requests.get(self.book_url, headers=self.header, timeout=2)
         req.raise_for_status()
-        soup = bs4.BeautifulSoup(req.text)
+        soup = bs4.BeautifulSoup(req.text, 'lxml')
         soup_a = soup.find_all('a', attrs={'desc': True})
+
         for a in soup_a:
             id = a['unit-id']
-            # print(id)
+            print(id)
             self._save_id(id)
 
     # 保存 单词章节 id 到制定的文件

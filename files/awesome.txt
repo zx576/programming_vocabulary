@@ -1,0 +1,576 @@
+
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ ✨  Prelaunching the  Awesome Weekly  newsletter!  ✨ 
+  Vote it up on  Product Hunt 
+ 
+ 
+ 
+ 
+ What is an awesome list?    
+	 Contribution guide    
+	 Creating a list    
+	 Sticker 
+ 
+ 
+ 
+ Just type  awesome.re  to go here. Check out my  blog  and follow me on  Twitter . 
+ 
+ Contents 
+ 
+ Platforms 
+ Programming Languages 
+ Front-End Development 
+ Back-End Development 
+ Computer Science 
+ Big Data 
+ Theory 
+ Books 
+ Editors 
+ Gaming 
+ Development Environment 
+ Entertainment 
+ Databases 
+ Media 
+ Learn 
+ Security 
+ Content Management Systems 
+ Hardware 
+ Business 
+ Work 
+ Networking 
+ Miscellaneous 
+ 
+ Platforms 
+ 
+ Node.js  - JavaScript runtime built on Chrome's V8 JavaScript engine. 
+ Frontend Development 
+ iOS 
+ Android 
+ IoT & Hybrid Apps 
+ Electron 
+ Cordova 
+ React Native 
+ Xamarin 
+ Linux 
+ 
+ Containers 
+ 
+ 
+ macOS 
+ 
+ Command-Line 
+ Screensavers 
+ 
+ 
+ watchOS 
+ JVM 
+ Salesforce 
+ Amazon Web Services 
+ Windows 
+ IPFS 
+ Fuse 
+ Heroku 
+ Raspberry Pi  - Credit card-sized computer aimed at teaching kids programming, but capable of a lot more. 
+ Qt  - Cross-platform GUI app framework. 
+ WebExtensions  - Cross-browser extension system. 
+ RubyMotion  - Write cross-platform native apps for iOS, Android, macOS, tvOS, and watchOS in Ruby. 
+ 
+ Programming Languages 
+ 
+ JavaScript 
+ 
+ Promises 
+ Standard Style 
+ Must Watch Talks 
+ Tips 
+ Network Layer 
+ Micro npm Packages 
+ Mad Science npm Packages 
+ Maintenance Modules  - For npm packages. 
+ npm  - Package manager. 
+ AVA  - Test runner. 
+ ESLint  - Linter. 
+ Functional Programming 
+ Observables 
+ npm scripts  - Task runner. 
+ 
+ 
+ Swift 
+ 
+ Education 
+ Playgrounds 
+ 
+ 
+ Python 
+ 
+ Asyncio  - Asynchronous I/O in Python 3. 
+ Scientific Audio  - Scientific research in audio/music. 
+ 
+ 
+ Rust 
+ Haskell 
+ PureScript 
+ Go 
+ Scala 
+ Ruby 
+ 
+ Events 
+ 
+ 
+ Clojure 
+ ClojureScript 
+ Elixir 
+ Elm 
+ Erlang 
+ Julia 
+ Lua 
+ C 
+ C/C++ 
+ R 
+ D 
+ Common Lisp 
+ Perl 
+ Groovy 
+ Dart 
+ Java 
+ 
+ RxJava 
+ 
+ 
+ Kotlin 
+ OCaml 
+ ColdFusion 
+ Fortran 
+ .NET 
+ 
+ Core 
+ 
+ 
+ PHP 
+ 
+ Composer  - Package manager. 
+ 
+ 
+ Delphi 
+ Assembler 
+ AutoHotkey 
+ AutoIt 
+ Crystal 
+ TypeScript 
+ Frege  - Haskell for the JVM. 
+ CMake  - Build, test, and package software. 
+ 
+ Front-End Development 
+ 
+ ES6 Tools 
+ Web Performance Optimization 
+ Web Tools 
+ CSS 
+ 
+ Critical-Path Tools 
+ Scalability 
+ Must-Watch Talks 
+ Protips 
+ 
+ 
+ React  - App framework.
+ 
+ Relay  - Framework for building data-driven React apps. 
+ 
+ 
+ Web Components 
+ Polymer 
+ Angular  - App framework. 
+ Backbone  - App framework. 
+ HTML5 
+ SVG 
+ Canvas 
+ KnockoutJS 
+ Dojo Toolkit 
+ Inspiration 
+ Ember  - App framework. 
+ Android UI 
+ iOS UI 
+ Meteor 
+ BEM 
+ Flexbox 
+ Web Typography 
+ Web Accessibility 
+ Material Design 
+ D3  - Library for producing dynamic, interactive data visualizations. 
+ Emails 
+ jQuery 
+ 
+ Tips 
+ 
+ 
+ Web Audio 
+ Offline-First 
+ Static Website Services 
+ A-Frame VR  - Virtual reality. 
+ Cycle.js  - Functional and reactive JavaScript framework. 
+ Text Editing 
+ Motion UI Design 
+ Vue.js  - App framework. 
+ Marionette.js  - App framework. 
+ Aurelia  - App framework. 
+ Charting 
+ Ionic Framework 2 
+ Chrome DevTools 
+ PostCSS  - CSS preprocessor. 
+ Draft.js  - Rich text editor framework for React. 
+ Service Workers 
+ Progressive Web Apps 
+ choo  - App framework. 
+ Redux  - State container for JavaScript apps. 
+ webpack  - Module bundler. 
+ Browserify  - Module bundler. 
+ Sass  - CSS preprocessor. 
+ Ant Design  - Enterprise-class UI design language. 
+ Less  - CSS preprocessor. 
+ WebGL  - JavaScript API for rendering 3D graphics. 
+ Preact  - App framework. 
+ Progressive Enhancement 
+ 
+ Back-End Development 
+ 
+ Django 
+ Flask 
+ Docker 
+ Vagrant 
+ Pyramid 
+ Play1 Framework 
+ CakePHP 
+ Symfony 
+ 
+ Education 
+ 
+ 
+ Laravel 
+ 
+ Education 
+ 
+ 
+ Rails 
+ 
+ Gems  - Packages. 
+ 
+ 
+ Phalcon 
+ Useful  .htaccess  Snippets 
+ nginx 
+ Dropwizard 
+ Kubernetes 
+ Lumen 
+ Serverless Framework 
+ Apache Wicket  - Java web app framework. 
+ Vert.x  - Toolkit for building reactive apps on the JVM. 
+ 
+ Computer Science 
+ 
+ University Courses 
+ Data Science 
+ Machine Learning 
+ 
+ Tutorials 
+ ML with Ruby  - Learning, implementing, and applying Machine Learning using Ruby. 
+ 
+ 
+ Speech and Natural Language Processing 
+ 
+ Spanish 
+ NLP with Ruby 
+ 
+ 
+ Linguistics 
+ Cryptography 
+ Computer Vision 
+ Deep Learning  - Neural networks.
+ 
+ TensorFlow  - Library for machine intelligence. 
+ Papers  - The most cited deep learning papers. 
+ 
+ 
+ Deep Vision 
+ Open Source Society University 
+ Functional Programming 
+ Static Analysis & Code Quality 
+ Information Retrieval  - Learn to develop your own search engine. 
+ 
+ Big Data 
+ 
+ Big Data 
+ Public Datasets 
+ Hadoop  - Framework for distributed storage and processing of very large data sets. 
+ Data Engineering 
+ Streaming 
+ Apache Spark  - Unified engine for large-scale data processing. 
+ 
+ Theory 
+ 
+ Papers We Love 
+ Talks 
+ Algorithms 
+ Algorithm Visualizations 
+ Artificial Intelligence 
+ Search Engine Optimization 
+ Competitive Programming 
+ Math 
+ Recursion Schemes  - Traversing nested data structures. 
+ 
+ Books 
+ 
+ Free Programming Books 
+ Free Software Testing Books 
+ Go Books 
+ R Books 
+ Mind Expanding Books 
+ Book Authoring 
+ Elixir Books 
+ 
+ Editors 
+ 
+ Sublime Text 
+ Vim 
+ Emacs 
+ Atom  - Open-source and hackable text editor. 
+ Visual Studio Code 
+ 
+ Gaming 
+ 
+ Game Development 
+ Game Talks 
+ Godot  - Game engine. 
+ Open Source Games 
+ Unity  - Game engine. 
+ Chess 
+ LÖVE  - Game engine. 
+ PICO-8  - Fantasy console. 
+ Game Boy Development 
+ Construct 2  - Game engine. 
+ 
+ Development Environment 
+ 
+ Quick Look Plugins  - For macOS. 
+ Dev Env 
+ Dotfiles 
+ Shell 
+ Fish  - User-friendly shell. 
+ Command-Line Apps 
+ ZSH Plugins 
+ GitHub 
+ 
+ Browser Extensions 
+ Cheat Sheet 
+ 
+ 
+ Git Cheat Sheet & Git Flow 
+ Git Tips 
+ Git Add-ons  - Enhance the  git  CLI. 
+ SSH 
+ FOSS for Developers 
+ Hyper  - Cross-platform terminal app built on web technologies. 
+ PowerShell  - Cross-platform object-oriented shell. 
+ Alfred Workflows  - Productivity app for macOS. 
+ Terminals Are Sexy 
+ 
+ Entertainment 
+ 
+ Science Fiction  - Scifi. 
+ Fantasy 
+ Podcasts 
+ Email Newsletters 
+ IT Quotes 
+ 
+ Databases 
+ 
+ Database 
+ MySQL 
+ SQLAlchemy 
+ InfluxDB 
+ Neo4j 
+ MongoDB  - NoSQL database. 
+ RethinkDB 
+ TinkerPop  - Graph computing framework. 
+ PostgreSQL  - Object-relational database. 
+ CouchDB  - Document-oriented NoSQL database. 
+ 
+ Media 
+ 
+ Creative Commons Media 
+ Fonts 
+ Codeface  - Text editor fonts. 
+ Stock Resources 
+ GIF 
+ Music 
+ Open Source Documents 
+ Audio Visualization 
+ Broadcasting 
+ 
+ Learn 
+ 
+ CLI Workshoppers  - Interactive tutorials. 
+ Learn to Program 
+ Speaking 
+ Tech Videos 
+ Dive into Machine Learning 
+ Computer History 
+ Programming for Kids 
+ Educational Games  - Learn while playing. 
+ JavaScript Learning 
+ 
+ Security 
+ 
+ Application Security 
+ Security 
+ CTF  - Capture The Flag. 
+ Malware Analysis 
+ Android Security 
+ Hacking 
+ Honeypots  - Deception trap, designed to entice an attacker into attempting to compromise the information systems in an organization. 
+ Incident Response 
+ Vehicle Security and Car Hacking 
+ Web Security  - Security of web apps & services. 
+ 
+ Content Management Systems 
+ 
+ Umbraco 
+ Refinery CMS  - Ruby on Rails CMS. 
+ Wagtail  - Django CMS focused on flexibility and user experience. 
+ Textpattern  - Lightweight PHP-based CMS. 
+ Drupal  - Extensible PHP-based CMS. 
+ 
+ Hardware 
+ 
+ Robotics 
+ Internet of Things 
+ Electronics  - For electronic engineers and hobbyists. 
+ Bluetooth Beacons 
+ Electric Guitar Specifications  - Checklist for building your own electric guitar. 
+ 
+ Business 
+ 
+ Open Companies 
+ Places to Post Your Startup 
+ OKR Methodology  - Goal setting & communication best practices. 
+ 
+ Work 
+ 
+ Slack  - Team collaboration.
+ 
+ Communities 
+ 
+ 
+ Remote Jobs 
+ Productivity 
+ Niche Job Boards 
+ Programming Interviews 
+ 
+ Networking 
+ 
+ Software-Defined Networking 
+ Ripple  - Open source distributed settlement network. 
+ Network Analysis 
+ PCAPTools 
+ 
+ Miscellaneous 
+ 
+ JSON 
+ 
+ GeoJSON 
+ Datasets 
+ 
+ 
+ Discounts for Student Developers 
+ Conferences 
+ Sysadmin 
+ Radio 
+ Awesome  - Recursion illustrated. 
+ Analytics 
+ REST 
+ Selenium 
+ Appium  - Test automation tool for apps. 
+ Continuous Delivery 
+ Services Engineering 
+ Free for Developers 
+ Bitcoin 
+ Answers  - Stack Overflow, Quora, etc. 
+ Sketch  - Design app for macOS. 
+ Boilerplate Projects 
+ Readme 
+ Tools 
+ Styleguides 
+ Design and Development Guides 
+ Software Engineering Blogs 
+ Self Hosted 
+ FOSS Production Apps 
+ Gulp  - Task runner. 
+ AMA  - Ask Me Anything.
+ 
+ Answers 
+ 
+ 
+ Open Source Photography 
+ OpenGL  - Cross-platform API for rendering 2D and 3D graphics. 
+ GraphQL 
+ Transit 
+ Research Tools 
+ Data Visualization 
+ Social Media Share Links 
+ Microservices 
+ Unicode  - Unicode standards, quirks, packages and resources.
+ 
+ Code Points 
+ 
+ 
+ Beginner-Friendly Projects 
+ Katas 
+ Tools for Activism 
+ Citizen Science  - For community-based and non-institutional scientists. 
+ TAP  - Test Anything Protocol. 
+ MQTT  - "Internet of Things" connectivity protocol. 
+ Hacking Spots 
+ For Girls 
+ Vorpal  - Node.js CLI framework. 
+ Vulkan  - Low-overhead, cross-platform 3D graphics and compute API. 
+ LaTeX  - Typesetting language. 
+ Economics  - An economist's starter kit. 
+ Funny Markov Chains 
+ Bioinformatics 
+ Colorful  - Choose your next color scheme. 
+ Steam  - Digital distribution platform. 
+ Bots  - Building bots. 
+ Site Reliability Engineering 
+ Empathy in Engineering  - Building and promoting more compassionate engineering cultures. 
+ DTrace  - Dynamic tracing framework. 
+ Userscripts  - Enhance your browsing experience. 
+ Pokémon  - Pokémon and Pokémon GO. 
+ ChatOps  - Managing technical and business operations through a chat. 
+ Falsehood  - Falsehoods programmers believe in. 
+ Domain-Driven Design  - Software development approach for complex needs by connecting the implementation to an evolving model. 
+ Quantified Self  - Self-tracking through technology. 
+ SaltStack  - Python-based config management system. 
+ Web Design  - For digital designers. 
+ JMeter  - Load testing and performance measurement tool. 
+ Creative Coding  - Programming something expressive instead of something functional. 
+ No-Login Web Apps  - Web apps that work without login. 
+ Testing  - Software testing. 
+ Free Software  - Free as in freedom. 
+ Framer  - Prototyping interactive UI designs. 
+ Markdown  - Markup language. 
+ Dev Fun  - Funny developer projects. 
+ Events in the Netherlands  - Tech-related events in the Netherlands. 
+ Healthcare  - Open source healthcare software for facilities, providers, developers, policy experts, and researchers. 
+ Magento 2  - Open Source eCommerce built with PHP. 
+ TikZ  - Graph drawing packages for TeX/LaTeX/ConTeXt. 
+ Neuroscience  - Study of the nervous system and brain. 
+ 
+ License 
+ 
+ To the extent possible under law,  Sindre Sorhus  has waived all copyright and related or neighboring rights to this work. 

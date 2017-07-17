@@ -6,7 +6,7 @@
 # 一些通用方法, 目前只有请求网页的方法
 
 import requests
-
+import os
 
 class Utils:
 
@@ -35,3 +35,8 @@ class Utils:
         proxies = None
         return self._req_url(url, headers=self.header, proxies=proxies) or self.req(url, error=error + 1)
 
+    def checkpath(self, path):
+
+        created = os.path.exists(path)
+        if not created:
+            os.mkdir(path)

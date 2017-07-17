@@ -1,0 +1,354 @@
+Awesome SQLAlchemy 
+ 
+ 
+ A curated list of awesome extra libraries and resources for  SQLAlchemy .  Inspired by
+ awesome-python .  (See also other  awesome lists !) 
+ Licensed under a  Creative Commons Attribution-ShareAlike 4.0 International
+License . 
+ 
+ Table of Contents 
+ 
+ Data Structures 
+ Data Types 
+ Database Migration Tools 
+ Dialects 
+ Documentation 
+ File and Image Attachments 
+ Forms and Data Validations 
+ Full-text Searching 
+ GIS and Spatial Databases 
+ Internationalizations 
+ Profilers 
+ Query helpers 
+ Recipes 
+ Serialization and deserialization 
+ Testing 
+ Thin Abstractions 
+ Vendor-specific Extensions 
+ PostgreSQL 
+ 
+ 
+ Visualizations 
+ Web 
+ Framework Integrations 
+ Other 
+ 
+ 
+ 
+ 
+ 
+ Data Structures 
+ 
+ SQLAlchemy-Continuum 
+ Versioning and auditing extension for SQLAlchemy. 
+ 
+ Creates versions for inserts, deletes and updates. 
+ Does not store updates which don't change anything. 
+ Supports alembic migrations. 
+ Can revert objects data as well as all object relations at given
+transaction even if the object was deleted. 
+ Transactions can be queried afterwards using SQLAlchemy query syntax. 
+ Query for changed records at given transaction. 
+ Temporal relationship reflection. Version object's relationship show
+the parent objects relationships as they where in that point in time. 
+ Supports native versioning for PostgreSQL database (trigger based
+versioning). 
+ 
+ 
+ sqlalchemy_mptt 
+ Library for implementing MPTT (modified preorder tree traversal) with
+SQLAlchemy models and working with trees of model instances,
+like  django-mptt . 
+ SQLAlchemy-ORM-tree 
+ An implementation for SQLAlchemy-based applications of
+the nested-sets/modified-pre-order-tree-traversal technique for
+storing hierarchical data in a relational database. 
+ vdm 
+ Versioned domain model. Python library for revisioning/versioning of databases. 
+ 
+ 
+ Data Types 
+ 
+ SQLAlchemy-Enum34 
+ SQLAlchemy type to store standard  enum.Enum  values. 
+ SQLAlchemy-Utc 
+ SQLAlchemy type to store aware  datetime.datetime  values. 
+ SQLAlchemy-Utils 
+ Various utility functions, new data types and helpers for SQLAlchemy 
+ 
+ Listeners 
+ Data types: {..., ChoiceType, CountryType, JSONType, URLType, UUIDType, ...} 
+ Range data types 
+ Aggregated attributes 
+ Generates decorator 
+ Generic relationships 
+ Database helpers: create_database, drop_database 
+ Foreign key helpers 
+ ORM helpers 
+ Utility classes 
+ Model mixins: Timestamp (created, updated times) 
+ 
+ 
+ 
+ 
+ Database Migration Tools 
+ 
+ Alembic 
+ Alembic is a lightweight database migration tool for usage with the
+SQLAlchemy Database Toolkit for Python. 
+ sqlalchemy-migrate 
+ Inspired by Ruby on Rails' migrations, SQLAlchemy Migrate provides
+a way to deal with database schema changes in SQLAlchemy projects. 
+ 
+ 
+ Dialects 
+ http://docs.sqlalchemy.org/en/latest/dialects/ 
+ 
+ redshift_sqlalchemy 
+ Amazon Redshift  dialect for SQLAlchemy. 
+ sphinxalchemy 
+ SQLAlchemy dialect for iterfacing with  Sphinx  (search engine) via
+SphinxQL. 
+ 
+ 
+ Documentation 
+ 
+ http://docs.sqlalchemy.org/en/latest/ 
+ http://docs.sqlalchemy.org/en/latest/intro.html 
+ http://docs.sqlalchemy.org/en/latest/core/tutorial.html 
+ http://docs.sqlalchemy.org/en/latest/orm/tutorial.html 
+ http://docs.sqlalchemy.org/en/latest/glossary.html 
+ 
+ 
+ File and Image Attachments 
+ 
+ filedepot 
+ DEPOT is a framework for easily storing and serving files in web
+applications. Depot features simple integration with SQLAlchemy by providing
+customized model field types for storing files attached to your ORM
+document. 
+ SQLAlchemy-ImageAttach 
+ SQLAlchemy-ImageAttach is a SQLAlchemy extension for attaching images
+to entity objects. 
+ sqlalchemy-media 
+ Based on SQLAlchemy-ImageAttach but using JSON type instead of relation,
+and SqlAlchemy's mutable facility, Also supports multiple stores per context. 
+ 
+ 
+ Forms and Data Validations 
+ 
+ ColanderAlchemy 
+ ColanderAlchemy helps you to auto-generate  Colander  schemas that are based
+on SQLAlchemy mapped classes. 
+ Such Colander schemas can be used with libraries like  Deform  and helps
+remove the need for duplication of schema definitions. 
+ 
+ Flask-Validator 
+ Data validator for Flask and SQL-Alchemy, working at Model component
+with events, preventing invalid data in the columns.
+The extension works with event listeners from SQLAlchemy. 
+ FormAlchemy 
+ FormAlchemy eliminates boilerplate by autogenerating HTML input fields from a
+given model. FormAlchemy will try to figure out what kind of HTML code should
+be returned by introspecting the model's properties and generate ready-to-use
+HTML code that will fit the developer's application. 
+ WTForms-Alchemy 
+ WTForms-Alchemy is a  WTForms  extension toolkit for easier creation of
+model based forms.  Strongly influenced by Django ModelForm. 
+ Sprox 
+ Sprox provides an easy way to create forms for web content which are:
+automatically generated, easy to customize, and validated. Sprox also
+has powerful tools to help you display your content the way you want
+to with table and record viewers. Sprox provides a way to fill your
+widgets, whether they are forms or other content with customizable data. 
+ 
+ 
+ Full-text Searching 
+ 
+ SQLAlchemy-Searchable 
+ Full-text searchable models for SQLAlchemy. Only supports PostgreSQL. 
+ 
+ 
+ SQLAlchemy-FullText-Search 
+ Fulltext search support with MySQL & SQLAlchemy. 
+ 
+ 
+ GIS and Spatial Databases 
+ 
+ GeoAlchemy 
+ GeoAlchemy provides extensions to SQLAlchemy to work with spatial databases. 
+ The current supported spatial database systems are  PostGIS ,  Spatialite ,
+MySQL, Oracle, and MS SQL Server 2008. 
+ 
+ GeoAlchemy 2 
+ GeoAlchemy 2 provides extensions to SQLAlchemy for working with
+spatial databases. 
+ GeoAlchemy 2 focuses on  PostGIS .  PostGIS 1.5 and PostGIS 2 are supported. 
+ GeoAlchemy 2 aims to be simpler than its predecessor,  GeoAlchemy .
+Simpler to use, and simpler to maintain. 
+ 
+ 
+ 
+ Internationalizations 
+ 
+ SQLAlchemy-i18n 
+ Internationalization extension for SQLAlchemy models. 
+ 
+ Stores translations in separate tables. 
+ Reflects translation table structures based on
+parent model table structure. 
+ Supports forcing of given locale. 
+ Good performance (uses proxy dicts and other advanced SQLAlchemy
+concepts for performance optimization). 
+ 
+ 
+ 
+ 
+ Profilers 
+ 
+ flask_debugtoolbar 
+ Debug toolbar with SQLAlchemy query information for Flask. 
+ pyramid_debugtoolbar 
+ Debug toolbar with SQLAlchemy query information for Pyramid. 
+ SQLTap 
+ SQLTap is a library that allows you to profile and introspect the queries
+that your application makes using SQLAlchemy. 
+ SQLTap helps you understand: 
+ 
+ how many times a sql query is executed 
+ how much time your sql queries take 
+ where your application is issuing sql queries from 
+ 
+ 
+ nplusone 
+ Auto-detect the n+1 queries problem in SQLAlchemy (and other Python ORMs) 
+ nplusone detects unnecessary queries caused by lazy loading and unused eager loading.
+Integrates with Flask-SQLAlchemy. 
+ 
+ 
+ 
+ Query helpers 
+ 
+ sqlakeyset 
+ This library implements keyset-based paging for SQLAlchemy (both ORM and core). 
+ This library has been tested with PostgreSQL and MariaDB/MySQL.
+It should work with other SQLAlchemy-supported databases to provided they support  row(  syntax. 
+ 
+ 
+ 
+ Recipes 
+ 
+ https://bitbucket.org/zzzeek/sqlalchemy/wiki/UsageRecipes 
+ 
+ 
+ Serialization and deserialization 
+ 
+ marshmallow-sqlalchemy 
+ SQLAlchemy integration with the  marshmallow  (de)serialization library. 
+ 
+ 
+ Testing 
+ 
+ charlatan 
+ Fixtures management for SQLAlchemy and other systems. 
+ factory_boy 
+ Generate fake data and create random fixtures for testing in SQLAlchemy
+and many other Python ORM systems. 
+ mixer 
+ Generate fake data and create random fixtures for testing in SQLAlchemy
+and many other Python ORM systems. 
+ 
+ 
+ Thin Abstractions 
+ 
+ Dataset 
+ Easy-to-use data handling for SQL data stores in Python with support for
+implicit table creation, bulk loading, and transaction. Dataset also
+includes support for freezing data to CSV and JSON flat files. 
+ rdflib-sqlalchemy 
+ RDFLib  store using SQLAlchemy dbapi as back-end. 
+ SQLSoup 
+ SQLSoup provides a convenient way to map Python objects to
+relational database tables, with no declarative code of any kind.
+It's built on top of the SQLAlchemy ORM and provides a super-minimalistic
+interface to an existing database. 
+ 
+ 
+ Vendor-specific Extensions 
+ 
+ PostgreSQL 
+ 
+ sqlalchemy-crosstab-postgresql 
+ New grammar for SQLAlchemy to make handling the  crosstab()  tablefunc
+(i.e. pivot tables) in PostgreSQL easy peasy. 
+ sqlalchemy-postgres-copy 
+ Wrapper for using PostgreSQL COPY with SQLAlchemy for efficient bulk data
+imports and exports. 
+ 
+ 
+ Visualizations 
+ 
+ sadisplay 
+ Simple package for describing SQLAlchemy schema and display raw database tables by reflecting feature. 
+ sqlalchemy_schemadisplay 
+ This module generates images from SQLAlchemy models. 
+ eralchemy 
+ ERAlchemy generates Entity Relation (ER) diagram from databases or from SQLAlchemy models. 
+ 
+ 
+ Web 
+ 
+ Framework Integrations 
+ 
+ bottle-sqlalchemy 
+ A  Bottle  plugin to manage SQLAlchemy session to your application. 
+ filteralchemy 
+ Declarative query builder that auto-generates filter parameters from
+models and parses request parameters using  marshmallow-sqlalchemy 
+and  webargs . 
+ Flask-SQLAlchemy 
+ Flask-SQLAlchemy is an extension for  Flask  that adds support for
+SQLAlchemy to your application. 
+ Flask-Admin 
+ The admin interface framework for  Flask .
+With scaffolding for SQLAlchemy, MongoEngine, pymongo and Peewee. 
+ pyramid_sqlalchemy 
+ pyramid_sqlalchemy provides everything needed to use SQLAlchemy in
+ Pyramid  applications. 
+ pyramid_restler 
+ pyramid_restler is a somewhat-opinionated toolkit for building
+RESTful Web services and applications on top of the
+Pyramid framework (with SQLAlchemy models). 
+ sacrud 
+ SACRUD will solve your problem of CRUD interface for SQLAlchemy,
+by providing extension for  Pyramid  (yet) or use it in pure form.
+Unlike classical CRUD interface,  pyramid_sacrud  allows override and
+flexibly customize interface (that is closer to  django.contrib.admin ). 
+ SQLAlchemy-Wrapper 
+ A light and framework-independent wrapper for SQLAlchemy that makes
+it really easy to setup and use. 
+ 
+ Doesn't change the SQLAlchemy syntax. 
+ Can paginate the results of the queries. 
+ Support for muliple databases at the same time. 
+ 
+ 
+ zope.sqlalchemy 
+ The aim of this package is to unify the plethora of existing packages
+integrating SQLAlchemy with  Zope 's transaction management.
+As such it seeks only to provide a data manager and makes no attempt
+to define a zopeish way to configure engines. 
+ 
+ 
+ Other 
+ 
+ paginate_sqlalchemy 
+ This module helps dividing large lists of items into pages.
+The user is shown one page at a time and can navigate to other pages. 
+ sandman2 
+ Generate a curl-able REST HTTP API with searching and filtering
+for all tables in a database and an admin UI with Flask-SQLAlchemy
+and HTTP Basic Authentication. 
+ sqlalchemy_mixins 
+ A set of well-tested mixins that brings Active Record, Django-like queries, nested eager load and beauty __repr__ to your SQLAlchemy. 
+ 

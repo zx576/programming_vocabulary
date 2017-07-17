@@ -1,0 +1,218 @@
+Awesome Sphinx (Python Documentation Generator) 
+ A curated list of awesome extra libraries, software and resources for
+ Sphinx  (Python Documentation Generator). Inspired by
+ awesome-sqlalchemy .  (See also other  awesome lists !) 
+ Licensed under a  Creative Commons Attribution-ShareAlike 4.0 International
+License . 
+ Your contributions are welcome. 
+ 
+ Table of Contents 
+ 
+ Sphinx 
+ Articles & Presentations 
+ Extensions 
+ Internationalizations 
+ Miscellaneous 
+ Themes 
+ Publication 
+ 
+ 
+ 
+ Sphinx 
+ 
+ Wikipedia:  https://en.wikipedia.org/wiki/Sphinx_(documentation_generator) 
+ Homepage:  http://sphinx-doc.org/ 
+ Source: git  https://github.com/sphinx-doc/sphinx 
+ 
+ 
+ Docs:  http://sphinx-doc.org/contents.html 
+ Docs:  http://sphinx-doc.org/develop.html 
+ Docs:  http://sphinx-doc.org/rest.html 
+ Docs:  http://docutils.sourceforge.net/docs/ref/rst/restructuredtext.html 
+ Docs:  http://docutils.sourceforge.net/docs/ref/rst/restructuredtext.html#line-blocks 
+ Docs:  http://docutils.sourceforge.net/docs/ref/rst/directives.html 
+ Docs:  https://docs.python.org/devguide/documenting.html#sections 
+ Docs:  http://sphinx-doc.org/markup/index.html 
+ Docs:  http://sphinx-doc.org/glossary.html 
+ 
+ 
+ Articles & Presentations 
+ 
+ Documenting Your Project With Sphinx 
+ Exercises for the Sphinx Tutorial that Brandon Rhodes often gives at PyCon. 
+ 
+ 
+ Extensions 
+ 
+ Source: git  https://github.com/sphinx-doc/sphinx/tree/master/sphinx/ext 
+ Source: hg  https://bitbucket.org/birkenfeld/sphinx-contrib 
+ Docs:  http://sphinx-doc.org/extensions.html 
+ Docs:  http://sphinx-doc.org/extdev/index.html 
+ Docs:  http://sphinx-doc.org/extdev/appapi.html 
+ 
+ 
+ breathe 
+ ReStructuredText and Sphinx bridge to Doxygen. 
+ javasphinx 
+ Sphinx extension for documenting Java projects. 
+ numpydoc 
+ NumPy 's Sphinx extensions. 
+ Releases 
+ A Sphinx changelog-generating extension. 
+ sphinx-autodoc-annotation 
+ Use Python 3 annotations in sphinx-enabled docstrings. 
+ sphinx-autodoc-typehints 
+ Type hints support for the Sphinx autodoc extension 
+ sphinx-autodoc-napoleon-typehints 
+ Type hints support for the Sphinx autodoc extension with support for NumPy
+and Google style docstrings (see  sphinxcontrib-napoleon ). 
+ sphinx-fortran-extension 
+ A Fortran domain and autodocumentation module for Sphinx. 
+ sphinx-git 
+ git Changelog for Sphinx. 
+ Sphinx-prompt 
+ Sphinx directive to add unselectable prompt. 
+ Sphinx-pyreverse 
+ Simple sphinx wrapper around pyreverse (from pylint suit) to generate
+UML diagramms from modules. 
+ sphinxcontrib-autojs 
+ The auto JavaScript documentation Sphinx extension. 
+ sphinxcontrib-autoprogram 
+ Provides an automated way to document CLI programs. 
+ sphinxcontrib-blockdiag 
+ Sphinx extension for embedding  blockdiag  diagrams. 
+ sphinxcontrib-cldomain 
+ Common Lisp domain for Sphinx. 
+ sphinxcontrib-docbookrestapi 
+ Sphinx extension that generates documentation for api-site from RST files. 
+ sphinxcontrib-fulltoc 
+ Extension for Sphinx to make the sidebar show a full table of contents
+instead of just the local headings. 
+ sphinxcontrib-httpdomain 
+ Provides a Sphinx domain for describing RESTful HTTP APIs.
+Also supports reflection for Flask, Bottle, and Tornado apps. 
+ cornice.ext.sphinxext 
+ Sphinx extension to build RESTful HTTP API documentation from
+Pyramid Cornice docstrings. 
+ sphinxcontrib-programoutput 
+ Sphinx extension to include program output into documents. 
+ sphinxcontrib-napoleon 
+ Napoleon is a pre-processor that parses NumPy and Google style docstrings. 
+ Tut 
+ Tut is a tool that helps you write tutorial style documentation using
+Sphinx. 
+ Hieroglyph 
+ Hieroglyph is an extension for Sphinx which builds HTML slides from
+ReStructuredText documents. 
+ 
+ 
+ Internationalizations 
+ 
+ sphinx-intl 
+ Sphinx utility that make it easy to translate and to apply translation. 
+ 
+ 
+ Miscellaneous 
+ 
+ django-sphinxdoc 
+ Integrate Sphinx documentation into a Django-powered website. Allows you to
+use your sites templates, auth and so on. Offers search via Haystack. 
+ ome-documentation 
+ Sphinx-based documentation for the Open Microscopy Environment. 
+ riv.vim 
+ ReStructured text editing extensions for Vim, GVim, MacVim;
+optionally with  InstantRst  gevent live reload. 
+ sphinx-gui 
+ Desktop GUI for editing Sphinx docs. 
+ sphinx-markdown-sample 
+ Markdown based sphinx the documentation generator sample. 
+ tinkerer 
+ Blog engine static HTML5 generator
+with categories, tags, landing page, nav sidebar,
+RSS powered by Sphinx and responsive Jinja templates. 
+ ablog 
+ ABlog is a Sphinx extension that converts any documentation
+or personal website project into a full-fledged blog with
+atom feeds, archive pages, blog sidebars, Disqus integration,
+Font-Awesome integration and easy GitHub Pages deploys 
+ 
+ 
+ Themes 
+ 
+ Docs:  http://sphinx-doc.org/theming.html 
+ Docs:  http://sphinx-doc.org/templating.html 
+ Source: git  https://github.com/sphinx-doc/sphinx/tree/master/sphinx/themes 
+ 
+ 
+ Alabaster 
+ Modified Kr Sphinx doc theme. 
+ flask-sphinx-themes 
+ Sphinx Themes for Flask related projects and Flask itself. 
+ krTheme Sphinx Style 
+ Sphinx theme Kenneth Reitz uses for most projects e.g.  Requests . 
+ Sphinx Readable Theme 
+ A clean and readable Sphinx theme with focus on autodoc – documentation
+from docstrings. 
+ sphinx-better-theme 
+ A theme for Sphinx that looks nice, is easy to style with CSS, works well
+on small screens and mobile devices, and organizes the page better. 
+ sphinx_rtd_theme 
+ Sphinx theme for  readthedocs.io . 
+ sphinx-theme-graphite 
+ A slightly muted light-on-dark theme for the Sphinx document generator
+using only CSS. 
+ sphinxjp.themes.basicstrap 
+ Sphinx theme built with responsive  Bootstrap . 
+ sublee-sphinx-themes 
+ Sphinx themes Heungsub Lee uses for his projects e.g.  Energy ,  Korean ,
+ Ranking ,  TrueSkill . 
+ sphinx-py3doc-enhanced-theme 
+ A theme based on the theme of  https://docs.python.org/3/  with some responsive enhancements. 
+ sphinx-bootstrap-theme 
+ Integrates Bootstrap CSS/Javascript framework responsive design with any Bootswatch CSS themes. 
+ sphinx-foundation-theme 
+ Theme based on the Foundation 4 CSS framework. 
+ sphinx-nameko-theme 
+ Forked from Sphinx Readable Theme, combined with elements of the Read The Docs theme. 
+ sphinx-guzzle-theme 
+ Sphinx theme used by Guzzle:  http://guzzlephp.org 
+ sphinx-hbp-theme 
+ HumanBrainProject Collaboratory Sphinx Theme. 
+ crate-docs-theme 
+ This project provides a Sphinx theme for Crate's documentation that is compatible with ReadTheDocs. 
+ solar-theme 
+ Solar is an attempt to create a theme for the Python Sphinx documentation generator based on the Solarized color scheme. 
+ sphinxtrap-theme 
+ Sphinxtrap is a minimalist bootstrap2-based + fontawesome sphinx theme. 
+ mdn-sphinx-theme 
+ This is a version of the Mozilla Developer Network theme, for the Sphinx documentation engine. 
+ sphinx_adc_theme 
+ The Apple Developer Connection theme for sphinx 
+ 
+ 
+ Publication 
+ 
+ Read the Docs 
+ Read the Docs hosts documentation, making it fully searchable and easy to
+find.  You can import your docs using any major version control system,
+including Mercurial, Git, Subversion, and Bazaar.  It supports  webhooks 
+so your docs get built when you commit code.  There's also support for
+versioning so you can build docs from tags and branches of your code in
+your repository. A  full list of features  is available. 
+ Okydoky 
+ Automated docs builder using Sphinx/GitHub/Distribute for private use. 
+ sphinx-autobuild 
+ Watch a Sphinx directory and rebuild the documentation when a change is
+detected. 
+ sphinx-server 
+ A universal Sphinx Server based on  sphinx-autobuild  with Docker support
+that can be used in production (self-hosted) and for documentation development,
+bundled with  PlantUML ,  Graphviz  and  HTTP authentication . 
+ sphinx-me 
+ Wraps your README-only projects in a dynamic Sphinx shell for hosting on
+ Read the Docs . 
+ Sphinx to GitHub 
+ Script to prepare Sphinx html output for  GitHub Pages . 
+ ghp-import 
+ Script to overwrite a  gh-pages / master  branch with a  .nojekyll  file for  GitHub Pages . 
+ 

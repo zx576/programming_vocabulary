@@ -7,7 +7,7 @@
 import requests
 import time
 
-from shanbay.shanbeisettings import CHAPTER_NAME, HEADER, WORKBOOKID,WORKBOOK_PATH
+from shanbay.shanbeisettings import CHAPTER_NAME, HEADER, WORKBOOKID
 
 class Create_list:
 

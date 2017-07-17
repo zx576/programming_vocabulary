@@ -1,0 +1,497 @@
+Awesome Deep Learning  
+ Table of Contents 
+ 
+ 
+ Free Online Books 
+ 
+ 
+ Courses 
+ 
+ 
+ Videos and Lectures 
+ 
+ 
+ Papers 
+ 
+ 
+ Tutorials 
+ 
+ 
+ Researchers 
+ 
+ 
+ WebSites 
+ 
+ 
+ Datasets 
+ 
+ 
+ Frameworks 
+ 
+ 
+ Miscellaneous 
+ 
+ 
+ Contributing 
+ 
+ 
+ Free Online Books 
+ 
+ Deep Learning  by Yoshua Bengio, Ian Goodfellow and Aaron Courville  (05/07/2015) 
+ Neural Networks and Deep Learning  by  Michael Nielsen (Dec 2014) 
+ Deep Learning  by Microsoft Research (2013) 
+ Deep Learning Tutorial  by LISA lab, University of Montreal (Jan 6 2015) 
+ neuraltalk  by Andrej Karpathy : numpy-based RNN/LSTM implementation 
+ An introduction to genetic algorithms 
+ Artificial Intelligence: A Modern Approach 
+ Deep Learning in Neural Networks: An Overview 
+ 
+ Courses 
+ 
+ Machine Learning - Stanford  by Andrew Ng in Coursera (2010-2014) 
+ Machine Learning - Caltech  by Yaser Abu-Mostafa (2012-2014) 
+ Machine Learning - Carnegie Mellon  by Tom Mitchell (Spring 2011) 
+ Neural Networks for Machine Learning  by Geoffrey Hinton in Coursera (2012) 
+ Neural networks class  by Hugo Larochelle from Université de Sherbrooke (2013) 
+ Deep Learning Course  by CILVR lab @ NYU (2014) 
+ A.I - Berkeley  by Dan Klein and Pieter Abbeel (2013) 
+ A.I - MIT  by Patrick Henry Winston (2010) 
+ Vision and learning - computers and brains  by Shimon Ullman, Tomaso Poggio, Ethan Meyers @ MIT (2013) 
+ Convolutional Neural Networks for Visual Recognition - Stanford  by Fei-Fei Li, Andrej Karpathy (2015) 
+ Convolutional Neural Networks for Visual Recognition - Stanford  by Fei-Fei Li, Andrej Karpathy (2016) 
+ Deep Learning for Natural Language Processing - Stanford 
+ Neural Networks - usherbrooke 
+ Machine Learning - Oxford  (2014-2015) 
+ Deep Learning - Nvidia  (2015) 
+ [Graduate Summer School: Deep Learning, Feature Learning] ( https://www.youtube.com/playlist?list=PLHyI3Fbmv0SdzMHAy0aN59oYnLy5vyyTA ) by Geoffrey Hinton, Yoshua Bengio, Yann LeCun, Andrew Ng, Nando de Freitas and several others @ IPAM, UCLA (2012) 
+ Deep Learning - Udacity/Google  by Vincent Vanhoucke and Arpan Chakraborty (2016) 
+ Deep Learning - UWaterloo  by Prof. Ali Ghodsi at University of Waterloo (2015) 
+ Statistical Machine Learning - CMU  by Prof. Larry Wasserman 
+ Deep Learning Course  by Yann LeCun (2016) 
+ Bay area DL school  by Andrew Ng, Yoshua Bengio, Samy Bengio, Andrej Karpathy, Richard Socher, Hugo Larochelle and many others @ Stanford, CA (2016) 
+ Designing, Visualizing and Understanding Deep Neural Networks-UC Berkeley 
+ UVA Deep Learning Course  MSc in Artificial Intelligence for the University of Amsterdam. 
+ MIT 6.S094: Deep Learning for Self-Driving Cars 
+ MIT 6.S191: Introduction to Deep Learning 
+ Berkeley CS 294: Deep Reinforcement Learning 
+ Keras in Motion video course 
+ Practical Deep Learning For Coders  by Jeremy Howard - Fast.ai 
+ 
+ Videos and Lectures 
+ 
+ How To Create A Mind  By Ray Kurzweil 
+ Deep Learning, Self-Taught Learning and Unsupervised Feature Learning  By Andrew Ng 
+ Recent Developments in Deep Learning  By Geoff Hinton 
+ The Unreasonable Effectiveness of Deep Learning  by Yann LeCun 
+ Deep Learning of Representations  by Yoshua bengio 
+ Principles of Hierarchical Temporal Memory  by Jeff Hawkins 
+ Machine Learning Discussion Group - Deep Learning w/ Stanford AI Lab  by Adam Coates 
+ Making Sense of the World with Deep Learning  By Adam Coates 
+ Demystifying Unsupervised Feature Learning   By Adam Coates 
+ Visual Perception with Deep Learning  By Yann LeCun 
+ The Next Generation of Neural Networks  By Geoffrey Hinton at GoogleTechTalks 
+ The wonderful and terrifying implications of computers that can learn  By Jeremy Howard at TEDxBrussels 
+ Unsupervised Deep Learning - Stanford  by Andrew Ng in Stanford (2011) 
+ Natural Language Processing  By Chris Manning in Stanford 
+ A beginners Guide to Deep Neural Networks  By Natalie Hammel and Lorraine Yurshansky 
+ Deep Learning: Intelligence from Big Data  by Steve Jurvetson (and panel) at VLAB in Stanford. 
+ Introduction to Artificial Neural Networks and Deep Learning  by Leo Isikdogan at Motorola Mobility HQ 
+ NIPS 2016 lecture and workshop videos  - NIPS 2016 
+ 
+ Papers 
+ You can also find the most cited deep learning papers from  here 
+ 
+ ImageNet Classification with Deep Convolutional Neural Networks 
+ Using Very Deep Autoencoders for Content Based Image Retrieval 
+ Learning Deep Architectures for AI 
+ CMU’s list of papers 
+ Neural Networks for Named Entity Recognition   zip 
+ Training tricks by YB 
+ [Geoff Hinton's reading list (all papers)] ( http://www.cs.toronto.edu/~hinton/deeprefs.html ) 
+ Supervised Sequence Labelling with Recurrent Neural Networks 
+ Statistical Language Models based on Neural Networks 
+ Training Recurrent Neural Networks 
+ Recursive Deep Learning for Natural Language Processing and Computer Vision 
+ Bi-directional RNN 
+ LSTM 
+ GRU - Gated Recurrent Unit 
+ GFRNN   .   . 
+ LSTM: A Search Space Odyssey 
+ A Critical Review of Recurrent Neural Networks for Sequence Learning 
+ Visualizing and Understanding Recurrent Networks 
+ Wojciech Zaremba, Ilya Sutskever, An Empirical Exploration of Recurrent Network Architectures 
+ Recurrent Neural Network based Language Model 
+ Extensions of Recurrent Neural Network Language Model 
+ Recurrent Neural Network based Language Modeling in Meeting Recognition 
+ Deep Neural Networks for Acoustic Modeling in Speech Recognition 
+ Speech Recognition with Deep Recurrent Neural Networks 
+ Reinforcement Learning Neural Turing Machines 
+ Learning Phrase Representations using RNN Encoder-Decoder for Statistical Machine Translation 
+ Google - Sequence to Sequence  Learning with Nneural Networks 
+ Memory Networks 
+ Policy Learning with Continuous Memory States for Partially Observed Robotic Control 
+ Microsoft - Jointly Modeling Embedding and Translation to Bridge Video and Language 
+ Neural Turing Machines 
+ Ask Me Anything: Dynamic Memory Networks for Natural Language Processing 
+ Mastering the Game of Go with Deep Neural Networks and Tree Search 
+ Batch Normalization 
+ Residual Learning 
+ [Berkeley AI Research (BAIR) Laboratory] Image-to-Image Translation with Conditional Adversarial Networks ( https://arxiv.org/pdf/1611.07004v1.pdf ) 
+ 
+ Tutorials 
+ 
+ UFLDL Tutorial 1 
+ UFLDL Tutorial 2 
+ Deep Learning for NLP (without Magic) 
+ A Deep Learning Tutorial: From Perceptrons to Deep Networks 
+ Deep Learning from the Bottom up 
+ Theano Tutorial 
+ Neural Networks for Matlab 
+ Using convolutional neural nets to detect facial keypoints tutorial 
+ Torch7 Tutorials 
+ [The Best Machine Learning Tutorials On The Web] ( https://github.com/josephmisiti/machine-learning-module ) 
+ VGG Convolutional Neural Networks Practical 
+ TensorFlow tutorials 
+ More TensorFlow tutorials 
+ TensorFlow Python Notebooks 
+ Keras and Lasagne Deep Learning Tutorials 
+ Classification on raw time series in TensorFlow with a LSTM RNN 
+ Using convolutional neural nets to detect facial keypoints tutorial 
+ TensorFlow-World 
+ 
+ Researchers 
+ 
+ Aaron Courville 
+ Abdel-rahman Mohamed 
+ Adam Coates 
+ Alex Acero 
+  Alex Krizhevsky  
+  Alexander Ilin  
+  Amos Storkey  
+  Andrej Karpathy  
+  Andrew M. Saxe  
+  Andrew Ng  
+  Andrew W. Senior  
+  Andriy Mnih  
+  Ayse Naz Erkan  
+  Benjamin Schrauwen  
+  Bernardete Ribeiro  
+  Bo David Chen  
+  Boureau Y-Lan  
+  Brian Kingsbury  
+  Christopher Manning  
+  Clement Farabet  
+  Dan Claudiu Cireșan  
+  David Reichert  
+  Derek Rose  
+  Dong Yu  
+  Drausin Wulsin  
+  Erik M. Schmidt  
+  Eugenio Culurciello  
+  Frank Seide  
+  Galen Andrew  
+  Geoffrey Hinton  
+  George Dahl  
+  Graham Taylor  
+  Grégoire Montavon  
+  Guido Francisco Montúfar  
+  Guillaume Desjardins  
+  Hannes Schulz  
+  Hélène Paugam-Moisy  
+  Honglak Lee  
+  Hugo Larochelle  
+  Ilya Sutskever  
+  Itamar Arel  
+  James Martens  
+  Jason Morton  
+  Jason Weston  
+  Jeff Dean  
+  Jiquan Mgiam  
+  Joseph Turian  
+  Joshua Matthew Susskind  
+  Jürgen Schmidhuber  
+  Justin A. Blanco  
+  Koray Kavukcuoglu  
+  KyungHyun Cho  
+  Li Deng  
+  Lucas Theis  
+  Ludovic Arnold  
+  Marc'Aurelio Ranzato  
+  Martin Längkvist  
+  Misha Denil  
+  Mohammad Norouzi  
+  Nando de Freitas  
+  Navdeep Jaitly  
+  Nicolas Le Roux  
+  Nitish Srivastava  
+  Noel Lopes  
+  Oriol Vinyals  
+  Pascal Vincent  
+  Patrick Nguyen  
+  Pedro Domingos  
+  Peggy Series  
+  Pierre Sermanet  
+  Piotr Mirowski  
+  Quoc V. Le  
+  Reinhold Scherer  
+  Richard Socher  
+  Rob Fergus  
+  Robert Coop  
+  Robert Gens  
+  Roger Grosse  
+  Ronan Collobert  
+  Ruslan Salakhutdinov  
+  Sebastian Gerwinn  
+  Stéphane Mallat  
+  Sven Behnke  
+  Tapani Raiko  
+  Tara Sainath  
+  Tijmen Tieleman  
+  Tom Karnowski  
+  Tomáš Mikolov  
+  Ueli Meier  
+  Vincent Vanhoucke  
+  Volodymyr Mnih  
+  Yann LeCun  
+  Yichuan Tang  
+  Yoshua Bengio  
+  Yotaro Kubo  
+  Youzhi (Will) Zou 
+ 
+ WebSites 
+ 
+ deeplearning.net 
+ deeplearning.stanford.edu 
+ nlp.stanford.edu 
+ ai-junkie.com 
+ cs.brown.edu/research/ai 
+ eecs.umich.edu/ai 
+ cs.utexas.edu/users/ai-lab 
+ cs.washington.edu/research/ai 
+ aiai.ed.ac.uk 
+ www-aig.jpl.nasa.gov 
+ csail.mit.edu 
+ cgi.cse.unsw.edu.au/~aishare 
+ cs.rochester.edu/research/ai 
+ ai.sri.com 
+ isi.edu/AI/isd.htm 
+ nrl.navy.mil/itd/aic 
+ hips.seas.harvard.edu 
+ AI Weekly 
+ stat.ucla.edu 
+ deeplearning.cs.toronto.edu 
+ jeffdonahue.com/lrcn/ 
+ visualqa.org 
+ www.mpi-inf.mpg.de/departments/computer-vision... 
+ Deep Learning News 
+ Machine Learning is Fun! Adam Geitgey's Blog 
+ 
+ Datasets 
+ 
+ MNIST  Handwritten digits 
+ Google House Numbers  from street view 
+ CIFAR-10 and CIFAR-100 
+ IMAGENET 
+ Tiny Images  80 Million tiny images6. 
+ Flickr Data  100 Million Yahoo dataset 
+ Berkeley Segmentation Dataset 500 
+ UC Irvine Machine Learning Repository 
+ Flickr 8k 
+ Flickr 30k 
+ Microsoft COCO 
+ VQA 
+ Image QA 
+ AT&T Laboratories Cambridge face database 
+ AVHRR Pathfinder 
+ Air Freight  - The Air Freight data set is a ray-traced image sequence along with ground truth segmentation based on textural characteristics. (455 images + GT, each 160x120 pixels). (Formats: PNG) 
+ Amsterdam Library of Object Images  - ALOI is a color image collection of one-thousand small objects, recorded for scientific purposes. In order to capture the sensory variation in object recordings, we systematically varied viewing angle, illumination angle, and illumination color for each object, and additionally captured wide-baseline stereo images. We recorded over a hundred images of each object, yielding a total of 110,250 images for the collection. (Formats: png) 
+ Annotated face, hand, cardiac & meat images  - Most images & annotations are supplemented by various ASM/AAM analyses using the AAM-API. (Formats: bmp,asf) 
+ Image Analysis and Computer Graphics 
+ Brown University Stimuli  - A variety of datasets including geons, objects, and "greebles". Good for testing recognition algorithms. (Formats: pict) 
+ CAVIAR video sequences of mall and public space behavior  - 90K video frames in 90 sequences of various human activities, with XML ground truth of detection and behavior classification (Formats: MPEG2 & JPEG) 
+ Machine Vision Unit 
+ CCITT Fax standard images  - 8 images (Formats: gif) 
+ CMU CIL's Stereo Data with Ground Truth  - 3 sets of 11 images, including color tiff images with spectroradiometry (Formats: gif, tiff) 
+ CMU PIE Database  - A database of 41,368 face images of 68 people captured under 13 poses, 43 illuminations conditions, and with 4 different expressions. 
+ CMU VASC Image Database  - Images, sequences, stereo pairs (thousands of images) (Formats: Sun Rasterimage) 
+ Caltech Image Database  - about 20 images - mostly top-down views of small objects and toys. (Formats: GIF) 
+ Columbia-Utrecht Reflectance and Texture Database  - Texture and reflectance measurements for over 60 samples of 3D texture, observed with over 200 different combinations of viewing and illumination directions. (Formats: bmp) 
+ Computational Colour Constancy Data  - A dataset oriented towards computational color constancy, but useful for computer vision in general. It includes synthetic data, camera sensor data, and over 700 images. (Formats: tiff) 
+ Computational Vision Lab 
+ Content-based image retrieval database  - 11 sets of color images for testing algorithms for content-based retrieval. Most sets have a description file with names of objects in each image. (Formats: jpg) 
+ Efficient Content-based Retrieval Group 
+ Densely Sampled View Spheres  - Densely sampled view spheres - upper half of the view sphere of two toy objects with 2500 images each. (Formats: tiff) 
+ Computer Science VII (Graphical Systems) 
+ Digital Embryos  - Digital embryos are novel objects which may be used to develop and test object recognition systems. They have an organic appearance. (Formats: various formats are available on request) 
+ Univerity of Minnesota Vision Lab 
+ El Salvador Atlas of Gastrointestinal VideoEndoscopy  - Images and Videos of his-res of studies taken from Gastrointestinal Video endoscopy. (Formats: jpg, mpg, gif) 
+ FG-NET Facial Aging Database  - Database contains 1002 face images showing subjects at different ages. (Formats: jpg) 
+ FVC2000 Fingerprint Databases  - FVC2000 is the First International Competition for Fingerprint Verification Algorithms. Four fingerprint databases constitute the FVC2000 benchmark (3520 fingerprints in all). 
+ Biometric Systems Lab  - University of Bologna 
+ Face and Gesture images and image sequences  - Several image datasets of faces and gestures that are ground truth annotated for benchmarking 
+ German Fingerspelling Database  - The database contains 35 gestures and consists of 1400 image sequences that contain gestures of 20 different persons recorded under non-uniform daylight lighting conditions. (Formats: mpg,jpg) 
+ Language Processing and Pattern Recognition 
+ Groningen Natural Image Database  - 4000+ 1536x1024 (16 bit) calibrated outdoor images (Formats: homebrew) 
+ ICG Testhouse sequence  -  2 turntable sequences from ifferent viewing heights, 36 images each, resolution 1000x750, color (Formats: PPM) 
+ Institute of Computer Graphics and Vision 
+ IEN Image Library  - 1000+ images, mostly outdoor sequences (Formats: raw, ppm) 
+ INRIA's Syntim images database  - 15 color image of simple objects (Formats: gif) 
+ INRIA 
+ INRIA's Syntim stereo databases  - 34 calibrated color stereo pairs (Formats: gif) 
+ Image Analysis Laboratory  - Images obtained from a variety of imaging modalities -- raw CFA images, range images and a host of "medical images". (Formats: homebrew) 
+ Image Analysis Laboratory 
+ Image Database  - An image database including some textures 
+ JAFFE Facial Expression Image Database  - The JAFFE database consists of 213 images of Japanese female subjects posing 6 basic facial expressions as well as a neutral pose. Ratings on emotion adjectives are also available, free of charge, for research purposes. (Formats: TIFF Grayscale images.) 
+ ATR Research, Kyoto, Japan 
+ JISCT Stereo Evaluation - 44 image pairs. These data have been used in an evaluation of stereo analysis, as described in the April 1993 ARPA Image Understanding Workshop paper ``The JISCT Stereo Evaluation'' by R.C.Bolles, H.H.Baker, and M.J.Hannah, 263--274 (Formats: SSI) 
+ MIT Vision Texture  - Image archive (100+ images) (Formats: ppm) 
+ MIT face images and more - hundreds of images (Formats: homebrew) 
+ Machine Vision  - Images from the textbook by Jain, Kasturi, Schunck (20+ images) (Formats: GIF TIFF) 
+ Mammography Image Databases  - 100 or more images of mammograms with ground truth. Additional images available by request, and links to several other mammography databases are provided. (Formats: homebrew) 
+ ftp://ftp.cps.msu.edu/pub/prip  - many images (Formats: unknown) 
+ Middlebury Stereo Data Sets with Ground Truth  - Six multi-frame stereo data sets of scenes containing planar regions. Each data set contains 9 color images and subpixel-accuracy ground-truth data. (Formats: ppm) 
+ Middlebury Stereo Vision Research Page  - Middlebury College 
+ Modis Airborne simulator, Gallery and data set  - High Altitude Imagery from around the world for environmental modeling in support of NASA EOS program (Formats: JPG and HDF) 
+ NIST Fingerprint and handwriting - datasets - thousands of images (Formats: unknown) 
+ NIST Fingerprint data - compressed multipart uuencoded tar file 
+ NLM HyperDoc Visible Human Project  - Color, CAT and MRI image samples - over 30 images (Formats: jpeg) 
+ National Design Repository  - Over 55,000 3D CAD and solid models of (mostly) mechanical/machined engineerign designs. (Formats: gif,vrml,wrl,stp,sat) 
+ Geometric & Intelligent Computing Laboratory 
+ OSU (MSU) 3D Object Model Database  - several sets of 3D object models collected over several years to use in object recognition research (Formats: homebrew, vrml) 
+ OSU (MSU/WSU) Range Image Database  - Hundreds of real and synthetic images (Formats: gif, homebrew) 
+ OSU/SAMPL Database: Range Images, 3D Models, Stills, Motion Sequences  - Over 1000 range images, 3D object models, still images and motion sequences (Formats: gif, ppm, vrml, homebrew) 
+ Signal Analysis and Machine Perception Laboratory 
+ Otago Optical Flow Evaluation Sequences  - Synthetic and real sequences with machine-readable ground truth optical flow fields, plus tools to generate ground truth for new sequences. (Formats: ppm,tif,homebrew) 
+ Vision Research Group 
+ ftp://ftp.limsi.fr/pub/quenot/opflow/testdata/piv/  - Real and synthetic image sequences used for testing a Particle Image Velocimetry application. These images may be used for the test of optical flow and image matching algorithms. (Formats: pgm (raw)) 
+ LIMSI-CNRS/CHM/IMM/vision 
+ LIMSI-CNRS 
+ Photometric 3D Surface Texture Database  - This is the first 3D texture database which provides both full real surface rotations and registered photometric stereo data (30 textures, 1680 images). (Formats: TIFF) 
+ SEQUENCES FOR OPTICAL FLOW ANALYSIS (SOFA)  - 9 synthetic sequences designed for testing motion analysis applications, including full ground truth of motion and camera parameters. (Formats: gif) 
+ Computer Vision Group 
+ Sequences for Flow Based Reconstruction  - synthetic sequence for testing structure from motion algorithms (Formats: pgm) 
+ Stereo Images with Ground Truth Disparity and Occlusion  - a small set of synthetic images of a hallway with varying amounts of noise added. Use these images to benchmark your stereo algorithm. (Formats: raw, viff (khoros), or tiff) 
+ Stuttgart Range Image Database  - A collection of synthetic range images taken from high-resolution polygonal models available on the web (Formats: homebrew) 
+ Department Image Understanding 
+ The AR Face Database  - Contains over 4,000 color images corresponding to 126 people's faces (70 men and 56 women). Frontal views with variations in facial expressions, illumination, and occlusions. (Formats: RAW (RGB 24-bit)) 
+ Purdue Robot Vision Lab 
+ The MIT-CSAIL Database of Objects and Scenes  - Database for testing multiclass object detection and scene recognition algorithms. Over 72,000 images with 2873 annotated frames. More than 50 annotated object classes. (Formats: jpg) 
+ The RVL SPEC-DB (SPECularity DataBase)  - A collection of over 300 real images of 100 objects taken under three different illuminaiton conditions (Diffuse/Ambient/Directed). -- Use these images to test algorithms for detecting and compensating specular highlights in color images. (Formats: TIFF ) 
+ Robot Vision Laboratory 
+ The Xm2vts database  - The XM2VTSDB contains four digital recordings of 295 people taken over a period of four months. This database contains both image and video data of faces. 
+ Centre for Vision, Speech and Signal Processing 
+ Traffic Image Sequences and 'Marbled Block' Sequence  - thousands of frames of digitized traffic image sequences as well as the 'Marbled Block' sequence (grayscale images) (Formats: GIF) 
+ IAKS/KOGS 
+ U Bern Face images - hundreds of images (Formats: Sun rasterfile) 
+ U Michigan textures (Formats: compressed raw) 
+ U Oulu wood and knots database  - Includes classifications - 1000+ color images (Formats: ppm) 
+ UCID - an Uncompressed Colour Image Database  - a benchmark database for image retrieval with predefined ground truth. (Formats: tiff) 
+ UMass Vision Image Archive  - Large image database with aerial, space, stereo, medical images and more. (Formats: homebrew) 
+ UNC's 3D image database - many images (Formats: GIF) 
+ USF Range Image Data with Segmentation Ground Truth  - 80 image sets (Formats: Sun rasterimage) 
+ University of Oulu Physics-based Face Database  - contains color images of faces under different illuminants and camera calibration conditions as well as skin spectral reflectance measurements of each person. 
+ Machine Vision and Media Processing Unit 
+ University of Oulu Texture Database  - Database of 320 surface textures, each captured under three illuminants, six spatial resolutions and nine rotation angles. A set of test suites is also provided so that texture segmentation, classification, and retrieval algorithms can be tested in a standard manner. (Formats: bmp, ras, xv) 
+ Machine Vision Group 
+ Usenix face database - Thousands of face images from many different sites (circa 994) 
+ View Sphere Database  - Images of 8 objects seen from many different view points. The view sphere is sampled using a geodesic with 172 images/sphere. Two sets for training and testing are available. (Formats: ppm) 
+ PRIMA, GRAVIR 
+ Vision-list Imagery Archive - Many images, many formats 
+ Wiry Object Recognition Database  - Thousands of images of a cart, ladder, stool, bicycle, chairs, and cluttered scenes with ground truth labelings of edges and regions. (Formats: jpg) 
+ 3D Vision Group 
+ Yale Face Database  -  165 images (15 individuals) with different lighting, expression, and occlusion configurations. 
+ Yale Face Database B  - 5760 single light source images of 10 subjects each seen under 576 viewing conditions (9 poses x 64 illumination conditions). (Formats: PGM) 
+ Center for Computational Vision and Control 
+ DeepMind QA Corpus  - Textual QA corpus from CNN and DailyMail. More than 300K documents in total.  Paper  for reference. 
+ YouTube-8M Dataset  - YouTube-8M is a large-scale labeled video dataset that consists of 8 million YouTube video IDs and associated labels from a diverse vocabulary of 4800 visual entities. 
+ Open Images dataset  - Open Images is a dataset of ~9 million URLs to images that have been annotated with labels spanning over 6000 categories. 
+ 
+ Frameworks 
+ 
+ Caffe 
+ Torch7 
+ Theano 
+ cuda-convnet 
+ convetjs 
+ Ccv 
+ NuPIC 
+ DeepLearning4J 
+ Brain 
+ DeepLearnToolbox 
+ Deepnet 
+ Deeppy 
+ JavaNN 
+ hebel 
+ Mocha.jl 
+ OpenDL 
+ cuDNN 
+ MGL 
+ Knet.jl 
+ Nvidia DIGITS - a web app based on Caffe 
+ Neon - Python based Deep Learning Framework 
+ Keras - Theano based Deep Learning Library 
+ Chainer - A flexible framework of neural networks for deep learning 
+ RNNLM Toolkit 
+ RNNLIB - A recurrent neural network library 
+ char-rnn 
+ MatConvNet: CNNs for MATLAB 
+ Minerva - a fast and flexible tool for deep learning on multi-GPU 
+ Brainstorm - Fast, flexible and fun neural networks. 
+ Tensorflow - Open source software library for numerical computation using data flow graphs 
+ DMTK - Microsoft Distributed Machine Learning Tookit 
+ Scikit Flow - Simplified interface for TensorFlow (mimicking Scikit Learn) 
+ MXnet - Lightweight, Portable, Flexible Distributed/Mobile Deep Learning framework 
+ Veles - Samsung Distributed machine learning platform 
+ Marvin - A Minimalist GPU-only N-Dimensional ConvNets Framework 
+ Apache SINGA - A General Distributed Deep Learning Platform 
+ DSSTNE - Amazon's library for building Deep Learning models 
+ SyntaxNet - Google's syntactic parser - A TensorFlow dependency library 
+ mlpack - A scalable Machine Learning library 
+ Torchnet - Torch based Deep Learning Library 
+ Paddle - PArallel Distributed Deep LEarning by Baidu 
+ NeuPy - Theano based Python library for ANN and Deep Learning 
+ Lasagne - a lightweight library to build and train neural networks in Theano 
+ [nolearn - wrappers and abstractions around existing neural network libraries, most notably Lasagne ( https://github.com/dnouri/nolearn ) 
+ [Sonnet - a library for constructing neural networks by Google's DeepMind]  https://github.com/deepmind/sonnet 
+ [PyTorch - Tensors and Dynamic neural networks in Python with strong GPU acceleration]  https://github.com/pytorch/pytorch 
+ 
+ Miscellaneous 
+ 
+ Google Plus - Deep Learning Community 
+ Caffe Webinar 
+ 100 Best Github Resources in Github for DL 
+ Word2Vec 
+ Caffe DockerFile 
+ TorontoDeepLEarning convnet 
+ gfx.js 
+ Torch7 Cheat sheet 
+ [Misc from MIT's 'Advanced Natural Language Processing' course] ( http://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-864-advanced-natural-language-processing-fall-2005/ ) 
+ Misc from MIT's 'Machine Learning' course 
+ Misc from MIT's 'Networks for Learning: Regression and Classification' course 
+ Misc from MIT's 'Neural Coding and Perception of Sound' course 
+ Implementing a Distributed Deep Learning Network over Spark 
+ A chess AI that learns to play chess using deep learning. 
+ [Reproducing the results of "Playing Atari with Deep Reinforcement Learning" by DeepMind] ( https://github.com/kristjankorjus/Replicating-DeepMind ) 
+ Wiki2Vec. Getting Word2vec vectors for entities and word from Wikipedia Dumps 
+ The original code from the DeepMind article + tweaks 
+ Google deepdream - Neural Network art 
+ An efficient, batched LSTM. 
+ A recurrent neural network designed to generate classical music. 
+ Memory Networks Implementations - Facebook 
+ Face recognition with Google's FaceNet deep neural network. 
+ Basic digit recognition neural network 
+ Emotion Recognition API Demo - Microsoft 
+ Proof of concept for loading Caffe models in TensorFlow 
+ YOLO: Real-Time Object Detection 
+ AlphaGo - A replication of DeepMind's 2016 Nature publication, "Mastering the game of Go with deep neural networks and tree search" 
+ Machine Learning for Software Engineers 
+ Machine Learning is Fun! 
+ Siraj Raval's Deep Learning tutorials 
+ 
+ 
+ Contributing 
+ Have anything in mind that you think is awesome and would fit in this list? Feel free to send a  pull request . 
+ 
+ License 
+ 
+ To the extent possible under law,  Christos Christofidis  has waived all copyright and related or neighboring rights to this work. 

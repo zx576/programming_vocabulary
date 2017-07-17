@@ -1,0 +1,5 @@
+Cornice 
+   
+     
+ Cornice  provides helpers to build & document Web Services with Pyramid. 
+ The full documentation is available at:  https://cornice.readthedocs.io 

@@ -11,6 +11,7 @@ import re
 from spiders.utils import Utils
 
 
+PATH_DIR = 'github/'
 # add some github projects
 # return all projects' urls base on githubur
 # 添加一些 github 项目/仓库地址，　返回所有仓库地址
@@ -20,10 +21,14 @@ class _Settings:
 
         # github projects which contain many python directories
         # 资源集合
-        self.projectsPool = ['https://github.com/vinta/awesome-python']
+        self.projectsPool = [
+            # 'https://github.com/vinta/awesome-python'
+        ]
         # dependent directories
         # 独立的仓库
-        self.projectsUrl = []
+        self.projectsUrl = [
+            'https://github.com/zx576/scancode_backend'
+        ]
         # invoke general class
         # 爬虫工具箱
         self.util = Utils()
@@ -34,7 +39,7 @@ class _Settings:
     def _parse_pool(self):
 
         if not self.projectsPool:
-            return
+            return []
 
         links = []
         for project in self.projectsPool:
@@ -84,10 +89,11 @@ class GitSpider:
 
     def _save(self, url, words):
 
+        self.util.checkpath(PATH_DIR)
         if not words:
             return
         title = url.split('/')[-1]
-        with open(r'github/{}.txt'.format(title), 'w')as f:
+        with open(PATH_DIR+'{}.txt'.format(title), 'w')as f:
             f.write(words)
 
     def start(self):
