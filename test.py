@@ -7,12 +7,11 @@
 # analysis_book.py
 
 from analysis_book import AnlysisBook
-from models import Book, Word
 from models_exp import  NewBook, NewWord
 
 
 def show_all_book():
-    books = Book.select()
+    books = NewWord.select()
     print(len(books))
     # for i in books:
     #     print(i.name)
@@ -21,13 +20,21 @@ def show_all_book():
 # show_all_book()
 
 def show_all_words():
-    words = NewWord.select().where(NewWord.explanation != '')
+    # words = NewWord.select().where((NewWord.is_valid == True) & (NewWord.re1 == 'added')).order_by(-NewWord.frequency)
+    # words = NewWord.select().where(NewWord.name == 'could')
+
+    words = NewWord.select().where((NewWord.is_valid == True) & (NewWord.re1 == 'added')).order_by(-NewWord.frequency)
     print(len(words))
-    for word in words[:100]:
+    # w = words[1000]
+    # print(w.frequency)
+    # print(w.name)
+    for word in words[:10]:
+        print(word.id)
         print(word.name)
         print(word.explanation)
         print(word.frequency)
         print(word.phonogram)
+        print(word.re1)
 
 
 show_all_words()

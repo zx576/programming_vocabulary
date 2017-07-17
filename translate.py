@@ -8,7 +8,6 @@ import requests
 import time
 
 from models_exp import NewWord
-from spiders.utils import Utils
 
 
 class Translate:
@@ -63,6 +62,7 @@ class Translate:
         req = requests.get(url)
         print(req.json())
 
+    # 使用 金山单词 翻译接口
     def trans(self):
 
         query = NewWord.select().where(NewWord.explanation != '')
@@ -71,7 +71,7 @@ class Translate:
         for word in query:
 
             res = self._trans_ici(word.name)
-            print(res)
+            # print(res)
             if res:
                 word.phonogram = res
                 # word.
@@ -90,9 +90,10 @@ class Translate:
             print(word.explanation)
             print(word.frequency)
 
+if __name__ == '__main__':
 
-t = Translate()
-# res = t._trans_shanbay('hello')
-# print(res)
-# t._test()
-t.trans()
+    t = Translate()
+    # res = t._trans_shanbay('hello')
+    # print(res)
+    # t._test()
+    t.trans()

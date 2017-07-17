@@ -2,17 +2,413 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="069c4f2a-f5c7-4e2d-8f37-b9c2d8aac8bb" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/programming_vocabulary.iml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/add_to_shanbay.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/migration_.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/models_exp.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/analysis_book.py" afterPath="$PROJECT_DIR$/analysis_book.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/models.py" afterPath="$PROJECT_DIR$/models.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/settings.py" afterPath="$PROJECT_DIR$/settings.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/spiders/stackoverflow.py" afterPath="$PROJECT_DIR$/spiders/stackoverflow.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/db2csv.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/requirements.txt" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/shanbay/__init__.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/shanbay/creat_word_list.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/shanbay/shanbeisettings.py" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/add_to_shanbay.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/files/stack/a-pathfinding-algorithm.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/files/stack/a-pathfinding.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/files/stack/accessing-request-data.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/files/stack/administration.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/files/stack/algo-print-a-mn-matrix-in-square-wise.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/files/stack/algorithm-complexity.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/files/stack/analyzing-types-of-workflows.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/files/stack/applications-of-dynamic-programming.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/files/stack/applications-of-greedy-technique.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/files/stack/archive.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/files/stack/arrayfield-a-postgresql-specific-field.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/files/stack/async-tasks-celery.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/files/stack/authentication-backends.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/files/stack/authorization-and-authentication.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/files/stack/bellman-ford-algorithm.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/files/stack/big-o-notation.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/files/stack/binary-search-trees.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/files/stack/binary-tree-traversals.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/files/stack/bisecting-finding-faulty-commits.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/files/stack/blaming.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/files/stack/blueprints.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/files/stack/breadth-first-search.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/files/stack/bridge-pattern.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/files/stack/browsing-the-history.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/files/stack/bubble-sort.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/files/stack/builder-pattern.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/files/stack/bundles.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/files/stack/catalan-number-algorithm.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/files/stack/change-git-repository-name.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/files/stack/check-if-a-tree-is-bst-or-not.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/files/stack/check-two-strings-are-anagrams.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/files/stack/cherry-picking.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/files/stack/class-based-views.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/files/stack/cloning-repositories.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/files/stack/command-pattern.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/files/stack/committing.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/files/stack/context-processors.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/files/stack/continuous-integration-with-jenkins.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/files/stack/counting-sort.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/files/stack/crud-in-django.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/files/stack/custom-jinja2-template-filters.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/files/stack/custom-managers-and-querysets.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/files/stack/cycle-sort.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/files/stack/data-access-objectdao-design-pattern.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/files/stack/database-routers.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/files/stack/database-setup.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/files/stack/database-transactions.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/files/stack/debugging.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/files/stack/decorator-pattern.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/files/stack/dependency-injection.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/files/stack/deploying-flask-application-using-uwsgi-web-server-with-nginx.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/files/stack/deployment.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/files/stack/depth-first-search.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/files/stack/dijkstra-s-algorithm.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/files/stack/display-commit-history-graphically-with-gitk.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/files/stack/django-and-social-networks.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/files/stack/django-filter.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/files/stack/django-from-the-command-line.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/files/stack/django-rest-framework.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/files/stack/dynamic-programming.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/files/stack/dynamic-time-warping.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/files/stack/edit-distance-dynamic-algorithm.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/files/stack/empty-directories-in-git.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/files/stack/equation-solving.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/files/stack/extending-or-substituting-user-model.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/files/stack/external-merge-and-difftools.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/files/stack/f-expressions.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/files/stack/facade.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/files/stack/factory.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/files/stack/fast-fourier-transform.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/files/stack/file-uploads.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/files/stack/flask-on-apache-with-mod-wsgi.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/files/stack/flask-sqlalchemy.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/files/stack/flask-wtf.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/files/stack/floyd-warshall-algorithm.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/files/stack/form-widgets.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/files/stack/forms.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/files/stack/formsets.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/files/stack/generic-views.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/files/stack/getting-started-with-algorithm.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/files/stack/getting-started-with-design-patterns.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/files/stack/getting-started-with-django.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/files/stack/getting-started-with-flask.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/files/stack/git-clean.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/files/stack/git-client-side-hooks.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/files/stack/git-diff.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/files/stack/git-large-file-storage-lfs.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/files/stack/git-remote.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/files/stack/git-rerere.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/files/stack/git-revisions-syntax.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/files/stack/git-send-email.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/files/stack/git-statistics.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/files/stack/git-tfs.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/files/stack/graph-traversals.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/files/stack/graph.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/files/stack/greedy-algorithms.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/files/stack/hash-functions.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/files/stack/heap-sort.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/files/stack/hooks.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/files/stack/how-to-reset-django-migrations.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/files/stack/how-to-use-django-with-cookiecutter.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/files/stack/insertion-sort.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/files/stack/integer-partition-algorithm.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/files/stack/internals.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/files/stack/internationalization.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/files/stack/iterator-pattern.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/files/stack/jsonfield-a-postgresql-specific-field.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/files/stack/knapsack-problem.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/files/stack/kruskals-algorithm.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/files/stack/line-algorithm.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/files/stack/logging.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/files/stack/longest-common-subsequence.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/files/stack/longest-increasing-subsequence.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/files/stack/lowest-common-ancestor-of-a-binary-tree.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/files/stack/mailmap-file-associating-contributor-and-email-aliases.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/files/stack/management-commands.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/files/stack/many-to-many-relationships.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/files/stack/mapping-strings-to-strings-with-hstorefield-a-postgresql-specific-field.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/files/stack/matrix-exponentiation.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/files/stack/mediator-pattern.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/files/stack/merge-sort.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/files/stack/merging.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/files/stack/message-flashing.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/files/stack/meta-documentation-guidelines.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/files/stack/middleware.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/files/stack/migrations.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/files/stack/model-aggregations.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/files/stack/model-field-reference.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/files/stack/models.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/files/stack/monostate.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/files/stack/multithreaded-algorithms.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/files/stack/multiton.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/files/stack/mvc-mvvm-mvp.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/files/stack/observer.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/files/stack/odd-even-sort.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/files/stack/online-algorithms.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/files/stack/pagination.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/files/stack/pancake-sort.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/files/stack/pascals-triangle.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/files/stack/pigeonhole-sort.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/files/stack/polynomial-time-bounded-algorithm-for-minimum-vertex-cover.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/files/stack/prims-algorithm.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/files/stack/project-structure.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/files/stack/pseudocode.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/files/stack/publish-subscribe.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/files/stack/pulling.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/files/stack/pushing.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/files/stack/querysets.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/files/stack/quicksort.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/files/stack/radix-sort.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/files/stack/rangefields-a-group-of-postgresql-specific-fields.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/files/stack/rebasing.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/files/stack/recovering.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/files/stack/redirect.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/files/stack/reflog-restoring-commits-not-shown-in-git-log.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/files/stack/renaming.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/files/stack/rendering-templates.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/files/stack/rev-list.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/files/stack/routing.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/files/stack/running-celery-with-supervisor.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/files/stack/searching.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/files/stack/security.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/files/stack/selection-sort.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/files/stack/sessions.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/files/stack/settings.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/files/stack/shell-sort.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/files/stack/shortest-common-supersequence-problem.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/files/stack/signals.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/files/stack/singleton.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/files/stack/sliding-window-algorithm.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/files/stack/solid.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/files/stack/sorting.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/files/stack/squashing.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/files/stack/staging.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/files/stack/stashing.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/files/stack/static-files.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/files/stack/strategy-pattern.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/files/stack/submodules.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/files/stack/substring-search.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/files/stack/subtrees.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/files/stack/template-tags-and-filters.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/files/stack/templating.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/files/stack/testing.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/files/stack/timezones.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/files/stack/tortoisegit.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/files/stack/travelling-salesman.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/files/stack/trees.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/files/stack/undoing.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/files/stack/unit-testing.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/files/stack/update-object-name-in-reference.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/files/stack/url-routing.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/files/stack/using-redis-with-django-caching-backend.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/files/stack/views.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/files/stack/visitor-pattern.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/files/stack/working-with-json.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/files/stack/working-with-remotes.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/files/stack/worktrees.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/migration_.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/models.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/spiders/stack/a-pathfinding-algorithm.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/spiders/stack/a-pathfinding.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/spiders/stack/accessing-request-data.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/spiders/stack/administration.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/spiders/stack/algo-print-a-mn-matrix-in-square-wise.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/spiders/stack/algorithm-complexity.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/spiders/stack/analyzing-types-of-workflows.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/spiders/stack/applications-of-dynamic-programming.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/spiders/stack/applications-of-greedy-technique.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/spiders/stack/archive.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/spiders/stack/arrayfield-a-postgresql-specific-field.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/spiders/stack/async-tasks-celery.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/spiders/stack/authentication-backends.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/spiders/stack/authorization-and-authentication.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/spiders/stack/bellman-ford-algorithm.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/spiders/stack/big-o-notation.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/spiders/stack/binary-search-trees.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/spiders/stack/binary-tree-traversals.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/spiders/stack/bisecting-finding-faulty-commits.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/spiders/stack/blaming.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/spiders/stack/blueprints.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/spiders/stack/breadth-first-search.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/spiders/stack/bridge-pattern.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/spiders/stack/browsing-the-history.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/spiders/stack/bubble-sort.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/spiders/stack/builder-pattern.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/spiders/stack/bundles.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/spiders/stack/catalan-number-algorithm.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/spiders/stack/change-git-repository-name.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/spiders/stack/check-if-a-tree-is-bst-or-not.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/spiders/stack/check-two-strings-are-anagrams.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/spiders/stack/cherry-picking.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/spiders/stack/class-based-views.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/spiders/stack/cloning-repositories.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/spiders/stack/command-pattern.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/spiders/stack/committing.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/spiders/stack/context-processors.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/spiders/stack/continuous-integration-with-jenkins.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/spiders/stack/counting-sort.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/spiders/stack/crud-in-django.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/spiders/stack/custom-jinja2-template-filters.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/spiders/stack/custom-managers-and-querysets.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/spiders/stack/cycle-sort.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/spiders/stack/data-access-objectdao-design-pattern.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/spiders/stack/database-routers.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/spiders/stack/database-setup.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/spiders/stack/database-transactions.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/spiders/stack/debugging.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/spiders/stack/decorator-pattern.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/spiders/stack/dependency-injection.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/spiders/stack/deploying-flask-application-using-uwsgi-web-server-with-nginx.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/spiders/stack/deployment.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/spiders/stack/depth-first-search.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/spiders/stack/dijkstra-s-algorithm.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/spiders/stack/display-commit-history-graphically-with-gitk.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/spiders/stack/django-and-social-networks.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/spiders/stack/django-filter.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/spiders/stack/django-from-the-command-line.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/spiders/stack/django-rest-framework.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/spiders/stack/dynamic-programming.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/spiders/stack/dynamic-time-warping.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/spiders/stack/edit-distance-dynamic-algorithm.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/spiders/stack/empty-directories-in-git.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/spiders/stack/equation-solving.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/spiders/stack/extending-or-substituting-user-model.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/spiders/stack/external-merge-and-difftools.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/spiders/stack/f-expressions.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/spiders/stack/facade.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/spiders/stack/factory.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/spiders/stack/fast-fourier-transform.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/spiders/stack/file-uploads.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/spiders/stack/flask-on-apache-with-mod-wsgi.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/spiders/stack/flask-sqlalchemy.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/spiders/stack/flask-wtf.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/spiders/stack/floyd-warshall-algorithm.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/spiders/stack/form-widgets.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/spiders/stack/forms.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/spiders/stack/formsets.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/spiders/stack/generic-views.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/spiders/stack/getting-started-with-algorithm.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/spiders/stack/getting-started-with-design-patterns.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/spiders/stack/getting-started-with-django.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/spiders/stack/getting-started-with-flask.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/spiders/stack/git-clean.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/spiders/stack/git-client-side-hooks.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/spiders/stack/git-diff.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/spiders/stack/git-large-file-storage-lfs.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/spiders/stack/git-remote.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/spiders/stack/git-rerere.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/spiders/stack/git-revisions-syntax.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/spiders/stack/git-send-email.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/spiders/stack/git-statistics.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/spiders/stack/git-tfs.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/spiders/stack/graph-traversals.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/spiders/stack/graph.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/spiders/stack/greedy-algorithms.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/spiders/stack/hash-functions.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/spiders/stack/heap-sort.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/spiders/stack/hooks.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/spiders/stack/how-to-reset-django-migrations.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/spiders/stack/how-to-use-django-with-cookiecutter.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/spiders/stack/insertion-sort.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/spiders/stack/integer-partition-algorithm.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/spiders/stack/internals.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/spiders/stack/internationalization.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/spiders/stack/iterator-pattern.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/spiders/stack/jsonfield-a-postgresql-specific-field.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/spiders/stack/knapsack-problem.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/spiders/stack/kruskals-algorithm.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/spiders/stack/line-algorithm.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/spiders/stack/logging.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/spiders/stack/longest-common-subsequence.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/spiders/stack/longest-increasing-subsequence.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/spiders/stack/lowest-common-ancestor-of-a-binary-tree.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/spiders/stack/mailmap-file-associating-contributor-and-email-aliases.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/spiders/stack/management-commands.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/spiders/stack/many-to-many-relationships.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/spiders/stack/mapping-strings-to-strings-with-hstorefield-a-postgresql-specific-field.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/spiders/stack/matrix-exponentiation.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/spiders/stack/mediator-pattern.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/spiders/stack/merge-sort.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/spiders/stack/merging.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/spiders/stack/message-flashing.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/spiders/stack/meta-documentation-guidelines.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/spiders/stack/middleware.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/spiders/stack/migrations.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/spiders/stack/model-aggregations.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/spiders/stack/model-field-reference.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/spiders/stack/models.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/spiders/stack/monostate.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/spiders/stack/multithreaded-algorithms.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/spiders/stack/multiton.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/spiders/stack/mvc-mvvm-mvp.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/spiders/stack/observer.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/spiders/stack/odd-even-sort.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/spiders/stack/online-algorithms.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/spiders/stack/pagination.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/spiders/stack/pancake-sort.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/spiders/stack/pascals-triangle.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/spiders/stack/pigeonhole-sort.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/spiders/stack/polynomial-time-bounded-algorithm-for-minimum-vertex-cover.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/spiders/stack/prims-algorithm.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/spiders/stack/project-structure.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/spiders/stack/pseudocode.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/spiders/stack/publish-subscribe.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/spiders/stack/pulling.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/spiders/stack/pushing.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/spiders/stack/querysets.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/spiders/stack/quicksort.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/spiders/stack/radix-sort.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/spiders/stack/rangefields-a-group-of-postgresql-specific-fields.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/spiders/stack/rebasing.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/spiders/stack/recovering.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/spiders/stack/redirect.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/spiders/stack/reflog-restoring-commits-not-shown-in-git-log.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/spiders/stack/renaming.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/spiders/stack/rendering-templates.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/spiders/stack/rev-list.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/spiders/stack/routing.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/spiders/stack/running-celery-with-supervisor.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/spiders/stack/searching.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/spiders/stack/security.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/spiders/stack/selection-sort.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/spiders/stack/sessions.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/spiders/stack/settings.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/spiders/stack/shell-sort.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/spiders/stack/shortest-common-supersequence-problem.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/spiders/stack/signals.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/spiders/stack/singleton.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/spiders/stack/sliding-window-algorithm.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/spiders/stack/solid.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/spiders/stack/sorting.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/spiders/stack/squashing.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/spiders/stack/staging.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/spiders/stack/stashing.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/spiders/stack/static-files.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/spiders/stack/strategy-pattern.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/spiders/stack/submodules.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/spiders/stack/substring-search.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/spiders/stack/subtrees.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/spiders/stack/template-tags-and-filters.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/spiders/stack/templating.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/spiders/stack/testing.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/spiders/stack/timezones.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/spiders/stack/tortoisegit.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/spiders/stack/travelling-salesman.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/spiders/stack/trees.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/spiders/stack/undoing.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/spiders/stack/unit-testing.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/spiders/stack/update-object-name-in-reference.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/spiders/stack/url-routing.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/spiders/stack/using-redis-with-django-caching-backend.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/spiders/stack/views.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/spiders/stack/visitor-pattern.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/spiders/stack/working-with-json.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/spiders/stack/working-with-remotes.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/spiders/stack/worktrees.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vocabulary (copy).db" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vocabulary.db" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/voca.db" afterPath="$PROJECT_DIR$/voca.db" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/models_exp.py" afterPath="$PROJECT_DIR$/models_exp.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test.py" afterPath="$PROJECT_DIR$/test.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/translate.py" afterPath="$PROJECT_DIR$/translate.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/work.py" afterPath="$PROJECT_DIR$/work.py" />
@@ -26,38 +422,31 @@
   </component>
   <component name="CoverageDataManager">
     <SUITE FILE_PATH="coverage/programming_vocabulary$vacab.coverage" NAME="vacab Coverage Results" MODIFIED="1499758398932" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/programming_vocabulary$Unittests_in_test_py.coverage" NAME="Unittests in test.py Coverage Results" MODIFIED="1500014760456" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/programming_vocabulary$github.coverage" NAME="github Coverage Results" MODIFIED="1499850159552" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/spiders" />
-    <SUITE FILE_PATH="coverage/programming_vocabulary$models.coverage" NAME="models Coverage Results" MODIFIED="1499758364836" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/programming_vocabulary$db2csv.coverage" NAME="db2csv Coverage Results" MODIFIED="1500262162712" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/programming_vocabulary$translate.coverage" NAME="translate Coverage Results" MODIFIED="1500014720964" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/programming_vocabulary$voc_dt.coverage" NAME="voc_dt Coverage Results" MODIFIED="1499757049128" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/programming_vocabulary$migration_.coverage" NAME="migration_ Coverage Results" MODIFIED="1500012525615" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/programming_vocabulary$analysis_book.coverage" NAME="analysis_book Coverage Results" MODIFIED="1500014244280" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/programming_vocabulary$work.coverage" NAME="work Coverage Results" MODIFIED="1500014279841" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/programming_vocabulary$creat_word_list.coverage" NAME="creat_word_list Coverage Results" MODIFIED="1500100697924" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/shanbay" />
     <SUITE FILE_PATH="coverage/programming_vocabulary$onlinedocs.coverage" NAME="onlinedocs Coverage Results" MODIFIED="1499914925116" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/spiders" />
     <SUITE FILE_PATH="coverage/programming_vocabulary$downloadPdf.coverage" NAME="downloadPdf Coverage Results" MODIFIED="1499921790501" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/spiders" />
+    <SUITE FILE_PATH="coverage/programming_vocabulary$shanbeisettings.coverage" NAME="shanbeisettings Coverage Results" MODIFIED="1500099224375" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/shanbay" />
+    <SUITE FILE_PATH="coverage/programming_vocabulary$add_to_shanbay__1_.coverage" NAME="add_to_shanbay (1) Coverage Results" MODIFIED="1500102409148" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/shanbay" />
+    <SUITE FILE_PATH="coverage/programming_vocabulary$Unittests_in_test_py.coverage" NAME="Unittests in test.py Coverage Results" MODIFIED="1500105450480" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/programming_vocabulary$models.coverage" NAME="models Coverage Results" MODIFIED="1499758364836" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/programming_vocabulary$voc_dt.coverage" NAME="voc_dt Coverage Results" MODIFIED="1499757049128" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/programming_vocabulary$add_to_shanbay.coverage" NAME="add_to_shanbay Coverage Results" MODIFIED="1500110482113" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/programming_vocabulary$analysis_book.coverage" NAME="analysis_book Coverage Results" MODIFIED="1500014244280" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/programming_vocabulary$work.coverage" NAME="work Coverage Results" MODIFIED="1500014279841" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/programming_vocabulary$stackoverflow.coverage" NAME="stackoverflow Coverage Results" MODIFIED="1500007814591" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/spiders" />
   </component>
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="analysis_book.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/analysis_book.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-902">
-              <caret line="53" column="26" lean-forward="true" selection-start-line="53" selection-start-column="26" selection-end-line="53" selection-end-column="26" />
-              <folding>
-                <element signature="e#106#137#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="settings.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/settings.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="390">
-              <caret line="15" column="8" lean-forward="true" selection-start-line="15" selection-start-column="8" selection-end-line="15" selection-end-column="8" />
+              <caret line="15" column="8" lean-forward="false" selection-start-line="15" selection-start-column="8" selection-end-line="15" selection-end-column="8" />
               <folding />
             </state>
           </provider>
@@ -66,10 +455,22 @@
       <file leaf-file-name="translate.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/translate.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-226">
-              <caret line="71" column="0" lean-forward="true" selection-start-line="71" selection-start-column="0" selection-end-line="71" selection-end-column="0" />
+            <state relative-caret-position="-1742">
+              <caret line="2" column="11" lean-forward="false" selection-start-line="2" selection-start-column="11" selection-end-line="2" selection-end-column="11" />
               <folding>
                 <element signature="e#84#99#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="db2csv.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/db2csv.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="667">
+              <caret line="38" column="18" lean-forward="true" selection-start-line="38" selection-start-column="18" selection-end-line="38" selection-end-column="18" />
+              <folding>
+                <element signature="e#128#158#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -78,8 +479,8 @@
       <file leaf-file-name="test.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/test.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="202">
-              <caret line="23" column="61" lean-forward="false" selection-start-line="23" selection-start-column="61" selection-end-line="23" selection-end-column="61" />
+            <state relative-caret-position="523">
+              <caret line="25" column="118" lean-forward="true" selection-start-line="25" selection-start-column="4" selection-end-line="25" selection-end-column="118" />
               <folding>
                 <element signature="e#128#165#0" expanded="true" />
               </folding>
@@ -87,33 +488,43 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="migration_.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/migration_.py">
+      <file leaf-file-name="shanbeisettings.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/shanbay/shanbeisettings.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="268">
-              <caret line="58" column="0" lean-forward="false" selection-start-line="58" selection-start-column="0" selection-end-line="58" selection-end-column="0" />
-              <folding>
-                <element signature="e#70#99#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="stackoverflow.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/spiders/stackoverflow.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1734">
-              <caret line="26" column="0" lean-forward="false" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
+            <state relative-caret-position="1664">
+              <caret line="64" column="0" lean-forward="false" selection-start-line="64" selection-start-column="0" selection-end-line="64" selection-end-column="13" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="utils.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/spiders/utils.py">
+      <file leaf-file-name="README.md" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/README.md">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-468">
-              <caret line="18" column="0" lean-forward="false" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
+            <state relative-caret-position="702">
+              <caret line="27" column="0" lean-forward="true" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="creat_word_list.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/shanbay/creat_word_list.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1378">
+              <caret line="53" column="0" lean-forward="true" selection-start-line="53" selection-start-column="0" selection-end-line="53" selection-end-column="0" />
+              <folding>
+                <element signature="e#78#93#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="add_to_shanbay.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/shanbay/add_to_shanbay.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-2212">
+              <caret line="11" column="36" lean-forward="false" selection-start-line="11" selection-start-column="36" selection-end-line="11" selection-end-column="36" />
               <folding />
             </state>
           </provider>
@@ -122,7 +533,7 @@
       <file leaf-file-name="models_exp.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/models_exp.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="164">
+            <state relative-caret-position="284">
               <caret line="40" column="13" lean-forward="false" selection-start-line="40" selection-start-column="4" selection-end-line="40" selection-end-column="13" />
               <folding>
                 <element signature="e#147#176#0" expanded="true" />
@@ -131,21 +542,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="models.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/models.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="110">
-              <caret line="10" column="34" lean-forward="false" selection-start-line="10" selection-start-column="34" selection-end-line="10" selection-end-column="34" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="work.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="work.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/work.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="528">
-              <caret line="74" column="26" lean-forward="true" selection-start-line="74" selection-start-column="26" selection-end-line="74" selection-end-column="26" />
+            <state relative-caret-position="-52">
+              <caret line="10" column="47" lean-forward="false" selection-start-line="10" selection-start-column="47" selection-end-line="10" selection-end-column="47" />
               <folding>
                 <element signature="e#79#88#0" expanded="true" />
               </folding>
@@ -183,16 +584,24 @@
         <option value="$PROJECT_DIR$/spiders/download/onlinedocs.py" />
         <option value="$PROJECT_DIR$/spiders/onlinedocs.py" />
         <option value="$PROJECT_DIR$/spiders/downloadPdf.py" />
-        <option value="$PROJECT_DIR$/add_to_shanbay.py" />
         <option value="$PROJECT_DIR$/spiders/stackoverflow.py" />
-        <option value="$PROJECT_DIR$/work.py" />
         <option value="$PROJECT_DIR$/settings.py" />
-        <option value="$PROJECT_DIR$/models_exp.py" />
         <option value="$PROJECT_DIR$/migration_.py" />
         <option value="$PROJECT_DIR$/models.py" />
         <option value="$PROJECT_DIR$/analysis_book.py" />
+        <option value="$PROJECT_DIR$/__init__.py" />
+        <option value="$PROJECT_DIR$/shanbay/__init__.py" />
+        <option value="$PROJECT_DIR$/add_to_shanbay.py" />
         <option value="$PROJECT_DIR$/test.py" />
         <option value="$PROJECT_DIR$/translate.py" />
+        <option value="$PROJECT_DIR$/requirements.txt" />
+        <option value="$PROJECT_DIR$/models_exp.py" />
+        <option value="$PROJECT_DIR$/work.py" />
+        <option value="$PROJECT_DIR$/shanbay/shanbeisettings.py" />
+        <option value="$PROJECT_DIR$/shanbay/add_to_shanbay.py" />
+        <option value="$PROJECT_DIR$/shanbay/creat_word_list.py" />
+        <option value="$PROJECT_DIR$/README.md" />
+        <option value="$PROJECT_DIR$/db2csv.py" />
       </list>
     </option>
   </component>
@@ -229,7 +638,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../webdevelop/lab" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RunDashboard">
@@ -244,26 +653,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.translate">
-    <configuration default="false" name="work" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="programming_vocabulary" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/work.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <method />
-    </configuration>
+  <component name="RunManager" selected="Python.db2csv">
     <configuration default="false" name="Unittests in test.py" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -280,7 +670,7 @@
       <option name="_new_targetType" value="&quot;PATH&quot;" />
       <method />
     </configuration>
-    <configuration default="false" name="migration_" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration default="false" name="add_to_shanbay" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
@@ -293,32 +683,51 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <module name="programming_vocabulary" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/migration_.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/add_to_shanbay.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
       <method />
     </configuration>
-    <configuration default="false" name="analysis_book" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration default="false" name="creat_word_list" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/shanbay" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <module name="programming_vocabulary" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/analysis_book.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/shanbay/creat_word_list.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
       <method />
     </configuration>
-    <configuration default="false" name="translate" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration default="false" name="add_to_shanbay (1)" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/shanbay" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="programming_vocabulary" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/shanbay/add_to_shanbay.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <method />
+    </configuration>
+    <configuration default="false" name="db2csv" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
@@ -331,7 +740,7 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <module name="programming_vocabulary" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/translate.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/db2csv.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -486,19 +895,19 @@
       <method />
     </configuration>
     <list size="5">
-      <item index="0" class="java.lang.String" itemvalue="Python.work" />
-      <item index="1" class="java.lang.String" itemvalue="Python tests.Unittests in test.py" />
-      <item index="2" class="java.lang.String" itemvalue="Python.migration_" />
-      <item index="3" class="java.lang.String" itemvalue="Python.analysis_book" />
-      <item index="4" class="java.lang.String" itemvalue="Python.translate" />
+      <item index="0" class="java.lang.String" itemvalue="Python tests.Unittests in test.py" />
+      <item index="1" class="java.lang.String" itemvalue="Python.add_to_shanbay" />
+      <item index="2" class="java.lang.String" itemvalue="Python.creat_word_list" />
+      <item index="3" class="java.lang.String" itemvalue="Python.add_to_shanbay (1)" />
+      <item index="4" class="java.lang.String" itemvalue="Python.db2csv" />
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="Python tests.Unittests in test.py" />
-        <item index="1" class="java.lang.String" itemvalue="Python.translate" />
-        <item index="2" class="java.lang.String" itemvalue="Python.work" />
-        <item index="3" class="java.lang.String" itemvalue="Python.analysis_book" />
-        <item index="4" class="java.lang.String" itemvalue="Python.migration_" />
+        <item index="0" class="java.lang.String" itemvalue="Python.db2csv" />
+        <item index="1" class="java.lang.String" itemvalue="Python.add_to_shanbay" />
+        <item index="2" class="java.lang.String" itemvalue="Python tests.Unittests in test.py" />
+        <item index="3" class="java.lang.String" itemvalue="Python.add_to_shanbay (1)" />
+        <item index="4" class="java.lang.String" itemvalue="Python.creat_word_list" />
       </list>
     </recent_temporary>
   </component>
@@ -516,45 +925,46 @@
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="Unittests_in_test_py - 2017.07.14 at 13h 32m 10s.xml">
+    <history-entry file="Unittests_in_test_py - 2017.07.15 at 15h 40m 58s.xml">
       <configuration name="Unittests in test.py" configurationId="tests" />
     </history-entry>
-    <history-entry file="Unittests_in_test_py - 2017.07.14 at 13h 33m 23s.xml">
+    <history-entry file="Unittests_in_test_py - 2017.07.15 at 15h 41m 10s.xml">
       <configuration name="Unittests in test.py" configurationId="tests" />
     </history-entry>
-    <history-entry file="Unittests_in_test_py - 2017.07.14 at 13h 33m 56s.xml">
+    <history-entry file="Unittests_in_test_py - 2017.07.15 at 15h 42m 53s.xml">
       <configuration name="Unittests in test.py" configurationId="tests" />
     </history-entry>
-    <history-entry file="Unittests_in_test_py - 2017.07.14 at 14h 01m 31s.xml">
+    <history-entry file="Unittests_in_test_py - 2017.07.15 at 15h 49m 41s.xml">
       <configuration name="Unittests in test.py" configurationId="tests" />
     </history-entry>
-    <history-entry file="Unittests_in_test_py - 2017.07.14 at 14h 07m 29s.xml">
+    <history-entry file="Unittests_in_test_py - 2017.07.15 at 15h 49m 52s.xml">
       <configuration name="Unittests in test.py" configurationId="tests" />
     </history-entry>
-    <history-entry file="Unittests_in_test_py - 2017.07.14 at 14h 08m 08s.xml">
+    <history-entry file="Unittests_in_test_py - 2017.07.15 at 15h 51m 22s.xml">
       <configuration name="Unittests in test.py" configurationId="tests" />
     </history-entry>
-    <history-entry file="Unittests_in_test_py - 2017.07.14 at 14h 08m 30s.xml">
+    <history-entry file="Unittests_in_test_py - 2017.07.15 at 15h 53m 05s.xml">
       <configuration name="Unittests in test.py" configurationId="tests" />
     </history-entry>
-    <history-entry file="Unittests_in_test_py - 2017.07.14 at 14h 42m 57s.xml">
+    <history-entry file="Unittests_in_test_py - 2017.07.15 at 15h 54m 14s.xml">
       <configuration name="Unittests in test.py" configurationId="tests" />
     </history-entry>
-    <history-entry file="Unittests_in_test_py - 2017.07.14 at 14h 44m 36s.xml">
+    <history-entry file="Unittests_in_test_py - 2017.07.15 at 15h 54m 37s.xml">
       <configuration name="Unittests in test.py" configurationId="tests" />
     </history-entry>
-    <history-entry file="Unittests_in_test_py - 2017.07.14 at 14h 46m 00s.xml">
+    <history-entry file="Unittests_in_test_py - 2017.07.15 at 15h 57m 30s.xml">
       <configuration name="Unittests in test.py" configurationId="tests" />
     </history-entry>
   </component>
   <component name="ToolWindowManager">
     <frame x="-1" y="-11" width="1922" height="1092" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.39325842" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.48518896" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -582,92 +992,10 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/models.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/analysis_book.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1274">
-          <caret line="55" column="34" lean-forward="true" selection-start-line="55" selection-start-column="34" selection-end-line="55" selection-end-column="34" />
-          <folding>
-            <element signature="e#106#137#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/spiders/github.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2158">
-          <caret line="86" column="0" lean-forward="false" selection-start-line="86" selection-start-column="0" selection-end-line="86" selection-end-column="0" />
-          <folding>
-            <element signature="e#147#157#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/spiders/stackoverflow.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="208">
-          <caret line="8" column="0" lean-forward="false" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/spiders/utils.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="468">
-          <caret line="18" column="0" lean-forward="false" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/translate.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1560">
-          <caret line="63" column="0" lean-forward="true" selection-start-line="63" selection-start-column="0" selection-end-line="63" selection-end-column="0" />
-          <folding>
-            <element signature="e#84#99#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/test.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="624">
-          <caret line="25" column="29" lean-forward="true" selection-start-line="25" selection-start-column="29" selection-end-line="25" selection-end-column="29" />
-          <folding>
-            <element signature="e#128#165#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/settings.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="884">
-          <caret line="34" column="18" lean-forward="false" selection-start-line="34" selection-start-column="18" selection-end-line="34" selection-end-column="18" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/models.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="546">
-          <caret line="22" column="21" lean-forward="false" selection-start-line="22" selection-start-column="21" selection-end-line="22" selection-end-column="21" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/analysis_book.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="416">
           <caret line="22" column="0" lean-forward="false" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
-          <folding>
-            <element signature="e#106#137#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -675,9 +1003,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2392">
           <caret line="95" column="54" lean-forward="true" selection-start-line="87" selection-start-column="4" selection-end-line="95" selection-end-column="54" />
-          <folding>
-            <element signature="e#147#157#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -685,7 +1010,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="468">
           <caret line="18" column="0" lean-forward="false" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -745,7 +1069,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -842,97 +1165,158 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2158">
           <caret line="86" column="0" lean-forward="false" selection-start-line="86" selection-start-column="0" selection-end-line="86" selection-end-column="0" />
-          <folding>
-            <element signature="e#147#157#0" expanded="false" />
-          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/spiders/stackoverflow.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="598">
+          <caret line="26" column="0" lean-forward="false" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/spiders/utils.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="468">
+          <caret line="18" column="0" lean-forward="false" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="260">
+          <caret line="10" column="34" lean-forward="false" selection-start-line="10" selection-start-column="34" selection-end-line="10" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/migration_.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1430">
+          <caret line="58" column="0" lean-forward="false" selection-start-line="58" selection-start-column="0" selection-end-line="58" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/analysis_book.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1196">
+          <caret line="53" column="26" lean-forward="false" selection-start-line="53" selection-start-column="26" selection-end-line="53" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/shanbay/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/add_to_shanbay.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="234">
-          <caret line="9" column="0" lean-forward="false" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
-          <folding>
-            <element signature="e#84#107#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/spiders/stackoverflow.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1734">
-          <caret line="26" column="0" lean-forward="false" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
+          <caret line="88" column="21" lean-forward="true" selection-start-line="88" selection-start-column="21" selection-end-line="88" selection-end-column="21" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/spiders/utils.py">
+    <entry file="file://$PROJECT_DIR$/requirements.txt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-468">
-          <caret line="18" column="0" lean-forward="false" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
+        <state relative-caret-position="78">
+          <caret line="3" column="0" lean-forward="false" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/models.py">
+    <entry file="file://$PROJECT_DIR$/t.log">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="110">
-          <caret line="10" column="34" lean-forward="false" selection-start-line="10" selection-start-column="34" selection-end-line="10" selection-end-column="34" />
+        <state relative-caret-position="-43134">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/migration_.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="268">
-          <caret line="58" column="0" lean-forward="false" selection-start-line="58" selection-start-column="0" selection-end-line="58" selection-end-column="0" />
-          <folding>
-            <element signature="e#70#99#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/analysis_book.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-902">
-          <caret line="53" column="26" lean-forward="true" selection-start-line="53" selection-start-column="26" selection-end-line="53" selection-end-column="26" />
-          <folding>
-            <element signature="e#106#137#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/test.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="202">
-          <caret line="23" column="61" lean-forward="false" selection-start-line="23" selection-start-column="61" selection-end-line="23" selection-end-column="61" />
-          <folding>
-            <element signature="e#128#165#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/settings.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="390">
-          <caret line="15" column="8" lean-forward="true" selection-start-line="15" selection-start-column="8" selection-end-line="15" selection-end-column="8" />
+          <caret line="15" column="8" lean-forward="false" selection-start-line="15" selection-start-column="8" selection-end-line="15" selection-end-column="8" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/shanbay/add_to_shanbay.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2212">
+          <caret line="11" column="36" lean-forward="false" selection-start-line="11" selection-start-column="36" selection-end-line="11" selection-end-column="36" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/shanbay/creat_word_list.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1378">
+          <caret line="53" column="0" lean-forward="true" selection-start-line="53" selection-start-column="0" selection-end-line="53" selection-end-column="0" />
+          <folding>
+            <element signature="e#78#93#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/shanbay/shanbeisettings.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1664">
+          <caret line="64" column="0" lean-forward="false" selection-start-line="64" selection-start-column="0" selection-end-line="64" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="702">
+          <caret line="27" column="0" lean-forward="true" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/translate.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-226">
-          <caret line="71" column="0" lean-forward="true" selection-start-line="71" selection-start-column="0" selection-end-line="71" selection-end-column="0" />
+        <state relative-caret-position="-1742">
+          <caret line="2" column="11" lean-forward="false" selection-start-line="2" selection-start-column="11" selection-end-line="2" selection-end-column="11" />
           <folding>
             <element signature="e#84#99#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/test.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="523">
+          <caret line="25" column="118" lean-forward="true" selection-start-line="25" selection-start-column="4" selection-end-line="25" selection-end-column="118" />
+          <folding>
+            <element signature="e#128#165#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/work.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-52">
+          <caret line="10" column="47" lean-forward="false" selection-start-line="10" selection-start-column="47" selection-end-line="10" selection-end-column="47" />
+          <folding>
+            <element signature="e#79#88#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/models_exp.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="164">
+        <state relative-caret-position="284">
           <caret line="40" column="13" lean-forward="false" selection-start-line="40" selection-start-column="4" selection-end-line="40" selection-end-column="13" />
           <folding>
             <element signature="e#147#176#0" expanded="true" />
@@ -940,12 +1324,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/work.py">
+    <entry file="file://$PROJECT_DIR$/db2csv.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="528">
-          <caret line="74" column="26" lean-forward="true" selection-start-line="74" selection-start-column="26" selection-end-line="74" selection-end-column="26" />
+        <state relative-caret-position="667">
+          <caret line="38" column="18" lean-forward="true" selection-start-line="38" selection-start-column="18" selection-end-line="38" selection-end-column="18" />
           <folding>
-            <element signature="e#79#88#0" expanded="true" />
+            <element signature="e#128#158#0" expanded="true" />
           </folding>
         </state>
       </provider>

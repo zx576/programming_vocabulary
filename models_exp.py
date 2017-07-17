@@ -7,7 +7,7 @@
 from settings import DATABASE
 from peewee import *
 
-new_db = SqliteDatabase('voca.db')
+new_db = SqliteDatabase(DATABASE)
 
 
 class NewBook(Model):

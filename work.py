@@ -7,9 +7,8 @@
 import os
 
 from settings import DIRS,FILES,DATABASE
-from models import Word, Book, db
 from analysis_book import AnlysisBook
-from peewee import *
+from models_exp import new_db, NewWord, NewBook
 
 # 解析所有文件路径
 class ParseFile:
@@ -63,21 +62,21 @@ class Dt:
         created = os.path.exists(DATABASE)
 
         if not created:
-            db.connect()
-            db.create_tables([Book, Word])
+            new_db.connect()
+            new_db.create_tables([NewBook, NewWord])
 
 
-# ======test=========
-# 建表
-# dt = Dt()
-# 解析文件路径
-s = ParseFile()
-res = s.parse(DIRS, FILES)
-print(len(res))
-# extract words from books
-ana = AnlysisBook()
-ana.analysis(res)
+if __name__ == '__main__':
 
-# print(res)
+    # 建表
+    dt = Dt()
+    # 解析文件路径
+    s = ParseFile()
+    res = s.parse(DIRS, FILES)
+    # print(len(res))
+    # extract words from books
+    ana = AnlysisBook()
+    ana.analysis(res)
+    # print(res)
 
 
